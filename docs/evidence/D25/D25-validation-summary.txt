@@ -1,0 +1,11 @@
+=== D25 评测数据集校验结果 ===
+YAML 解析：成功
+用例总数：22
+类别分布：
+  answerable: 7
+  fault-code: 4
+  unanswerable: 4
+  permission: 4
+  boundary: 3
+唯一 caseId 数：22
+VALIDATION: PASSED

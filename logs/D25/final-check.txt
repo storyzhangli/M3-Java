@@ -1,0 +1,4 @@
+evidence=D25-chunk-schema.md,D25-iteration-state.md,D25-knowledge-document-schema.md,D25-rag-evaluation-dataset.yaml,D25-rag-module-boundary.md,D25-validation-summary.txt
+docs=D25-费曼口述-GPT-RAG 全链路.md,D25-项目迭代内容与操作记录.md,D25-项目迭代任务书Prompt-RAG架构与评测设计-DB.md,D25-知识笔记-RAG全链路-文档导入切分Embedding向量存储检索引用溯源.md,D25-RAG架构与评测实践指南.md
+trackedDiff=
+status=?? docs/evidence/ | ?? "docs/proj_docs/D25-RAG\346\236\266\346\236\204\344\270\216\350\257\204\346\265\213\345\256\236\350\267\265\346\214\207\345\215\227.md" | ?? "docs/proj_docs/D25-\351\241\271\347\233\256\350\277\255\344\273\243\344\273\273\345\212\241\344\271\246Prompt-RAG\346\236\266\346\236\204\344\270\216\350\257\204\346\265\213\350\256\276\350\256\241-DB.md" | ?? "docs/proj_docs/D25-\351\241\271\347\233\256\350\277\255\344\273\243\345\206\205\345\256\271\344\270\216\346\223\215\344\275\234\350\256\260\345\275\225.md"
