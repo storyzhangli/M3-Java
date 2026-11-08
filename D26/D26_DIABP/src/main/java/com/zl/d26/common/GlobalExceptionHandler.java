@@ -11,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 
 /**
  * 全局异常处理器。
@@ -65,6 +66,16 @@ public class GlobalExceptionHandler {
     public Result<Void> handleDataIntegrity(DataIntegrityViolationException ex) {
         log.warn("数据库完整性约束冲突，异常类型: {}", ex.getClass().getSimpleName());
         return Result.fail(ResultCode.PARAM_INVALID.getCode(), "数据冲突或唯一约束校验失败，请检查业务标识是否重复");
+    }
+
+    /**
+     * 容器级 multipart 大小超限（D26 第一道防线）。
+     * 对外给稳定提示，不回显容器配置细节。
+     */
+    @ExceptionHandler(MaxUploadSizeExceededException.class)
+    public Result<Void> handleMaxUploadSize(MaxUploadSizeExceededException ex) {
+        log.warn("上传文件超过容器 multipart 大小限制");
+        return Result.fail(ResultCode.PARAM_INVALID.getCode(), "上传文件大小超过服务端允许上限");
     }
 
     /**

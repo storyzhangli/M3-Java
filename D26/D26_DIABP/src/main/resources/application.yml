@@ -26,6 +26,13 @@ spring:
       database: ${REDIS_DATABASE:0}
       timeout: 3s
 
+  # D26 容器级 multipart 限制（第一道防线）；业务层 app.ai.document.max-file-size 为第二道、独立可配。
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: ${MULTIPART_MAX_FILE_SIZE:10MB}
+      max-request-size: ${MULTIPART_MAX_REQUEST_SIZE:12MB}
+
 # --------------------------------------------------------------------------
 # MyBatis-Plus 3.5.x 配置（D15_PLUS 新增）
 # --------------------------------------------------------------------------
@@ -102,6 +109,20 @@ app:
       max-sources: ${AI_KNOWLEDGE_MAX_SOURCES:3}
       # 种子语料 classpath 位置
       corpus-location: knowledge/equipment-fault-corpus.json
+    # ------------------------------------------------------------------
+    # D26 新增：文档导入（服务端校验、去重、基础解析）。
+    # 与容器 multipart 限制分层；这里的限制在服务内独立生效，可环境变量覆盖。
+    # ------------------------------------------------------------------
+    document:
+      max-file-size-bytes: ${DOCUMENT_MAX_FILE_SIZE_BYTES:2097152}
+      charset: ${DOCUMENT_CHARSET:UTF-8}
+      title-max-length: 200
+      allowed-extensions:
+        - txt
+        - md
+      allowed-content-types:
+        - text/plain
+        - text/markdown
     # ------------------------------------------------------------------
     # 新增：模型调用韧性（异常分类 + 超时 + 有限重试的单一责任层）。
     # 同步/流式共用此配置；仅对确认可重试的失败重试，首片段后流式不重放。
