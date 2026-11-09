@@ -2,9 +2,11 @@ package com.zl.d27.document.controller;
 
 import com.zl.d27.common.Result;
 import com.zl.d27.document.dto.DocumentImportView;
+import com.zl.d27.document.dto.DocumentPageView;
 import com.zl.d27.document.dto.DocumentRegisterRequest;
 import com.zl.d27.document.dto.DocumentView;
 import com.zl.d27.document.service.DocumentImportService;
+import com.zl.d27.document.service.DocumentPageService;
 import com.zl.d27.document.service.DocumentRegistrationService;
 import com.zl.d27.document.support.DocumentConverter;
 import jakarta.validation.Valid;
@@ -24,13 +26,16 @@ public class DocumentController {
 
     private final DocumentRegistrationService registrationService;
     private final DocumentImportService importService;
+    private final DocumentPageService pageService;
     private final DocumentConverter converter;
 
     public DocumentController(DocumentRegistrationService registrationService,
                               DocumentImportService importService,
+                              DocumentPageService pageService,
                               DocumentConverter converter) {
         this.registrationService = registrationService;
         this.importService = importService;
+        this.pageService = pageService;
         this.converter = converter;
     }
 
@@ -59,5 +64,20 @@ public class DocumentController {
         List<DocumentView> views = registrationService.listAll().stream()
                 .map(converter::toView).toList();
         return Result.success(views);
+    }
+
+    /** 来源定位：按物理页码顺序查询页面级提取文本。 */
+    @GetMapping("/{documentId}/pages")
+    public Result<List<DocumentPageView>> pages(@PathVariable("documentId") String documentId) {
+        List<DocumentPageView> views = pageService.listPages(documentId).stream()
+                .map(converter::toPageView).toList();
+        return Result.success(views);
+    }
+
+    /** 来源定位：查询单个物理页。 */
+    @GetMapping("/{documentId}/pages/{pageNumber}")
+    public Result<DocumentPageView> page(@PathVariable("documentId") String documentId,
+                                         @PathVariable("pageNumber") int pageNumber) {
+        return Result.success(converter.toPageView(pageService.getPage(documentId, pageNumber)));
     }
 }

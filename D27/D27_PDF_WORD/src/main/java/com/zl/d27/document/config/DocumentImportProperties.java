@@ -19,11 +19,12 @@ public class DocumentImportProperties {
     /** 业务层文件大小上限（字节），默认 2MB；与容器 multipart 限制分层、独立生效。 */
     private long maxFileSizeBytes = 2L * 1024 * 1024;
 
-    /** 允许的扩展名（小写、不含点），默认 txt/md。 */
-    private List<String> allowedExtensions = new ArrayList<>(List.of("txt", "md"));
+    /** 允许的扩展名（小写、不含点），默认 txt/md/pdf。 */
+    private List<String> allowedExtensions = new ArrayList<>(List.of("txt", "md", "pdf"));
 
     /** 允许的内容类型；结合扩展名共同判断，不仅看扩展名。 */
-    private List<String> allowedContentTypes = new ArrayList<>(List.of("text/plain", "text/markdown"));
+    private List<String> allowedContentTypes = new ArrayList<>(
+            List.of("text/plain", "text/markdown", "application/pdf"));
 
     /** 文本解码字符集，默认 UTF-8。 */
     private String charset = "UTF-8";

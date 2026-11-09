@@ -120,9 +120,11 @@ app:
       allowed-extensions:
         - txt
         - md
+        - pdf
       allowed-content-types:
         - text/plain
         - text/markdown
+        - application/pdf
     # ------------------------------------------------------------------
     # 新增：模型调用韧性（异常分类 + 超时 + 有限重试的单一责任层）。
     # 同步/流式共用此配置；仅对确认可重试的失败重试，首片段后流式不重放。

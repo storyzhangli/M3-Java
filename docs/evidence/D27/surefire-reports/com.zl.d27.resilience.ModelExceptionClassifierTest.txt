@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.zl.d27.resilience.ModelExceptionClassifierTest
+-------------------------------------------------------------------------------
+Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s -- in com.zl.d27.resilience.ModelExceptionClassifierTest

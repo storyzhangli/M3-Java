@@ -41,8 +41,11 @@ public class FileUploadValidator {
         byte[] bytes = readBytes(file);
         validateNotEmpty(bytes, file);
         validateSize(bytes);
-        validateType(file);
-        validateEncoding(bytes);
+        String extension = validateType(file);
+        // PDF 为二进制，不能走仅用于文本的 UTF-8 严格解码；文本类型才做编码校验。
+        if (!"pdf".equals(extension)) {
+            validateEncoding(bytes);
+        }
         return bytes;
     }
 
@@ -67,7 +70,7 @@ public class FileUploadValidator {
         }
     }
 
-    private void validateType(MultipartFile file) {
+    private String validateType(MultipartFile file) {
         String filename = StringUtils.cleanPath(file.getOriginalFilename() == null ? "" : file.getOriginalFilename());
         if (!StringUtils.hasText(filename) || filename.endsWith(".")) {
             throw new DocumentValidationException("文件名缺失或非法");
@@ -82,6 +85,7 @@ public class FileUploadValidator {
                 && !properties.getAllowedContentTypes().contains(contentType.toLowerCase(Locale.ROOT))) {
             throw new DocumentValidationException("文件内容类型不在允许范围: " + contentType);
         }
+        return extension;
     }
 
     private String extractExtension(String filename) {

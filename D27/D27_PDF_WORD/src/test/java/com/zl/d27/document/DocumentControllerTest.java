@@ -5,9 +5,11 @@ import com.zl.d27.common.GlobalExceptionHandler;
 import com.zl.d27.document.controller.DocumentController;
 import com.zl.d27.document.dto.DocumentImportView;
 import com.zl.d27.document.dto.DocumentRegisterRequest;
+import com.zl.d27.document.model.DocumentPageContent;
 import com.zl.d27.document.model.DocumentStatus;
 import com.zl.d27.document.model.KnowledgeDocument;
 import com.zl.d27.document.service.DocumentImportService;
+import com.zl.d27.document.service.DocumentPageService;
 import com.zl.d27.document.service.DocumentRegistrationService;
 import com.zl.d27.document.support.DocumentConverter;
 import org.junit.jupiter.api.BeforeEach;
@@ -35,6 +37,7 @@ class DocumentControllerTest {
 
     private DocumentRegistrationService registrationService;
     private DocumentImportService importService;
+    private DocumentPageService pageService;
     private MockMvc mockMvc;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -42,9 +45,10 @@ class DocumentControllerTest {
     void setUp() {
         registrationService = mock(DocumentRegistrationService.class);
         importService = mock(DocumentImportService.class);
+        pageService = mock(DocumentPageService.class);
         DocumentConverter converter = new DocumentConverter();
         DocumentController controller =
-                new DocumentController(registrationService, importService, converter);
+                new DocumentController(registrationService, importService, pageService, converter);
         mockMvc = standaloneSetup(controller)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
@@ -119,5 +123,21 @@ class DocumentControllerTest {
         mockMvc.perform(get("/api/v1/documents/doc-1"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.data.documentId").value("doc-1"));
+    }
+
+    @Test
+    void listPagesReturnsSourceLocation() throws Exception {
+        DocumentPageContent page = new DocumentPageContent();
+        page.setDocumentId("doc-1");
+        page.setPageNumber(2);
+        page.setContent("Second Page");
+        page.setBlank(false);
+        when(pageService.listPages("doc-1")).thenReturn(java.util.List.of(page));
+
+        mockMvc.perform(get("/api/v1/documents/doc-1/pages"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(200))
+                .andExpect(jsonPath("$.data[0].pageNumber").value(2))
+                .andExpect(jsonPath("$.data[0].content").value("Second Page"));
     }
 }

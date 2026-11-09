@@ -102,4 +102,13 @@ class FileUploadValidatorTest {
                 "file", "note.md", "application/octet-stream", "# title".getBytes(StandardCharsets.UTF_8));
         assertThat(validator.validate(file)).isNotEmpty();
     }
+
+    @Test
+    void pdfBinaryAcceptedWithoutUtf8Decoding() {
+        // 含非 UTF-8 字节的 PDF 二进制：应通过类型校验且跳过文本编码检查
+        byte[] pdfBytes = {(byte) 0x25, 0x50, 0x44, 0x46, (byte) 0xFF, (byte) 0xD8};
+        MockMultipartFile file = new MockMultipartFile(
+                "file", "manual.pdf", "application/pdf", pdfBytes);
+        assertThat(validator.validate(file)).hasSize(6);
+    }
 }
