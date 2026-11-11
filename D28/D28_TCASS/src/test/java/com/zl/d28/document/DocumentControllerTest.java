@@ -2,6 +2,11 @@ package com.zl.d28.document;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zl.d28.common.GlobalExceptionHandler;
+import com.zl.d28.document.chunk.dto.ChunkViewMapper;
+import com.zl.d28.document.chunk.model.Chunk;
+import com.zl.d28.document.chunk.model.ChunkResult;
+import com.zl.d28.document.chunk.model.ChunkStrategy;
+import com.zl.d28.document.chunk.service.DocumentChunkService;
 import com.zl.d28.document.controller.DocumentController;
 import com.zl.d28.document.dto.DocumentImportView;
 import com.zl.d28.document.dto.DocumentRegisterRequest;
@@ -38,6 +43,7 @@ class DocumentControllerTest {
     private DocumentRegistrationService registrationService;
     private DocumentImportService importService;
     private DocumentPageService pageService;
+    private DocumentChunkService chunkService;
     private MockMvc mockMvc;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -46,9 +52,11 @@ class DocumentControllerTest {
         registrationService = mock(DocumentRegistrationService.class);
         importService = mock(DocumentImportService.class);
         pageService = mock(DocumentPageService.class);
+        chunkService = mock(DocumentChunkService.class);
         DocumentConverter converter = new DocumentConverter();
         DocumentController controller =
-                new DocumentController(registrationService, importService, pageService, converter);
+                new DocumentController(registrationService, importService, pageService, converter,
+                        chunkService, new ChunkViewMapper());
         mockMvc = standaloneSetup(controller)
                 .setControllerAdvice(new GlobalExceptionHandler())
                 .build();
@@ -139,5 +147,33 @@ class DocumentControllerTest {
                 .andExpect(jsonPath("$.code").value(200))
                 .andExpect(jsonPath("$.data[0].pageNumber").value(2))
                 .andExpect(jsonPath("$.data[0].content").value("Second Page"));
+    }
+
+    @Test
+    void chunksEndpointReturnsChunkViews() throws Exception {
+        Chunk chunk = new Chunk();
+        chunk.setDocumentId("doc-1");
+        chunk.setTitle("标题");
+        chunk.setVersion(1);
+        chunk.setStrategy(ChunkStrategy.FIXED_SIZE);
+        chunk.setChunkIndex(0);
+        chunk.setContent("chunk content");
+        chunk.setLength(13);
+        chunk.setCodePointCount(13);
+        chunk.setGlobalStart(0);
+        chunk.setGlobalEnd(13);
+        chunk.setSources(java.util.List.of(
+                new com.zl.d28.document.chunk.model.ChunkSource(1, 0, 0, 13)));
+
+        ChunkResult result = new ChunkResult();
+        result.setFixedChunks(java.util.List.of(chunk));
+        result.setStructureChunks(java.util.List.of());
+        when(pageService.listPages("doc-1")).thenReturn(java.util.List.of(new DocumentPageContent()));
+        when(chunkService.process(any())).thenReturn(result);
+
+        mockMvc.perform(get("/api/v1/documents/doc-1/chunks"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.code").value(200))
+                .andExpect(jsonPath("$.data[0].content").value("chunk content"));
     }
 }

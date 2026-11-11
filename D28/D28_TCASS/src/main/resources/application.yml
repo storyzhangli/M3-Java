@@ -126,6 +126,25 @@ app:
         - text/markdown
         - application/pdf
     # ------------------------------------------------------------------
+    # D28 新增：文本清洗与可配置 Chunk 切分。
+    # 长度单位固定为 UTF-16 code unit（字符长度，非 Token）；配置与算法分离。
+    # ------------------------------------------------------------------
+    chunk:
+      # 固定长度切分目标大小（UTF-16 字符），可用 CHUNK_SIZE 覆盖
+      chunk-size: ${CHUNK_SIZE:500}
+      # 相邻 Chunk 重叠长度，必须严格小于 chunk-size，可用 CHUNK_OVERLAP 覆盖
+      chunk-overlap: ${CHUNK_OVERLAP:100}
+      # 最小 Chunk 长度，末尾不足则并入上一块
+      min-chunk-size: ${CHUNK_MIN_SIZE:50}
+      # 结构切分最大 Chunk 长度，超长段落据此二次切分
+      max-chunk-size: ${CHUNK_MAX_SIZE:1000}
+      # 语义边界保护容差，在该范围内优先换行/空格切点
+      boundary-tolerance: ${CHUNK_BOUNDARY_TOLERANCE:100}
+      # 是否合并连续短段落
+      merge-short-blocks: ${CHUNK_MERGE_SHORT:true}
+      # 长度单位口径（固定，不允许改为 Token）
+      length-unit: UTF16_CODE_UNIT
+    # ------------------------------------------------------------------
     # 新增：模型调用韧性（异常分类 + 超时 + 有限重试的单一责任层）。
     # 同步/流式共用此配置；仅对确认可重试的失败重试，首片段后流式不重放。
     # ------------------------------------------------------------------
