@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.zl.d29.observability.ModelCallRecorderTest
+-------------------------------------------------------------------------------
+Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.040 s -- in com.zl.d29.observability.ModelCallRecorderTest
