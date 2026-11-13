@@ -21,7 +21,7 @@ class VectorIndexCompatibilityServiceTest {
     @BeforeEach
     void setUp() {
         EmbeddingProperties properties = new EmbeddingProperties();
-        properties.setDimensions(256);
+        properties.setDimensions(384);
         service = new VectorIndexCompatibilityService(properties);
     }
 
@@ -37,7 +37,7 @@ class VectorIndexCompatibilityServiceTest {
 
     @Test
     void sameModelIsCompatible() {
-        EmbeddingModelMetadata same = metadata("local", "local-hashing-embedding", "local-v1", 256);
+        EmbeddingModelMetadata same = metadata("local", "local-hashing-embedding", "local-v1", 384);
         assertEquals(CompatibilityDecision.COMPATIBLE, service.check(same));
     }
 
@@ -49,7 +49,7 @@ class VectorIndexCompatibilityServiceTest {
 
     @Test
     void sameDimensionsDifferentModelIsolated() {
-        EmbeddingModelMetadata other = metadata("openai", "text-embedding-3-small", "v1", 256);
+        EmbeddingModelMetadata other = metadata("openai", "text-embedding-3-small", "v1", 384);
         CompatibilityDecision decision = service.check(other);
         assertEquals(CompatibilityDecision.MODEL_SPACE_MISMATCH, decision);
         assertEquals(false, decision.isCompatible());

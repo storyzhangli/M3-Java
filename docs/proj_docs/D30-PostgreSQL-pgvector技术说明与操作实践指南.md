@@ -104,7 +104,7 @@ app:
       provider: local
       model: local-hashing-embedding
       model-version: local-v1
-      dimensions: 256
+      dimensions: 384
       distance-metric: COSINE
 ```
 
@@ -165,10 +165,11 @@ graph TD
 
 ```powershell
 $env:JAVA_HOME = "D:\SoftwareInstall\JDK\JDK21"
+$env:PGVECTOR_DB_PASSWORD = "<你的数据库口令>"   # 密码只经环境变量注入，不写入仓库
 & "D:\SoftwareInstall\Apache\Maven\apache-maven-3.9.16\bin\mvn.cmd" clean test
 ```
 
-真实结果：
+真实结果（384 基线）：
 
 ```text
 Tests run: 287, Failures: 0, Errors: 0, Skipped: 0
@@ -178,6 +179,7 @@ BUILD SUCCESS
 ### 5.2 启动应用
 
 ```powershell
+$env:PGVECTOR_DB_PASSWORD = "<你的数据库口令>"
 & mvn.cmd spring-boot:run
 ```
 
@@ -237,9 +239,12 @@ DELETE FROM d30_vector_store WHERE metadata->>'testRun' = 'demo';
 
 ### 6.4 维度不匹配
 
-- 现象：`expected 256 dimensions, not N`；
-- 处理：先核对模型真实维度，再调整配置与表，禁止只改一侧；
-- 该错误为 fail-closed，不会静默写入。
+- 现象：`expected 384 dimensions, not N`（写入向量长度与 `vector(384)` 列不符）；
+- 根因：模型真实输出维度、配置维度、表列维度三者不一致；
+- 处理：先核对模型真实维度（`EmbeddingModel.dimensions()`），再同步配置、元数据与表 DDL，禁止只改一侧；
+- 本迭代基线为 384：`EmbeddingProperties` 默认 384、`application.yml` `${EMBEDDING_DIMENSIONS:384}`、
+  正式表 `vector(384)`，启动期断言不符即抛 `IllegalStateException`；
+- 该错误为 fail-closed，不会静默写入，也不会自动截断/补零。
 
 ### 6.5 修复停止线
 
@@ -263,7 +268,8 @@ DELETE FROM d30_vector_store WHERE metadata->>'testRun' = 'demo';
 | 结论 | 状态 |
 | --- | --- |
 | 数据库可连接 | 已通过（真实） |
-| 向量写入与余弦检索 | 已通过（真实端到端） |
+| 维度 384 六层一致（配置/模型/元数据/vectorSpaceId/DDL/测试） | 已通过（真实回读 + 单测断言） |
+| 向量写入与余弦检索 | 已通过（真实端到端，384） |
 | 错误维度拒绝 | 已通过（真实异常） |
 | 完整 RAG / 混合检索 / Rerank | 未做（边界外） |
 | 字符数与 Token | 严格区分，不宣称 Token |

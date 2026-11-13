@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.zl.d30.document.vectorstore.PgVectorStoreServiceTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.178 s -- in com.zl.d30.document.vectorstore.PgVectorStoreServiceTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s -- in com.zl.d30.document.vectorstore.PgVectorStoreServiceTest

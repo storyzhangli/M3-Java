@@ -1,7 +1,8 @@
-# D30 证据 07：正式向量表 Schema 独立取证
+# D30 证据 07：正式向量表 Schema 独立取证（384 基线，整改后）
 
 > 取证方式：经 SSH 调用容器内 psql，独立于 JVM 集成测试的回读路径。
-> 临时脚本：`docs/temp_docs/D30/formal_schema_check.py`；原始输出：`formal_schema_out.md`。
+> 临时脚本：`docs/temp_docs/D30/formal_schema_check_384.py`；原始输出：`formal_schema_out_384.md`。
+> 迁移历史：原 `vector(256)` 空表（0 行）已按整改要求删除并重建为 `vector(384)`，详见证据 12。
 
 ## 一、正式表 psql 元信息（真实输出）
 
@@ -12,7 +13,7 @@
  id        | uuid        |           | not null | uuid_generate_v4()
  content   | text        |           |          |
  metadata  | json        |           |          |
- embedding | vector(256) |           |          |
+ embedding | vector(384) |           |          |
 Indexes:
     "d30_vector_store_pkey" PRIMARY KEY, btree (id)
     "d30_vector_store_index" hnsw (embedding vector_cosine_ops)
@@ -26,10 +27,10 @@ Indexes:
  public | d30_vector_store | id        | uuid
  public | d30_vector_store | content   | text
  public | d30_vector_store | metadata  | json
- public | d30_vector_store | embedding | vector(256)
+ public | d30_vector_store | embedding | vector(384)
 ```
 
-`pg_attribute.format_type` 权威确认 embedding 列就是 **vector(256)**，与维度决策一致。
+`pg_attribute.format_type` 权威确认 embedding 列就是 **vector(384)**，与 384 维度基线一致。
 
 ## 三、HNSW 索引定义（真实输出）
 
@@ -53,9 +54,9 @@ Indexes:
 
 ## 五、行数确认
 
-取证时 `row_count = 0`（集成测试与 HTTP 演示数据均已按标记清理，未残留）。
+取证时 `row_count = 0`（集成测试与 384 HTTP 演示数据均已按标记清理，未残留）。
 
 ## 六、结论
 
 正式表 `public.d30_vector_store` 结构经独立路径真实回读：id uuid、content text、metadata json、
-embedding **vector(256)**，并具备 HNSW（vector_cosine_ops）索引；表结构与 256 维度决策、余弦口径完全一致。
+embedding **vector(384)**，并具备 HNSW（vector_cosine_ops）索引；表结构与 384 基线、余弦口径完全一致。

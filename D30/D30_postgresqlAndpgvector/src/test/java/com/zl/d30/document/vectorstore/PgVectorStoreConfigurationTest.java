@@ -46,10 +46,10 @@ class PgVectorStoreConfigurationTest {
     @Test
     void vectorStoreBuiltWithMatchingDimensions() {
         EmbeddingModel embeddingModel = mock(EmbeddingModel.class);
-        when(embeddingModel.dimensions()).thenReturn(256);
+        when(embeddingModel.dimensions()).thenReturn(384);
         JdbcTemplate jdbcTemplate = mock(JdbcTemplate.class);
         PgVectorStore store = configuration.pgVectorStore(
-                jdbcTemplate, embeddingModel, properties(), embeddingProperties(256));
+                jdbcTemplate, embeddingModel, properties(), embeddingProperties(384));
         assertEquals(PgVectorStore.PgDistanceType.COSINE_DISTANCE, store.getDistanceType());
         assertNotNull(store);
     }
@@ -57,11 +57,11 @@ class PgVectorStoreConfigurationTest {
     @Test
     void vectorStoreRejectsDimensionMismatch() {
         EmbeddingModel embeddingModel = mock(EmbeddingModel.class);
-        when(embeddingModel.dimensions()).thenReturn(384);
+        when(embeddingModel.dimensions()).thenReturn(256);
         JdbcTemplate jdbcTemplate = mock(JdbcTemplate.class);
         IllegalStateException ex = assertThrows(IllegalStateException.class,
                 () -> configuration.pgVectorStore(
-                        jdbcTemplate, embeddingModel, properties(), embeddingProperties(256)));
+                        jdbcTemplate, embeddingModel, properties(), embeddingProperties(384)));
         assertTrue(ex.getMessage().contains("维度不一致"));
     }
 

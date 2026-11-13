@@ -146,14 +146,15 @@ app:
       length-unit: UTF16_CODE_UNIT
     # ------------------------------------------------------------------
     # D30 复核：Embedding 显式配置（与 LocalHashingEmbeddingModel 真实输出一致）。
-    # 正式维度唯一决策为 256；字符长度不等于 Token，向量距离默认 COSINE。
+    # 环境基线统一为 384 维：模型真实输出 / 配置 / vectorSpaceId / 正式表 vector(384) 四者必须一致；
+    # 字符长度不等于 Token，向量距离默认 COSINE。
     # ------------------------------------------------------------------
     embedding:
       enabled: ${EMBEDDING_ENABLED:true}
       provider: ${EMBEDDING_PROVIDER:local}
       model: ${EMBEDDING_MODEL:local-hashing-embedding}
       model-version: ${EMBEDDING_MODEL_VERSION:local-v1}
-      dimensions: ${EMBEDDING_DIMENSIONS:256}
+      dimensions: ${EMBEDDING_DIMENSIONS:384}
       max-input-length: ${EMBEDDING_MAX_INPUT_LENGTH:8192}
       distance-metric: ${EMBEDDING_DISTANCE:COSINE}
     # ------------------------------------------------------------------

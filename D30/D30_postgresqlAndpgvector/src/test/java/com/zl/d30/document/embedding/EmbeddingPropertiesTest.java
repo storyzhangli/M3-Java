@@ -16,7 +16,7 @@ class EmbeddingPropertiesTest {
         EmbeddingProperties properties = new EmbeddingProperties();
         assertDoesNotThrow(properties::validate);
         assertEquals("local", properties.getProvider());
-        assertEquals(256, properties.getDimensions());
+        assertEquals(384, properties.getDimensions());
         assertEquals(DistanceMetric.COSINE, properties.getDistanceMetric());
     }
 
@@ -25,7 +25,7 @@ class EmbeddingPropertiesTest {
         EmbeddingProperties properties = new EmbeddingProperties();
         String id = properties.vectorSpaceId();
         assertTrue(id.contains("local"));
-        assertTrue(id.endsWith("256"));
+        assertTrue(id.endsWith("384"));
         assertEquals(4, id.split("\\|").length);
     }
 

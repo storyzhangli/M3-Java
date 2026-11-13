@@ -30,8 +30,8 @@ public class EmbeddingProperties {
     /** API 密钥（本地模型为空，云端通过环境变量注入）。 */
     private String apiKey = "";
 
-    /** 向量维度。 */
-    private int dimensions = 256;
+    /** 向量维度：环境基线统一为 384，必须与真实模型输出、vectorSpaceId、正式表 vector(N) 一致。 */
+    private int dimensions = 384;
 
     /** 最大输入长度（UTF-16 字符，非 Token）。 */
     private int maxInputLength = 8192;

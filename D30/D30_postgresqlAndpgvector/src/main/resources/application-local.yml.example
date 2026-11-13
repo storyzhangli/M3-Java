@@ -22,9 +22,9 @@ app:
     base-url: ${AI_BASE_URL:https://api.deepseek.com}
     model: ${AI_MODEL:deepseek-flash}
     max-message-length: ${AI_CHAT_MAX_LENGTH:2000}
-    # Embedding 正式维度唯一决策为 256（与本地模型真实输出一致）。
+    # Embedding 环境基线统一为 384 维（与本地模型真实输出、正式表 vector(384) 一致）。
     embedding:
-      dimensions: ${EMBEDDING_DIMENSIONS:256}
+      dimensions: ${EMBEDDING_DIMENSIONS:384}
   # D30：pgvector 独立连接示例，密码仅通过环境变量注入，此处不写真实值。
   pgvector:
     host: ${PGVECTOR_HOST:192.168.200.153}

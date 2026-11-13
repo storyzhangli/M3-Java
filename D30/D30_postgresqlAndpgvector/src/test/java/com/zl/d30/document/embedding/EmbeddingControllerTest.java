@@ -64,8 +64,8 @@ class EmbeddingControllerTest {
                 .provider("local")
                 .modelName("local-hashing-embedding")
                 .modelVersion("local-v1")
-                .dimensions(256)
-                .vectorSpaceId("local|local-hashing-embedding|local-v1|256")
+                .dimensions(384)
+                .vectorSpaceId("local|local-hashing-embedding|local-v1|384")
                 .indexVersion(1)
                 .build();
     }
@@ -76,7 +76,7 @@ class EmbeddingControllerTest {
         mockMvc.perform(get("/api/v1/embeddings/model"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200))
-                .andExpect(jsonPath("$.data.dimensions").value(256));
+                .andExpect(jsonPath("$.data.dimensions").value(384));
     }
 
     @Test
@@ -88,14 +88,14 @@ class EmbeddingControllerTest {
 
         EmbeddingRecord record = new EmbeddingRecord();
         record.setDocumentId("doc-1");
-        record.setDimensions(256);
-        record.setVector(new float[256]);
+        record.setDimensions(384);
+        record.setVector(new float[384]);
         when(embeddingService.embedChunks(any())).thenReturn(List.of(record));
 
         mockMvc.perform(post("/api/v1/documents/doc-1/embeddings"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.code").value(200))
-                .andExpect(jsonPath("$.data[0].dimensions").value(256))
+                .andExpect(jsonPath("$.data[0].dimensions").value(384))
                 .andExpect(jsonPath("$.data[0].vectorPreview").isArray());
     }
 

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class LocalHashingEmbeddingModelTest {
 
-    private static final int DIM = 256;
+    private static final int DIM = 384;
 
     private LocalHashingEmbeddingModel model;
 

@@ -92,7 +92,7 @@ public class PgVectorStoreConfiguration {
         // 注意：PgVectorStore.afterPropertiesSet 的顺序是「先 validateTableSchema，后 initializeSchema」。
         // 全新库下表尚不存在，若开启 vectorTableValidationsEnabled 会在建表前即失败，
         // 因此这里采用 Builder 默认（false）；表结构正确性改由集成测试经 catalog 独立核验
-        // （pg_attribute.format_type 必须为 vector(256)），证据更直接、可追溯。
+        // （pg_attribute.format_type 必须为 vector(384)），证据更直接、可追溯。
         return PgVectorStore.builder(pgVectorJdbcTemplate, embeddingModel)
                 .schemaName(pgVectorProperties.getSchema())
                 .vectorTableName(pgVectorProperties.getTable())

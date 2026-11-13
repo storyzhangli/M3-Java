@@ -18,7 +18,7 @@ D30 要在不改变 Embedding 模型的前提下，把向量真实写入 Postgre
 
 1. 复核向量库选型：pgvector 为唯一向量库，不引入第二套，MySQL 业务库职责不变；
 2. 完成 Docker Compose 启动、健康检查、扩展与维度验证；
-3. 先核验模型真实输出再定 DDL，唯一决策 256 维；
+3. 维度按**已确认环境基线 384** 统一，模型真实输出、配置、元数据、vectorSpaceId、DDL、测试六者一致；
 4. 集成 Spring AI `PgVectorStore`，使用独立 PG 数据源，复用现有 EmbeddingModel；
 5. 真实编译、真实写入、真实相似度查询，全部以真实结果为准。
 
@@ -110,38 +110,64 @@ graph TD
 
 1. 客户端请求进入 `PgVectorController`；
 2. 控制器调用 `PgVectorStoreService`；
-3. 写入时 `PgVectorStore` 经 EmbeddingModel 把文本转为 256 维向量；
+3. 写入时 `PgVectorStore` 经 EmbeddingModel 把文本转为 384 维向量；
 4. 向量经专用 `pgVectorJdbcTemplate` 写入 PostgreSQL；
 5. 检索时查询文本同样向量化，按余弦距离 `<=>` 排序后回读；
 6. 业务链路的 MySQL JdbcTemplate 完全独立，不受影响。
 
 ---
 
-## 五、256/384 维度唯一决策
+## 五、384 维度基线统一决策
 
 ### 5.1 决策依据
 
-1. 本地哈希模型真实输出 256 维，`EmbeddingModel.dimensions()=256`；
-2. `EmbeddingProperties` 内置默认 `dimensions=256`；
-3. 全目录检索 `384` 零命中，外部 384 要求在仓库内不存在可落地引用。
+1. **用户已确认的强制环境基线为本地 Embedding 384 维**，这是最高优先级的维度口径；
+2. 任务书第 3.5 节原文写明「**当前环境上下文中另有本地 Embedding 384 维的配置要求**」，
+   并规定如采用 384 必须同步模型输出、配置、校验、元数据、vectorSpaceId 与 DDL，不得只改数据库字段；
+3. 本地哈希模型的维度就是特征哈希桶数量，由 `EmbeddingProperties.dimensions` 驱动，
+   改为 384 后模型**真实输出 `float[384]`**（`new float[384]` + `FeatureHasher.bucket(feature, 384)`），
+   不是填充或截断。
+
+> 整改前曾以「D29 已验证模型输出 256 维」为由选择 256，并以「全目录检索 384 零命中」作为依据。
+> 该依据的取证范围只覆盖 D30 模块目录、漏掉了 `docs/proj_docs` 下的任务书本身，属**取证范围错误**，
+> 结论已撤回，全过程见证据 `docs/evidence/D30/12-维度整改-384.md`。
 
 ### 5.2 决策结论
 
-**唯一决策 256**。模型维度、配置维度、正式表 `vector(256)` 三者一致；
-启动期断言不符即抛 `IllegalStateException`，fail-closed。
+**维度基线统一为 384**。以下六层同时为 384，任一不符则 fail-closed：
 
-### 5.3 未来若需 384 的兼容方案
+| 层 | 位置 | 真实值 |
+| --- | --- | --- |
+| 属性默认值 | `EmbeddingProperties.dimensions` | 384 |
+| 运行配置 | `application.yml` | `${EMBEDDING_DIMENSIONS:384}` |
+| 模型真实输出 | `LocalHashingEmbeddingModel.embed()` | `float[384]`（单测断言） |
+| 向量空间标识 | `vectorSpaceId` | `local\|local-hashing-embedding\|local-v1\|384` |
+| 正式表 DDL | `d30_vector_store.embedding` | `vector(384)`（psql 独立回读） |
+| 测试断言 | `PgVectorStoreIntegrationTest` | `vector(384)` |
 
-1. 先确认真实模型输出 384；
-2. 以新 `vectorSpaceId`（新 modelVersion）标识新空间，不与 256 混写；
-3. 新建 `vector(384)` 表与 HNSW 索引，存量内容重新 Embedding；
+启动期断言：`EmbeddingModel.dimensions() != 配置维度` 时抛 `IllegalStateException`，禁止建表。
+
+### 5.3 从 256 迁移到 384 的操作（已执行）
+
+1. 迁移前独立核验旧表 `row_count = 0`、`embedding = vector(256)`；
+2. pgvector 不支持跨维度直接类型转换，故 `DROP TABLE public.d30_vector_store`（0 行，无数据损失）；
+3. 应用启动 `initializeSchema` 重建为 `vector(384)` + HNSW（`vector_cosine_ops`）；
+4. 独立 psql 回读确认（证据 07），并完成 384 真实端到端写入与检索（证据 08）。
+
+### 5.4 未来若需再次切换维度
+
+1. 先确认真实模型输出维度，禁止只改 DDL；
+2. 以新 `vectorSpaceId`（新 modelVersion 或新维度）标识新空间，不与旧维度混写；
+3. 新建对应维度表与 HNSW 索引，存量内容重新 Embedding；
 4. 切换 `indexVersion`，旧空间按策略保留或下线。
 
-### 5.4 向量空间标识
+维度相同不代表空间兼容：256 与 384 两套向量**永不可混写**。
+
+### 5.5 向量空间标识
 
 ```text
 vectorSpaceId = provider | model | modelVersion | dimensions
-默认：local | local-hashing-embedding | local-v1 | 256
+默认：local | local-hashing-embedding | local-v1 | 384
 ```
 
 ---
@@ -226,24 +252,25 @@ PgVectorStore.builder(pgVectorJdbcTemplate, embeddingModel)
 
 ## 八、验证结果（真实执行）
 
-### 8.1 全量测试
+### 8.1 全量测试（384 基线）
 
 ```text
 Tests run: 287, Failures: 0, Errors: 0, Skipped: 0
 BUILD SUCCESS
 ```
 
-基线 266 + 新增 21 = 287，其中 6 个为连接真实 PostgreSQL 的集成测试。
+基线 266 + 新增 21 = 287，其中 6 个为连接真实 PostgreSQL 的集成测试，并断言正式表列为 `vector(384)`。
+日志：`logs/D30/11-mvn-clean-test-384.log`。
 
-### 8.2 真实端到端 HTTP
+### 8.2 真实端到端 HTTP（384 基线）
 
 写入 3 条后，以「pgvector 向量 数据库 索引」检索：
 
 | 排名 | 文本 | score | distance |
 | --- | --- | --- | --- |
-| 1 | postgres pgvector 向量数据库 存储与索引 | 0.741684 | 0.258316 |
-| 2 | java spring boot 后端服务 开发与配置 | 0.199754 | 0.800247 |
-| 3 | redis 缓存 会话 设计与过期策略 | 0.162400 | 0.837600 |
+| 1 | postgres pgvector 向量数据库 存储与索引 | 0.743731826543808 | 0.25626817 |
+| 2 | java spring boot 后端服务 开发与配置 | 0.17588162422180176 | 0.8241184 |
+| 3 | redis 缓存 会话 设计与过期策略 | 0.05884897708892822 | 0.941151 |
 
 - 语义相关文档真实排名第一，score 严格降序；
 - score + distance ≈ 1，印证余弦距离到相似度的换算；
@@ -259,17 +286,18 @@ BUILD SUCCESS
 | 编号 | 内容 |
 | --- | --- |
 | 01 | 工程扫描 |
-| 02 | 选型与维度决策 |
+| 02 | 选型与维度决策（384 基线） |
 | 03 | Docker Compose 环境取证 |
 | 04 | 健康检查取证 |
 | 05 | pgvector 扩展取证 |
-| 06 | 维度一致性核验 |
-| 07 | 正式表 Schema 取证 |
-| 08 | 真实写入与相似度检索 |
+| 06 | 维度一致性核验（384） |
+| 07 | 正式表 Schema 取证（vector(384)） |
+| 08 | 真实写入与相似度检索（384） |
 | 09 | 测试汇总 |
 | 10 | 构建汇总 |
 | 11 | 迭代汇总 |
-| — | surefire-reports（91 文件扁平归档） |
+| 12 | 维度整改记录（256 → 384） |
+| — | surefire-reports（91 文件扁平归档，按 384 运行重新归档） |
 
 ### 9.2 日志目录 `logs/D30`
 

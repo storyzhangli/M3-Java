@@ -66,7 +66,7 @@ class PgVectorStoreIntegrationTest {
     }
 
     @Test
-    void embeddingColumnIsVector256() {
+    void embeddingColumnIsVector384() {
         String type = pgVectorJdbcTemplate.queryForObject("""
                 SELECT format_type(a.atttypid, a.atttypmod)
                 FROM pg_attribute a
@@ -74,7 +74,7 @@ class PgVectorStoreIntegrationTest {
                 JOIN pg_namespace n ON n.oid = c.relnamespace
                 WHERE n.nspname = ? AND c.relname = ? AND a.attname = 'embedding'
                 """, String.class, properties.getSchema(), properties.getTable());
-        assertEquals("vector(256)", type);
+        assertEquals("vector(384)", type);
     }
 
     @Test
