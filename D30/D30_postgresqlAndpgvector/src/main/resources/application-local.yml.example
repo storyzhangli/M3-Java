@@ -22,3 +22,14 @@ app:
     base-url: ${AI_BASE_URL:https://api.deepseek.com}
     model: ${AI_MODEL:deepseek-flash}
     max-message-length: ${AI_CHAT_MAX_LENGTH:2000}
+    # Embedding 正式维度唯一决策为 256（与本地模型真实输出一致）。
+    embedding:
+      dimensions: ${EMBEDDING_DIMENSIONS:256}
+  # D30：pgvector 独立连接示例，密码仅通过环境变量注入，此处不写真实值。
+  pgvector:
+    host: ${PGVECTOR_HOST:192.168.200.153}
+    port: ${PGVECTOR_PORT:5432}
+    database: ${PGVECTOR_DATABASE:spring_ai}
+    username: ${PGVECTOR_USER:postgres}
+    password: ${PGVECTOR_DB_PASSWORD:请通过环境变量注入真实密码}
+    table: ${PGVECTOR_TABLE:d30_vector_store}

@@ -113,6 +113,25 @@
             <artifactId>spring-ai-starter-model-deepseek</artifactId>
         </dependency>
 
+        <!--
+            D30 新增：Spring AI 官方 pgvector 向量存储（含自动装配，版本由 spring-ai-bom:1.1.8 管理）。
+            本应用不使用其默认（基于主 MySQL JdbcTemplate）的自动装配，而是手动构造 PgVectorStore，
+            靠 @ConditionalOnMissingBean 让自动装配回退；该 starter 同时传递引入 com.pgvector:pgvector。
+        -->
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-starter-vector-store-pgvector</artifactId>
+        </dependency>
+
+        <!--
+            D30 新增：PostgreSQL JDBC 驱动（版本由 spring-boot-starter-parent 管理为 42.7.11）。
+            虽被 pgvector starter 传递引入，但应用直接持有 PG 数据源，显式声明更清晰。
+        -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+
         <!-- Lombok：与既有统一返回体/DTO 风格保持一致，optional 不向下游传递 -->
         <dependency>
             <groupId>org.projectlombok</groupId>

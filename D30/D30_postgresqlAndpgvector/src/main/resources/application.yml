@@ -145,6 +145,18 @@ app:
       # 长度单位口径（固定，不允许改为 Token）
       length-unit: UTF16_CODE_UNIT
     # ------------------------------------------------------------------
+    # D30 复核：Embedding 显式配置（与 LocalHashingEmbeddingModel 真实输出一致）。
+    # 正式维度唯一决策为 256；字符长度不等于 Token，向量距离默认 COSINE。
+    # ------------------------------------------------------------------
+    embedding:
+      enabled: ${EMBEDDING_ENABLED:true}
+      provider: ${EMBEDDING_PROVIDER:local}
+      model: ${EMBEDDING_MODEL:local-hashing-embedding}
+      model-version: ${EMBEDDING_MODEL_VERSION:local-v1}
+      dimensions: ${EMBEDDING_DIMENSIONS:256}
+      max-input-length: ${EMBEDDING_MAX_INPUT_LENGTH:8192}
+      distance-metric: ${EMBEDDING_DISTANCE:COSINE}
+    # ------------------------------------------------------------------
     # 新增：模型调用韧性（异常分类 + 超时 + 有限重试的单一责任层）。
     # 同步/流式共用此配置；仅对确认可重试的失败重试，首片段后流式不重放。
     # ------------------------------------------------------------------
@@ -191,3 +203,20 @@ app:
     enabled: ${MODEL_OBSERVABILITY_ENABLED:true}
     # 是否记录首 Chunk 延迟；仅在流确实发射过分片时才写出，否则字段缺省。
     record-time-to-first-chunk: ${MODEL_RECORD_TTFT:true}
+  # ------------------------------------------------------------------
+  # D30 新增：pgvector 独立连接与正式向量表（与 MySQL 主数据源隔离）。
+  # 密码通过环境变量 PGVECTOR_DB_PASSWORD 注入，冒号后仅为本地开发默认值，生产必须覆盖。
+  # ------------------------------------------------------------------
+  pgvector:
+    enabled: ${PGVECTOR_ENABLED:true}
+    host: ${PGVECTOR_HOST:192.168.200.153}
+    port: ${PGVECTOR_PORT:5432}
+    database: ${PGVECTOR_DATABASE:spring_ai}
+    username: ${PGVECTOR_USER:postgres}
+    # 真实密码只通过环境变量 PGVECTOR_DB_PASSWORD 注入，默认留空，禁止把真实密码写入本文件/Git
+    password: ${PGVECTOR_DB_PASSWORD:}
+    schema: ${PGVECTOR_SCHEMA:public}
+    table: ${PGVECTOR_TABLE:d30_vector_store}
+    initialize-schema: ${PGVECTOR_INIT_SCHEMA:true}
+    max-document-batch-size: ${PGVECTOR_BATCH_SIZE:10000}
+    maximum-pool-size: ${PGVECTOR_POOL_SIZE:5}
