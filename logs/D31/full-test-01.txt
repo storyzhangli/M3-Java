@@ -1,0 +1,1019 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< org.ai.m3.db:D31_VSUAI >-----------------------
+[INFO] Building D31_VSUAI 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ D31_VSUAI ---
+[INFO] Deleting E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI\target
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D31_VSUAI ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D31_VSUAI ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 15 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D31_VSUAI ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 209 source files with javac [debug parameters release 21] to target\classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/main/java/com/zl/d31/logging/CachedBodyAccessLogFilter.java:[67,55] org.springframework.web.util.ContentCachingRequestWrapper �е� ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/main/java/com/zl/d31/conversation/ConversationMemory.java: E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI\src\main\java\com\zl\d31\conversation\ConversationMemory.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/main/java/com/zl/d31/conversation/ConversationMemory.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D31_VSUAI ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D31_VSUAI ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 52 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/vectorindex/DocumentVectorIndexIntegrationTest.java:[73,6] org.springframework.boot.test.mock.mockito �е� org.springframework.boot.test.mock.mockito.SpyBean �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/vectorindex/DocumentVectorIndexIntegrationTest.java:[73,6] org.springframework.boot.test.mock.mockito �е� org.springframework.boot.test.mock.mockito.SpyBean �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/vectorindex/DocumentVectorIndexIntegrationTest.java:[73,6] org.springframework.boot.test.mock.mockito �е� org.springframework.boot.test.mock.mockito.SpyBean �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/vectorindex/DocumentVectorIndexIntegrationTest.java:[73,6] org.springframework.boot.test.mock.mockito �е� org.springframework.boot.test.mock.mockito.SpyBean �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/vectorindex/DocumentVectorIndexIntegrationTest.java:[73,6] org.springframework.boot.test.mock.mockito �е� org.springframework.boot.test.mock.mockito.SpyBean �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/DocumentImportServiceTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/test/java/com/zl/d31/document/DocumentImportServiceTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D31_VSUAI ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d31.adapter.deepseek.DeepSeekChatAdapterTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.062 s -- in com.zl.d31.adapter.deepseek.DeepSeekChatAdapterTest
+[INFO] Running com.zl.d31.adapter.deepseek.DeepSeekNativeUsageReaderTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s -- in com.zl.d31.adapter.deepseek.DeepSeekNativeUsageReaderTest
+[INFO] Running com.zl.d31.adapter.VendorBoundaryTest
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.307 s -- in com.zl.d31.adapter.VendorBoundaryTest
+[INFO] Running com.zl.d31.AiFailureLifecycleTest
+18:24:41.632 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.AiFailureLifecycleTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:24:42.711 INFO  [background-preinit] [requestId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-11-14 18:24:42.783 INFO  [main] [requestId=] com.zl.d31.AiFailureLifecycleTest - Starting AiFailureLifecycleTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:24:42.784 INFO  [main] [requestId=] com.zl.d31.AiFailureLifecycleTest - The following 1 profile is active: "test"
+2026-11-14 18:24:44.388 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:24:44.391 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:24:44.577 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 164 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:24:45.776 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2026-11-14 18:24:45.799 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-1"]
+2026-11-14 18:24:45.801 INFO  [main] [requestId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-11-14 18:24:45.802 INFO  [main] [requestId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-14 18:24:45.909 INFO  [main] [requestId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-11-14 18:24:45.910 INFO  [main] [requestId=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3108 ms
+2026-11-14 18:24:46.450 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:24:48.322 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:24:48.328 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:24:48.328 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:24:48.336 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:24:48.585 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@3e7861f2
+2026-11-14 18:24:48.586 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:24:48.984 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:24:49.543 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@375084c9
+2026-11-14 18:24:50.223 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-1"]
+2026-11-14 18:24:50.257 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 53070 (http) with context path '/'
+2026-11-14 18:24:50.271 INFO  [main] [requestId=] com.zl.d31.AiFailureLifecycleTest - Started AiFailureLifecycleTest in 8.075 seconds (process running for 11.834)
+2026-11-14 18:24:50.286 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-11-14 18:24:50.502 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c26caf
+2026-11-14 18:24:50.502 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-11-14 18:24:50.662 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:24:50.945 INFO  [http-nio-auto-1-exec-1] [requestId=] o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-14 18:24:50.945 INFO  [http-nio-auto-1-exec-1] [requestId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-11-14 18:24:50.946 INFO  [http-nio-auto-1-exec-1] [requestId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2026-11-14 18:24:51.138 INFO  [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=3f3206d8181244b7be7215142996effe��owner=ut_fail_sync��sequence=1
+2026-11-14 18:24:51.163 WARN  [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] c.zl.d31.history.ChatHistoryService - �Ի��ִ�ʧ�ܣ�sessionId=3f3206d8181244b7be7215142996effe��errorCode=RuntimeException���û����=1
+2026-11-14 18:24:51.177 WARN  [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] ACCESS_LOG - {"event":"CONTROLLER_ERROR","requestId":"168b082c2e5543cf9cea4c7c8ed82404","controllerMethod":"ChatController#chat","elapsedMs":88,"args":{"request":{"value":"{\"message\":\"����ͬ��ʧ��\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"exception":"java.lang.RuntimeException","errorMessage":"boom"}
+2026-11-14 18:24:51.179 ERROR [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] c.z.d.common.GlobalExceptionHandler - δԤ�ڵ�ϵͳ�쳣
+java.lang.RuntimeException: boom
+	at com.zl.d31.AiFailureLifecycleTest.syncException_returnsErrorCodeAndPersistsFailed(AiFailureLifecycleTest.java:73)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:775)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:479)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:216)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:212)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithoutCancellationToken(LauncherAdapter.java:60)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:52)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+2026-11-14 18:24:51.201 INFO  [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"168b082c2e5543cf9cea4c7c8ed82404","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"32","host":"127.0.0.1:53070","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json","x-dev-user":"ut_fail_sync"},"requestBody":{"contentType":"application/json","size":32,"body":"{\"message\":\"����ͬ��ʧ��\"}","truncated":false}}
+2026-11-14 18:24:51.202 INFO  [http-nio-auto-1-exec-1] [requestId=168b082c2e5543cf9cea4c7c8ed82404] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"168b082c2e5543cf9cea4c7c8ed82404","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":241,"responseBody":{"contentType":"application/json","size":64,"body":"{\"code\":5000,\"msg\":\"ϵͳ��æ�����Ժ�����\",\"data\":null}","truncated":false}}
+2026-11-14 18:24:51.915 INFO  [http-nio-auto-1-exec-2] [requestId=8f0c059b1bc44d70914f44695f76104b] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=7c8639e82da9423aac680e924229fdc3��owner=ut_fail_timeout��sequence=1
+2026-11-14 18:24:51.947 INFO  [http-nio-auto-1-exec-2] [requestId=8f0c059b1bc44d70914f44695f76104b] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=8f0c059b1bc44d70914f44695f76104b��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=6
+2026-11-14 18:24:51.947 INFO  [http-nio-auto-1-exec-2] [requestId=8f0c059b1bc44d70914f44695f76104b] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"8f0c059b1bc44d70914f44695f76104b","controllerMethod":"ChatStreamController#streamChat","elapsedMs":74,"args":{"request":{"value":"{\"message\":\"������ʽ��ʱ\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:24:52.256 WARN  [parallel-1] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ�ʧ�ܣ�sessionId=7c8639e82da9423aac680e924229fdc3��errorCode=StreamTimeout���û����=1
+2026-11-14 18:24:52.263 WARN  [parallel-1] [requestId=] c.z.d.c.ChatStreamController - SSE ��Ӧ�ò㳬ʱ������requestId=8f0c059b1bc44d70914f44695f76104b��code=5000����ʱ��ֵ=300ms
+2026-11-14 18:24:52.834 INFO  [http-nio-auto-1-exec-4] [requestId=819c6cfb78924a7f8b980e377ed80323] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=65c1b257fdfc4b7c995f725e8e3b4c3d��owner=ut_fail_stream��sequence=1
+2026-11-14 18:24:52.853 WARN  [http-nio-auto-1-exec-4] [requestId=819c6cfb78924a7f8b980e377ed80323] c.zl.d31.history.ChatHistoryService - �Ի��ִ�ʧ�ܣ�sessionId=65c1b257fdfc4b7c995f725e8e3b4c3d��errorCode=RuntimeException���û����=1
+2026-11-14 18:24:52.862 ERROR [http-nio-auto-1-exec-4] [requestId=819c6cfb78924a7f8b980e377ed80323] c.z.d.c.ChatStreamController - SSE ���쳣������requestId=819c6cfb78924a7f8b980e377ed80323��code=5000���쳣����=RuntimeException
+2026-11-14 18:24:52.862 INFO  [http-nio-auto-1-exec-4] [requestId=819c6cfb78924a7f8b980e377ed80323] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=819c6cfb78924a7f8b980e377ed80323��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=6
+2026-11-14 18:24:52.862 INFO  [http-nio-auto-1-exec-4] [requestId=819c6cfb78924a7f8b980e377ed80323] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"819c6cfb78924a7f8b980e377ed80323","controllerMethod":"ChatStreamController#streamChat","elapsedMs":40,"args":{"request":{"value":"{\"message\":\"������ʽ�쳣\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 12.32 s -- in com.zl.d31.AiFailureLifecycleTest
+[INFO] Running com.zl.d31.ApplicationTypeTest
+2026-11-14 18:24:53.404 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.ApplicationTypeTest]: ApplicationTypeTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:24:53.406 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.ApplicationTypeTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:24:53.445 INFO  [main] [requestId=] com.zl.d31.ApplicationTypeTest - Starting ApplicationTypeTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:24:53.445 INFO  [main] [requestId=] com.zl.d31.ApplicationTypeTest - The following 1 profile is active: "test"
+2026-11-14 18:24:54.255 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:24:54.255 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:24:54.401 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 143 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:24:54.677 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2026-11-14 18:24:54.678 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-2"]
+2026-11-14 18:24:54.679 INFO  [main] [requestId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-11-14 18:24:54.680 INFO  [main] [requestId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-14 18:24:54.763 INFO  [main] [requestId=] o.a.c.c.C.[Tomcat-1].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-11-14 18:24:54.764 INFO  [main] [requestId=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1316 ms
+2026-11-14 18:24:54.961 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:24:55.325 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:24:55.325 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:24:55.326 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:24:55.326 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:24:55.341 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@2097d177
+2026-11-14 18:24:55.342 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:24:55.486 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:24:55.579 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@121244de
+2026-11-14 18:24:55.787 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-2"]
+2026-11-14 18:24:55.794 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 53086 (http) with context path '/'
+2026-11-14 18:24:55.798 INFO  [main] [requestId=] com.zl.d31.ApplicationTypeTest - Started ApplicationTypeTest in 2.389 seconds (process running for 17.361)
+2026-11-14 18:24:55.799 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2026-11-14 18:24:55.805 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3002c141
+2026-11-14 18:24:55.806 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2026-11-14 18:24:55.826 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.466 s -- in com.zl.d31.ApplicationTypeTest
+[INFO] Running com.zl.d31.config.AiConfigurationValidatorTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s -- in com.zl.d31.config.AiConfigurationValidatorTest
+[INFO] Running com.zl.d31.conversation.ConversationSessionTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in com.zl.d31.conversation.ConversationSessionTest
+[INFO] Running com.zl.d31.device.DeviceEnumFallbackTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.zl.d31.device.DeviceEnumFallbackTest
+[INFO] Running com.zl.d31.device.StructuredCandidateParserTest
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.060 s -- in com.zl.d31.device.StructuredCandidateParserTest
+[INFO] Running com.zl.d31.document.BasicDocumentParserTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d31.document.BasicDocumentParserTest
+[INFO] Running com.zl.d31.document.chunk.ChunkPropertiesTest
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.zl.d31.document.chunk.ChunkPropertiesTest
+[INFO] Running com.zl.d31.document.chunk.clean.TextCleanerTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.zl.d31.document.chunk.clean.TextCleanerTest
+[INFO] Running com.zl.d31.document.chunk.service.DocumentChunkServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.zl.d31.document.chunk.service.DocumentChunkServiceTest
+[INFO] Running com.zl.d31.document.chunk.split.FixedSizeSplitterTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s -- in com.zl.d31.document.chunk.split.FixedSizeSplitterTest
+[INFO] Running com.zl.d31.document.chunk.split.StructureSplitterTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.zl.d31.document.chunk.split.StructureSplitterTest
+[INFO] Running com.zl.d31.document.DocumentControllerTest
+2026-11-14 18:24:56.402 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.402 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.402 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:56.496 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.497 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.497 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:56.518 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.518 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.518 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:56.542 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.542 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.543 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:56.556 WARN  [main] [requestId=] c.z.d.common.GlobalExceptionHandler - ����У��ʧ��: �ĵ���Դ����Ϊ��
+2026-11-14 18:24:56.572 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.573 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.573 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:56.596 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:56.597 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:56.597 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.485 s -- in com.zl.d31.document.DocumentControllerTest
+[INFO] Running com.zl.d31.document.DocumentImportServiceTest
+2026-11-14 18:24:57.195 ERROR [main] [requestId=] c.z.d.d.s.DocumentImportService - �ĵ���������δԤ���쳣
+java.lang.RuntimeException: boom
+	at com.zl.d31.document.support.BasicDocumentParser.parse(BasicDocumentParser.java:29)
+	at com.zl.d31.document.service.DocumentImportService.handleText(DocumentImportService.java:131)
+	at com.zl.d31.document.service.DocumentImportService.importFile(DocumentImportService.java:101)
+	at com.zl.d31.document.DocumentImportServiceTest.unexpectedRuntimeMarksFailed(DocumentImportServiceTest.java:118)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:775)
+	at org.junit.platform.commons.support.ReflectionSupport.invokeMethod(ReflectionSupport.java:479)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:161)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:152)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:91)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(InterceptingExecutableInvoker.java:112)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.lambda$invoke$0(InterceptingExecutableInvoker.java:94)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:93)
+	at org.junit.jupiter.engine.execution.InterceptingExecutableInvoker.invoke(InterceptingExecutableInvoker.java:87)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$7(TestMethodTestDescriptor.java:216)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:212)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:137)
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:69)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:156)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:201)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:170)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:94)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:59)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:142)
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:58)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.junit.platform.launcher.core.InterceptingLauncher.lambda$execute$1(InterceptingLauncher.java:39)
+	at org.junit.platform.launcher.core.ClasspathAlignmentCheckingLauncherInterceptor.intercept(ClasspathAlignmentCheckingLauncherInterceptor.java:25)
+	at org.junit.platform.launcher.core.InterceptingLauncher.execute(InterceptingLauncher.java:38)
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.executeWithoutCancellationToken(LauncherAdapter.java:60)
+	at org.apache.maven.surefire.junitplatform.LauncherAdapter.execute(LauncherAdapter.java:52)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:203)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:168)
+	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:136)
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
+	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.602 s -- in com.zl.d31.document.DocumentImportServiceTest
+[INFO] Running com.zl.d31.document.DocumentPageServiceTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.107 s -- in com.zl.d31.document.DocumentPageServiceTest
+[INFO] Running com.zl.d31.document.DocumentRegistrationServiceTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.zl.d31.document.DocumentRegistrationServiceTest
+[INFO] Running com.zl.d31.document.embedding.DocumentEmbeddingServiceTest
+2026-11-14 18:24:57.367 INFO  [main] [requestId=] c.z.d.d.e.s.DocumentEmbeddingService - ����Ƕ����ɣ�����=2��ά��=64��vectorSpaceId=local|local-hashing-embedding|local-v1|64
+2026-11-14 18:24:57.374 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 1 �γ���ʧ�ܣ�200ms �����ԣ�����=EmbeddingServiceException
+2026-11-14 18:24:57.375 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 2 �γ���ʧ�ܣ�400ms �����ԣ�����=EmbeddingServiceException
+2026-11-14 18:24:57.375 INFO  [main] [requestId=] c.z.d.d.e.s.DocumentEmbeddingService - ����Ƕ����ɣ�����=1��ά��=64��vectorSpaceId=local|local-hashing-embedding|local-v1|64
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.zl.d31.document.embedding.DocumentEmbeddingServiceTest
+[INFO] Running com.zl.d31.document.embedding.EmbeddingControllerTest
+2026-11-14 18:24:57.507 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:57.507 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:57.507 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:57.525 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:57.525 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:57.525 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:57.558 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:57.558 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:57.558 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:24:57.565 WARN  [main] [requestId=] c.z.d.common.GlobalExceptionHandler - ����У��ʧ��: provider ����Ϊ��
+2026-11-14 18:24:57.578 INFO  [main] [requestId=] o.s.mock.web.MockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:24:57.578 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:24:57.578 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 0 ms
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.216 s -- in com.zl.d31.document.embedding.EmbeddingControllerTest
+[INFO] Running com.zl.d31.document.embedding.EmbeddingPropertiesTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.zl.d31.document.embedding.EmbeddingPropertiesTest
+[INFO] Running com.zl.d31.document.embedding.EmbeddingRetryExecutorTest
+2026-11-14 18:24:57.608 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ���ý�����attempt=1��retryable=true������=EmbeddingServiceException
+2026-11-14 18:24:57.610 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ���ý�����attempt=1��retryable=false������=EmbeddingServiceException
+2026-11-14 18:24:57.612 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 1 �γ���ʧ�ܣ�200ms �����ԣ�����=EmbeddingServiceException
+2026-11-14 18:24:57.612 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 2 �γ���ʧ�ܣ�400ms �����ԣ�����=EmbeddingServiceException
+2026-11-14 18:24:57.612 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ���ý�����attempt=3��retryable=true������=EmbeddingServiceException
+2026-11-14 18:24:57.614 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ���ý�����attempt=1��retryable=false������=IllegalStateException
+2026-11-14 18:24:57.617 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 1 �γ���ʧ�ܣ�200ms �����ԣ�����=EmbeddingServiceException
+2026-11-14 18:24:57.617 WARN  [main] [requestId=] c.z.d.d.e.s.EmbeddingRetryExecutor - Embedding ��ʱ���ϣ��� 2 �γ���ʧ�ܣ�400ms �����ԣ�����=EmbeddingServiceException
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s -- in com.zl.d31.document.embedding.EmbeddingRetryExecutorTest
+[INFO] Running com.zl.d31.document.embedding.LocalHashingEmbeddingModelTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.zl.d31.document.embedding.LocalHashingEmbeddingModelTest
+[INFO] Running com.zl.d31.document.embedding.VectorIndexCompatibilityServiceTest
+2026-11-14 18:24:57.648 WARN  [main] [requestId=] c.z.d.d.e.s.VectorIndexCompatibilityService - ģ���л���������������=local|local-hashing-embedding|local-v1|384����=openai|text-embedding-3-small|v1|1536���� indexVersion=2
+2026-11-14 18:24:57.653 INFO  [main] [requestId=] c.z.d.d.e.s.VectorIndexCompatibilityService - �����ռ�һ�£������л�������local|local-hashing-embedding|local-v1|384
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.zl.d31.document.embedding.VectorIndexCompatibilityServiceTest
+[INFO] Running com.zl.d31.document.embedding.VectorValidatorTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.zl.d31.document.embedding.VectorValidatorTest
+[INFO] Running com.zl.d31.document.FileUploadValidatorTest
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s -- in com.zl.d31.document.FileUploadValidatorTest
+[INFO] Running com.zl.d31.document.PdfDocumentParserTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.002 s -- in com.zl.d31.document.PdfDocumentParserTest
+[INFO] Running com.zl.d31.document.Sha256ContentHasherTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s -- in com.zl.d31.document.Sha256ContentHasherTest
+[INFO] Running com.zl.d31.document.vectorindex.config.VectorIndexPropertiesTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d31.document.vectorindex.config.VectorIndexPropertiesTest
+[INFO] Running com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+2026-11-14 18:24:58.794 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest]: DocumentVectorIndexIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:24:59.028 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:24:59.059 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - Starting DocumentVectorIndexIntegrationTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:24:59.059 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - The following 1 profile is active: "test"
+2026-11-14 18:24:59.726 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:24:59.727 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:24:59.871 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 144 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:25:00.239 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:25:00.609 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:25:00.610 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:25:00.610 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:25:00.610 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:25:00.629 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@402c20d1
+2026-11-14 18:25:00.629 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:25:00.798 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:25:00.863 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@12d51656
+2026-11-14 18:25:01.037 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - Started DocumentVectorIndexIntegrationTest in 2.003 seconds (process running for 22.599)
+2026-11-14 18:25:01.038 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2026-11-14 18:25:01.043 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17393687
+2026-11-14 18:25:01.044 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2026-11-14 18:25:01.063 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:25:01.225 INFO  [pool-5-thread-1] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-72faa4e3eb version=1 chunks=4 attempt=1
+2026-11-14 18:25:01.241 INFO  [pool-5-thread-2] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-72faa4e3eb version=1 chunks=4 attempt=1
+2026-11-14 18:25:01.344 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-951b586fcc version=1 chunks=2 attempt=1
+2026-11-14 18:25:01.432 WARN  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����д���ж� documentId=d31vi-b2df6bd444 version=1 processed=0 reason=injected first-attempt failure
+2026-11-14 18:25:01.513 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-b2df6bd444 version=1 chunks=3 attempt=2
+2026-11-14 18:25:01.627 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-f166766f6d version=1 chunks=3 attempt=1
+2026-11-14 18:25:01.643 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - �ĵ�������ɾ�� documentId=d31vi-f166766f6d vectors=3
+2026-11-14 18:25:01.651 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - �ĵ�������ɾ�� documentId=d31vi-f166766f6d vectors=0
+2026-11-14 18:25:01.709 WARN  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����д���ж� documentId=d31vi-007afe1cbe version=1 processed=2 reason=injected mid-batch fault
+2026-11-14 18:25:01.809 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-007afe1cbe version=1 chunks=5 attempt=2
+2026-11-14 18:25:01.913 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-b0da1a7d1c version=1 chunks=3 attempt=1
+2026-11-14 18:25:01.918 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - �ظ����������ݵȣ�documentId=d31vi-b0da1a7d1c, version=1
+2026-11-14 18:25:02.015 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-dfe5bdf16b version=1 chunks=3 attempt=1
+2026-11-14 18:25:02.116 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-dfe5bdf16b version=2 chunks=4 attempt=1
+2026-11-14 18:25:02.230 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-1588d58e45 version=1 chunks=3 attempt=1
+2026-11-14 18:25:02.249 WARN  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����д���ж� documentId=d31vi-1588d58e45 version=2 processed=0 reason=injected fault before new version write
+2026-11-14 18:25:02.354 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-414168478f version=1 chunks=3 attempt=1
+2026-11-14 18:25:02.362 INFO  [main] [requestId=] c.z.d.d.v.s.VectorReconciliationService - �˶���� dryRun=true issues=0 (orphan=0, missing=0, mismatch=0, stuck=0)
+2026-11-14 18:25:02.460 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-36d66c8af0 version=1 chunks=3 attempt=1
+2026-11-14 18:25:02.481 INFO  [main] [requestId=] c.z.d.d.v.s.VectorReconciliationService - �˶���� dryRun=true issues=3 (orphan=3, missing=0, mismatch=0, stuck=0)
+2026-11-14 18:25:02.491 INFO  [main] [requestId=] c.z.d.d.v.s.VectorReconciliationService - �˶���� dryRun=false issues=3 (orphan=3, missing=0, mismatch=0, stuck=0)
+2026-11-14 18:25:02.576 INFO  [main] [requestId=] c.z.d.d.v.s.DocumentVectorIndexService - ����������� documentId=d31vi-61236e88bb version=1 chunks=3 attempt=1
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.804 s -- in com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+[INFO] Running com.zl.d31.document.vectorindex.support.StableChunkIdGeneratorTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d31.document.vectorindex.support.StableChunkIdGeneratorTest
+[INFO] Running com.zl.d31.document.vectorstore.PgVectorStoreConfigurationTest
+2026-11-14 18:25:02.854 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.252 s -- in com.zl.d31.document.vectorstore.PgVectorStoreConfigurationTest
+[INFO] Running com.zl.d31.document.vectorstore.PgVectorStoreIntegrationTest
+2026-11-14 18:25:02.860 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.document.vectorstore.PgVectorStoreIntegrationTest]: PgVectorStoreIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:03.083 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.document.vectorstore.PgVectorStoreIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:25:03.107 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreIntegrationTest - Starting PgVectorStoreIntegrationTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:25:03.107 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreIntegrationTest - The following 1 profile is active: "test"
+2026-11-14 18:25:03.773 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:25:03.773 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:25:03.915 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:25:04.315 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:25:04.613 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:25:04.613 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:25:04.613 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:25:04.613 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:25:04.633 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@83e69da
+2026-11-14 18:25:04.633 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:25:04.751 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:25:04.799 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@18b74c9b
+2026-11-14 18:25:04.936 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreIntegrationTest - Started PgVectorStoreIntegrationTest in 1.851 seconds (process running for 26.5)
+2026-11-14 18:25:04.937 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Starting...
+2026-11-14 18:25:04.944 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@17f0fdbb
+2026-11-14 18:25:04.944 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-4 - Start completed.
+2026-11-14 18:25:04.961 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:25:04.991 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - ����д����ɣ�����=3����="public"."d31_vector_store"
+2026-11-14 18:25:05.015 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - ����д����ɣ�����=3����="public"."d31_vector_store"
+2026-11-14 18:25:05.023 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - ���ƶȼ�����ɣ�query ����=15������=3��topK=3
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.200 s -- in com.zl.d31.document.vectorstore.PgVectorStoreIntegrationTest
+[INFO] Running com.zl.d31.document.vectorstore.PgVectorStorePropertiesTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in com.zl.d31.document.vectorstore.PgVectorStorePropertiesTest
+[INFO] Running com.zl.d31.document.vectorstore.PgVectorStoreServiceTest
+2026-11-14 18:25:05.160 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - Chunk ����д����ɣ�����=1����="public"."d31_vector_store"
+2026-11-14 18:25:05.162 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - ���ƶȼ�����ɣ�query ����=2������=1��topK=1
+2026-11-14 18:25:05.167 INFO  [main] [requestId=] c.z.d.d.v.PgVectorStoreService - ����д����ɣ�����=1����="public"."d31_vector_store"
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.110 s -- in com.zl.d31.document.vectorstore.PgVectorStoreServiceTest
+[INFO] Running com.zl.d31.MultiTurnContextWindowTest
+2026-11-14 18:25:05.184 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.MultiTurnContextWindowTest]: MultiTurnContextWindowTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:05.188 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.MultiTurnContextWindowTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:25:05.242 INFO  [main] [requestId=] c.zl.d31.MultiTurnContextWindowTest - Starting MultiTurnContextWindowTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:25:05.243 INFO  [main] [requestId=] c.zl.d31.MultiTurnContextWindowTest - The following 1 profile is active: "test"
+2026-11-14 18:25:05.884 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:25:05.884 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:25:06.042 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 156 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:25:06.415 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:25:06.671 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:25:06.672 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:25:06.672 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:25:06.672 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:25:06.686 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@1d9d6956
+2026-11-14 18:25:06.687 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:25:06.795 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:25:06.837 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@360e72df
+2026-11-14 18:25:06.981 INFO  [main] [requestId=] c.zl.d31.MultiTurnContextWindowTest - Started MultiTurnContextWindowTest in 1.786 seconds (process running for 28.544)
+2026-11-14 18:25:06.982 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Starting...
+2026-11-14 18:25:06.987 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-5 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4bb7288e
+2026-11-14 18:25:06.987 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-5 - Start completed.
+2026-11-14 18:25:07.005 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:25:07.019 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=1d111343517242b49249f7790e36bb73��owner=ut_mt_owner_4��sequence=1
+2026-11-14 18:25:07.035 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=1d111343517242b49249f7790e36bb73���û����=1���������=2
+2026-11-14 18:25:07.050 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=1d111343517242b49249f7790e36bb73��owner=ut_mt_owner_4��sequence=3
+2026-11-14 18:25:07.061 WARN  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ�ʧ�ܣ�sessionId=1d111343517242b49249f7790e36bb73��errorCode=RuntimeException���û����=3
+2026-11-14 18:25:07.083 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=f9c111099f1f4dc78fc6e9602e7a8080��owner=ut_mt_owner_5��sequence=1
+2026-11-14 18:25:07.097 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=f9c111099f1f4dc78fc6e9602e7a8080���û����=1���������=2
+2026-11-14 18:25:07.111 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=e514494427d44474acadfc50f99575dc��owner=ut_mt_owner_5��sequence=1
+2026-11-14 18:25:07.126 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=e514494427d44474acadfc50f99575dc���û����=1���������=2
+2026-11-14 18:25:07.148 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=2b0bcfb38ba246798c93d716a43b3590��owner=ut_mt_owner_2��sequence=1
+2026-11-14 18:25:07.161 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=2b0bcfb38ba246798c93d716a43b3590���û����=1���������=2
+2026-11-14 18:25:07.189 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=6c5aa8ba4d8f46c6b0c1e4f42870b8b3��owner=ut_mt_owner_1��sequence=1
+2026-11-14 18:25:07.208 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=6c5aa8ba4d8f46c6b0c1e4f42870b8b3���û����=1���������=2
+2026-11-14 18:25:07.226 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=b3cf3710dd59408aa92f1194862708b4��owner=ut_mt_owner_3��sequence=1
+2026-11-14 18:25:07.237 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=b3cf3710dd59408aa92f1194862708b4���û����=1���������=2
+2026-11-14 18:25:07.252 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=b3cf3710dd59408aa92f1194862708b4��owner=ut_mt_owner_3��sequence=3
+2026-11-14 18:25:07.269 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=b3cf3710dd59408aa92f1194862708b4���û����=3���������=4
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.100 s -- in com.zl.d31.MultiTurnContextWindowTest
+[INFO] Running com.zl.d31.observability.ModelCallRecorderTest
+2026-11-14 18:25:07.301 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"STREAM","startTime":"2026-11-14T10:25:07.286711800Z","endTime":"2026-11-14T10:25:07.299242100Z","durationMs":12,"outcome":"SUCCESS","errorCode":null,"usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":"","timeToFirstChunkMs":8}
+2026-11-14 18:25:07.307 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"STREAM","startTime":"2026-11-14T10:25:07.303279700Z","endTime":"2026-11-14T10:25:07.306796400Z","durationMs":2,"outcome":"CANCELLED","errorCode":null,"usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":"","timeToFirstChunkMs":2}
+2026-11-14 18:25:07.314 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"STREAM","startTime":"2026-11-14T10:25:07.313741Z","endTime":"2026-11-14T10:25:07.313741Z","durationMs":0,"outcome":"SUCCESS","errorCode":null,"usageStatus":"AVAILABLE","usageSource":"PROVIDER_METADATA","promptTokens":5,"completionTokens":7,"totalTokens":12,"responseId":"resp-3","timeToFirstChunkMs":0}
+2026-11-14 18:25:07.319 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"SYNC","startTime":"2026-11-14T10:25:07.317653500Z","endTime":"2026-11-14T10:25:07.317653500Z","durationMs":0,"outcome":"ERROR","errorCode":"IllegalStateException","usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":null,"timeToFirstChunkMs":null}
+2026-11-14 18:25:07.322 INFO  [main] [requestId=sync-req-1] MODEL_CALL - {"event":"MODEL_CALL","requestId":"sync-req-1","traceId":"sync-req-1","provider":"deepseek","model":"deepseek-flash","callMode":"SYNC","startTime":"2026-11-14T10:25:07.321667200Z","endTime":"2026-11-14T10:25:07.321667200Z","durationMs":0,"outcome":"SUCCESS","errorCode":null,"usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":"resp-1","timeToFirstChunkMs":null}
+2026-11-14 18:25:07.327 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"STREAM","startTime":"2026-11-14T10:25:07.326197500Z","endTime":"2026-11-14T10:25:07.326197500Z","durationMs":0,"outcome":"SUCCESS","errorCode":null,"usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":"resp-2","timeToFirstChunkMs":0}
+2026-11-14 18:25:07.332 INFO  [main] [requestId=] MODEL_CALL - {"event":"MODEL_CALL","requestId":null,"traceId":null,"provider":"deepseek","model":"deepseek-flash","callMode":"STREAM","startTime":"2026-11-14T10:25:07.330195600Z","endTime":"2026-11-14T10:25:07.331199100Z","durationMs":0,"outcome":"ERROR","errorCode":"RuntimeException","usageStatus":"NOT_RETURNED","usageSource":"NONE","promptTokens":null,"completionTokens":null,"totalTokens":null,"responseId":"","timeToFirstChunkMs":0}
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.052 s -- in com.zl.d31.observability.ModelCallRecorderTest
+[INFO] Running com.zl.d31.observability.TokenUsageSnapshotTest
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.zl.d31.observability.TokenUsageSnapshotTest
+[INFO] Running com.zl.d31.resilience.ModelExceptionClassifierTest
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s -- in com.zl.d31.resilience.ModelExceptionClassifierTest
+[INFO] Running com.zl.d31.resilience.ModelResiliencePropertiesTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s -- in com.zl.d31.resilience.ModelResiliencePropertiesTest
+[INFO] Running com.zl.d31.resilience.ModelResilienceSupportTest
+2026-11-14 18:25:07.478 WARN  [main] [requestId=] c.z.d.r.ModelResilienceSupport - ģ��ͬ�����ý����е�1�����ԣ�����=UPSTREAM_UNAVAILABLE
+2026-11-14 18:25:07.525 WARN  [main] [requestId=] c.z.d.r.ModelResilienceSupport - ģ��ͬ�����ý����е�1�����ԣ�����=CONNECT_FAILURE
+2026-11-14 18:25:07.651 WARN  [main] [requestId=] c.z.d.r.ModelResilienceSupport - ģ��ͬ�����ý����е�1�����ԣ�����=READ_TIMEOUT
+2026-11-14 18:25:07.735 WARN  [main] [requestId=] c.z.d.r.ModelResilienceSupport - ģ��ͬ�����ý����е�1�����ԣ�����=CONNECT_FAILURE
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.331 s -- in com.zl.d31.resilience.ModelResilienceSupportTest
+[INFO] Running com.zl.d31.SessionIsolationTest
+2026-11-14 18:25:07.809 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.SessionIsolationTest]: SessionIsolationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:07.811 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.SessionIsolationTest
+2026-11-14 18:25:07.827 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=c9b4bf3ba2634c64a53770d8cb074aad��owner=ut_t07_a��sequence=1
+2026-11-14 18:25:07.844 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=c9b4bf3ba2634c64a53770d8cb074aad���û����=1���������=2
+2026-11-14 18:25:07.859 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=1ec71bd46ca741b899ae206a840cf30f��owner=ut_t07_b��sequence=1
+2026-11-14 18:25:07.873 INFO  [main] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=1ec71bd46ca741b899ae206a840cf30f���û����=1���������=2
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.080 s -- in com.zl.d31.SessionIsolationTest
+[INFO] Running com.zl.d31.SseEventOrderTest
+2026-11-14 18:25:07.890 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.SseEventOrderTest]: SseEventOrderTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:07.891 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.SseEventOrderTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:25:07.923 INFO  [main] [requestId=] com.zl.d31.SseEventOrderTest - Starting SseEventOrderTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:25:07.923 INFO  [main] [requestId=] com.zl.d31.SseEventOrderTest - The following 1 profile is active: "test"
+2026-11-14 18:25:08.572 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:25:08.573 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:25:08.714 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:25:08.922 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 0 (http)
+2026-11-14 18:25:08.923 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-auto-3"]
+2026-11-14 18:25:08.924 INFO  [main] [requestId=] o.a.catalina.core.StandardService - Starting service [Tomcat]
+2026-11-14 18:25:08.924 INFO  [main] [requestId=] o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.55]
+2026-11-14 18:25:08.979 INFO  [main] [requestId=] o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2026-11-14 18:25:08.979 INFO  [main] [requestId=] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1054 ms
+2026-11-14 18:25:09.164 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:25:09.396 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:25:09.396 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:25:09.396 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:25:09.396 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:25:09.412 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@790f8fa8
+2026-11-14 18:25:09.413 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:25:09.480 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:25:09.519 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@6a4d1ebf
+2026-11-14 18:25:09.645 INFO  [main] [requestId=] o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-auto-3"]
+2026-11-14 18:25:09.650 INFO  [main] [requestId=] o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 53155 (http) with context path '/'
+2026-11-14 18:25:09.655 INFO  [main] [requestId=] com.zl.d31.SseEventOrderTest - Started SseEventOrderTest in 1.756 seconds (process running for 31.218)
+2026-11-14 18:25:09.655 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Starting...
+2026-11-14 18:25:09.660 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-6 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c532b6c
+2026-11-14 18:25:09.661 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-6 - Start completed.
+2026-11-14 18:25:09.676 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:25:09.690 INFO  [http-nio-auto-3-exec-1] [requestId=] o.a.c.c.C.[Tomcat-2].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-14 18:25:09.691 INFO  [http-nio-auto-3-exec-1] [requestId=] o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-11-14 18:25:09.691 INFO  [http-nio-auto-3-exec-1] [requestId=] o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2026-11-14 18:25:09.712 INFO  [http-nio-auto-3-exec-1] [requestId=a568e6ae5f7c4f0c96d7dd3dd4201957] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=da6c5f2b3a1441a19131ab82b76bd393��owner=ut-default��sequence=1
+2026-11-14 18:25:09.744 INFO  [http-nio-auto-3-exec-1] [requestId=a568e6ae5f7c4f0c96d7dd3dd4201957] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=a568e6ae5f7c4f0c96d7dd3dd4201957��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=4
+2026-11-14 18:25:09.745 INFO  [http-nio-auto-3-exec-1] [requestId=a568e6ae5f7c4f0c96d7dd3dd4201957] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"a568e6ae5f7c4f0c96d7dd3dd4201957","controllerMethod":"ChatStreamController#streamChat","elapsedMs":47,"args":{"request":{"value":"{\"message\":\"��������\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:25:10.188 INFO  [parallel-10] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+2026-11-14 18:25:10.197 INFO  [parallel-10] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=da6c5f2b3a1441a19131ab82b76bd393���û����=1���������=2
+2026-11-14 18:25:10.250 INFO  [http-nio-auto-3-exec-3] [requestId=75b1a84b0fa04d198f00c250ea6566bd] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=a42e5bdca0804e3bb5e6db30d1b67bc4��owner=ut-default��sequence=1
+2026-11-14 18:25:10.260 INFO  [http-nio-auto-3-exec-3] [requestId=75b1a84b0fa04d198f00c250ea6566bd] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=75b1a84b0fa04d198f00c250ea6566bd��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=2
+2026-11-14 18:25:10.260 INFO  [http-nio-auto-3-exec-3] [requestId=75b1a84b0fa04d198f00c250ea6566bd] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"75b1a84b0fa04d198f00c250ea6566bd","controllerMethod":"ChatStreamController#streamChat","elapsedMs":18,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:25:10.683 INFO  [parallel-9] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+2026-11-14 18:25:10.689 INFO  [parallel-9] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=a42e5bdca0804e3bb5e6db30d1b67bc4���û����=1���������=2
+2026-11-14 18:25:10.714 INFO  [http-nio-auto-3-exec-5] [requestId=55f74d57675e4b62809c241fe7a38d57] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=1429ad2a9e8a44508c8ba9de1b42a671��owner=ut-default��sequence=1
+2026-11-14 18:25:10.725 INFO  [http-nio-auto-3-exec-5] [requestId=55f74d57675e4b62809c241fe7a38d57] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=55f74d57675e4b62809c241fe7a38d57��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=14
+2026-11-14 18:25:10.725 INFO  [http-nio-auto-3-exec-5] [requestId=55f74d57675e4b62809c241fe7a38d57] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"55f74d57675e4b62809c241fe7a38d57","controllerMethod":"ChatStreamController#streamChat","elapsedMs":17,"args":{"request":{"value":"{\"message\":\"�豸�޷�������������Ų鲽��\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:25:11.210 INFO  [parallel-12] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+2026-11-14 18:25:11.216 INFO  [parallel-12] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=1429ad2a9e8a44508c8ba9de1b42a671���û����=1���������=2
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.341 s -- in com.zl.d31.SseEventOrderTest
+[INFO] Running com.zl.d31.StreamOrchestratorTest
+2026-11-14 18:25:11.232 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.StreamOrchestratorTest]: StreamOrchestratorTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:11.234 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.StreamOrchestratorTest
+2026-11-14 18:25:11.535 INFO  [parallel-13] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+2026-11-14 18:25:11.873 INFO  [parallel-13] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.777 s -- in com.zl.d31.StreamOrchestratorTest
+[INFO] Running com.zl.d31.StreamSseHttpTest
+2026-11-14 18:25:12.010 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.StreamSseHttpTest]: StreamSseHttpTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:12.012 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.StreamSseHttpTest
+2026-11-14 18:25:12.033 INFO  [http-nio-auto-3-exec-7] [requestId=e314df736da2414e914bc96c8624fc97] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=833b1eee0d134128953a65693f063445��owner=ut-default��sequence=1
+2026-11-14 18:25:12.042 INFO  [http-nio-auto-3-exec-7] [requestId=e314df736da2414e914bc96c8624fc97] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=e314df736da2414e914bc96c8624fc97��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=12
+2026-11-14 18:25:12.042 INFO  [http-nio-auto-3-exec-7] [requestId=e314df736da2414e914bc96c8624fc97] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"e314df736da2414e914bc96c8624fc97","controllerMethod":"ChatStreamController#streamChat","elapsedMs":16,"args":{"request":{"value":"{\"message\":\"�豸�޷�������������Ų�\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:25:12.479 INFO  [parallel-15] [requestId=] c.z.d.k.KnowledgeChatOrchestrator - ֪ʶ�ʴ���ʽ��ɣ�������Դ��=0��ʵ��������=0������δ֪���=0
+2026-11-14 18:25:12.486 INFO  [parallel-15] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=833b1eee0d134128953a65693f063445���û����=1���������=2
+2026-11-14 18:25:12.509 INFO  [http-nio-auto-3-exec-9] [requestId=a1f05301be2c4236a9b6e99cc4bcaf93] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=5a0140c323c847758dea9ab176823640��owner=ut-default��sequence=1
+2026-11-14 18:25:12.521 INFO  [http-nio-auto-3-exec-9] [requestId=a1f05301be2c4236a9b6e99cc4bcaf93] c.z.d.c.ChatStreamController - SSE ��ʽ�Ի��ѽ�����requestId=a1f05301be2c4236a9b6e99cc4bcaf93��mode=mock��thinkingEnabled=false��retrieveEnabled=false��messageLength=19
+2026-11-14 18:25:12.521 INFO  [http-nio-auto-3-exec-9] [requestId=a1f05301be2c4236a9b6e99cc4bcaf93] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"a1f05301be2c4236a9b6e99cc4bcaf93","controllerMethod":"ChatStreamController#streamChat","elapsedMs":18,"args":{"request":{"value":"{\"message\":\"�豸�޷�������������Ų鲢������ϸ����\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":{"value":"<unserializable: org.apache.catalina.connector.RequestFacade>","truncated":false},"response":"<container:LifecycleHttpServletResponse>"},"result":"<async-emitter:SseEmitter>","resultTruncated":false}
+2026-11-14 18:25:12.572 WARN  [http-nio-auto-3-exec-10] [requestId=] c.z.d.c.ChatStreamController - SSE �����쳣/�ͻ��˶Ͽ���requestId=a1f05301be2c4236a9b6e99cc4bcaf93������=IOException
+2026-11-14 18:25:12.580 WARN  [http-nio-auto-3-exec-10] [requestId=] c.zl.d31.history.ChatHistoryService - �Ի��ִ��жϣ�sessionId=5a0140c323c847758dea9ab176823640���������ֲ�������=true
+2026-11-14 18:25:12.589 ERROR [http-nio-auto-3-exec-10] [requestId=] c.z.d.common.GlobalExceptionHandler - δԤ�ڵ�ϵͳ�쳣
+java.io.IOException: ��������е�������ֹ��һ���ѽ��������ӡ�
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:54)
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:137)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:102)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:58)
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:542)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:129)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1436)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:748)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flushBlocking(SocketWrapperBase.java:714)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flush(SocketWrapperBase.java:699)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.flush(Http11OutputBuffer.java:574)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.flush(ChunkedOutputFilter.java:132)
+	at org.apache.coyote.http11.Http11OutputBuffer.flush(Http11OutputBuffer.java:216)
+	at org.apache.coyote.http11.Http11Processor.flush(Http11Processor.java:1283)
+	at org.apache.coyote.AbstractProcessor.action(AbstractProcessor.java:408)
+	at org.apache.coyote.Response.action(Response.java:201)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:298)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:264)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:130)
+	at org.springframework.web.context.request.async.StandardServletAsyncWebRequest$LifecycleServletOutputStream.flush(StandardServletAsyncWebRequest.java:415)
+	at java.base/java.io.FilterOutputStream.flush(FilterOutputStream.java:155)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1205)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1063)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:485)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.writeInternal(AbstractGenericHttpMessageConverter.java:133)
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:234)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.sendInternal(ResponseBodyEmitterReturnValueHandler.java:315)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.send(ResponseBodyEmitterReturnValueHandler.java:302)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.sendInternal(ResponseBodyEmitter.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.send(ResponseBodyEmitter.java:243)
+	at org.springframework.web.servlet.mvc.method.annotation.SseEmitter.send(SseEmitter.java:130)
+	at com.zl.d31.controller.ChatStreamController.safeSend(ChatStreamController.java:326)
+	at com.zl.d31.controller.ChatStreamController.onChunk(ChatStreamController.java:241)
+	at com.zl.d31.controller.ChatStreamController.lambda$streamChat$1(ChatStreamController.java:162)
+	at reactor.core.publisher.LambdaSubscriber.onNext(LambdaSubscriber.java:160)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.SerializedSubscriber.onNext(SerializedSubscriber.java:99)
+	at reactor.core.publisher.FluxTimeout$TimeoutMainSubscriber.onNext(FluxTimeout.java:181)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.FluxConcatArray$ConcatArraySubscriber.onNext(FluxConcatArray.java:180)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.innerNext(FluxConcatMapNoPrefetch.java:259)
+	at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:865)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilCoordinator.complete(MonoDelayUntil.java:420)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilTrigger.onComplete(MonoDelayUntil.java:533)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.propagateDelay(MonoDelay.java:271)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.run(MonoDelay.java:285)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-14 18:25:12.591 WARN  [http-nio-auto-3-exec-10] [requestId=] o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Failure in @ExceptionHandler com.zl.d31.common.GlobalExceptionHandler#handleUnexpected(Exception)
+org.springframework.http.converter.HttpMessageNotWritableException: No converter for [class com.zl.d31.common.Result] with preset Content-Type 'text/event-stream'
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:364)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor.handleReturnValue(RequestResponseBodyMethodProcessor.java:208)
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136)
+	at org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver.doResolveHandlerMethodException(ExceptionHandlerExceptionResolver.java:471)
+	at org.springframework.web.servlet.handler.AbstractHandlerMethodExceptionResolver.doResolveException(AbstractHandlerMethodExceptionResolver.java:73)
+	at org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver.resolveException(AbstractHandlerExceptionResolver.java:182)
+	at org.springframework.web.servlet.handler.HandlerExceptionResolverComposite.resolveException(HandlerExceptionResolverComposite.java:80)
+	at org.springframework.web.servlet.DispatcherServlet.processHandlerException(DispatcherServlet.java:1360)
+	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1161)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1106)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:138)
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:610)
+	at org.apache.catalina.core.ApplicationDispatcher.doDispatch(ApplicationDispatcher.java:538)
+	at org.apache.catalina.core.ApplicationDispatcher.dispatch(ApplicationDispatcher.java:509)
+	at org.apache.catalina.core.AsyncContextImpl$AsyncRunnable.run(AsyncContextImpl.java:599)
+	at org.apache.catalina.core.AsyncContextImpl.doInternalDispatch(AsyncContextImpl.java:342)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:163)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:88)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72)
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:237)
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:243)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:1272)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1797)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:973)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:491)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-14 18:25:12.591 ERROR [http-nio-auto-3-exec-10] [requestId=] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] threw exception
+java.io.IOException: ��������е�������ֹ��һ���ѽ��������ӡ�
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:54)
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:137)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:102)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:58)
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:542)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:129)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1436)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:748)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flushBlocking(SocketWrapperBase.java:714)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flush(SocketWrapperBase.java:699)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.flush(Http11OutputBuffer.java:574)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.flush(ChunkedOutputFilter.java:132)
+	at org.apache.coyote.http11.Http11OutputBuffer.flush(Http11OutputBuffer.java:216)
+	at org.apache.coyote.http11.Http11Processor.flush(Http11Processor.java:1283)
+	at org.apache.coyote.AbstractProcessor.action(AbstractProcessor.java:408)
+	at org.apache.coyote.Response.action(Response.java:201)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:298)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:264)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:130)
+	at org.springframework.web.context.request.async.StandardServletAsyncWebRequest$LifecycleServletOutputStream.flush(StandardServletAsyncWebRequest.java:415)
+	at java.base/java.io.FilterOutputStream.flush(FilterOutputStream.java:155)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1205)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1063)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:485)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.writeInternal(AbstractGenericHttpMessageConverter.java:133)
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:234)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.sendInternal(ResponseBodyEmitterReturnValueHandler.java:315)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.send(ResponseBodyEmitterReturnValueHandler.java:302)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.sendInternal(ResponseBodyEmitter.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.send(ResponseBodyEmitter.java:243)
+	at org.springframework.web.servlet.mvc.method.annotation.SseEmitter.send(SseEmitter.java:130)
+	at com.zl.d31.controller.ChatStreamController.safeSend(ChatStreamController.java:326)
+	at com.zl.d31.controller.ChatStreamController.onChunk(ChatStreamController.java:241)
+	at com.zl.d31.controller.ChatStreamController.lambda$streamChat$1(ChatStreamController.java:162)
+	at reactor.core.publisher.LambdaSubscriber.onNext(LambdaSubscriber.java:160)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.SerializedSubscriber.onNext(SerializedSubscriber.java:99)
+	at reactor.core.publisher.FluxTimeout$TimeoutMainSubscriber.onNext(FluxTimeout.java:181)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.FluxConcatArray$ConcatArraySubscriber.onNext(FluxConcatArray.java:180)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.innerNext(FluxConcatMapNoPrefetch.java:259)
+	at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:865)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilCoordinator.complete(MonoDelayUntil.java:420)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilTrigger.onComplete(MonoDelayUntil.java:533)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.propagateDelay(MonoDelay.java:271)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.run(MonoDelay.java:285)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+2026-11-14 18:25:12.592 ERROR [http-nio-auto-3-exec-10] [requestId=] o.a.c.c.C.[.[.[.[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception
+java.io.IOException: ��������е�������ֹ��һ���ѽ��������ӡ�
+	at java.base/sun.nio.ch.SocketDispatcher.write0(Native Method)
+	at java.base/sun.nio.ch.SocketDispatcher.write(SocketDispatcher.java:54)
+	at java.base/sun.nio.ch.IOUtil.writeFromNativeBuffer(IOUtil.java:137)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:102)
+	at java.base/sun.nio.ch.IOUtil.write(IOUtil.java:58)
+	at java.base/sun.nio.ch.SocketChannelImpl.write(SocketChannelImpl.java:542)
+	at org.apache.tomcat.util.net.NioChannel.write(NioChannel.java:129)
+	at org.apache.tomcat.util.net.NioEndpoint$NioSocketWrapper.doWrite(NioEndpoint.java:1436)
+	at org.apache.tomcat.util.net.SocketWrapperBase.doWrite(SocketWrapperBase.java:748)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flushBlocking(SocketWrapperBase.java:714)
+	at org.apache.tomcat.util.net.SocketWrapperBase.flush(SocketWrapperBase.java:699)
+	at org.apache.coyote.http11.Http11OutputBuffer$SocketOutputBuffer.flush(Http11OutputBuffer.java:574)
+	at org.apache.coyote.http11.filters.ChunkedOutputFilter.flush(ChunkedOutputFilter.java:132)
+	at org.apache.coyote.http11.Http11OutputBuffer.flush(Http11OutputBuffer.java:216)
+	at org.apache.coyote.http11.Http11Processor.flush(Http11Processor.java:1283)
+	at org.apache.coyote.AbstractProcessor.action(AbstractProcessor.java:408)
+	at org.apache.coyote.Response.action(Response.java:201)
+	at org.apache.catalina.connector.OutputBuffer.doFlush(OutputBuffer.java:298)
+	at org.apache.catalina.connector.OutputBuffer.flush(OutputBuffer.java:264)
+	at org.apache.catalina.connector.CoyoteOutputStream.flush(CoyoteOutputStream.java:130)
+	at org.springframework.web.context.request.async.StandardServletAsyncWebRequest$LifecycleServletOutputStream.flush(StandardServletAsyncWebRequest.java:415)
+	at java.base/java.io.FilterOutputStream.flush(FilterOutputStream.java:155)
+	at com.fasterxml.jackson.core.json.UTF8JsonGenerator.flush(UTF8JsonGenerator.java:1205)
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1063)
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:485)
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.writeInternal(AbstractGenericHttpMessageConverter.java:133)
+	at org.springframework.http.converter.AbstractHttpMessageConverter.write(AbstractHttpMessageConverter.java:234)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.sendInternal(ResponseBodyEmitterReturnValueHandler.java:315)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitterReturnValueHandler$DefaultSseEmitterHandler.send(ResponseBodyEmitterReturnValueHandler.java:302)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.sendInternal(ResponseBodyEmitter.java:256)
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseBodyEmitter.send(ResponseBodyEmitter.java:243)
+	at org.springframework.web.servlet.mvc.method.annotation.SseEmitter.send(SseEmitter.java:130)
+	at com.zl.d31.controller.ChatStreamController.safeSend(ChatStreamController.java:326)
+	at com.zl.d31.controller.ChatStreamController.onChunk(ChatStreamController.java:241)
+	at com.zl.d31.controller.ChatStreamController.lambda$streamChat$1(ChatStreamController.java:162)
+	at reactor.core.publisher.LambdaSubscriber.onNext(LambdaSubscriber.java:160)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.SerializedSubscriber.onNext(SerializedSubscriber.java:99)
+	at reactor.core.publisher.FluxTimeout$TimeoutMainSubscriber.onNext(FluxTimeout.java:181)
+	at reactor.core.publisher.FluxPeek$PeekSubscriber.onNext(FluxPeek.java:200)
+	at reactor.core.publisher.FluxConcatArray$ConcatArraySubscriber.onNext(FluxConcatArray.java:180)
+	at reactor.core.publisher.FluxMap$MapSubscriber.onNext(FluxMap.java:122)
+	at reactor.core.publisher.FluxConcatMapNoPrefetch$FluxConcatMapNoPrefetchSubscriber.innerNext(FluxConcatMapNoPrefetch.java:259)
+	at reactor.core.publisher.FluxConcatMap$ConcatMapInner.onNext(FluxConcatMap.java:865)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilCoordinator.complete(MonoDelayUntil.java:420)
+	at reactor.core.publisher.MonoDelayUntil$DelayUntilTrigger.onComplete(MonoDelayUntil.java:533)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.propagateDelay(MonoDelay.java:271)
+	at reactor.core.publisher.MonoDelay$MonoDelayRunnable.run(MonoDelay.java:285)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:68)
+	at reactor.core.scheduler.SchedulerTask.call(SchedulerTask.java:28)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:304)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.055 s -- in com.zl.d31.StreamSseHttpTest
+[INFO] Running com.zl.d31.SyncChatContractTest
+2026-11-14 18:25:13.067 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.SyncChatContractTest]: SyncChatContractTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:13.073 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.SyncChatContractTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:25:13.093 INFO  [main] [requestId=] com.zl.d31.SyncChatContractTest - Starting SyncChatContractTest using Java 21.0.7 with PID 26744 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:25:13.093 INFO  [main] [requestId=] com.zl.d31.SyncChatContractTest - The following 1 profile is active: "test"
+2026-11-14 18:25:13.712 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:25:13.712 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:25:13.854 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 140 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:25:14.201 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+2026-11-14 18:25:14.451 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:25:14.452 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:25:14.452 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:25:14.452 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:25:14.465 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@3395e861
+2026-11-14 18:25:14.465 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:25:14.552 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:25:14.605 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@75e5da2c
+2026-11-14 18:25:14.726 INFO  [main] [requestId=] o.s.b.t.m.w.SpringBootMockServletContext - Initializing Spring TestDispatcherServlet ''
+2026-11-14 18:25:14.726 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Initializing Servlet ''
+2026-11-14 18:25:14.727 INFO  [main] [requestId=] o.s.t.w.s.TestDispatcherServlet - Completed initialization in 1 ms
+2026-11-14 18:25:14.740 INFO  [main] [requestId=] com.zl.d31.SyncChatContractTest - Started SyncChatContractTest in 1.665 seconds (process running for 36.303)
+2026-11-14 18:25:14.741 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Starting...
+2026-11-14 18:25:14.745 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-7 - Added connection com.mysql.cj.jdbc.ConnectionImpl@64a301
+2026-11-14 18:25:14.745 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-7 - Start completed.
+2026-11-14 18:25:14.758 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+2026-11-14 18:25:14.774 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=ab772f0806524970aea2a3180ed9124a��owner=ut-default��sequence=1
+2026-11-14 18:25:14.791 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=ab772f0806524970aea2a3180ed9124a���û����=1���������=2
+2026-11-14 18:25:14.798 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=ab772f0806524970aea2a3180ed9124a��mode=mock��mocked=true
+2026-11-14 18:25:14.800 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"44ebb31bfaed4636b4ab8082bcf59972","controllerMethod":"ChatController#chat","elapsedMs":30,"args":{"request":{"value":"{\"message\":\"��ã������һ�����Լ�\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����ã������һ�����Լ�����\",\"sessionId\":\"ab772f0806524970aea2a3180ed9124a\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:14.804 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"44ebb31bfaed4636b4ab8082bcf59972","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"Content-Type":"application/json;charset=UTF-8","Content-Length":"47"},"requestBody":{"contentType":"application/json","size":47,"body":"{\"message\":\"��ã������һ�����Լ�\"}","truncated":false}}
+2026-11-14 18:25:14.805 INFO  [main] [requestId=44ebb31bfaed4636b4ab8082bcf59972] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"44ebb31bfaed4636b4ab8082bcf59972","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":40,"responseBody":{"contentType":"application/json","size":395,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����ã������һ�����Լ�����\",\"sessionId\":\"ab772f0806524970aea2a3180ed9124a\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:14.814 WARN  [main] [requestId=20224790ff4f4c19817b1e51c5836c65] ACCESS_LOG - {"event":"CONTROLLER_ERROR","requestId":"20224790ff4f4c19817b1e51c5836c65","controllerMethod":"ChatController#chat","elapsedMs":0,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"exception":"java.lang.IllegalArgumentException","errorMessage":"�������ݱ�ʶ�Ƿ�����������ĸ���֡��»��������ַ������Ȳ�����64"}
+2026-11-14 18:25:14.814 WARN  [main] [requestId=20224790ff4f4c19817b1e51c5836c65] c.z.d.common.GlobalExceptionHandler - ��������쳣: �������ݱ�ʶ�Ƿ�����������ĸ���֡��»��������ַ������Ȳ�����64
+2026-11-14 18:25:14.815 INFO  [main] [requestId=20224790ff4f4c19817b1e51c5836c65] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"20224790ff4f4c19817b1e51c5836c65","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"Content-Type":"application/json;charset=UTF-8","X-Dev-User":"�Ƿ��û�!","Content-Length":"20"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:14.816 INFO  [main] [requestId=20224790ff4f4c19817b1e51c5836c65] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"20224790ff4f4c19817b1e51c5836c65","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":2,"responseBody":{"contentType":"application/json","size":126,"body":"{\"code\":4001,\"msg\":\"�������ݱ�ʶ�Ƿ�����������ĸ���֡��»��������ַ������Ȳ�����64\",\"data\":null}","truncated":false}}
+2026-11-14 18:25:14.884 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=30d5f9942d9042358fecc822461afada��owner=ut-default��sequence=1
+2026-11-14 18:25:14.892 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] c.z.d.c.RoleConversationService - ��ɫ�Ի�׼����ɣ�sessionId=30d5f9942d9042358fecc822461afada��scene=customer_service��ģ��汾=1��������Ϣ��=0
+2026-11-14 18:25:14.899 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=30d5f9942d9042358fecc822461afada���û����=1���������=2
+2026-11-14 18:25:14.908 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] c.zl.d31.controller.ChatController - ��ɫ�Ի���ɣ�sessionId=30d5f9942d9042358fecc822461afada��templateId=customer_service��version=1
+2026-11-14 18:25:14.910 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"5a1e1e62513b443f85f20d66d25e832f","controllerMethod":"ChatController#chat","elapsedMs":87,"args":{"request":{"value":"{\"message\":\"�ҵ��豸�޷�������ô��\",\"scene\":\"customer_service\",\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"sessionId\":\"30d5f9942d9042358fecc822461afada\",\"scene\":\"customer_service\",\"templateId\":\"customer_service\",\"templateVersion\":1,\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=488����ʷ��Ϣ����=0��ϵͳ��ʾ������=����һ��רҵ�����߿ͷ����������ϸ��������·�����򣺣����յ����⣺���ҵ��豸�޷�������ô�졹��\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:14.911 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"5a1e1e62513b443f85f20d66d25e832f","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"Content-Type":"application/json;charset=UTF-8","Content-Length":"74"},"requestBody":{"contentType":"application/json","size":74,"body":"{\"message\":\"�ҵ��豸�޷�������ô��\",\"scene\":\"customer_service\"}","truncated":false}}
+2026-11-14 18:25:14.912 INFO  [main] [requestId=5a1e1e62513b443f85f20d66d25e832f] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"5a1e1e62513b443f85f20d66d25e832f","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":90,"responseBody":{"contentType":"application/json","size":554,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"sessionId\":\"30d5f9942d9042358fecc822461afada\",\"scene\":\"customer_service\",\"templateId\":\"customer_service\",\"templateVersion\":1,\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=488����ʷ��Ϣ����=0��ϵͳ��ʾ������=����һ��רҵ�����߿ͷ����������ϸ��������·�����򣺣����յ����⣺���ҵ��豸�޷�������ô�졹��\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:14.918 WARN  [main] [requestId=99ae50f87ece4e33a8a777ac568d1b60] c.z.d.common.GlobalExceptionHandler - ����У��ʧ��: message ���Ȳ��ܳ��� 2000 ���ַ�
+2026-11-14 18:25:14.920 INFO  [main] [requestId=99ae50f87ece4e33a8a777ac568d1b60] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"99ae50f87ece4e33a8a777ac568d1b60","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"Content-Type":"application/json;charset=UTF-8","Content-Length":"2015"},"requestBody":{"contentType":"application/json","size":2015,"body":"{\"message\":\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"}","truncated":false}}
+2026-11-14 18:25:14.920 INFO  [main] [requestId=99ae50f87ece4e33a8a777ac568d1b60] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"99ae50f87ece4e33a8a777ac568d1b60","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":2,"responseBody":{"contentType":"application/json","size":75,"body":"{\"code\":4001,\"msg\":\"message ���Ȳ��ܳ��� 2000 ���ַ�\",\"data\":null}","truncated":false}}
+2026-11-14 18:25:14.925 WARN  [main] [requestId=ce4ecbef2a0a4ea2baa37a801c5f130d] c.z.d.common.GlobalExceptionHandler - ����У��ʧ��: message ����Ϊ�ջ򴿿հ�
+2026-11-14 18:25:14.926 INFO  [main] [requestId=ce4ecbef2a0a4ea2baa37a801c5f130d] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"ce4ecbef2a0a4ea2baa37a801c5f130d","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"Content-Type":"application/json;charset=UTF-8","Content-Length":"17"},"requestBody":{"contentType":"application/json","size":17,"body":"{\"message\":\"   \"}","truncated":false}}
+2026-11-14 18:25:14.926 INFO  [main] [requestId=ce4ecbef2a0a4ea2baa37a801c5f130d] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"ce4ecbef2a0a4ea2baa37a801c5f130d","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":1,"responseBody":{"contentType":"application/json","size":66,"body":"{\"code\":4001,\"msg\":\"message ����Ϊ�ջ򴿿հ�\",\"data\":null}","truncated":false}}
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.863 s -- in com.zl.d31.SyncChatContractTest
+[INFO] Running com.zl.d31.TraceIdHttpTest
+2026-11-14 18:25:14.931 INFO  [main] [requestId=] o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.zl.d31.TraceIdHttpTest]: TraceIdHttpTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-11-14 18:25:14.932 INFO  [main] [requestId=] o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.TraceIdHttpTest
+2026-11-14 18:25:14.950 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=f650526c64be4af8b6db4b0238e86513��owner=ut-default��sequence=1
+2026-11-14 18:25:14.964 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=f650526c64be4af8b6db4b0238e86513���û����=1���������=2
+2026-11-14 18:25:14.971 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=f650526c64be4af8b6db4b0238e86513��mode=mock��mocked=true
+2026-11-14 18:25:14.973 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"347a03c8647449ac9a82363eeb1074d8","controllerMethod":"ChatController#chat","elapsedMs":28,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"f650526c64be4af8b6db4b0238e86513\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:14.976 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"347a03c8647449ac9a82363eeb1074d8","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:14.977 INFO  [http-nio-auto-3-exec-1] [requestId=347a03c8647449ac9a82363eeb1074d8] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"347a03c8647449ac9a82363eeb1074d8","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":33,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"f650526c64be4af8b6db4b0238e86513\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:14.985 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=2415cb4c6e3d4f85aeabeee0b34137d4��owner=ut-default��sequence=1
+2026-11-14 18:25:14.999 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=2415cb4c6e3d4f85aeabeee0b34137d4���û����=1���������=2
+2026-11-14 18:25:15.006 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=2415cb4c6e3d4f85aeabeee0b34137d4��mode=mock��mocked=true
+2026-11-14 18:25:15.006 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"9e955a06655b44d3b1a5c8a90cf15658","controllerMethod":"ChatController#chat","elapsedMs":26,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"2415cb4c6e3d4f85aeabeee0b34137d4\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:15.007 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"9e955a06655b44d3b1a5c8a90cf15658","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:15.008 INFO  [http-nio-auto-3-exec-2] [requestId=9e955a06655b44d3b1a5c8a90cf15658] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"9e955a06655b44d3b1a5c8a90cf15658","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":28,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"2415cb4c6e3d4f85aeabeee0b34137d4\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:15.026 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=6b10ee0ad4a64c819e6b6475e894279a��owner=ut-default��sequence=1
+2026-11-14 18:25:15.040 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=6b10ee0ad4a64c819e6b6475e894279a���û����=1���������=2
+2026-11-14 18:25:15.047 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=6b10ee0ad4a64c819e6b6475e894279a��mode=mock��mocked=true
+2026-11-14 18:25:15.047 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"c05813548057485bba47516a3ba40d9d","controllerMethod":"ChatController#chat","elapsedMs":27,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"6b10ee0ad4a64c819e6b6475e894279a\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:15.048 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"c05813548057485bba47516a3ba40d9d","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json","x-request-id":"! !"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:15.048 INFO  [http-nio-auto-3-exec-3] [requestId=c05813548057485bba47516a3ba40d9d] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"c05813548057485bba47516a3ba40d9d","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":29,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"6b10ee0ad4a64c819e6b6475e894279a\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:15.069 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=4243243c275b49c893c2abcf1176e125��owner=ut-default��sequence=1
+2026-11-14 18:25:15.086 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=4243243c275b49c893c2abcf1176e125���û����=1���������=2
+2026-11-14 18:25:15.093 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=4243243c275b49c893c2abcf1176e125��mode=mock��mocked=true
+2026-11-14 18:25:15.095 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"good-123evil","controllerMethod":"ChatController#chat","elapsedMs":33,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"4243243c275b49c893c2abcf1176e125\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:15.096 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"good-123evil","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json","x-request-id":"good-123 evil!"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:15.096 INFO  [http-nio-auto-3-exec-4] [requestId=good-123evil] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"good-123evil","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":34,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"4243243c275b49c893c2abcf1176e125\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:15.116 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=995d122f6e6b42f28968a5d542a0df2a��owner=ut-default��sequence=1
+2026-11-14 18:25:15.133 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=995d122f6e6b42f28968a5d542a0df2a���û����=1���������=2
+2026-11-14 18:25:15.140 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=995d122f6e6b42f28968a5d542a0df2a��mode=mock��mocked=true
+2026-11-14 18:25:15.140 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"e39e14d324c647da8151e9eb36eae43b","controllerMethod":"ChatController#chat","elapsedMs":30,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"995d122f6e6b42f28968a5d542a0df2a\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:15.141 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"e39e14d324c647da8151e9eb36eae43b","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:15.141 INFO  [http-nio-auto-3-exec-5] [requestId=e39e14d324c647da8151e9eb36eae43b] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"e39e14d324c647da8151e9eb36eae43b","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":32,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"995d122f6e6b42f28968a5d542a0df2a\",\"citations\":[]}}","truncated":false}}
+2026-11-14 18:25:15.160 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] c.zl.d31.history.ChatHistoryService - �Ի��ִο�ʼ��sessionId=c2bfd96797a84e9fbe589d053d647fa9��owner=ut-default��sequence=1
+2026-11-14 18:25:15.176 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] c.zl.d31.history.ChatHistoryService - �Ի��ִ���ɣ�sessionId=c2bfd96797a84e9fbe589d053d647fa9���û����=1���������=2
+2026-11-14 18:25:15.184 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] c.zl.d31.controller.ChatController - ��ͨ�Ի���ɣ�sessionId=c2bfd96797a84e9fbe589d053d647fa9��mode=mock��mocked=true
+2026-11-14 18:25:15.184 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] ACCESS_LOG - {"event":"CONTROLLER_ACCESS","requestId":"trace-abc-123","controllerMethod":"ChatController#chat","elapsedMs":29,"args":{"request":{"value":"{\"message\":\"���\",\"scene\":null,\"sessionId\":null,\"variables\":null,\"thinkingEnabled\":null,\"reasoningEffort\":null,\"showReasoning\":null,\"retrieveEnabled\":null}","truncated":false},"httpRequest":"<container:ContentCachingRequestWrapper>"},"result":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"c2bfd96797a84e9fbe589d053d647fa9\",\"citations\":[]}}","resultTruncated":false}
+2026-11-14 18:25:15.186 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] ACCESS_LOG - {"event":"HTTP_REQUEST","requestId":"trace-abc-123","method":"POST","uri":"/api/v1/ai/chat","query":null,"clientIp":"127.0.0.1","headers":{"connection":"Upgrade, HTTP2-Settings","content-length":"20","host":"127.0.0.1:53155","http2-settings":"AAEAAEAAAAIAAAAAAAMAAAAAAAQBAAAAAAUAAEAAAAYABgAA","upgrade":"h2c","user-agent":"Java-http-client/21.0.7","content-type":"application/json","x-request-id":"trace-abc-123"},"requestBody":{"contentType":"application/json","size":20,"body":"{\"message\":\"���\"}","truncated":false}}
+2026-11-14 18:25:15.186 INFO  [http-nio-auto-3-exec-6] [requestId=trace-abc-123] ACCESS_LOG - {"event":"HTTP_RESPONSE","requestId":"trace-abc-123","method":"POST","uri":"/api/v1/ai/chat","httpStatus":200,"elapsedMs":31,"responseBody":{"contentType":"application/json","size":368,"body":"{\"code\":200,\"msg\":\"success\",\"data\":{\"mode\":\"mock\",\"model\":\"offline-mock\",\"mocked\":true,\"content\":\"[MOCK:D01] ��ǰΪ����ģ���ɫ�Ի���AI_MODE=mock����δ�����κ��ⲿ����ϵͳ��ʾ���ַ���=0����ʷ��Ϣ����=0��ϵͳ��ʾ������=�����յ����⣺����á���\",\"sessionId\":\"c2bfd96797a84e9fbe589d053d647fa9\",\"citations\":[]}}","truncated":false}}
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.258 s -- in com.zl.d31.TraceIdHttpTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 307, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:05 min
+[INFO] Finished at: 2026-11-14T18:25:15+08:00
+[INFO] ------------------------------------------------------------------------

@@ -1,0 +1,737 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< org.ai.m3.db:D31_VSUAI >-----------------------
+[INFO] Building D31_VSUAI 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D31_VSUAI ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D31_VSUAI ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 15 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D31_VSUAI ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D31_VSUAI ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D31_VSUAI ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D31_VSUAI ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+18:18:12.193 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest]: DocumentVectorIndexIntegrationTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:18:12.661 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.zl.d31.D31SpringAiApplication for test class com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::               (v3.5.16)
+
+2026-11-14 18:18:13.386 INFO  [background-preinit] [requestId=] o.h.validator.internal.util.Version - HV000001: Hibernate Validator 8.0.3.Final
+2026-11-14 18:18:13.420 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - Starting DocumentVectorIndexIntegrationTest using Java 21.0.7 with PID 32164 (started by zl in E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI)
+2026-11-14 18:18:13.421 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - The following 1 profile is active: "test"
+2026-11-14 18:18:15.072 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+2026-11-14 18:18:15.074 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-11-14 18:18:15.267 INFO  [main] [requestId=] o.s.d.r.c.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 175 ms. Found 0 Redis repository interfaces.
+2026-11-14 18:18:16.657 INFO  [main] [requestId=] c.zl.d31.knowledge.KnowledgeCorpus - �豸����֪ʶ���ϼ�����ɣ��ĵ���=3��Ƭ����=8
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+2026-11-14 18:18:20.010 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Using the vector table name: d31_vector_store. Is empty: false
+2026-11-14 18:18:20.028 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - Initializing PGVectorStore schema for table: d31_vector_store in schema: public
+2026-11-14 18:18:20.029 INFO  [main] [requestId=] o.s.a.v.pgvector.PgVectorStore - vectorTableValidationsEnabled false
+2026-11-14 18:18:20.044 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Starting...
+2026-11-14 18:18:20.500 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - pgvector-pool - Added connection org.postgresql.jdbc.PgConnection@52d384f3
+2026-11-14 18:18:20.503 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - pgvector-pool - Start completed.
+2026-11-14 18:18:21.441 INFO  [main] [requestId=] o.s.b.a.w.s.WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2026-11-14 18:18:22.138 INFO  [main] [requestId=] c.b.m.s.MybatisPlusApplicationContextAware - Register ApplicationContext instances org.springframework.web.context.support.GenericWebApplicationContext@27a97e08
+2026-11-14 18:18:22.849 INFO  [main] [requestId=] c.z.d.d.v.DocumentVectorIndexIntegrationTest - Started DocumentVectorIndexIntegrationTest in 10.005 seconds (process running for 11.771)
+2026-11-14 18:18:22.878 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2026-11-14 18:18:23.143 INFO  [main] [requestId=] com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d7daf88
+2026-11-14 18:18:23.143 INFO  [main] [requestId=] com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2026-11-14 18:18:23.339 INFO  [main] [requestId=] c.z.d31.prompt.PromptSeedInitializer - Prompt ���ӳ�ʼ����ɣ����� 0 �������������ݿ��Ѵ��ڣ�8 ����ʧ�� 0 ������Դ=prompt-templates/seed-templates.json
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0, Time elapsed: 11.76 s <<< FAILURE! -- in com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.concurrentIndex_convergesToSingleSet -- Time elapsed: 0.129 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.uniqueConstraint_rejectsDuplicateChunkId -- Time elapsed: 0.033 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario5_failureThenRetry_completesWithoutNewIds -- Time elapsed: 0.017 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario4_delete_removesAllAndIsRepeatSafe -- Time elapsed: 0.018 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario6_partialFailureThenRecover_convergesCorrectly -- Time elapsed: 0.015 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario2_repeatImport_isIdempotentWithoutDuplicates -- Time elapsed: 0.017 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario3_update_switchesVersionAndCleansOld -- Time elapsed: 0.012 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario3b_newVersionFailure_keepsOldVersionIntact -- Time elapsed: 0.020 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.reconcile_dryRunCleanSystemHasNoIssues -- Time elapsed: 0.017 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.reconcile_detectsOrphansAndCompensatingDeletes -- Time elapsed: 0.017 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[ERROR] com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.scenario1_firstIndex_completesAndPersists -- Time elapsed: 0.013 s <<< ERROR!
+org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+	at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+	at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.setUp(DocumentVectorIndexIntegrationTest.java:88)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	Suppressed: org.springframework.jdbc.BadSqlGrammarException: StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+		at org.springframework.jdbc.support.SQLStateSQLExceptionTranslator.doTranslate(SQLStateSQLExceptionTranslator.java:134)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+		at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:116)
+		at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1556)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+		at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.cleanScoped(DocumentVectorIndexIntegrationTest.java:101)
+		at com.zl.d31.document.vectorindex.DocumentVectorIndexIntegrationTest.tearDown(DocumentVectorIndexIntegrationTest.java:95)
+		... 3 more
+	Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+		at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+		at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+		at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+		at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+		at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+		at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+		at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+		at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+		at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+		at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+		at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+		at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+		... 6 more
+Caused by: org.postgresql.util.PSQLException: ERROR: relation "document_chunk_index" does not exist
+  λ�ã�13
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeUpdate(PgStatement.java:293)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:120)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 6 more
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Errors: 
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[ERROR]   DocumentVectorIndexIntegrationTest.setUp:88->cleanScoped:101 ? BadSqlGrammar StatementCallback; bad SQL grammar [DELETE FROM document_chunk_index WHERE document_id LIKE 'd31vi-%']
+[INFO] 
+[ERROR] Tests run: 11, Failures: 0, Errors: 11, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  19.270 s
+[INFO] Finished at: 2026-11-14T18:18:23+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project D31_VSUAI: 
+[ERROR] 
+[ERROR] See E:\AI\project\AI-Learning-one\M3-Java\D31\D31_VSUAI\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

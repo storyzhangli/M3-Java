@@ -214,8 +214,9 @@ app:
     port: ${PGVECTOR_PORT:5432}
     database: ${PGVECTOR_DATABASE:spring_ai}
     username: ${PGVECTOR_USER:postgres}
-    # 真实密码只通过环境变量 PGVECTOR_DB_PASSWORD 注入，默认密码是本地内网环境，
-    password: ${PGVECTOR_DB_PASSWORD:Postgres@2026}
+    # 真实密码只通过环境变量 PGVECTOR_DB_PASSWORD 注入，默认留空；缺失时启动校验 fail-fast，
+    # 禁止把真实口令写进配置文件或提交 Git。
+    password: ${PGVECTOR_DB_PASSWORD:}
     schema: ${PGVECTOR_SCHEMA:public}
     table: ${PGVECTOR_TABLE:d31_vector_store}
     initialize-schema: ${PGVECTOR_INIT_SCHEMA:true}

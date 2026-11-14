@@ -1,0 +1,12 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/main/java/com/zl/d31/document/vectorindex/service/VectorReconciliationService.java:[102,51] �����ݵ�����: java.lang.Object�޷�ת��Ϊjava.lang.String
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project D31_VSUAI: Compilation failure
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D31/D31_VSUAI/src/main/java/com/zl/d31/document/vectorindex/service/VectorReconciliationService.java:[102,51] �����ݵ�����: java.lang.Object�޷�ת��Ϊjava.lang.String
+[ERROR] 
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

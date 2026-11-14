@@ -32,4 +32,4 @@ app:
     database: ${PGVECTOR_DATABASE:spring_ai}
     username: ${PGVECTOR_USER:postgres}
     password: ${PGVECTOR_DB_PASSWORD:请通过环境变量注入真实密码}
-    table: ${PGVECTOR_TABLE:d30_vector_store}
+    table: ${PGVECTOR_TABLE:d31_vector_store}

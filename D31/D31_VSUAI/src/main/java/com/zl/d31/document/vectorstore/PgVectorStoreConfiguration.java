@@ -48,6 +48,21 @@ public class PgVectorStoreConfiguration {
     }
 
     /**
+     * 主业务 JdbcTemplate：绑定 MySQL 主数据源并标注 {@link Primary}。
+     *
+     * <p>一旦手动定义了 {@link #pgVectorJdbcTemplate}，Spring Boot 的
+     * {@code JdbcTemplateAutoConfiguration} 因 {@code @ConditionalOnMissingBean(JdbcTemplate.class)}
+     * 整体回退，不再创建默认 jdbcTemplate；此时容器内唯一的 JdbcTemplate 是 PG 专用的，
+     * 任何未加限定符的 JdbcTemplate 注入都会被误路由到 PG。这里显式补一个绑定 MySQL 的
+     * 主 JdbcTemplate，保证"未限定即 MySQL"的语义与 {@link Primary} 数据源一致。</p>
+     */
+    @Primary
+    @Bean(name = "jdbcTemplate")
+    public JdbcTemplate jdbcTemplate(@Qualifier("dataSource") DataSource dataSource) {
+        return new JdbcTemplate(dataSource);
+    }
+
+    /**
      * 独立 PostgreSQL 数据源（非主数据源），仅服务向量存储。
      */
     @Bean(destroyMethod = "close")
