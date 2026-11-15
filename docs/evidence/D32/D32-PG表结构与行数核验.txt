@@ -1,0 +1,20 @@
+=== columns ===
+column_name=id | data_type=uuid | udt_name=uuid
+column_name=content | data_type=text | udt_name=text
+column_name=metadata | data_type=json | udt_name=json
+column_name=embedding | data_type=USER-DEFINED | udt_name=vector
+=== indexes ===
+indexname=d32_vector_store_pkey | indexdef=CREATE UNIQUE INDEX d32_vector_store_pkey ON public.d32_vector_store USING btree (id)
+indexname=d32_vector_store_index | indexdef=CREATE INDEX d32_vector_store_index ON public.d32_vector_store USING hnsw (embedding vector_cosine_ops)
+=== rowcount ===
+n=24
+=== eval_rows ===
+n=24
+=== metadata_keys ===
+k=chunkContentHash
+k=chunkIndex
+k=documentId
+k=splitVersion
+k=strategy
+k=title
+k=version

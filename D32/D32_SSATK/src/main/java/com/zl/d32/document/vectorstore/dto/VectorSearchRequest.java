@@ -15,10 +15,10 @@ public class VectorSearchRequest {
     @NotBlank(message = "检索文本不能为空")
     private String query;
 
-    /** 返回条数，1..20。 */
+    /** 返回条数，1..20；D32 起默认 Top-5（任务书要求默认必须为 5）。 */
     @Min(value = 1, message = "topK 最小为 1")
     @Max(value = 20, message = "topK 最大为 20")
-    private int topK = 3;
+    private int topK = 5;
 
     /** 相似度阈值（0..1），低于该值的结果被过滤；0 表示不过滤。 */
     @Min(value = 0, message = "threshold 不能小于 0")

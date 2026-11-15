@@ -1,0 +1,5 @@
+STR=[metadata::jsonb @@ '$."documentId" == "d32it-air"'::jsonpath]
+INT=[metadata::jsonb @@ '$."version" == 1'::jsonpath]
+AND=[metadata::jsonb @@ '$."documentId" == "d32it-air" && $."version" == 1'::jsonpath]
+STRAT=[metadata::jsonb @@ '$."strategy" == "STRUCTURE"'::jsonpath]
+IN=[metadata::jsonb @@ '($."chunkIndex" == 0 || $."chunkIndex" == 1 || $."chunkIndex" == 2)'::jsonpath]

@@ -1,0 +1,1128 @@
+{
+  "generatedAt" : "2026-11-15T18:22:36.282319",
+  "table" : "public.d32_vector_store",
+  "seedDocumentIds" : [ "d32eval-air", "d32eval-pump", "d32eval-code", "d32eval-model" ],
+  "seedVectorRows" : 24,
+  "topK" : 5,
+  "records" : [ {
+    "questionId" : "Q1",
+    "question" : "空压机运行温度过高怎么处理",
+    "result" : {
+      "query" : "空压机运行温度过高怎么处理",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "c6fca31c-3fba-5895-af37-d92be81e2e8f",
+        "content" : "故障代码 E-101 表示空压机排气温度过高（超温报警），对应检查冷却器、润滑油与通风。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.3571428656578064,
+        "distance" : 0.6428571343421936,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "344d60617006b1f7356f81710082a8777d2f28837c62d8bed436862dcfe0874d",
+          "distance" : 0.64285713,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b6173403-18d9-57e1-ae2e-ae9637b7a269",
+        "content" : "空压机运行温度过高（超温）故障，应先检查冷却器是否积灰堵塞、润滑油液位与油质、环境通风是否良好；处理步骤为清洗冷却器、补充或更换润滑油、改善通风。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.3239695429801941,
+        "distance" : 0.6760304570198059,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "f49a3636fe1514351d80bfff997a84b0e51790aac999a9810930b500b1dab784",
+          "distance" : 0.67603046,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "content" : "故障代码 E-102 表示空压机排气压力不足，对应检查进气阀、管路泄漏与压力开关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.20483070611953735,
+        "distance" : 0.7951692938804626,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "72cbf7ce031fb6c7a7c8bc73cfbafd16927ea4be75016c79d56fb65c781f2d91",
+          "distance" : 0.7951693,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "c5c6b381-ef8c-56f1-8d35-d1e7d7827e8a",
+        "content" : "空压机日常保养：每班次记录运行温度、排气压力与油位；按周期更换空气滤芯、油滤芯和润滑油，检查皮带与联轴器对中。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.19664204120635986,
+        "distance" : 0.8033579587936401,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "4689d27fa971b0acf8b6d4b76c697be93c214b275f6a9f4760d08fb43e76d57f",
+          "distance" : 0.80335796,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "88ecb0bb-aba4-549c-8cf4-b0ab61ea5ae8",
+        "content" : "空压机排水阀堵塞会使压缩空气含水升高，应定期清洗疏水阀、对储气罐排污并检查干燥器。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.16678112745285034,
+        "distance" : 0.8332188725471497,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "fde43bd90cfc2929fa3bb7e0eb6fd3b9540816e62c2fb4684922ae537bc72bcb",
+          "distance" : 0.8332189,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q2",
+    "question" : "空压机排气压力不足是什么原因",
+    "result" : {
+      "query" : "空压机排气压力不足是什么原因",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "c754072e-d7f6-58b7-8ada-e442ab013a2f",
+        "content" : "空压机排气压力不足故障，常见原因有进气阀未全开、管路或接头泄漏、压力开关设定值偏低、空气滤芯堵塞；应逐项检查并重新设定压力。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.4885428547859192,
+        "distance" : 0.5114571452140808,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "66179c3640d8a3f485180a5acf8ae95325382ddba34c8ba3f877775647562e6b",
+          "distance" : 0.51145715,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "content" : "故障代码 E-102 表示空压机排气压力不足，对应检查进气阀、管路泄漏与压力开关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.48571836948394775,
+        "distance" : 0.5142816305160522,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "72cbf7ce031fb6c7a7c8bc73cfbafd16927ea4be75016c79d56fb65c781f2d91",
+          "distance" : 0.51428163,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "c5c6b381-ef8c-56f1-8d35-d1e7d7827e8a",
+        "content" : "空压机日常保养：每班次记录运行温度、排气压力与油位；按周期更换空气滤芯、油滤芯和润滑油，检查皮带与联轴器对中。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.28496140241622925,
+        "distance" : 0.7150385975837708,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "4689d27fa971b0acf8b6d4b76c697be93c214b275f6a9f4760d08fb43e76d57f",
+          "distance" : 0.7150386,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "67ff1707-5f90-5473-a27b-492190812faf",
+        "content" : "设备型号 AC-380 为螺杆式空压机，额定功率 38 千瓦，排气压力 0.8 兆帕。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.2685430645942688,
+        "distance" : 0.7314569354057312,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "f526309a9c459cf3641ba4a1ca66d2cb0d05fb956f7bd4b49abc8d20653a4e44",
+          "distance" : 0.73145694,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "88ecb0bb-aba4-549c-8cf4-b0ab61ea5ae8",
+        "content" : "空压机排水阀堵塞会使压缩空气含水升高，应定期清洗疏水阀、对储气罐排污并检查干燥器。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.25064021348953247,
+        "distance" : 0.7493597865104675,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "fde43bd90cfc2929fa3bb7e0eb6fd3b9540816e62c2fb4684922ae537bc72bcb",
+          "distance" : 0.7493598,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q3",
+    "question" : "水泵运行异响振动大怎么排查",
+    "result" : {
+      "query" : "水泵运行异响振动大怎么排查",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "61682b28-23af-5c63-9fb0-47db4aa00bc2",
+        "content" : "水泵运行异响且振动大，常见原因为叶轮卡滞或损坏、轴承磨损、泵内进入异物、地脚螺栓松动；应停机拆解检查并清除异物、紧固地脚。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.3198010325431824,
+        "distance" : 0.6801989674568176,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "3a1962383043aff24ddf89539018fce23cd5989973553dc02adeba13496f1053",
+          "distance" : 0.68019897,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "9c0b1fef-5f3e-5ecf-a695-00d29b66c251",
+        "content" : "空压机运行异响，常见于轴承磨损、联轴器松动、润滑油不足；应停机检查轴承与联轴器，必要时更换并紧固。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.15462183952331543,
+        "distance" : 0.8453781604766846,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "b72f2a2772795e9f33f4fbebcd939d0d96c6ea3087747464ddf00db24b119a9b",
+          "distance" : 0.84537816,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "bbb72ed7-b036-5e6a-aa7c-b4775e51315e",
+        "content" : "水泵出水压力不足，应检查叶轮磨损、机械密封泄漏、进水口漏气或堵塞、吸程是否过高；处理为更换叶轮或密封件、清理进水滤网。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.146678626537323,
+        "distance" : 0.853321373462677,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "9417c7fb3e85c1d19a5b63c6f27a97968a81945a6b131a4167590678fb8447e7",
+          "distance" : 0.8533214,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+        "content" : "设备型号 WP-75 为离心式水泵，额定功率 75 千瓦，额定流量 100 立方米每小时。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.12909942865371704,
+        "distance" : 0.870900571346283,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "1b67956e8cc1db71b69fa68a3402d078dcb7aff662987ec901538e33126341a5",
+          "distance" : 0.8709006,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "c754072e-d7f6-58b7-8ada-e442ab013a2f",
+        "content" : "空压机排气压力不足故障，常见原因有进气阀未全开、管路或接头泄漏、压力开关设定值偏低、空气滤芯堵塞；应逐项检查并重新设定压力。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.11237549781799316,
+        "distance" : 0.8876245021820068,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "66179c3640d8a3f485180a5acf8ae95325382ddba34c8ba3f877775647562e6b",
+          "distance" : 0.8876245,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q4",
+    "question" : "水泵机械密封漏水怎么办",
+    "result" : {
+      "query" : "水泵机械密封漏水怎么办",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "2d650c39-6320-5418-abc0-0a69263ab099",
+        "content" : "水泵机械密封漏水，需更换机械密封件，并核对轴套磨损、泵轴对中与密封安装方向。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.5378528535366058,
+        "distance" : 0.46214714646339417,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "af85296f7248c8f82cf366b6643a33da1d5f0f028bc22548233fb364f42b5c34",
+          "distance" : 0.46214715,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "194498d1-13a7-544c-a32e-9d6ebd540355",
+        "content" : "故障代码 E-207 表示水泵机械密封漏水，对应更换机械密封并核对轴套。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.5307227671146393,
+        "distance" : 0.4692772328853607,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "6ddcdd6f0294c0df5b0e008559a87eb0830c69d7196c15cdf005bb7e1bd820d3",
+          "distance" : 0.46927723,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "bbb72ed7-b036-5e6a-aa7c-b4775e51315e",
+        "content" : "水泵出水压力不足，应检查叶轮磨损、机械密封泄漏、进水口漏气或堵塞、吸程是否过高；处理为更换叶轮或密封件、清理进水滤网。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.3643914461135864,
+        "distance" : 0.6356085538864136,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "9417c7fb3e85c1d19a5b63c6f27a97968a81945a6b131a4167590678fb8447e7",
+          "distance" : 0.63560855,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "bd08580e-91d7-50d0-be46-83367e612401",
+        "content" : "水泵日常保养：检查轴承温升与润滑、机械密封渗漏、联轴器对中，定期清理滤网并记录出入口压力。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.25301218032836914,
+        "distance" : 0.7469878196716309,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "8bb831ca02fdaf11fc6068728cd233e278720a339873018cdd25291de6c9d20b",
+          "distance" : 0.7469878,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+        "content" : "设备型号 WP-75 为离心式水泵，额定功率 75 千瓦，额定流量 100 立方米每小时。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.17928427457809448,
+        "distance" : 0.8207157254219055,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "1b67956e8cc1db71b69fa68a3402d078dcb7aff662987ec901538e33126341a5",
+          "distance" : 0.8207157,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q5",
+    "question" : "故障代码 E-101 代表什么",
+    "result" : {
+      "query" : "故障代码 E-101 代表什么",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "c6fca31c-3fba-5895-af37-d92be81e2e8f",
+        "content" : "故障代码 E-101 表示空压机排气温度过高（超温报警），对应检查冷却器、润滑油与通风。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.4412487745285034,
+        "distance" : 0.5587512254714966,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "344d60617006b1f7356f81710082a8777d2f28837c62d8bed436862dcfe0874d",
+          "distance" : 0.5587512,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "155f0740-c17d-5782-bbff-dfa240f6a523",
+        "content" : "故障代码 E-301 表示通讯故障（设备与监控系统连接中断），应检查通讯线缆与网关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.39712226390838623,
+        "distance" : 0.6028777360916138,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "a0d24d49ea837b07108bc8a600acb6325bc5be1f3db38b6ae5e6f98c36effac1",
+          "distance" : 0.60287774,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "content" : "故障代码 E-102 表示空压机排气压力不足，对应检查进气阀、管路泄漏与压力开关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.3539407253265381,
+        "distance" : 0.6460592746734619,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "72cbf7ce031fb6c7a7c8bc73cfbafd16927ea4be75016c79d56fb65c781f2d91",
+          "distance" : 0.6460593,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "66d193c3-aa73-5422-b1c8-17d255e58208",
+        "content" : "故障代码 E-302 表示电源缺相，应立即停机并检查供电与接触器。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.33866703510284424,
+        "distance" : 0.6613329648971558,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "ebe41043711b6f435c5862377804c0db925638cb7f819eb3f2a44614a084bc83",
+          "distance" : 0.66133296,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "67b92d8c-0a7c-5f49-906b-e768ee4dbf70",
+        "content" : "故障代码 E-205 表示水泵电机过载，对应检查热继电器、叶轮卡滞与轴承。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.3352356553077698,
+        "distance" : 0.6647643446922302,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "99e0672f4397dbbcb33b0d7e0c3786e80b4880da3a35d5e4c347c1cd9d7750d8",
+          "distance" : 0.66476434,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q6",
+    "question" : "故障代码 E-205 是什么意思",
+    "result" : {
+      "query" : "故障代码 E-205 是什么意思",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "67b92d8c-0a7c-5f49-906b-e768ee4dbf70",
+        "content" : "故障代码 E-205 表示水泵电机过载，对应检查热继电器、叶轮卡滞与轴承。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.43322426080703735,
+        "distance" : 0.5667757391929626,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "99e0672f4397dbbcb33b0d7e0c3786e80b4880da3a35d5e4c347c1cd9d7750d8",
+          "distance" : 0.56677574,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "66d193c3-aa73-5422-b1c8-17d255e58208",
+        "content" : "故障代码 E-302 表示电源缺相，应立即停机并检查供电与接触器。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.4103050231933594,
+        "distance" : 0.5896949768066406,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "ebe41043711b6f435c5862377804c0db925638cb7f819eb3f2a44614a084bc83",
+          "distance" : 0.589695,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "155f0740-c17d-5782-bbff-dfa240f6a523",
+        "content" : "故障代码 E-301 表示通讯故障（设备与监控系统连接中断），应检查通讯线缆与网关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.33241379261016846,
+        "distance" : 0.6675862073898315,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "a0d24d49ea837b07108bc8a600acb6325bc5be1f3db38b6ae5e6f98c36effac1",
+          "distance" : 0.6675862,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "194498d1-13a7-544c-a32e-9d6ebd540355",
+        "content" : "故障代码 E-207 表示水泵机械密封漏水，对应更换机械密封并核对轴套。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.3307475447654724,
+        "distance" : 0.6692524552345276,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "6ddcdd6f0294c0df5b0e008559a87eb0830c69d7196c15cdf005bb7e1bd820d3",
+          "distance" : 0.66925246,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "content" : "故障代码 E-102 表示空压机排气压力不足，对应检查进气阀、管路泄漏与压力开关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.308742880821228,
+        "distance" : 0.691257119178772,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "72cbf7ce031fb6c7a7c8bc73cfbafd16927ea4be75016c79d56fb65c781f2d91",
+          "distance" : 0.6912571,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q7",
+    "question" : "设备型号 AC-380 是什么设备",
+    "result" : {
+      "query" : "设备型号 AC-380 是什么设备",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "67ff1707-5f90-5473-a27b-492190812faf",
+        "content" : "设备型号 AC-380 为螺杆式空压机，额定功率 38 千瓦，排气压力 0.8 兆帕。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.45942288637161255,
+        "distance" : 0.5405771136283875,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "f526309a9c459cf3641ba4a1ca66d2cb0d05fb956f7bd4b49abc8d20653a4e44",
+          "distance" : 0.5405771,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6944b290-9575-5f73-bf22-b94098787026",
+        "content" : "设备型号 AC-220 为螺杆式空压机，额定功率 22 千瓦，适用于中小气量工况。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.2616003751754761,
+        "distance" : 0.7383996248245239,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "21d95cbfd196ec4404afca09af7e26b1e00409694d39ef3059da001472e75750",
+          "distance" : 0.7383996,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+        "content" : "设备型号 WP-75 为离心式水泵，额定功率 75 千瓦，额定流量 100 立方米每小时。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.15241003036499023,
+        "distance" : 0.8475899696350098,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "1b67956e8cc1db71b69fa68a3402d078dcb7aff662987ec901538e33126341a5",
+          "distance" : 0.84758997,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "155f0740-c17d-5782-bbff-dfa240f6a523",
+        "content" : "故障代码 E-301 表示通讯故障（设备与监控系统连接中断），应检查通讯线缆与网关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.14126449823379517,
+        "distance" : 0.8587355017662048,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "a0d24d49ea837b07108bc8a600acb6325bc5be1f3db38b6ae5e6f98c36effac1",
+          "distance" : 0.8587355,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "81528f9b-c090-5965-a457-16107cfaaf8e",
+        "content" : "设备型号 WP-15 为立式管道泵，额定功率 15 千瓦，用于循环水输送。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.1405673623085022,
+        "distance" : 0.8594326376914978,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "2f040ca7edd1f3f7b3e765a7077aa035f687e33336c8deacf0e3c0919cc4e83e",
+          "distance" : 0.85943264,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q8",
+    "question" : "设备型号 WP-75 对应什么",
+    "result" : {
+      "query" : "设备型号 WP-75 对应什么",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+        "content" : "设备型号 WP-75 为离心式水泵，额定功率 75 千瓦，额定流量 100 立方米每小时。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.3805621862411499,
+        "distance" : 0.6194378137588501,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "1b67956e8cc1db71b69fa68a3402d078dcb7aff662987ec901538e33126341a5",
+          "distance" : 0.6194378,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "81528f9b-c090-5965-a457-16107cfaaf8e",
+        "content" : "设备型号 WP-15 为立式管道泵，额定功率 15 千瓦，用于循环水输送。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 3,
+        "similarity" : 0.29249298572540283,
+        "distance" : 0.7075070142745972,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "2f040ca7edd1f3f7b3e765a7077aa035f687e33336c8deacf0e3c0919cc4e83e",
+          "distance" : 0.707507,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 3,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "67ff1707-5f90-5473-a27b-492190812faf",
+        "content" : "设备型号 AC-380 为螺杆式空压机，额定功率 38 千瓦，排气压力 0.8 兆帕。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 0,
+        "similarity" : 0.20029819011688232,
+        "distance" : 0.7997018098831177,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "f526309a9c459cf3641ba4a1ca66d2cb0d05fb956f7bd4b49abc8d20653a4e44",
+          "distance" : 0.7997018,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 0,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6944b290-9575-5f73-bf22-b94098787026",
+        "content" : "设备型号 AC-220 为螺杆式空压机，额定功率 22 千瓦，适用于中小气量工况。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.16467392444610596,
+        "distance" : 0.835326075553894,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "21d95cbfd196ec4404afca09af7e26b1e00409694d39ef3059da001472e75750",
+          "distance" : 0.8353261,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "155f0740-c17d-5782-bbff-dfa240f6a523",
+        "content" : "故障代码 E-301 表示通讯故障（设备与监控系统连接中断），应检查通讯线缆与网关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.14930468797683716,
+        "distance" : 0.8506953120231628,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "a0d24d49ea837b07108bc8a600acb6325bc5be1f3db38b6ae5e6f98c36effac1",
+          "distance" : 0.8506953,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q9",
+    "question" : "电机不启动应该派哪类工单",
+    "result" : {
+      "query" : "电机不启动应该派哪类工单",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "ac452f51-3f47-509b-8915-04a37af008ce",
+        "content" : "工单分类：设备机械故障（如轴承、叶轮、密封损坏）派机械维修工单；电机不启动、缺相、过载等电气问题派电气维修工单。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 4,
+        "similarity" : 0.46628403663635254,
+        "distance" : 0.5337159633636475,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "9634951c45f2fc2c1398c7b88fc7a4071d44b6a6ca49180214e80b73d0f72e8b",
+          "distance" : 0.53371596,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 4,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "2255e506-211b-5ec9-988d-a24f4c4bc49f",
+        "content" : "工单分类：超温、压力不足等工艺参数异常派工艺巡检工单；通讯故障派自动化仪表工单；日常保养派预防性维护工单。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.4070386290550232,
+        "distance" : 0.5929613709449768,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "20c7b60fc9059110c645f8498d4132db2fe5c2682218f94f325c75d4a0fd04cb",
+          "distance" : 0.5929614,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "bf8655da-8121-5611-859c-b2c1627414c6",
+        "content" : "水泵电机不启动，先确认三相电源与热继电器状态，再排查电机绕组、启动电容与控制回路；属于电气故障时应断电检修。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.3522242307662964,
+        "distance" : 0.6477757692337036,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "1f878cbf9639923e9ec18cff3111b4045b094686c6b0b6724492ba3ba3af7ad4",
+          "distance" : 0.64777577,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "ba2debfa-5443-56cb-a10c-5347678c3bbb",
+        "content" : "空压机启动后立即停机，多由过载保护动作、电机接线松动、急停回路未复位引起；应检查热继电器、紧固接线并复位急停。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.24884837865829468,
+        "distance" : 0.7511516213417053,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "c8b5da95adec554fa08d91cf228b16358e2c5f2108b718e00cb395c2d2f78b75",
+          "distance" : 0.7511516,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "67b92d8c-0a7c-5f49-906b-e768ee4dbf70",
+        "content" : "故障代码 E-205 表示水泵电机过载，对应检查热继电器、叶轮卡滞与轴承。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 2,
+        "similarity" : 0.20336294174194336,
+        "distance" : 0.7966370582580566,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "99e0672f4397dbbcb33b0d7e0c3786e80b4880da3a35d5e4c347c1cd9d7750d8",
+          "distance" : 0.79663706,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 2,
+          "version" : 1
+        }
+      } ]
+    }
+  }, {
+    "questionId" : "Q10",
+    "question" : "空压机日常保养有哪些项目和周期",
+    "result" : {
+      "query" : "空压机日常保养有哪些项目和周期",
+      "topK" : 5,
+      "threshold" : 0.0,
+      "vectorSpaceId" : "local|local-hashing-embedding|local-v1|384",
+      "filtered" : false,
+      "total" : 5,
+      "matches" : [ {
+        "chunkId" : "c5c6b381-ef8c-56f1-8d35-d1e7d7827e8a",
+        "content" : "空压机日常保养：每班次记录运行温度、排气压力与油位；按周期更换空气滤芯、油滤芯和润滑油，检查皮带与联轴器对中。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.3166238069534302,
+        "distance" : 0.6833761930465698,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "4689d27fa971b0acf8b6d4b76c697be93c214b275f6a9f4760d08fb43e76d57f",
+          "distance" : 0.6833762,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "bd08580e-91d7-50d0-be46-83367e612401",
+        "content" : "水泵日常保养：检查轴承温升与润滑、机械密封渗漏、联轴器对中，定期清理滤网并记录出入口压力。",
+        "documentId" : "d32eval-pump",
+        "title" : "工业水泵运行与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 5,
+        "similarity" : 0.22630095481872559,
+        "distance" : 0.7736990451812744,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "8bb831ca02fdaf11fc6068728cd233e278720a339873018cdd25291de6c9d20b",
+          "distance" : 0.77369905,
+          "documentId" : "d32eval-pump",
+          "title" : "工业水泵运行与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 5,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "c754072e-d7f6-58b7-8ada-e442ab013a2f",
+        "content" : "空压机排气压力不足故障，常见原因有进气阀未全开、管路或接头泄漏、压力开关设定值偏低、空气滤芯堵塞；应逐项检查并重新设定压力。",
+        "documentId" : "d32eval-air",
+        "title" : "空压机故障与维修手册",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.2171301245689392,
+        "distance" : 0.7828698754310608,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "66179c3640d8a3f485180a5acf8ae95325382ddba34c8ba3f877775647562e6b",
+          "distance" : 0.7828699,
+          "documentId" : "d32eval-air",
+          "title" : "空压机故障与维修手册",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "content" : "故障代码 E-102 表示空压机排气压力不足，对应检查进气阀、管路泄漏与压力开关。",
+        "documentId" : "d32eval-code",
+        "title" : "设备故障代码对照表",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.19788527488708496,
+        "distance" : 0.802114725112915,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "72cbf7ce031fb6c7a7c8bc73cfbafd16927ea4be75016c79d56fb65c781f2d91",
+          "distance" : 0.8021147,
+          "documentId" : "d32eval-code",
+          "title" : "设备故障代码对照表",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      }, {
+        "chunkId" : "6944b290-9575-5f73-bf22-b94098787026",
+        "content" : "设备型号 AC-220 为螺杆式空压机，额定功率 22 千瓦，适用于中小气量工况。",
+        "documentId" : "d32eval-model",
+        "title" : "设备型号与工单分类规范",
+        "version" : 1,
+        "strategy" : "STRUCTURE",
+        "chunkIndex" : 1,
+        "similarity" : 0.1439165472984314,
+        "distance" : 0.8560834527015686,
+        "metadata" : {
+          "splitVersion" : "split-v1",
+          "chunkContentHash" : "21d95cbfd196ec4404afca09af7e26b1e00409694d39ef3059da001472e75750",
+          "distance" : 0.85608345,
+          "documentId" : "d32eval-model",
+          "title" : "设备型号与工单分类规范",
+          "strategy" : "STRUCTURE",
+          "chunkIndex" : 1,
+          "version" : 1
+        }
+      } ]
+    }
+  } ]
+}
