@@ -1,0 +1,94 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< org.ai.m3:D33_CAARMCL >------------------------
+[INFO] Building D33_CAARMCL 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D33_CAARMCL ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D33_CAARMCL ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 15 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D33_CAARMCL ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D33_CAARMCL ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D33_CAARMCL ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 8 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D33_CAARMCL ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d33.rag.context.ContextAssemblyServiceTest
+18:24:03.770 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=1, budgetExcluded=2, invalidOrDedup=0, usedChars=65/120
+18:24:03.792 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=1, budgetExcluded=0, invalidOrDedup=2, usedChars=64/6000
+18:24:03.797 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=2, budgetExcluded=0, invalidOrDedup=1, usedChars=128/6000
+18:24:03.801 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=1, budgetExcluded=0, invalidOrDedup=0, usedChars=63/6000
+18:24:03.804 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=3, budgetExcluded=0, invalidOrDedup=0, usedChars=195/6000
+18:24:03.808 [main] INFO com.zl.d33.rag.context.ContextAssemblyService -- ��������װ���: included=0, budgetExcluded=0, invalidOrDedup=0, usedChars=0/6000
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s -- in com.zl.d33.rag.context.ContextAssemblyServiceTest
+[INFO] Running com.zl.d33.rag.controller.RagControllerTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+18:24:04.911 [main] INFO org.hibernate.validator.internal.util.Version -- HV000001: Hibernate Validator 8.0.3.Final
+18:24:05.856 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+18:24:05.856 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+18:24:05.860 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 3 ms
+18:24:06.139 [main] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.zl.d33.common.Result<com.zl.d33.rag.dto.RagAnswerResponse> com.zl.d33.rag.controller.RagController.ask(com.zl.d33.rag.dto.RagQuestionRequest): [Field error in object 'ragQuestionRequest' on field 'topK': rejected value [99]; codes [Max.ragQuestionRequest.topK,Max.topK,Max.java.lang.Integer,Max]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [ragQuestionRequest.topK,topK]; arguments []; default message [topK],20]; default message [topK ���ܴ��� 20]] ]
+18:24:06.167 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+18:24:06.167 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+18:24:06.167 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+18:24:06.174 [main] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver -- Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public com.zl.d33.common.Result<com.zl.d33.rag.dto.RagAnswerResponse> com.zl.d33.rag.controller.RagController.ask(com.zl.d33.rag.dto.RagQuestionRequest): [Field error in object 'ragQuestionRequest' on field 'question': rejected value [   ]; codes [NotBlank.ragQuestionRequest.question,NotBlank.question,NotBlank.java.lang.String,NotBlank]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [ragQuestionRequest.question,question]; arguments []; default message [question]]; default message [question ����Ϊ��]] ]
+18:24:06.192 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+18:24:06.193 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+18:24:06.193 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+18:24:06.333 [main] INFO org.springframework.mock.web.MockServletContext -- Initializing Spring TestDispatcherServlet ''
+18:24:06.333 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Initializing Servlet ''
+18:24:06.333 [main] INFO org.springframework.test.web.servlet.TestDispatcherServlet -- Completed initialization in 0 ms
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.510 s -- in com.zl.d33.rag.controller.RagControllerTest
+[INFO] Running com.zl.d33.rag.generation.GenerationServiceTest
+18:24:06.562 [main] ERROR com.zl.d33.rag.generation.GenerationService -- ģ�͵����ܿ�ʧ�ܣ�����: RATE_LIMIT_RECOVERABLE
+18:24:06.567 [main] WARN com.zl.d33.rag.generation.GenerationService -- ģ�ͷ��ؿ���Ӧ���ܿش���
+18:24:06.573 [main] WARN com.zl.d33.rag.generation.GenerationService -- ģ�ͻش�������������֮���δ֪��Դ��ʶ
+18:24:06.577 [main] ERROR com.zl.d33.rag.generation.GenerationService -- ���ɹ��̷���δԤ���쳣���쳣����: RuntimeException
+18:24:06.589 [main] ERROR com.zl.d33.rag.generation.GenerationService -- ģ�͵����ܿ�ʧ�ܣ�����: READ_TIMEOUT
+18:24:06.592 [main] WARN com.zl.d33.rag.generation.GenerationService -- ��Ҫ���ɵ���ǰ�޿��� ChatModel���ܿط��� NOT_CONFIGURED
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.237 s -- in com.zl.d33.rag.generation.GenerationServiceTest
+[INFO] Running com.zl.d33.rag.integration.RagRetrievalIntegrationTest
+[WARNING] Tests run: 4, Failures: 0, Errors: 0, Skipped: 4, Time elapsed: 0.001 s -- in com.zl.d33.rag.integration.RagRetrievalIntegrationTest
+[INFO] Running com.zl.d33.rag.orchestrator.RagOrchestratorTest
+18:24:06.709 [main] WARN com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�� status=FAILED_TIMEOUT code=GENERATION_TIMEOUT
+18:24:06.709 [main] INFO com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG ���̽���: questionLength=7, evidence=1, generation=FAILED_TIMEOUT
+18:24:06.714 [main] WARN com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�ܣ�δִ������
+18:24:06.728 [main] INFO com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG ���̽���: questionLength=7, evidence=1, generation=SUCCESS
+18:24:06.734 [main] WARN com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ��޿���֤�ݣ�δ���� ChatModel
+18:24:06.741 [main] WARN com.zl.d33.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ��޿���֤�ݣ�δ���� ChatModel
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 s -- in com.zl.d33.rag.orchestrator.RagOrchestratorTest
+[INFO] Running com.zl.d33.rag.prompt.RagPromptBuilderTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d33.rag.prompt.RagPromptBuilderTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 4
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.768 s
+[INFO] Finished at: 2026-11-16T18:24:06+08:00
+[INFO] ------------------------------------------------------------------------
