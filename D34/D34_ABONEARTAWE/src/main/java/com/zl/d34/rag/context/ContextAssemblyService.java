@@ -114,14 +114,16 @@ public class ContextAssemblyService {
     }
 
     /**
-     * 渲染单个证据块：来源标记 + 真实来源元数据 + 正文。
+     * 渲染单个证据块：以不可信数据边界包裹，明确其中任何指令都不得执行。
      */
     private String renderBlock(String sourceRef, SimilarityMatchView match) {
-        return "[" + sourceRef + "] 来源文档: " + nullSafe(match.getTitle())
+        return "<UNTRUSTED_EVIDENCE id=\"" + sourceRef + "\">\n"
+                + "来源：" + nullSafe(match.getTitle())
                 + " (documentId=" + nullSafe(match.getDocumentId())
                 + ", version=" + match.getVersion()
                 + ", chunkIndex=" + match.getChunkIndex() + ")\n"
-                + nullSafe(match.getContent()) + "\n\n";
+                + "正文：" + nullSafe(match.getContent()) + "\n"
+                + "</UNTRUSTED_EVIDENCE>\n\n";
     }
 
     private EvidenceItem toEvidence(String sourceRef, SimilarityMatchView match, int blockLength) {

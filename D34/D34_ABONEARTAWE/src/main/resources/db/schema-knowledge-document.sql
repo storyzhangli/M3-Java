@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS `knowledge_document` (
     `title`          VARCHAR(200) NOT NULL DEFAULT '' COMMENT '文档标题，安全截断',
     `version`        INT          NOT NULL DEFAULT 1 COMMENT '文档版本，从 1 开始',
     `status`         VARCHAR(16)  NOT NULL DEFAULT 'PENDING' COMMENT '导入状态：PENDING/PROCESSING/COMPLETED/FAILED',
+    `lifecycle_status` VARCHAR(16) NOT NULL DEFAULT 'ACTIVE' COMMENT '生命周期：DRAFT/ACTIVE/DEPRECATED',
     `content_hash`   VARCHAR(64)  NULL COMMENT '原始字节 SHA-256，重复导入识别；登记态无文件时为 NULL',
     `content_length` BIGINT       NOT NULL DEFAULT 0 COMMENT '原始字节长度',
     `error_code`     VARCHAR(32)  NOT NULL DEFAULT '' COMMENT '失败错误码',

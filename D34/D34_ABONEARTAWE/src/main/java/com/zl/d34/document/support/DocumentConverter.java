@@ -4,6 +4,7 @@ import com.zl.d34.document.dto.DocumentPageView;
 import com.zl.d34.document.dto.DocumentView;
 import com.zl.d34.document.model.DocumentPageContent;
 import com.zl.d34.document.model.DocumentStatus;
+import com.zl.d34.document.model.DocumentLifecycleStatus;
 import com.zl.d34.document.model.KnowledgeDocument;
 import com.zl.d34.document.po.DocumentPageContentPO;
 import com.zl.d34.document.po.KnowledgeDocumentPO;
@@ -26,6 +27,7 @@ public class DocumentConverter {
         doc.setTitle(po.getTitle());
         doc.setVersion(po.getVersion());
         doc.setStatus(DocumentStatus.fromName(po.getStatus()));
+        doc.setLifecycleStatus(DocumentLifecycleStatus.fromName(po.getLifecycleStatus()));
         doc.setContentHash(po.getContentHash());
         doc.setContentLength(po.getContentLength());
         doc.setErrorCode(po.getErrorCode());
@@ -43,6 +45,8 @@ public class DocumentConverter {
         po.setTitle(doc.getTitle());
         po.setVersion(doc.getVersion());
         po.setStatus(doc.getStatus().name());
+        po.setLifecycleStatus(doc.getLifecycleStatus() == null
+                ? DocumentLifecycleStatus.ACTIVE.name() : doc.getLifecycleStatus().name());
         po.setContentHash(doc.getContentHash());
         po.setContentLength(doc.getContentLength());
         po.setErrorCode(doc.getErrorCode());

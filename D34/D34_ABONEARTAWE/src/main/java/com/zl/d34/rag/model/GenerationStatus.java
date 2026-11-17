@@ -18,5 +18,7 @@ public enum GenerationStatus {
     NOT_ATTEMPTED,
     NOT_CONFIGURED,
     FAILED_TIMEOUT,
+    CLARIFY,
+    CONFLICT,
     FAILED_ERROR
 }

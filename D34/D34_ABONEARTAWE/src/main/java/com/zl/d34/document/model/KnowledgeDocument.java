@@ -33,6 +33,9 @@ public class KnowledgeDocument {
     /** 导入处理状态。 */
     private DocumentStatus status;
 
+    /** 生命周期状态（生效/未生效/废弃），与导入处理状态独立。 */
+    private DocumentLifecycleStatus lifecycleStatus = DocumentLifecycleStatus.ACTIVE;
+
     /** 原始字节 SHA-256。 */
     private String contentHash;
 

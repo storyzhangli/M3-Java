@@ -33,6 +33,9 @@ public class KnowledgeDocumentPO {
 
     private String status;
 
+    /** 生命周期状态列：DRAFT/ACTIVE/DEPRECATED，默认 ACTIVE。 */
+    private String lifecycleStatus;
+
     private String contentHash;
 
     private Long contentLength;

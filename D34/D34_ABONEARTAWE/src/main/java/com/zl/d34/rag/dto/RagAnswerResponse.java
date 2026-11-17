@@ -6,6 +6,7 @@ import com.zl.d34.rag.dto.RagTimingView;
 import com.zl.d34.rag.model.GenerationStatus;
 import com.zl.d34.rag.model.RagErrorCode;
 import com.zl.d34.rag.model.RetrievalStatus;
+import com.zl.d34.rag.assessment.AssessmentDecision;
 import lombok.Data;
 
 import java.util.ArrayList;
@@ -49,4 +50,22 @@ public class RagAnswerResponse {
 
     /** 模型回答是否引用了上下文之外的未知来源标识。 */
     private boolean unknownCitationDetected;
+
+    /** 证据评估建议动作（ANSWER/CLARIFY/REFUSE/CONFLICT）。 */
+    private AssessmentDecision decision;
+
+    /** 单条澄清问题（CLARIFY 时返回，否则为 null）。 */
+    private String clarificationQuestion;
+
+    /** 缺失信息清单。 */
+    private List<String> missingInformation = new ArrayList<>();
+
+    /** 冲突组视图。 */
+    private List<ConflictGroupView> conflictGroups = new ArrayList<>();
+
+    /** 被拒绝的来源标识（未生效/废弃/低相关）。 */
+    private List<String> rejectedEvidenceIds = new ArrayList<>();
+
+    /** 生成后引用与事实支持校验视图。 */
+    private CitationValidationView citationValidation;
 }

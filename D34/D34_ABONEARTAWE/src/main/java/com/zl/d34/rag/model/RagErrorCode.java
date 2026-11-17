@@ -27,5 +27,26 @@ public enum RagErrorCode {
     EMPTY_RESPONSE,
 
     /** 模型调用其他异常。 */
-    GENERATION_FAILED
+    GENERATION_FAILED,
+
+    /** 仅关键词相似，证据不能支持问题。 */
+    LOW_RELEVANCE,
+
+    /** 有相关证据但覆盖度不足。 */
+    INSUFFICIENT_EVIDENCE,
+
+    /** 缺设备型号/故障代码等必要条件，需澄清。 */
+    MISSING_REQUIRED_CONTEXT,
+
+    /** 有效证据对同一事实给出矛盾内容。 */
+    EVIDENCE_CONFLICT,
+
+    /** 引用不在本次来源白名单或格式非法。 */
+    INVALID_CITATION,
+
+    /** 输出含无证据支持的设备参数/故障码/维修步骤。 */
+    UNSUPPORTED_CLAIM,
+
+    /** 生成后校验未通过的受控失败。 */
+    GENERATION_VALIDATION_FAILED
 }

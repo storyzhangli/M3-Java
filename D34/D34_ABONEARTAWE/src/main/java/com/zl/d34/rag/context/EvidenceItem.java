@@ -1,5 +1,6 @@
 package com.zl.d34.rag.context;
 
+import com.zl.d34.document.model.DocumentLifecycleStatus;
 import lombok.Data;
 
 /**
@@ -37,6 +38,9 @@ public class EvidenceItem {
 
     /** 真实距离（可能为 null）。 */
     private Double distance;
+
+    /** 生命周期状态（评估阶段解析后回填，默认 ACTIVE）。 */
+    private DocumentLifecycleStatus lifecycleStatus = DocumentLifecycleStatus.ACTIVE;
 
     /** 该证据渲染块的字符长度。 */
     private int blockLength;

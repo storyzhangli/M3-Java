@@ -1,7 +1,12 @@
 package com.zl.d34.rag.orchestrator;
 
+import com.zl.d34.rag.assessment.AssessmentDecision;
+import com.zl.d34.rag.assessment.EvidenceAssessmentResult;
+import com.zl.d34.rag.assessment.EvidenceAssessmentService;
 import com.zl.d34.rag.context.ContextAssemblyResult;
 import com.zl.d34.rag.context.EvidenceItem;
+import com.zl.d34.rag.dto.ConflictGroupView;
+import com.zl.d34.rag.dto.CitationValidationView;
 import com.zl.d34.rag.dto.RagAnswerResponse;
 import com.zl.d34.rag.dto.RagQuestionRequest;
 import com.zl.d34.rag.dto.RagSourceView;
@@ -15,6 +20,8 @@ import com.zl.d34.rag.model.RetrievalStatus;
 import com.zl.d34.rag.retrieval.RagRetrievalQuery;
 import com.zl.d34.rag.retrieval.RagRetrievalResult;
 import com.zl.d34.rag.retrieval.RagRetrievalService;
+import com.zl.d34.rag.validation.CitationValidationResult;
+import com.zl.d34.rag.validation.ResponseValidationService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -22,13 +29,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * RAG 编排器：协调完整最小闭环，不承载检索/模型调用细节。
+ * RAG 编排器：协调完整链路，不承载检索/模型调用细节。
  *
- * <p>固定流程：校验问题 → 检索 → 状态判断 → 上下文组装 → 证据判断 →
- * （有证据才调用生成）→ 汇总回答/来源/各阶段状态。</p>
+ * <p>D34 固定流程：校验问题 → 检索 → 上下文组装 → 证据评估 →
+ * （仅 ANSWER 才调用生成）→ 生成后校验 → 汇总回答/来源/澄清/拒答/冲突。</p>
  *
- * <p>关键边界：检索失败、无证据（含空检索）、生成失败分别返回不同状态；
- * 无证据时<b>不调用</b> GenerationService/ChatModel。</p>
+ * <p>关键边界：检索失败、无证据、澄清、拒答、冲突均不调用 ChatModel，并保留可核验的零调用证据；
+ * 生成后校验未通过时受控返回 GENERATION_VALIDATION_FAILED，不直接放行。</p>
  */
 @Slf4j
 @Service
@@ -39,14 +46,20 @@ public class RagOrchestrator {
 
     private final RagRetrievalService retrievalService;
     private final ContextAssemblyService contextAssemblyService;
+    private final EvidenceAssessmentService evidenceAssessmentService;
     private final GenerationService generationService;
+    private final ResponseValidationService responseValidationService;
 
     public RagOrchestrator(RagRetrievalService retrievalService,
                            ContextAssemblyService contextAssemblyService,
-                           GenerationService generationService) {
+                           EvidenceAssessmentService evidenceAssessmentService,
+                           GenerationService generationService,
+                           ResponseValidationService responseValidationService) {
         this.retrievalService = retrievalService;
         this.contextAssemblyService = contextAssemblyService;
+        this.evidenceAssessmentService = evidenceAssessmentService;
         this.generationService = generationService;
+        this.responseValidationService = responseValidationService;
     }
 
     /**
@@ -66,10 +79,9 @@ public class RagOrchestrator {
                 request.getVersion(), request.getStrategy(), request.getTitle()));
         long retrievalMs = elapsedMs(retrievalStart);
 
-        // 2) 检索失败：直接受控返回，不进入组装与生成
+        // 2) 检索失败：短路，不组装、不生成
         if (retrieval.status() == RetrievalStatus.FAILED) {
-            return buildRetrievalFailure(retrieval, retrievalMs,
-                    elapsedMs(totalStart));
+            return buildRetrievalFailure(retrieval, retrievalMs, elapsedMs(totalStart));
         }
 
         // 3) 上下文组装
@@ -77,19 +89,30 @@ public class RagOrchestrator {
         ContextAssemblyResult context = contextAssemblyService.assemble(retrieval.matches());
         long assemblyMs = elapsedMs(assemblyStart);
 
-        // 4) 无可用证据（含空检索）：受控拒答，不调用生成/ChatModel
+        // 4) 无证据：拒答，不调用模型
         if (!context.hasEvidence()) {
             return buildNoEvidence(retrieval, context, retrievalMs, assemblyMs,
                     elapsedMs(totalStart));
         }
 
-        // 5) 有证据才调用生成
+        // 5) 证据评估（不调用模型）
+        EvidenceAssessmentResult assessment =
+                evidenceAssessmentService.assess(context.getEvidence(), question);
+
+        // 6) 非 ANSWER 决策：澄清/拒答/冲突，均不调用生成
+        if (assessment.decision() != AssessmentDecision.ANSWER) {
+            return buildControlledDecision(assessment, retrieval, context,
+                    retrievalMs, assemblyMs, elapsedMs(totalStart));
+        }
+
+        // 7) 仅 ANSWER 才调用生成
         long generationStart = System.nanoTime();
         GenerationResult generation = generationService.generate(question, context);
         long generationMs = elapsedMs(generationStart);
 
-        // 6) 汇总
-        return buildResponse(question, retrieval, context, generation,
+        // 8) 生成后校验（引用合法性 + 事实支持）
+        List<EvidenceItem> acceptedEvidence = filterAccepted(context, assessment);
+        return buildResponse(retrieval, context, assessment, generation, acceptedEvidence,
                 retrievalMs, assemblyMs, generationMs, elapsedMs(totalStart));
     }
 
@@ -123,10 +146,52 @@ public class RagOrchestrator {
         return response;
     }
 
-    private RagAnswerResponse buildResponse(String question,
-                                           RagRetrievalResult retrieval,
+    /**
+     * 澄清/拒答/冲突受控决策：不调用生成，回填评估字段。
+     */
+    private RagAnswerResponse buildControlledDecision(EvidenceAssessmentResult assessment,
+                                                      RagRetrievalResult retrieval,
+                                                      ContextAssemblyResult context,
+                                                      long retrievalMs, long assemblyMs,
+                                                      long totalMs) {
+        RagAnswerResponse response = baseResponse();
+        response.setRetrievalStatus(retrieval.status());
+        response.setRetrievedCount(retrieval.retrievedCount());
+        response.setEvidenceCount(context.getEvidence().size());
+        response.setBudget(context.getBudget());
+        response.setTiming(timing(retrievalMs, assemblyMs, 0L, totalMs));
+        applyAssessment(response, assessment);
+
+        switch (assessment.decision()) {
+            case CLARIFY -> {
+                response.setAnswer(null);
+                response.setGenerationStatus(GenerationStatus.CLARIFY);
+                response.setErrorCode(RagErrorCode.MISSING_REQUIRED_CONTEXT);
+                response.setErrorMessage(assessment.reason());
+                response.setClarificationQuestion(assessment.reason());
+            }
+            case CONFLICT -> {
+                response.setAnswer(null);
+                response.setGenerationStatus(GenerationStatus.CONFLICT);
+                response.setErrorCode(RagErrorCode.EVIDENCE_CONFLICT);
+                response.setErrorMessage(assessment.reason());
+            }
+            default -> {
+                response.setAnswer(assessment.reason());
+                response.setGenerationStatus(GenerationStatus.SKIPPED_NO_EVIDENCE);
+                response.setErrorCode(assessment.reasonCode());
+                response.setErrorMessage(assessment.reason());
+            }
+        }
+        log.warn("RAG 受控返回：评估决策={}，未调用 ChatModel", assessment.decision());
+        return response;
+    }
+
+    private RagAnswerResponse buildResponse(RagRetrievalResult retrieval,
                                            ContextAssemblyResult context,
+                                           EvidenceAssessmentResult assessment,
                                            GenerationResult generation,
+                                           List<EvidenceItem> acceptedEvidence,
                                            long retrievalMs, long assemblyMs,
                                            long generationMs, long totalMs) {
         RagAnswerResponse response = baseResponse();
@@ -136,22 +201,78 @@ public class RagOrchestrator {
         response.setEvidenceCount(context.getEvidence().size());
         response.setBudget(context.getBudget());
         response.setTiming(timing(retrievalMs, assemblyMs, generationMs, totalMs));
-        response.setUnknownCitationDetected(generation.unknownCitationDetected());
+        applyAssessment(response, assessment);
 
-        if (generation.status() == GenerationStatus.SUCCESS) {
-            response.setAnswer(generation.content());
-            response.setGenerationStatus(GenerationStatus.SUCCESS);
-            response.setErrorCode(RagErrorCode.NONE);
-        } else {
+        if (generation.status() != GenerationStatus.SUCCESS) {
             response.setGenerationStatus(generation.status());
             response.setErrorCode(generation.errorCode());
             response.setErrorMessage(generation.errorMessage());
             log.warn("RAG 受控返回：生成失败 status={} code={}",
                     generation.status(), generation.errorCode());
+            return response;
         }
-        log.info("RAG 流程结束: questionLength={}, evidence={}, generation={}",
-                question.length(), context.getEvidence().size(), generation.status());
+
+        // 生成后校验：未通过则受控失败，不直接放行模型文本
+        CitationValidationResult validation =
+                responseValidationService.validate(generation.content(), acceptedEvidence);
+        response.setCitationValidation(toValidationView(validation));
+        if (!validation.validationPassed()) {
+            response.setAnswer(null);
+            response.setGenerationStatus(GenerationStatus.FAILED_ERROR);
+            response.setErrorCode(RagErrorCode.GENERATION_VALIDATION_FAILED);
+            response.setErrorMessage("生成后校验未通过，已拦截输出，请补充权威证据后重试");
+            log.warn("RAG 受控返回：生成后校验未通过 invalid={} unsupported={}",
+                    validation.invalidCitations(), validation.unsupportedClaims());
+            return response;
+        }
+
+        response.setAnswer(generation.content());
+        response.setGenerationStatus(GenerationStatus.SUCCESS);
+        response.setErrorCode(RagErrorCode.NONE);
+        response.setUnknownCitationDetected(generation.unknownCitationDetected());
+        log.info("RAG 流程结束: evidence={}, generation=SUCCESS", context.getEvidence().size());
         return response;
+    }
+
+    private void applyAssessment(RagAnswerResponse response, EvidenceAssessmentResult assessment) {
+        response.setDecision(assessment.decision());
+        response.setRejectedEvidenceIds(assessment.rejectedEvidenceIds());
+        response.setMissingInformation(assessment.missingInformation());
+        response.setConflictGroups(toConflictViews(assessment.conflictGroups()));
+    }
+
+    private List<EvidenceItem> filterAccepted(ContextAssemblyResult context,
+                                              EvidenceAssessmentResult assessment) {
+        List<EvidenceItem> accepted = new ArrayList<>();
+        for (EvidenceItem item : context.getEvidence()) {
+            if (assessment.acceptedEvidenceIds().contains(item.getSourceRef())) {
+                accepted.add(item);
+            }
+        }
+        return accepted;
+    }
+
+    private List<ConflictGroupView> toConflictViews(
+            List<com.zl.d34.rag.assessment.ConflictGroup> groups) {
+        List<ConflictGroupView> views = new ArrayList<>();
+        for (var g : groups) {
+            ConflictGroupView view = new ConflictGroupView();
+            view.setSubject(g.subject());
+            view.setParameter(g.parameter());
+            view.setValues(g.values());
+            view.setEvidenceIds(g.evidenceIds());
+            views.add(view);
+        }
+        return views;
+    }
+
+    private CitationValidationView toValidationView(CitationValidationResult result) {
+        CitationValidationView view = new CitationValidationView();
+        view.setLegalCitationPassed(result.legalCitationPassed());
+        view.setInvalidCitations(result.invalidCitations());
+        view.setUnsupportedClaims(result.unsupportedClaims());
+        view.setValidationPassed(result.validationPassed());
+        return view;
     }
 
     private List<RagSourceView> toSourceViews(List<EvidenceItem> evidence) {

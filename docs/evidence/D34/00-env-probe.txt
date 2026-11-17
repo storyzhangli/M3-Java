@@ -1,0 +1,50 @@
+=== D34 ENV PROBE 2026-11-17 16:40:41 ===
+
+===== 1 FILE INVENTORY =====
+file count (excl target/.git/.idea): 253
+
+===== 2 RAG SYMBOL SCAN =====
+symbol hit lines: 186
+
+===== 3 EFFECTIVE POM =====
+effective-pom exists: True
+
+===== 4 DEPENDENCY TREE =====
+dependency-tree exists: True
+
+===== 5 MAVEN VERSION =====
+Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: D:\SoftwareInstall\Apache\Maven\apache-maven-3.9.16
+Java version: 21.0.7, vendor: Oracle Corporation, runtime: D:\SoftwareInstall\JDK\JDK21
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+
+===== 6 GIT =====
+git status --short:
+?? docs/evidence/D34/
+?? "docs/proj_docs/D34-\351\241\271\347\233\256\350\277\255\344\273\243\344\273\273\345\212\241\344\271\246Prompt-DB\345\242\236\345\274\272\347\211\210-\345\237\272\344\272\216\350\257\201\346\215\256\345\233\236\347\255\224\344\270\216\346\227\240\350\257\201\346\215\256\346\213\222\347\255\224.md"
+git log --oneline -5:
+6e38404 D34 项目基础骨架
+68749c0 D34 费曼口述
+7ad6028 D34 知识笔记
+8804bbd D33 项目迭代
+2d7498a D33 项目迭代任务书
+
+===== 7 PG TCP REACHABILITY =====
+PG 192.168.200.153:5432 TcpTestSucceeded: True
+PG_VECTOR_PASSWORD present: True
+PGVECTOR_DB_PASSWORD present: False
+
+===== 8 KEY CLASS PRESENCE =====
+rag\orchestrator\RagOrchestrator.java : True
+rag\retrieval\RagRetrievalService.java : True
+rag\context\ContextAssemblyService.java : True
+rag\context\EvidenceItem.java : True
+rag\generation\GenerationService.java : True
+rag\prompt\RagPromptBuilder.java : True
+rag\controller\RagController.java : True
+knowledge\CitationRegistry.java : True
+device\ClarificationService.java : True
+
+===== 9 JAVA FILE COUNT =====
+java files under src: 234

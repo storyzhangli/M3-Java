@@ -1,0 +1,90 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ---------------------< org.ai.m3:D34_ABONEARTAWE >----------------------
+[INFO] Building D34_ABONEARTAWE 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D34_ABONEARTAWE ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D34_ABONEARTAWE ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 16 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D34_ABONEARTAWE ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 248 source files with javac [debug parameters release 21] to target\classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/logging/CachedBodyAccessLogFilter.java:[67,55] org.springframework.web.util.ContentCachingRequestWrapper �е� ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: E:\AI\project\AI-Learning-one\M3-Java\D34\D34_ABONEARTAWE\src\main\java\com\zl\d34\conversation\ConversationMemory.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D34_ABONEARTAWE ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D34_ABONEARTAWE ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 5 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D34_ABONEARTAWE ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d34.rag.assessment.EvidenceAssessmentServiceTest
+17:01:29.870 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=REFUSE, code=NO_EVIDENCE, accepted=0, rejected=1
+17:01:29.973 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=CLARIFY, code=MISSING_REQUIRED_CONTEXT, accepted=2, rejected=0
+17:01:29.976 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=REFUSE, code=NO_EVIDENCE, accepted=0, rejected=0
+17:01:29.982 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=REFUSE, code=LOW_RELEVANCE, accepted=1, rejected=0
+17:01:29.988 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=ANSWER, code=NONE, accepted=1, rejected=0
+17:01:29.991 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=CLARIFY, code=MISSING_REQUIRED_CONTEXT, accepted=2, rejected=0
+17:01:30.002 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=CONFLICT, code=EVIDENCE_CONFLICT, accepted=2, rejected=0
+17:01:30.005 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=REFUSE, code=INSUFFICIENT_EVIDENCE, accepted=1, rejected=0
+17:01:30.009 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=REFUSE, code=NO_EVIDENCE, accepted=0, rejected=1
+17:01:30.012 [main] INFO com.zl.d34.rag.assessment.EvidenceAssessmentService -- ֤����������: decision=ANSWER, code=NONE, accepted=1, rejected=1
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.282 s -- in com.zl.d34.rag.assessment.EvidenceAssessmentServiceTest
+[INFO] Running com.zl.d34.rag.assessment.FactClaimExtractorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.zl.d34.rag.assessment.FactClaimExtractorTest
+[INFO] Running com.zl.d34.rag.orchestrator.RagOrchestratorTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+17:01:31.301 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ���������=CONFLICT��δ���� ChatModel
+17:01:31.342 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ����ɺ�У��δͨ�� invalid=[] unsupported=[�ѹ��=0.9]
+17:01:31.351 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ��޿���֤�ݣ�δ���� ChatModel
+17:01:31.361 [main] INFO com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=1, generation=SUCCESS
+17:01:31.371 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ���������=REFUSE��δ���� ChatModel
+17:01:31.379 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�ܣ�δִ������
+17:01:31.388 [main] WARN com.zl.d34.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ���������=CLARIFY��δ���� ChatModel
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.306 s -- in com.zl.d34.rag.orchestrator.RagOrchestratorTest
+[INFO] Running com.zl.d34.rag.prompt.RagPromptBuilderTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.zl.d34.rag.prompt.RagPromptBuilderTest
+[INFO] Running com.zl.d34.rag.validation.ResponseValidationServiceTest
+17:01:31.420 [main] INFO com.zl.d34.rag.validation.ResponseValidationService -- ���ɺ�У��: citationLegal=true, unsupported=1, passed=false
+17:01:31.425 [main] INFO com.zl.d34.rag.validation.ResponseValidationService -- ���ɺ�У��: citationLegal=false, unsupported=0, passed=false
+17:01:31.428 [main] INFO com.zl.d34.rag.validation.ResponseValidationService -- ���ɺ�У��: citationLegal=true, unsupported=0, passed=true
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s -- in com.zl.d34.rag.validation.ResponseValidationServiceTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  39.564 s
+[INFO] Finished at: 2026-11-17T17:01:31+08:00
+[INFO] ------------------------------------------------------------------------
