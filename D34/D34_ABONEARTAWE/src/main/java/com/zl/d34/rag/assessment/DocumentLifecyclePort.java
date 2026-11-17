@@ -13,7 +13,8 @@ public interface DocumentLifecyclePort {
      * 按文档业务标识解析生命周期状态。
      *
      * @param documentId 文档业务标识
-     * @return 生命周期状态；未知文档默认 ACTIVE（避免过度阻断），实现处需记录
+     * @return 生命周期状态；Fail-closed：文档不存在返回 NOT_FOUND、查询失败返回
+     *         LOOKUP_FAILED、状态无法解析返回 UNKNOWN，均不默认 ACTIVE，实现处需记录
      */
     DocumentLifecycleStatus resolve(String documentId);
 }

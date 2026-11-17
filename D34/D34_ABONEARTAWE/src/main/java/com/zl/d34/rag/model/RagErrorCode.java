@@ -48,5 +48,8 @@ public enum RagErrorCode {
     UNSUPPORTED_CLAIM,
 
     /** 生成后校验未通过的受控失败。 */
-    GENERATION_VALIDATION_FAILED
+    GENERATION_VALIDATION_FAILED,
+
+    /** 生命周期查询失败（基础设施故障），无法确认证据有效性，受控拒答而非默认放行。 */
+    LIFECYCLE_LOOKUP_FAILED
 }

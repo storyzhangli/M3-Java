@@ -95,6 +95,24 @@ class RagOrchestratorTest {
     }
 
     @Test
+    void lifecycleLookupFailureShouldRefuseWithoutModelCall() {
+        EvidenceItem item = evidence("S1");
+        stubRetrieval(RetrievalStatus.SUCCESS, List.of());
+        stubContextWithEvidence(List.of(item));
+        when(evidenceAssessmentService.assess(any(), anyString())).thenReturn(
+                assessment(AssessmentDecision.REFUSE, RagErrorCode.LIFECYCLE_LOOKUP_FAILED,
+                        List.of(), List.of("S1"), List.of(), List.of(),
+                        "生命周期查询失败，无法确认证据有效性"));
+
+        RagAnswerResponse response = orchestrator.ask(request("某问题"));
+
+        assertThat(response.getDecision()).isEqualTo(AssessmentDecision.REFUSE);
+        assertThat(response.getErrorCode()).isEqualTo(RagErrorCode.LIFECYCLE_LOOKUP_FAILED);
+        assertThat(response.getGenerationStatus()).isEqualTo(GenerationStatus.SKIPPED_NO_EVIDENCE);
+        verify(generationService, never()).generate(anyString(), any());
+    }
+
+    @Test
     void conflictShouldReturnConflictWithoutModelCall() {
         EvidenceItem item = evidence("S1");
         stubRetrieval(RetrievalStatus.SUCCESS, List.of());

@@ -1,11 +1,16 @@
 package com.zl.d34.rag.real;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.zl.d34.document.chunk.model.Chunk;
 import com.zl.d34.document.chunk.model.ChunkStrategy;
+import com.zl.d34.document.mapper.KnowledgeDocumentMapper;
+import com.zl.d34.document.model.DocumentLifecycleStatus;
+import com.zl.d34.document.po.KnowledgeDocumentPO;
 import com.zl.d34.document.vectorindex.service.DocumentVectorIndexService;
 import com.zl.d34.rag.dto.RagQuestionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -32,9 +37,13 @@ abstract class RagRealTestSupport {
     @Autowired
     protected DocumentVectorIndexService indexService;
 
-    /** 重建全部受控夹具：先清理旧数据，再重新入库（Embedding 本地，不产生模型调用）。 */
+    @Autowired
+    protected KnowledgeDocumentMapper documentMapper;
+
+    /** 重建全部受控夹具：先清理旧数据，再写入 MySQL 生命周期行并入库向量（Embedding 本地，不产生模型调用）。 */
     protected void ensureFixtures() {
         cleanupFixtures();
+        ensureLifecycleRows();
         indexService.indexChunks(DOC_A, 1, ChunkStrategy.STRUCTURE.name(), TITLE_A, List.of(
                 chunk(DOC_A, TITLE_A, 0,
                         "L5设备甲技术手册。额定压力: 0.8 MPa；工作温度: 60 ℃；设备运行状态正常，运行稳定。")));
@@ -54,6 +63,32 @@ abstract class RagRealTestSupport {
         for (String doc : List.of(DOC_A, DOC_B, DOC_C)) {
             indexService.deleteByDocument(doc);
         }
+        cleanupLifecycleRows();
+    }
+
+    /** 为受控文档写入 ACTIVE 生命周期行，使 fail-closed 下正常接地路径可被解析为 ACTIVE。 */
+    private void ensureLifecycleRows() {
+        LocalDateTime now = LocalDateTime.now();
+        for (String doc : List.of(DOC_A, DOC_B, DOC_C)) {
+            KnowledgeDocumentPO po = new KnowledgeDocumentPO();
+            po.setDocumentId(doc);
+            po.setSource("D34-REMEDIATION-IT");
+            po.setTitle(doc);
+            po.setVersion(1);
+            po.setStatus("COMPLETED");
+            po.setLifecycleStatus(DocumentLifecycleStatus.ACTIVE.name());
+            po.setContentLength(0L);
+            po.setErrorCode("");
+            po.setErrorMessage("");
+            po.setCreatedAt(now);
+            po.setUpdatedAt(now);
+            documentMapper.insert(po);
+        }
+    }
+
+    private void cleanupLifecycleRows() {
+        documentMapper.delete(new QueryWrapper<KnowledgeDocumentPO>()
+                .in("document_id", List.of(DOC_A, DOC_B, DOC_C)));
     }
 
     protected RagQuestionRequest request(String question, String documentId, int topK) {

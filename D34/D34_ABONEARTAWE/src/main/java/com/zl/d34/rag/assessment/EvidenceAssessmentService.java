@@ -72,6 +72,7 @@ public class EvidenceAssessmentService {
         // 1) 生命周期筛选
         List<EvidenceItem> accepted = new ArrayList<>();
         List<String> rejected = new ArrayList<>();
+        List<DocumentLifecycleStatus> rejectedStatuses = new ArrayList<>();
         if (evidence != null) {
             for (EvidenceItem item : evidence) {
                 DocumentLifecycleStatus lifecycle = lifecyclePort.resolve(item.getDocumentId());
@@ -81,8 +82,9 @@ public class EvidenceAssessmentService {
                     details.add(item.getSourceRef() + " 生命周期=" + lifecycle.name() + "，进入有效证据");
                 } else {
                     rejected.add(item.getSourceRef());
+                    rejectedStatuses.add(lifecycle);
                     details.add(item.getSourceRef() + " 生命周期=" + lifecycle.name()
-                            + "，未生效/已废弃，筛除");
+                            + "，未生效/状态不可确认，筛除");
                 }
             }
         }
@@ -113,6 +115,12 @@ public class EvidenceAssessmentService {
                     evidenceIds, accepted, rejected, conflicts, List.of(), details);
         }
         if (accepted.isEmpty()) {
+            // 基础设施故障（查询失败）与业务上无有效证据明确区分，不静默放行、不隐藏故障
+            if (rejectedStatuses.contains(DocumentLifecycleStatus.LOOKUP_FAILED)) {
+                return build(AssessmentDecision.REFUSE, RagErrorCode.LIFECYCLE_LOOKUP_FAILED,
+                        "生命周期查询失败，无法确认证据有效性，已停止生成，未调用大模型。",
+                        evidenceIds, accepted, rejected, conflicts, List.of(), details);
+            }
             return build(AssessmentDecision.REFUSE, RagErrorCode.NO_EVIDENCE,
                     "知识库中无有效证据，已停止生成，未调用大模型。",
                     evidenceIds, accepted, rejected, conflicts, List.of(), details);

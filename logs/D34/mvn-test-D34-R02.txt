@@ -20,7 +20,7 @@ Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
 [WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
 [INFO] 
 [INFO] --- clean:3.4.1:clean (default-clean) @ D34_ABONEARTAWE ---
-[INFO] Deleting E:\AI\project\AI-Learning-one\M3-Java\D34\D34_ABONEARTAWE\target
+[INFO] Deleting <仓库根>\D34\D34_ABONEARTAWE\target
 [INFO] 
 [INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D34_ABONEARTAWE ---
 [INFO] 
@@ -38,9 +38,9 @@ Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
   或显式启用了批注处理 (-proc:only, -proc:full)。
   可使用 -Xlint:-options 隐藏此消息。
   可使用 -proc:none 禁用批注处理。
-[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/logging/CachedBodyAccessLogFilter.java:[67,55] org.springframework.web.util.ContentCachingRequestWrapper 中的 ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) 已过时, 且标记为待删除
-[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: E:\AI\project\AI-Learning-one\M3-Java\D34\D34_ABONEARTAWE\src\main\java\com\zl\d34\conversation\ConversationMemory.java使用或覆盖了已过时的 API。
-[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
+[WARNING] <仓库根>/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/logging/CachedBodyAccessLogFilter.java:[67,55] org.springframework.web.util.ContentCachingRequestWrapper 中的 ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) 已过时, 且标记为待删除
+[INFO] <仓库根>/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: <仓库根>\D34\D34_ABONEARTAWE\src\main\java\com\zl\d34\conversation\ConversationMemory.java使用或覆盖了已过时的 API。
+[INFO] <仓库根>/D34/D34_ABONEARTAWE/src/main/java/com/zl/d34/conversation/ConversationMemory.java: 有关详细信息, 请使用 -Xlint:deprecation 重新编译。
 [INFO] 
 [INFO] --- resources:3.3.1:testResources (default-testResources) @ D34_ABONEARTAWE ---
 [INFO] Copying 1 resource from src\test\resources to target\test-classes
