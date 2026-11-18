@@ -40,6 +40,15 @@ public class SimilarityMatchView {
     /** Chunk 在文档内序号（metadata.chunkIndex）。 */
     private Integer chunkIndex;
 
+    /** 起始物理页（metadata.page，从 1 开始）；无定位时为 null，不推断。 */
+    private Integer page;
+
+    /** 跨页时的结束物理页（metadata.lastPage）；单页或无定位时为 null。 */
+    private Integer lastPage;
+
+    /** 起始段落序号（metadata.paragraphIndex，从 0 开始）；无定位时为 null。 */
+    private Integer paragraphIndex;
+
     /** 真实相似度（1 - distance）；框架未提供时为 null。 */
     private Double similarity;
 
@@ -76,6 +85,9 @@ public class SimilarityMatchView {
         view.strategy = asString(view.metadata.get("strategy"));
         view.version = asInteger(view.metadata.get("version"));
         view.chunkIndex = asInteger(view.metadata.get("chunkIndex"));
+        view.page = asInteger(view.metadata.get("page"));
+        view.lastPage = asInteger(view.metadata.get("lastPage"));
+        view.paragraphIndex = asInteger(view.metadata.get("paragraphIndex"));
         return view;
     }
 

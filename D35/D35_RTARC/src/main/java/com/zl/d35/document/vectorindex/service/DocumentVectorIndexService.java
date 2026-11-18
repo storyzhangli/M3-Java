@@ -487,6 +487,20 @@ public class DocumentVectorIndexService {
         metadata.put("chunkIndex", chunk.getChunkIndex());
         metadata.put("chunkContentHash", pc.chunkContentHash());
         metadata.put("splitVersion", properties.getSplitVersion());
+
+        // 真实页码/段落定位：仅写入切分阶段保留的真实非空值，缺失则不写，禁止推断或补造。
+        if (chunk.hasPageLocation()) {
+            metadata.put("page", chunk.getFirstPageNumber());
+            if (chunk.isCrossPage() && !chunk.getFirstPageNumber().equals(chunk.getLastPageNumber())) {
+                metadata.put("lastPage", chunk.getLastPageNumber());
+            }
+        }
+        if (chunk.hasParagraphLocation() && !chunk.getParagraphIndices().isEmpty()) {
+            metadata.put("paragraphIndex", chunk.getParagraphIndices().get(0));
+            if (chunk.getParagraphIndices().size() > 1) {
+                metadata.put("paragraphIndices", chunk.getParagraphIndices());
+            }
+        }
         return metadata;
     }
 

@@ -42,6 +42,21 @@ public class EvidenceItem {
     /** 生命周期状态（评估阶段解析后回填，默认 ACTIVE）。 */
     private DocumentLifecycleStatus lifecycleStatus = DocumentLifecycleStatus.ACTIVE;
 
+    /** 起始物理页（从 1 开始）；无定位时为 null，不推断。 */
+    private Integer page;
+
+    /** 跨页结束物理页；单页或无定位时为 null。 */
+    private Integer lastPage;
+
+    /** 起始段落序号（从 0 开始）；无定位时为 null。 */
+    private Integer paragraphIndex;
+
+    /** 引用片段：由真实内容确定性截取，模型不参与，缺失为 null。 */
+    private String quotedSnippet;
+
+    /** 是否被模型回答实际引用，默认 false，由响应前核验回填。 */
+    private boolean cited;
+
     /** 该证据渲染块的字符长度。 */
     private int blockLength;
 }

@@ -1,0 +1,212 @@
+{
+  "meta": {
+    "iteration": "D35",
+    "title": "引用溯源与返回契约评测数据集",
+    "version": "1.0",
+    "note": "actual、passed、failureReason 为执行后回填字段，建集时禁止预填，统一保持 null；真实端到端用例在对应守卫环境变量打开后执行。",
+    "metrics": [
+      "引用合法率",
+      "伪造拦截率",
+      "悬空引用率",
+      "页码可溯源率",
+      "片段一致率",
+      "危险协议/虚构URL泄漏数",
+      "整体通过率"
+    ]
+  },
+  "cases": [
+    {
+      "caseId": "D35-001",
+      "scenario": "伪造引用标记：模型输出不存在的 [S99]",
+      "setup": "仅 1 个有效来源 S1，模型回答文本含 [S99]",
+      "sourceIds": ["S1"],
+      "expected": {
+        "errorCode": "INVALID_CITATION",
+        "invalidCitations": ["[S99]"],
+        "markerStripped": true,
+        "validationPassed": false
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-002",
+      "scenario": "越界引用：仅 2 个来源却出现 [S5]",
+      "setup": "有效来源 S1、S2，回答含 [S5]",
+      "sourceIds": ["S1", "S2"],
+      "expected": {
+        "errorCode": "INVALID_CITATION",
+        "invalidCitations": ["[S5]"],
+        "validationPassed": false
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-003",
+      "scenario": "文档在响应前被删除：悬空引用受控失败",
+      "setup": "检索命中后删除目标 knowledge_document 行与向量，再执行响应前核验",
+      "sourceIds": ["S1"],
+      "expected": {
+        "errorCode": "CITATION_TARGET_DELETED",
+        "answerSuppressed": true,
+        "sources": []
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-004",
+      "scenario": "删除竞态：检索/生成期间 Chunk 被删除",
+      "setup": "Chunk 行在生成期间被删除，响应前批量 IN 核验发现缺失",
+      "sourceIds": ["S1"],
+      "expected": {
+        "errorCode": "CITATION_TARGET_DELETED",
+        "answerSuppressed": true,
+        "batchQueryCount": 2
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-005",
+      "scenario": "文档被标记 DEPRECATED：证据不再有效",
+      "setup": "生命周期状态由 ACTIVE 改为 DEPRECATED",
+      "sourceIds": ["S1"],
+      "expected": {
+        "errorCode": "EVIDENCE_NOT_EFFECTIVE",
+        "validItems": 0
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-006",
+      "scenario": "页码缺失：无可靠 page 时隐藏而非编造",
+      "setup": "ChunkSource.pageNumber 为 null",
+      "sourceIds": ["S1"],
+      "expected": {
+        "page": null,
+        "pageFieldHidden": true,
+        "notMisjudgedAsFailure": true
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-007",
+      "scenario": "旧向量无页码元数据：保持 null 并记录覆盖率",
+      "setup": "存量向量 metadata 无 page，且 chunk 行无 page 列",
+      "sourceIds": ["S1"],
+      "expected": {
+        "page": null,
+        "coverageNote": "PAGE_LOCATION_MISSING",
+        "noMagicRestore": true
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-008",
+      "scenario": "真实页码返回：物理页从 1 起，禁止用 chunkIndex 推页码",
+      "setup": "ChunkSource 保留 pageNumber=3，chunkIndex=0",
+      "sourceIds": ["S1"],
+      "expected": {
+        "page": 3,
+        "notEqualToChunkIndex": true
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-009",
+      "scenario": "多来源独立编号：≥3 个 Chunk 顺序稳定",
+      "setup": "同一文档 3 个 Chunk 按检索顺序返回",
+      "sourceIds": ["S1", "S2", "S3"],
+      "expected": {
+        "citationIds": ["S1", "S2", "S3"],
+        "orderStable": true
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-010",
+      "scenario": "引用片段不串：quotedSnippet 各自来自本 Chunk 真实内容",
+      "setup": "3 个 Chunk 内容互不相同",
+      "sourceIds": ["S1", "S2", "S3"],
+      "expected": {
+        "distinctQuotedSnippets": true,
+        "snippetMatchesOwnContent": true,
+        "maxChars": 200
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-011",
+      "scenario": "cited 语义：仅回答中出现的标记为已引用",
+      "setup": "回答仅含 [S1]，来源 S1、S2、S3",
+      "sourceIds": ["S1", "S2", "S3"],
+      "expected": {
+        "citedTrue": ["S1"],
+        "citedFalse": ["S2", "S3"]
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-012",
+      "scenario": "跨页 Chunk：lastPage 可选返回",
+      "setup": "Chunk 含两个 ChunkSource，页码分别为 3、4",
+      "sourceIds": ["S1"],
+      "expected": {
+        "page": 3,
+        "lastPage": 4
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-013",
+      "scenario": "虚构/危险 URL 拦截：泄漏数目标为 0",
+      "setup": "回答含 javascript: 与 data: 形态链接，证据 URL 白名单为空",
+      "sourceIds": ["S1"],
+      "expected": {
+        "errorCode": "FABRICATED_URL",
+        "dangerousLeakCount": 0,
+        "returnedUrl": null
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-014",
+      "scenario": "SSE 与同步 API 一致性及前端安全",
+      "setup": "同一问题分别走流式与同步通道，前端以 textContent/createElement 渲染",
+      "sourceIds": ["S1", "S2", "S3"],
+      "expected": {
+        "sameSemanticFields": true,
+        "noInnerHtml": true,
+        "noXss": true,
+        "urlFieldHidden": true
+      },
+      "actual": null,
+      "passed": null,
+      "failureReason": null
+    }
+  ]
+}

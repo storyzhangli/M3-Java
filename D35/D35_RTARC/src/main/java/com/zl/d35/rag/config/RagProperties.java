@@ -28,4 +28,10 @@ public class RagProperties {
 
     /** 默认 Top-K，未显式传入时使用；与检索服务默认值保持一致。 */
     private int defaultTopK = 5;
+
+    /**
+     * 引用片段（quotedSnippet）最大 UTF-16 字符数，默认 200。
+     * 片段由真实命中内容确定性截取，模型不参与生成。
+     */
+    private int quotedSnippetMaxChars = 200;
 }

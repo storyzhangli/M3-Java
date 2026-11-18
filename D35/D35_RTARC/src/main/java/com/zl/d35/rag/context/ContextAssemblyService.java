@@ -1,6 +1,7 @@
 package com.zl.d35.rag.context;
 
 import com.zl.d35.document.retrieval.dto.SimilarityMatchView;
+import com.zl.d35.rag.citation.SnippetExtractor;
 import com.zl.d35.rag.config.RagProperties;
 import com.zl.d35.rag.context.ContextAssemblyResult;
 import com.zl.d35.rag.dto.RagBudgetView;
@@ -139,6 +140,12 @@ public class ContextAssemblyService {
         item.setStrategy(match.getStrategy());
         item.setSimilarity(match.getSimilarity());
         item.setDistance(match.getDistance());
+        item.setPage(match.getPage());
+        item.setLastPage(match.getLastPage());
+        item.setParagraphIndex(match.getParagraphIndex());
+        // 引用片段只从真实命中内容截取，模型不参与；上限可配置，默认 200 UTF-16 字符。
+        item.setQuotedSnippet(SnippetExtractor.extract(
+                match.getContent(), ragProperties.getQuotedSnippetMaxChars()));
         item.setBlockLength(blockLength);
         return item;
     }

@@ -51,5 +51,17 @@ public enum RagErrorCode {
     GENERATION_VALIDATION_FAILED,
 
     /** 生命周期查询失败（基础设施故障），无法确认证据有效性，受控拒答而非默认放行。 */
-    LIFECYCLE_LOOKUP_FAILED
+    LIFECYCLE_LOOKUP_FAILED,
+
+    /** 响应前权威核验发现目标文档/Chunk 已被删除（覆盖检索后的竞态窗口）。 */
+    CITATION_TARGET_DELETED,
+
+    /** 页码定位缺失；page 为正常可空字段，不补造、不单独作为失败，仅用于标记与统计。 */
+    PAGE_LOCATION_MISSING,
+
+    /** 模型输出包含危险协议/本机路径或无来源支撑的虚构 URL。 */
+    FABRICATED_URL,
+
+    /** 响应前核验发现目标文档未生效或已废弃（DRAFT/DEPRECATED/UNKNOWN 等）。 */
+    EVIDENCE_NOT_EFFECTIVE
 }

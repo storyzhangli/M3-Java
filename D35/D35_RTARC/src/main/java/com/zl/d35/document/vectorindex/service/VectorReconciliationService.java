@@ -159,6 +159,41 @@ public class VectorReconciliationService {
         return report;
     }
 
+    /**
+     * 非破坏性 page metadata 覆盖度核对（只读，不删除、不重写）。
+     *
+     * <p>用于标记缺 page 的旧向量并记录覆盖范围：新入库/重索引向量带真实 page，
+     * 历史向量 page 保持 null；回填的唯一支持路径是经入库流水线重索引，
+     * 本方法不做魔法补丁，也不推断页码。</p>
+     *
+     * @return 覆盖度统计（含缺失 page 的向量 id）
+     */
+    public PageCoverage pageMetadataCoverage() {
+        List<PgRow> rows = loadPgRows();
+        int withPage = 0;
+        List<String> missingPageIds = new ArrayList<>();
+        for (PgRow row : rows) {
+            Object page = row.metadata().get("page");
+            if (page instanceof Number) {
+                withPage++;
+            } else {
+                missingPageIds.add(row.id());
+            }
+        }
+        log.info("page metadata 覆盖度: total={}, withPage={}, missingPage={}",
+                rows.size(), withPage, missingPageIds.size());
+        return new PageCoverage(rows.size(), withPage, List.copyOf(missingPageIds));
+    }
+
+    /** page metadata 覆盖度统计。 */
+    public record PageCoverage(int totalVectors, int vectorsWithPage, List<String> missingPageIds) {
+
+        /** 带 page 向量占比；总量为 0 时返回 0（调用方可据此标注 N/A）。 */
+        public double coverageRatio() {
+            return totalVectors == 0 ? 0.0d : (double) vectorsWithPage / totalVectors;
+        }
+    }
+
     private void applyCompensation(ReconciliationReportView report,
                                    List<String> orphanIds,
                                    Map<String, List<DocumentChunkIndexPO>> missingByVersion) {

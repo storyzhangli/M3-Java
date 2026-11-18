@@ -3,6 +3,7 @@ package com.zl.d35.rag.orchestrator;
 import com.zl.d35.rag.assessment.AssessmentDecision;
 import com.zl.d35.rag.assessment.EvidenceAssessmentResult;
 import com.zl.d35.rag.assessment.EvidenceAssessmentService;
+import com.zl.d35.rag.citation.CitationVerificationService;
 import com.zl.d35.rag.context.ContextAssemblyResult;
 import com.zl.d35.rag.context.EvidenceItem;
 import com.zl.d35.rag.dto.ConflictGroupView;
@@ -32,10 +33,11 @@ import java.util.List;
  * RAG 编排器：协调完整链路，不承载检索/模型调用细节。
  *
  * <p>固定流程：校验问题 → 检索 → 上下文组装 → 证据评估 →
- * （仅 ANSWER 才调用生成）→ 生成后校验 → 汇总回答/来源/澄清/拒答/冲突。</p>
+ * （仅 ANSWER 才调用生成）→ 响应前权威核验 → 生成后校验 → 汇总回答/来源/澄清/拒答/冲突。</p>
  *
  * <p>关键边界：检索失败、无证据、澄清、拒答、冲突均不调用 ChatModel，并保留可核验的零调用证据；
- * 生成后校验未通过时受控返回 GENERATION_VALIDATION_FAILED，不直接放行。</p>
+ * 引用元数据只来自本轮真实检索与权威持久化数据，模型只能生成引用标记，不能创造来源、页码、
+ * 片段或 URL；响应前批量核验剔除删除/失效来源，全部失效则受控失败。</p>
  */
 @Slf4j
 @Service
@@ -49,17 +51,20 @@ public class RagOrchestrator {
     private final EvidenceAssessmentService evidenceAssessmentService;
     private final GenerationService generationService;
     private final ResponseValidationService responseValidationService;
+    private final CitationVerificationService citationVerificationService;
 
     public RagOrchestrator(RagRetrievalService retrievalService,
                            ContextAssemblyService contextAssemblyService,
                            EvidenceAssessmentService evidenceAssessmentService,
                            GenerationService generationService,
-                           ResponseValidationService responseValidationService) {
+                           ResponseValidationService responseValidationService,
+                           CitationVerificationService citationVerificationService) {
         this.retrievalService = retrievalService;
         this.contextAssemblyService = contextAssemblyService;
         this.evidenceAssessmentService = evidenceAssessmentService;
         this.generationService = generationService;
         this.responseValidationService = responseValidationService;
+        this.citationVerificationService = citationVerificationService;
     }
 
     /**
@@ -110,9 +115,11 @@ public class RagOrchestrator {
         GenerationResult generation = generationService.generate(question, context);
         long generationMs = elapsedMs(generationStart);
 
-        // 8) 生成后校验（引用合法性 + 事实支持）
-        List<EvidenceItem> acceptedEvidence = filterAccepted(context, assessment);
-        return buildResponse(retrieval, context, assessment, generation, acceptedEvidence,
+        // 8) 响应前权威核验（批量，覆盖检索/生成期间的删除与失效竞态）
+        CitationVerificationService.CitationVerification verification =
+                citationVerificationService.verify(context.getEvidence());
+
+        return buildResponse(retrieval, context, assessment, generation, verification,
                 retrievalMs, assemblyMs, generationMs, elapsedMs(totalStart));
     }
 
@@ -187,18 +194,17 @@ public class RagOrchestrator {
         return response;
     }
 
-    private RagAnswerResponse buildResponse(RagRetrievalResult retrieval,
-                                           ContextAssemblyResult context,
-                                           EvidenceAssessmentResult assessment,
-                                           GenerationResult generation,
-                                           List<EvidenceItem> acceptedEvidence,
-                                           long retrievalMs, long assemblyMs,
-                                           long generationMs, long totalMs) {
+    private RagAnswerResponse buildResponse(
+            RagRetrievalResult retrieval,
+            ContextAssemblyResult context,
+            EvidenceAssessmentResult assessment,
+            GenerationResult generation,
+            CitationVerificationService.CitationVerification verification,
+            long retrievalMs, long assemblyMs,
+            long generationMs, long totalMs) {
         RagAnswerResponse response = baseResponse();
         response.setRetrievalStatus(retrieval.status());
         response.setRetrievedCount(retrieval.retrievedCount());
-        response.setSources(toSourceViews(context.getEvidence()));
-        response.setEvidenceCount(context.getEvidence().size());
         response.setBudget(context.getBudget());
         response.setTiming(timing(retrievalMs, assemblyMs, generationMs, totalMs));
         applyAssessment(response, assessment);
@@ -207,22 +213,52 @@ public class RagOrchestrator {
             response.setGenerationStatus(generation.status());
             response.setErrorCode(generation.errorCode());
             response.setErrorMessage(generation.errorMessage());
+            response.setSources(toSourceViews(context.getEvidence()));
+            response.setEvidenceCount(context.getEvidence().size());
             log.warn("RAG 受控返回：生成失败 status={} code={}",
                     generation.status(), generation.errorCode());
             return response;
         }
 
-        // 生成后校验：未通过则受控失败，不直接放行模型文本
+        List<EvidenceItem> validItems = verification.validItems();
+
+        // 全部来源在响应前被删除/失效：抑制模型答案，受控失败
+        if (validItems.isEmpty()) {
+            response.setAnswer(null);
+            response.setGenerationStatus(GenerationStatus.FAILED_ERROR);
+            response.setErrorCode(selectRemovalCode(verification));
+            response.setErrorMessage("引用来源在返回前已全部删除或失效，已停止返回该回答。");
+            response.setSources(List.of());
+            response.setEvidenceCount(0);
+            response.setCitationNotes(buildCitationNotes(verification, List.of()));
+            log.warn("RAG 受控返回：响应前来源全部失效 code={}", response.getErrorCode());
+            return response;
+        }
+
+        // cited 仅按回答中真实出现的标记回填，且只标记已核验有效的来源
+        citationVerificationService.markCited(generation.content(), validItems);
+
+        // 生成后校验（引用合法性 + 事实支持 + 虚构 URL），以已核验有效来源为准
         CitationValidationResult validation =
-                responseValidationService.validate(generation.content(), acceptedEvidence);
+                responseValidationService.validate(generation.content(), validItems);
         response.setCitationValidation(toValidationView(validation));
+        response.setSources(toSourceViews(validItems));
+        response.setEvidenceCount(validItems.size());
+        response.setCitationNotes(buildCitationNotes(verification, validItems));
+
         if (!validation.validationPassed()) {
             response.setAnswer(null);
             response.setGenerationStatus(GenerationStatus.FAILED_ERROR);
-            response.setErrorCode(RagErrorCode.GENERATION_VALIDATION_FAILED);
-            response.setErrorMessage("生成后校验未通过，已拦截输出，请补充权威证据后重试");
-            log.warn("RAG 受控返回：生成后校验未通过 invalid={} unsupported={}",
-                    validation.invalidCitations(), validation.unsupportedClaims());
+            if (!validation.fabricatedUrls().isEmpty()) {
+                response.setErrorCode(RagErrorCode.FABRICATED_URL);
+                response.setErrorMessage("回答包含危险协议或无来源支撑的链接，已受控拦截。");
+            } else {
+                response.setErrorCode(RagErrorCode.GENERATION_VALIDATION_FAILED);
+                response.setErrorMessage("生成后校验未通过，已拦截输出，请补充权威证据后重试");
+            }
+            log.warn("RAG 受控返回：生成后校验未通过 invalid={} unsupported={} fabricatedUrl={}",
+                    validation.invalidCitations(), validation.unsupportedClaims(),
+                    validation.fabricatedUrls());
             return response;
         }
 
@@ -230,8 +266,34 @@ public class RagOrchestrator {
         response.setGenerationStatus(GenerationStatus.SUCCESS);
         response.setErrorCode(RagErrorCode.NONE);
         response.setUnknownCitationDetected(generation.unknownCitationDetected());
-        log.info("RAG 流程结束: evidence={}, generation=SUCCESS", context.getEvidence().size());
+        log.info("RAG 流程结束: evidence={}, valid={}, generation=SUCCESS",
+                context.getEvidence().size(), validItems.size());
         return response;
+    }
+
+    private RagErrorCode selectRemovalCode(
+            CitationVerificationService.CitationVerification verification) {
+        return verification.removed().stream()
+                .map(CitationVerificationService.RemovedSource::reasonCode)
+                .filter(code -> code == RagErrorCode.CITATION_TARGET_DELETED)
+                .findFirst()
+                .orElse(RagErrorCode.EVIDENCE_NOT_EFFECTIVE);
+    }
+
+    private List<String> buildCitationNotes(
+            CitationVerificationService.CitationVerification verification,
+            List<EvidenceItem> validItems) {
+        List<String> notes = new ArrayList<>();
+        for (CitationVerificationService.RemovedSource removed : verification.removed()) {
+            notes.add(removed.sourceRef() + " 已剔除：" + removed.reasonCode()
+                    + "（" + removed.reason() + "）");
+        }
+        long withPage = validItems.stream().filter(item -> item.getPage() != null).count();
+        if (withPage < validItems.size()) {
+            notes.add("页码可溯源 " + withPage + "/" + validItems.size()
+                    + "，缺失来源 page 保持 null（PAGE_LOCATION_MISSING，不补造）");
+        }
+        return notes;
     }
 
     private void applyAssessment(RagAnswerResponse response, EvidenceAssessmentResult assessment) {
@@ -239,17 +301,6 @@ public class RagOrchestrator {
         response.setRejectedEvidenceIds(assessment.rejectedEvidenceIds());
         response.setMissingInformation(assessment.missingInformation());
         response.setConflictGroups(toConflictViews(assessment.conflictGroups()));
-    }
-
-    private List<EvidenceItem> filterAccepted(ContextAssemblyResult context,
-                                              EvidenceAssessmentResult assessment) {
-        List<EvidenceItem> accepted = new ArrayList<>();
-        for (EvidenceItem item : context.getEvidence()) {
-            if (assessment.acceptedEvidenceIds().contains(item.getSourceRef())) {
-                accepted.add(item);
-            }
-        }
-        return accepted;
     }
 
     private List<ConflictGroupView> toConflictViews(
@@ -271,6 +322,7 @@ public class RagOrchestrator {
         view.setLegalCitationPassed(result.legalCitationPassed());
         view.setInvalidCitations(result.invalidCitations());
         view.setUnsupportedClaims(result.unsupportedClaims());
+        view.setFabricatedUrls(result.fabricatedUrls());
         view.setValidationPassed(result.validationPassed());
         return view;
     }
@@ -279,15 +331,25 @@ public class RagOrchestrator {
         List<RagSourceView> views = new ArrayList<>(evidence.size());
         for (EvidenceItem item : evidence) {
             RagSourceView view = new RagSourceView();
+            // 稳定来源标识映射真实 documentId；请求级引用标识对应 sourceRef
+            view.setSourceId(item.getDocumentId());
+            view.setCitationId(item.getSourceRef());
             view.setSourceRef(item.getSourceRef());
             view.setChunkId(item.getChunkId());
             view.setDocumentId(item.getDocumentId());
             view.setTitle(item.getTitle());
             view.setVersion(item.getVersion());
             view.setChunkIndex(item.getChunkIndex());
+            view.setPage(item.getPage());
+            view.setLastPage(item.getLastPage());
+            view.setParagraphIndex(item.getParagraphIndex());
+            view.setQuotedSnippet(item.getQuotedSnippet());
+            view.setCited(item.isCited());
             view.setStrategy(item.getStrategy());
             view.setSimilarity(item.getSimilarity());
             view.setDistance(item.getDistance());
+            // 当前无授权外链来源，url 恒 null（经安全策略解析，入参为 null）
+            view.setUrl(citationVerificationService.resolveUrl(null));
             views.add(view);
         }
         return views;

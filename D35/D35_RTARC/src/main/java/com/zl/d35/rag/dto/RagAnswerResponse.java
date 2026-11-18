@@ -70,4 +70,7 @@ public class RagAnswerResponse {
 
     /** 生成后引用与事实支持校验视图。 */
     private CitationValidationView citationValidation;
+
+    /** 引用核验说明：被剔除来源及原因、页码缺失覆盖情况等；无内容时为空。 */
+    private List<String> citationNotes = new ArrayList<>();
 }

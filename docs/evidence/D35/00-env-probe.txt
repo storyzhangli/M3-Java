@@ -1,0 +1,65 @@
+=== D35 ENV PROBE 2026-11-18 16:00:11 ===
+
+===== 1 FILE INVENTORY =====
+file count (excl target/.git/.idea): 267
+java file count: 248
+test java count: 0
+
+===== 2 CITATION SYMBOL SCAN =====
+symbol hit lines: 77
+innerHTML: app.js:7: * 3. 所有服务端文本都通过 textContent/createTextNode 渲染，不拼 innerHTML，避免脚本注入；
+innerHTML: app.js:119: messageList.innerHTML = '';
+
+===== 3 EFFECTIVE POM =====
+effective-pom exit: 0, exists: True
+
+===== 4 DEPENDENCY TREE =====
+dependency-tree exit: 0, exists: True
+
+===== 5 MAVEN VERSION =====
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: D:\SoftwareInstall\Apache\Maven\apache-maven-3.9.16
+Java version: 21.0.7, vendor: Oracle Corporation, runtime: D:\SoftwareInstall\JDK\JDK21
+Default locale: zh_CN, platform encoding: UTF-8
+OS name: "windows 11", version: "10.0", arch: "amd64", family: "windows"
+
+===== 6 GIT =====
+git status --short:
+
+git HEAD:
+1c975db17988f56fa9c431e0ab22044de8b5aacb
+git log --oneline -5:
+1c975db D35 项目基础骨架
+f89ae65 D34 阶段文件迁移目录，归档；
+e75ef8a D35 费曼口述
+bc712bc D35 知识笔记
+e6979e1 D34 阶段记录文件
+
+===== 7 PG TCP REACHABILITY =====
+PG 192.168.200.153:5432 TcpTestSucceeded: True
+PG_VECTOR_PASSWORD present: True
+AI_API_KEY present: True
+AI_MODE current: (unset, default mock)
+MySQL 127.0.0.1:3306 TcpTestSucceeded: True
+
+===== 8 KEY CLASS PRESENCE =====
+rag\controller\RagController.java : True
+rag\dto\RagAnswerResponse.java : True
+rag\dto\RagSourceView.java : True
+rag\context\EvidenceItem.java : True
+rag\context\ContextAssemblyService.java : True
+rag\retrieval\RagRetrievalService.java : True
+rag\validation\ResponseValidationService.java : True
+rag\model\RagErrorCode.java : True
+document\vectorindex\service\DocumentVectorIndexService.java : True
+document\retrieval\dto\SimilarityMatchView.java : True
+document\chunk\model\Chunk.java : True
+document\chunk\model\ChunkSource.java : True
+dto\CitationDto.java : True
+knowledge\CitationRegistry.java : True
+knowledge\KnowledgeChunk.java : True
+static js/app.js : True
+static js/sse-parser.js : True
+
+=== PROBE DONE ===

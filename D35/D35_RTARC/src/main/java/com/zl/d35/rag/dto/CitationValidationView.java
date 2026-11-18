@@ -20,6 +20,9 @@ public class CitationValidationView {
     /** 无证据支持的确定性断言。 */
     private List<String> unsupportedClaims = new ArrayList<>();
 
-    /** 两类校验是否全部通过。 */
+    /** 危险协议/本机路径或无来源支撑的虚构 URL。 */
+    private List<String> fabricatedUrls = new ArrayList<>();
+
+    /** 三类校验是否全部通过。 */
     private boolean validationPassed;
 }

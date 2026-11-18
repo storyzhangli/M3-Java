@@ -116,8 +116,8 @@
         sessionId = null;
         currentController = null;
         sending = false;
-        messageList.innerHTML = '';
-        messageList.appendChild(emptyTip);
+        // 不使用 innerHTML：以安全 DOM API 清空并放回空态提示，避免任何 HTML 解析面
+        messageList.replaceChildren(emptyTip);
         sessionTip.textContent = '尚未建立会话';
         sendBtn.disabled = false;
         stopBtn.disabled = true;
@@ -388,8 +388,48 @@
     }
 
     /**
+     * 客户端 URL 协议校验（仅作服务端策略的补充防线，不替代后端）。
+     * 仅放行 http/https 且非 localhost/内网/环回/本机路径的链接；危险协议一律拒绝。
+     */
+    function isSafeUrl(raw) {
+        if (typeof raw !== 'string' || raw === '') {
+            return false;
+        }
+        var value = raw.trim();
+        if (/^[A-Za-z]:[\\/]/.test(value)) {
+            return false; // 本机绝对路径
+        }
+        var match = /^([A-Za-z][A-Za-z0-9+.-]*):\/\/(.+)$/.exec(value);
+        if (!match) {
+            return false;
+        }
+        var scheme = match[1].toLowerCase();
+        if (scheme !== 'http' && scheme !== 'https') {
+            return false;
+        }
+        var host = match[2].split('/')[0].toLowerCase();
+        // 先剥离端口，得到主机名，避免 localhost:8080 这类带端口写法绕过主机校验
+        var hostname = host;
+        if (host.charAt(0) === '[') {
+            hostname = host.split(']')[0] + ']'; // 方括号 IPv6
+        } else if (host.indexOf(':') !== -1) {
+            hostname = host.split(':')[0];
+        }
+        if (hostname === 'localhost' || hostname.indexOf('.localhost') !== -1) {
+            return false;
+        }
+        if (/^(127\.|10\.|192\.168\.|169\.254\.|172\.(1[6-9]|2\d|3[01])\.)/.test(hostname)
+                || hostname.indexOf('[::1]') === 0 || hostname.indexOf('[fc') === 0
+                || hostname.indexOf('[fd') === 0) {
+            return false;
+        }
+        return true;
+    }
+
+    /**
      * 渲染结构化引用来源。全部使用 createElement/textContent，
      * 摘录、标题等服务端数据没有任何 HTML 执行面，也不展示本机路径与相似度分数。
+     * 仅当 url 存在且通过客户端协议校验时才创建外链锚点。
      */
     function renderCitations(regions, citations) {
         if (citations.length === 0) {
@@ -402,13 +442,22 @@
 
             var head = document.createElement('div');
             head.className = 'citation-head';
+            var location = '';
+            if (typeof item.page === 'number') {
+                location += '｜第 ' + item.page + ' 页';
+            }
+            if (typeof item.paragraphIndex === 'number') {
+                location += '｜段落 ' + item.paragraphIndex;
+            }
             head.textContent = '[' + item.id + '] ' + (item.title || '未命名文档')
                 + (item.section ? '｜' + item.section : '')
-                + (typeof item.page === 'number' ? '｜第 ' + item.page + ' 页' : '');
+                + location
+                + (item.cited === true ? '｜已引用' : '');
 
-            var excerpt = document.createElement('div');
-            excerpt.className = 'citation-excerpt';
-            excerpt.textContent = item.excerpt || '';
+            // 引用片段优先用 quotedSnippet，缺失时回退 excerpt，均为真实内容截取
+            var snippet = document.createElement('div');
+            snippet.className = 'citation-excerpt';
+            snippet.textContent = item.quotedSnippet || item.excerpt || '';
 
             var meta = document.createElement('div');
             meta.className = 'citation-meta';
@@ -416,8 +465,20 @@
                 + '｜sourceType=' + item.sourceType;
 
             li.appendChild(head);
-            li.appendChild(excerpt);
+            li.appendChild(snippet);
             li.appendChild(meta);
+
+            // 仅安全 url 才建锚点；无 url 或未过校验不渲染链接，杜绝危险协议执行面
+            if (isSafeUrl(item.url)) {
+                var link = document.createElement('a');
+                link.className = 'citation-link';
+                link.href = item.url.trim();
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = item.url.trim();
+                li.appendChild(link);
+            }
+
             regions.citationList.appendChild(li);
         });
         messageList.scrollTop = messageList.scrollHeight;
@@ -429,5 +490,10 @@
             regions.wrap.classList.add('error');
         }
         messageList.scrollTop = messageList.scrollHeight;
+    }
+
+    // 仅在 CommonJS（Node 测试）环境导出纯函数，浏览器环境无 module 对象，行为不变。
+    if (typeof module !== 'undefined' && module.exports) {
+        module.exports = { isSafeUrl: isSafeUrl };
     }
 })();

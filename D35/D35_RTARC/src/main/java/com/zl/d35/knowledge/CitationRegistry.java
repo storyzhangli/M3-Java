@@ -1,6 +1,7 @@
 package com.zl.d35.knowledge;
 
 import com.zl.d35.dto.CitationDto;
+import com.zl.d35.rag.citation.UrlSafetyPolicy;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -102,17 +103,17 @@ public class CitationRegistry {
         return sanitized.toString();
     }
 
-    /** 实际被答案引用的来源 DTO（去重、顺序稳定）。 */
+    /** 实际被答案引用的来源 DTO（去重、顺序稳定），cited=true。 */
     public List<CitationDto> citedCitations() {
         List<CitationDto> list = new ArrayList<>();
-        cited.forEach((id, chunk) -> list.add(toDto(id, chunk)));
+        cited.forEach((id, chunk) -> list.add(toDto(id, chunk, true)));
         return list;
     }
 
-    /** 全部分配来源的 DTO，用于检索命中即允许展示的受控场景。 */
+    /** 全部分配来源的 DTO，用于检索命中即允许展示的受控场景，cited=false。 */
     public List<CitationDto> allCitations() {
         List<CitationDto> list = new ArrayList<>();
-        assigned.forEach((id, chunk) -> list.add(toDto(id, chunk)));
+        assigned.forEach((id, chunk) -> list.add(toDto(id, chunk, false)));
         return list;
     }
 
@@ -120,9 +121,12 @@ public class CitationRegistry {
         return droppedUnknownMarkers;
     }
 
-    private CitationDto toDto(String id, KnowledgeChunk chunk) {
+    private CitationDto toDto(String id, KnowledgeChunk chunk, boolean cited) {
+        // URL 经统一安全策略：不安全或非 http(s) 一律置 null，不暴露本机路径/危险协议。
+        String safeUrl = UrlSafetyPolicy.sanitize(chunk.url());
         return new CitationDto(id, chunk.documentId(), chunk.chunkId(), chunk.title(),
-                chunk.sourceType(), chunk.section(), chunk.page(), chunk.excerpt(), chunk.url());
+                chunk.sourceType(), chunk.section(), chunk.page(), chunk.excerpt(), safeUrl,
+                chunk.documentId(), id, chunk.excerpt(), cited);
     }
 
     /**
