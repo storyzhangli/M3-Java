@@ -56,6 +56,12 @@ public enum RagErrorCode {
     /** 响应前权威核验发现目标文档/Chunk 已被删除（覆盖检索后的竞态窗口）。 */
     CITATION_TARGET_DELETED,
 
+    /**
+     * 响应前权威核验发现 Chunk 归属与证据声明的 documentId 不一致，
+     * 或 Chunk 行的 documentId 缺失、无法证明归属；不得仅因二者分别存在就判定引用有效。
+     */
+    CITATION_OWNERSHIP_MISMATCH,
+
     /** 页码定位缺失；page 为正常可空字段，不补造、不单独作为失败，仅用于标记与统计。 */
     PAGE_LOCATION_MISSING,
 

@@ -1,5 +1,5 @@
 # 费曼口述：Milvus 与 PostgreSQL/pgvector 的综合比较——为何不选择 Milvus
-说话人1: 费曼口述，Milvus 与 PostgreSQL/pgvector 的综合比较，为什么不选择 Milvus，共七十道关键问题，由浅入深分八个阶段，从核心概念与产品定位、系统架构与运行机制、数据模型与一致性、向量索引与检索能力、RAG 与制造设备知识库场景、部署运维与成本、Spring AI 与 Java 工程集成，到选型决策为何当前不选择 Milvus，技术基线为 JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.6、pgvector 0.8.x，以 Java 后端和制造设备故障知识库 RAG 项目为主要场景。
+说话人1: 费曼口述，Milvus 与 PostgreSQL/pgvector 的综合比较，为什么不选择 Milvus，共七十道关键问题，由浅入深分八个阶段，从核心概念与产品定位、系统架构与运行机制、数据模型与一致性、向量索引与检索能力、RAG 与制造设备知识库场景、部署运维与成本、Spring AI 与 Java 工程集成，到选型决策为何当前不选择 Milvus，技术基线为 JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.7、pgvector 0.8.7，以 Java 后端和制造设备故障知识库 RAG 项目为主要场景。
 
 ## 一、核心概念与产品定位
 说话人1: 问题一，PostgreSQL、pgvector 和 Milvus 分别是什么？三者在技术定位上有什么本质区别？

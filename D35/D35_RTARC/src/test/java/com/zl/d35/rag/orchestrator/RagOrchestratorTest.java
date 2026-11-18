@@ -195,6 +195,53 @@ class RagOrchestratorTest {
     }
 
     @Test
+    @DisplayName("全部来源归属不一致：抑制答案，返回 CITATION_OWNERSHIP_MISMATCH")
+    void ownershipMismatchControlledFailure() {
+        List<EvidenceItem> items = List.of(item("S1", "doc-1", "chunk-1"));
+        stubRetrievalAndAssembly(context(items));
+        when(evidenceAssessmentService.assess(any(), any()))
+                .thenReturn(assessment(AssessmentDecision.ANSWER, RagErrorCode.NONE));
+        when(generationService.generate(any(), any()))
+                .thenReturn(GenerationResult.success("答案 [S1]", false, 5));
+        var removed = new CitationVerificationService.RemovedSource(
+                "S1", "doc-1", "chunk-1", RagErrorCode.CITATION_OWNERSHIP_MISMATCH, "归属不一致");
+        when(citationVerificationService.verify(any()))
+                .thenReturn(new CitationVerificationService.CitationVerification(
+                        List.of(), List.of(removed), Map.of()));
+
+        var response = orchestrator.ask(request());
+
+        assertNull(response.getAnswer());
+        assertEquals(RagErrorCode.CITATION_OWNERSHIP_MISMATCH, response.getErrorCode());
+        assertTrue(response.getSources().isEmpty());
+    }
+
+    @Test
+    @DisplayName("Claim-Citation 错配：校验失败并回填 mismatch 明细")
+    void claimCitationMismatchFailure() {
+        List<EvidenceItem> items = List.of(item("S1", "doc-1", "chunk-1"));
+        stubRetrievalAndAssembly(context(items));
+        when(evidenceAssessmentService.assess(any(), any()))
+                .thenReturn(assessment(AssessmentDecision.ANSWER, RagErrorCode.NONE));
+        when(generationService.generate(any(), any()))
+                .thenReturn(GenerationResult.success("答案 工作压力 0.8 [S1]", false, 5));
+        when(citationVerificationService.verify(any()))
+                .thenReturn(new CitationVerificationService.CitationVerification(
+                        items, List.of(), Map.of()));
+        when(citationVerificationService.resolveUrl(any())).thenReturn(null);
+        when(responseValidationService.validate(any(), any()))
+                .thenReturn(new CitationValidationResult(true, List.of(),
+                        List.of("工作压力=0.8"), List.of(), false,
+                        List.of("工作压力=0.8 不被 [S1] 支持")));
+
+        var response = orchestrator.ask(request());
+
+        assertNull(response.getAnswer());
+        assertEquals(RagErrorCode.GENERATION_VALIDATION_FAILED, response.getErrorCode());
+        assertEquals(1, response.getCitationValidation().getClaimCitationMismatches().size());
+    }
+
+    @Test
     @DisplayName("非 ANSWER 决策：不调用生成与核验")
     void nonAnswerSkipsGeneration() {
         List<EvidenceItem> items = List.of(item("S1", "doc-1", "chunk-1"));

@@ -20,6 +20,9 @@ public class CitationValidationView {
     /** 无证据支持的确定性断言。 */
     private List<String> unsupportedClaims = new ArrayList<>();
 
+    /** Claim-Citation 关联失败明细：未标注引用或引用不支持该断言。 */
+    private List<String> claimCitationMismatches = new ArrayList<>();
+
     /** 危险协议/本机路径或无来源支撑的虚构 URL。 */
     private List<String> fabricatedUrls = new ArrayList<>();
 

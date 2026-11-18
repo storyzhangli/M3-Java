@@ -1,0 +1,727 @@
+{
+  "meta" : {
+    "iteration" : "D35",
+    "datasetVersion" : "1.1",
+    "datasetPath" : "docs/evidence/D35/citation-evaluation-dataset.json",
+    "executedAt" : "2026-11-18T21:56:51.244950600+08:00",
+    "executionMode" : "CONTROLLED_FIXTURE_VALIDATOR_LEVEL",
+    "limitations" : "未启动 Spring 容器、未调用真实 ChatModel、未连接真实 pgvector；verification 用例以受控夹具表达权威持久化状态。结果为校验器级别真实执行，不等价于真实端到端。"
+  },
+  "cases" : [ {
+    "caseId" : "D35-001",
+    "scenario" : "伪造引用标记：模型输出不存在的 [S99]",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : false,
+        "invalidCitations" : [ "[S99]" ],
+        "unsupportedClaims" : [ "额定压力=0.6" ],
+        "claimCitationMismatches" : [ "额定压力=0.6 不被 [S99] 支持" ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-002",
+    "scenario" : "越界引用：仅 2 个来源却出现 [S5]",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : false,
+        "invalidCitations" : [ "[S5]" ],
+        "unsupportedClaims" : [ ],
+        "claimCitationMismatches" : [ ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-003",
+    "scenario" : "文档在响应前被删除：悬空引用受控失败",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 0,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-A1",
+          "reasonCode" : "CITATION_TARGET_DELETED"
+        } ]
+      },
+      "validSourceRefs" : [ ],
+      "removedReasonCodes" : {
+        "S1" : "CITATION_TARGET_DELETED"
+      },
+      "derivedErrorCode" : "CITATION_TARGET_DELETED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-004",
+    "scenario" : "删除竞态：检索/生成期间 Chunk 被删除",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 0,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-A1",
+          "reasonCode" : "CITATION_TARGET_DELETED"
+        } ]
+      },
+      "validSourceRefs" : [ ],
+      "removedReasonCodes" : {
+        "S1" : "CITATION_TARGET_DELETED"
+      },
+      "derivedErrorCode" : "CITATION_TARGET_DELETED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-005",
+    "scenario" : "文档被标记 DEPRECATED：证据不再有效",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 0,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-A1",
+          "reasonCode" : "EVIDENCE_NOT_EFFECTIVE"
+        } ]
+      },
+      "validSourceRefs" : [ ],
+      "removedReasonCodes" : {
+        "S1" : "EVIDENCE_NOT_EFFECTIVE"
+      },
+      "derivedErrorCode" : "EVIDENCE_NOT_EFFECTIVE",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-006",
+    "scenario" : "页码缺失：无可靠 page 时隐藏而非编造",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "设备额定压力为 0.6 MPa。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1" ],
+      "pageByRef" : {
+        "S1" : null
+      },
+      "lastPageByRef" : {
+        "S1" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 16,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-007",
+    "scenario" : "旧向量无页码元数据：保持 null 并记录覆盖率口径",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 4,
+        "quotedSnippet" : "存量向量正文内容。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1" ],
+      "pageByRef" : {
+        "S1" : null
+      },
+      "lastPageByRef" : {
+        "S1" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 4
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 9,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-008",
+    "scenario" : "真实页码返回：物理页从 1 起，禁止用 chunkIndex 推页码",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : 3,
+        "lastPage" : null,
+        "paragraphIndex" : 2,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "设备额定压力为 0.6 MPa。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1" ],
+      "pageByRef" : {
+        "S1" : 3
+      },
+      "lastPageByRef" : {
+        "S1" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : 2
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 16,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-009",
+    "scenario" : "多来源独立编号：3 个 Chunk 顺序稳定",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "第一段：额定压力 0.6。",
+        "cited" : false
+      }, {
+        "sourceRef" : "S2",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A2",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 1,
+        "quotedSnippet" : "第二段：额定流量 10。",
+        "cited" : false
+      }, {
+        "sourceRef" : "S3",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A3",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 2,
+        "quotedSnippet" : "第三段：额定功率 500。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1", "S2", "S3" ],
+      "pageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "lastPageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0,
+        "S2" : 1,
+        "S3" : 2
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 13,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-010",
+    "scenario" : "引用片段不串：quotedSnippet 各自来自本 Chunk 真实内容",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "第一段：额定压力 0.6。",
+        "cited" : false
+      }, {
+        "sourceRef" : "S2",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A2",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 1,
+        "quotedSnippet" : "第二段：额定流量 10。",
+        "cited" : false
+      }, {
+        "sourceRef" : "S3",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A3",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 2,
+        "quotedSnippet" : "第三段：额定功率 500。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1", "S2", "S3" ],
+      "pageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "lastPageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0,
+        "S2" : 1,
+        "S3" : 2
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 13,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-011",
+    "scenario" : "cited 语义：仅回答中出现的标记为已引用",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "第一段：额定压力 0.6。",
+        "cited" : true
+      }, {
+        "sourceRef" : "S2",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A2",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 1,
+        "quotedSnippet" : "第二段：额定流量 10。",
+        "cited" : false
+      }, {
+        "sourceRef" : "S3",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A3",
+        "page" : null,
+        "lastPage" : null,
+        "paragraphIndex" : null,
+        "chunkIndex" : 2,
+        "quotedSnippet" : "第三段：额定功率 500。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1", "S2", "S3" ],
+      "pageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "lastPageByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null,
+        "S2" : null,
+        "S3" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0,
+        "S2" : 1,
+        "S3" : 2
+      },
+      "citedRefs" : [ "S1" ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 13,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-012",
+    "scenario" : "跨页 Chunk：lastPage 可选返回",
+    "executor" : "context",
+    "actualResult" : {
+      "executed" : true,
+      "evidence" : [ {
+        "sourceRef" : "S1",
+        "documentId" : "doc-A",
+        "chunkId" : "chunk-A1",
+        "page" : 3,
+        "lastPage" : 4,
+        "paragraphIndex" : null,
+        "chunkIndex" : 0,
+        "quotedSnippet" : "跨页正文内容。",
+        "cited" : false
+      } ],
+      "citationIds" : [ "S1" ],
+      "pageByRef" : {
+        "S1" : 3
+      },
+      "lastPageByRef" : {
+        "S1" : 4
+      },
+      "paragraphIndexByRef" : {
+        "S1" : null
+      },
+      "chunkIndexByRef" : {
+        "S1" : 0
+      },
+      "citedRefs" : [ ],
+      "distinctQuotedSnippets" : true,
+      "snippetMatchesOwnContent" : true,
+      "maxQuotedSnippetLength" : 7,
+      "quotedSnippetLimit" : 200,
+      "excluded" : [ ],
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-013",
+    "scenario" : "虚构/危险 URL 拦截：泄漏数目标为 0",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ ],
+        "claimCitationMismatches" : [ ],
+        "fabricatedUrls" : [ "javascript:alert(1)", "data:text/html,x" ]
+      },
+      "derivedErrorCode" : "FABRICATED_URL",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-014",
+    "scenario" : "SSE 与同步 API 一致性及前端安全",
+    "executor" : "not_executable_here",
+    "actualResult" : {
+      "executed" : false,
+      "note" : "本数据集执行器不覆盖该层；由 D35 其他测试（Node 前端测试/控制器契约测试）负责，不得据此判定通过。"
+    },
+    "passed" : null,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-015",
+    "scenario" : "Chunk-Document 归属不一致（单来源）",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 0,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-B1",
+          "reasonCode" : "CITATION_OWNERSHIP_MISMATCH"
+        } ]
+      },
+      "validSourceRefs" : [ ],
+      "removedReasonCodes" : {
+        "S1" : "CITATION_OWNERSHIP_MISMATCH"
+      },
+      "derivedErrorCode" : "CITATION_OWNERSHIP_MISMATCH",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-016",
+    "scenario" : "多来源中仅一个 Chunk 归属错误",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 2,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S2",
+          "documentId" : "doc-2",
+          "chunkId" : "chunk-2",
+          "reasonCode" : "CITATION_OWNERSHIP_MISMATCH"
+        } ]
+      },
+      "validSourceRefs" : [ "S1", "S3" ],
+      "removedReasonCodes" : {
+        "S2" : "CITATION_OWNERSHIP_MISMATCH"
+      },
+      "derivedErrorCode" : "CITATION_OWNERSHIP_MISMATCH",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-017",
+    "scenario" : "Chunk 行的 documentId 缺失：归属无法确认",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 0,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-A1",
+          "reasonCode" : "CITATION_OWNERSHIP_MISMATCH"
+        } ]
+      },
+      "validSourceRefs" : [ ],
+      "removedReasonCodes" : {
+        "S1" : "CITATION_OWNERSHIP_MISMATCH"
+      },
+      "derivedErrorCode" : "CITATION_OWNERSHIP_MISMATCH",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-018",
+    "scenario" : "Claim 在别处存在但所引来源不支持",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ "额定压力=0.8" ],
+        "claimCitationMismatches" : [ "额定压力=0.8 不被 [S1] 支持" ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-019",
+    "scenario" : "同句内两个 Claim 的引用标记互换",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ "工作压力=0.6", "工作压力=0.8" ],
+        "claimCitationMismatches" : [ "工作压力=0.6 不被 [S1] 支持", "工作压力=0.8 不被 [S2] 支持" ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-020",
+    "scenario" : "一个 Claim 标注多个 Citation，至少一个支持",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : true,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ ],
+        "claimCitationMismatches" : [ ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "NONE",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-021",
+    "scenario" : "Claim 没有引用标识",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ "工作压力=0.8" ],
+        "claimCitationMismatches" : [ "工作压力=0.8 未标注引用，按保守策略视为无支持" ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-022",
+    "scenario" : "多 Claim 部分引用错误：不得整体误判为全部正确",
+    "executor" : "validation",
+    "actualResult" : {
+      "executed" : true,
+      "validation" : {
+        "validationPassed" : false,
+        "legalCitationPassed" : true,
+        "invalidCitations" : [ ],
+        "unsupportedClaims" : [ "额定功率=500" ],
+        "claimCitationMismatches" : [ "额定功率=500 不被 [S2] 支持" ],
+        "fabricatedUrls" : [ ]
+      },
+      "derivedErrorCode" : "GENERATION_VALIDATION_FAILED",
+      "answerSuppressed" : true
+    },
+    "passed" : true,
+    "failureReason" : null
+  }, {
+    "caseId" : "D35-023",
+    "scenario" : "归属错误与 Claim 错配同时存在：先剔除错误来源再校验",
+    "executor" : "verification",
+    "actualResult" : {
+      "executed" : true,
+      "verification" : {
+        "validCount" : 1,
+        "removedCount" : 1,
+        "removed" : [ {
+          "sourceRef" : "S1",
+          "documentId" : "doc-A",
+          "chunkId" : "chunk-B2",
+          "reasonCode" : "CITATION_OWNERSHIP_MISMATCH"
+        } ]
+      },
+      "validSourceRefs" : [ "S2" ],
+      "removedReasonCodes" : {
+        "S1" : "CITATION_OWNERSHIP_MISMATCH"
+      },
+      "derivedErrorCode" : "CITATION_OWNERSHIP_MISMATCH",
+      "answerSuppressed" : false
+    },
+    "passed" : true,
+    "failureReason" : null
+  } ],
+  "summary" : {
+    "total" : 23,
+    "executed" : 22,
+    "passed" : 22,
+    "failed" : 0,
+    "notExecuted" : 1,
+    "failedCaseIds" : [ ]
+  }
+}

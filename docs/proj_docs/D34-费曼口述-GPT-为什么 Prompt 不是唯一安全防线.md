@@ -1,6 +1,6 @@
 # 费曼口述：为什么 Prompt 不是唯一安全防线
 
-**技术基线：** JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.6、pgvector 0.8.x。
+**技术基线：** JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.7、pgvector 0.8.7。
 
 **应用场景：** 制造设备故障知识库与工单助手。
 

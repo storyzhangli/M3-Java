@@ -28,6 +28,11 @@ import java.util.regex.Pattern;
  * 评估证据充分性，本服务负责覆盖“检索/生成期间文档被删除或失效”的竞态窗口，并在
  * 响应前以权威持久化数据为准剔除不可返回来源。</p>
  *
+ * <p><b>归属校验（P1-01）</b>：文档与 Chunk 分别存在并不等于引用有效。Chunk 行自带
+ * {@code documentId}，必须与 EvidenceItem 声明的 {@code documentId} 完全一致；不一致或
+ * 归属无法确认（Chunk 行 documentId 为空、或同 chunkId 出现多个归属）时，一律剔除，
+ * 避免把 DOC-B 的正文与 DOC-A 的标题、版本、页码组合返回。</p>
+ *
  * <p>性能口径：仅执行两条批量 IN 查询（document_id、chunk_id），不做逐条 N+1。</p>
  */
 @Slf4j
@@ -70,14 +75,14 @@ public class CitationVerificationService {
     public CitationVerification verify(List<EvidenceItem> evidence) {
         List<EvidenceItem> safeEvidence = evidence == null ? List.of() : evidence;
         Map<String, KnowledgeDocumentPO> docMap = loadDocuments(safeEvidence);
-        Set<String> existingChunkIds = loadChunks(safeEvidence);
+        Map<String, String> chunkOwners = loadChunkOwners(safeEvidence);
 
         List<EvidenceItem> valid = new ArrayList<>();
         List<RemovedSource> removed = new ArrayList<>();
         Map<String, RagErrorCode> reasonByRef = new LinkedHashMap<>();
 
         for (EvidenceItem item : safeEvidence) {
-            RagErrorCode reason = classify(item, docMap, existingChunkIds);
+            RagErrorCode reason = classify(item, docMap, chunkOwners);
             if (reason == RagErrorCode.NONE) {
                 valid.add(item);
                 reasonByRef.put(item.getSourceRef(), RagErrorCode.NONE);
@@ -124,14 +129,23 @@ public class CitationVerificationService {
 
     private RagErrorCode classify(EvidenceItem item,
                                   Map<String, KnowledgeDocumentPO> docMap,
-                                  Set<String> existingChunkIds) {
+                                  Map<String, String> chunkOwners) {
         KnowledgeDocumentPO doc = item.getDocumentId() == null
                 ? null : docMap.get(item.getDocumentId());
         if (doc == null) {
             return RagErrorCode.CITATION_TARGET_DELETED;
         }
-        if (item.getChunkId() == null || !existingChunkIds.contains(item.getChunkId())) {
+        if (item.getChunkId() == null || item.getChunkId().isBlank()
+                || !chunkOwners.containsKey(item.getChunkId())) {
             return RagErrorCode.CITATION_TARGET_DELETED;
+        }
+        // P1-01：文档存在、Chunk 也存在，仍须证明该 Chunk 属于该文档。
+        String actualDocumentId = chunkOwners.get(item.getChunkId());
+        if (actualDocumentId == null || actualDocumentId.isBlank()) {
+            return RagErrorCode.CITATION_OWNERSHIP_MISMATCH;
+        }
+        if (!actualDocumentId.equals(item.getDocumentId())) {
+            return RagErrorCode.CITATION_OWNERSHIP_MISMATCH;
         }
         DocumentLifecycleStatus lifecycle =
                 DocumentLifecycleStatus.fromName(doc.getLifecycleStatus());
@@ -144,6 +158,7 @@ public class CitationVerificationService {
     private String reasonText(RagErrorCode code) {
         return switch (code) {
             case CITATION_TARGET_DELETED -> "目标文档或 Chunk 已被删除，响应前剔除";
+            case CITATION_OWNERSHIP_MISMATCH -> "Chunk 归属与证据声明的 documentId 不一致或无法证明，响应前剔除";
             case EVIDENCE_NOT_EFFECTIVE -> "目标文档未生效或已废弃，响应前剔除";
             default -> "来源不可返回";
         };
@@ -168,7 +183,13 @@ public class CitationVerificationService {
         return map;
     }
 
-    private Set<String> loadChunks(List<EvidenceItem> evidence) {
+    /**
+     * 批量加载 Chunk 真实归属：一次 IN 查询得到 {@code chunkId -> documentId}。
+     *
+     * <p>同一 chunkId 若出现多条归属不同的行，视为归属无法确认，映射为 {@code null}，
+     * 由 {@link #classify} 以 {@link RagErrorCode#CITATION_OWNERSHIP_MISMATCH} 剔除。</p>
+     */
+    private Map<String, String> loadChunkOwners(List<EvidenceItem> evidence) {
         Set<String> chunkIds = new LinkedHashSet<>();
         for (EvidenceItem item : evidence) {
             if (item.getChunkId() != null && !item.getChunkId().isBlank()) {
@@ -176,14 +197,22 @@ public class CitationVerificationService {
             }
         }
         if (chunkIds.isEmpty()) {
-            return Set.of();
+            return Map.of();
         }
         List<DocumentChunkIndexPO> rows = chunkMapper.selectList(
                 new QueryWrapper<DocumentChunkIndexPO>().in("chunk_id", chunkIds));
-        Set<String> set = new HashSet<>();
+
+        Map<String, Set<String>> ownersByChunk = new LinkedHashMap<>();
         for (DocumentChunkIndexPO po : rows) {
-            set.add(po.getChunkId());
+            String documentId = po.getDocumentId();
+            ownersByChunk.computeIfAbsent(po.getChunkId(), key -> new LinkedHashSet<>())
+                    .add(documentId == null ? "" : documentId);
         }
-        return set;
+        Map<String, String> owners = new LinkedHashMap<>();
+        for (Map.Entry<String, Set<String>> entry : ownersByChunk.entrySet()) {
+            owners.put(entry.getKey(),
+                    entry.getValue().size() == 1 ? entry.getValue().iterator().next() : null);
+        }
+        return owners;
     }
 }

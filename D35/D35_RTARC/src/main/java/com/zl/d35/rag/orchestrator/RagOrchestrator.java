@@ -271,13 +271,22 @@ public class RagOrchestrator {
         return response;
     }
 
+    /**
+     * 全部来源被剔除时的对外错误码：删除优先，其次归属不一致，最后是非生效。
+     * 三者都是“无法证明引用可返回”，但原因必须可区分。
+     */
     private RagErrorCode selectRemovalCode(
             CitationVerificationService.CitationVerification verification) {
-        return verification.removed().stream()
+        List<RagErrorCode> codes = verification.removed().stream()
                 .map(CitationVerificationService.RemovedSource::reasonCode)
-                .filter(code -> code == RagErrorCode.CITATION_TARGET_DELETED)
-                .findFirst()
-                .orElse(RagErrorCode.EVIDENCE_NOT_EFFECTIVE);
+                .toList();
+        if (codes.contains(RagErrorCode.CITATION_TARGET_DELETED)) {
+            return RagErrorCode.CITATION_TARGET_DELETED;
+        }
+        if (codes.contains(RagErrorCode.CITATION_OWNERSHIP_MISMATCH)) {
+            return RagErrorCode.CITATION_OWNERSHIP_MISMATCH;
+        }
+        return RagErrorCode.EVIDENCE_NOT_EFFECTIVE;
     }
 
     private List<String> buildCitationNotes(
@@ -322,6 +331,7 @@ public class RagOrchestrator {
         view.setLegalCitationPassed(result.legalCitationPassed());
         view.setInvalidCitations(result.invalidCitations());
         view.setUnsupportedClaims(result.unsupportedClaims());
+        view.setClaimCitationMismatches(result.claimCitationMismatches());
         view.setFabricatedUrls(result.fabricatedUrls());
         view.setValidationPassed(result.validationPassed());
         return view;

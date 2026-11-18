@@ -1,13 +1,16 @@
 {
   "meta": {
     "iteration": "D35",
-    "title": "引用溯源与返回契约评测数据集",
-    "version": "1.0",
-    "note": "actual、passed、failureReason 为执行后回填字段，建集时禁止预填，统一保持 null；真实端到端用例在对应守卫环境变量打开后执行。",
+    "title": "引用溯源与返回契约评测数据集（含整改追加场景）",
+    "version": "1.1",
+    "note": "actualResult 与 passed 仅在真实执行后回填，建集时保持 null。executor 指明该用例由哪个生产组件执行：validation=ResponseValidationService，verification=CitationVerificationService（受控夹具模拟权威持久化），context=ContextAssemblyService（真实组装链路），not_executable_here=本数据集执行器不覆盖、需其他层测试。受控夹具不等价于真实 LLM 端到端。",
+    "executors": ["validation", "verification", "context", "not_executable_here"],
     "metrics": [
       "引用合法率",
       "伪造拦截率",
       "悬空引用率",
+      "归属校验拦截率",
+      "Claim-Citation 关联失败率",
       "页码可溯源率",
       "片段一致率",
       "危险协议/虚构URL泄漏数",
@@ -19,14 +22,20 @@
       "caseId": "D35-001",
       "scenario": "伪造引用标记：模型输出不存在的 [S99]",
       "setup": "仅 1 个有效来源 S1，模型回答文本含 [S99]",
-      "sourceIds": ["S1"],
-      "expected": {
-        "errorCode": "INVALID_CITATION",
-        "invalidCitations": ["[S99]"],
-        "markerStripped": true,
-        "validationPassed": false
+      "executor": "validation",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0, "page": 3, "paragraphIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S99]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsInvalidCitations": ["[S99]"],
+        "answerSuppressed": true
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -34,27 +43,47 @@
       "caseId": "D35-002",
       "scenario": "越界引用：仅 2 个来源却出现 [S5]",
       "setup": "有效来源 S1、S2，回答含 [S5]",
-      "sourceIds": ["S1", "S2"],
-      "expected": {
-        "errorCode": "INVALID_CITATION",
-        "invalidCitations": ["[S5]"],
-        "validationPassed": false
+      "executor": "validation",
+      "question": "参考了哪些来源",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "设备额定压力为 0.8 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "结论见来源 [S5]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}, {"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsInvalidCitations": ["[S5]"],
+        "answerSuppressed": true
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-003",
       "scenario": "文档在响应前被删除：悬空引用受控失败",
-      "setup": "检索命中后删除目标 knowledge_document 行与向量，再执行响应前核验",
-      "sourceIds": ["S1"],
-      "expected": {
-        "errorCode": "CITATION_TARGET_DELETED",
-        "answerSuppressed": true,
-        "sources": []
+      "setup": "检索命中后删除目标 knowledge_document 行，响应前批量核验",
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S1]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [],
+      "verification": {
+        "documents": [],
+        "chunks": [{"chunkId": "chunk-A1", "documentId": "doc-A"}]
       },
-      "actual": null,
+      "expectedStatus": {
+        "validSourceRefs": [],
+        "removedReasonCodes": {"S1": "CITATION_TARGET_DELETED"},
+        "derivedErrorCode": "CITATION_TARGET_DELETED",
+        "answerSuppressed": true
+      },
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -62,13 +91,25 @@
       "caseId": "D35-004",
       "scenario": "删除竞态：检索/生成期间 Chunk 被删除",
       "setup": "Chunk 行在生成期间被删除，响应前批量 IN 核验发现缺失",
-      "sourceIds": ["S1"],
-      "expected": {
-        "errorCode": "CITATION_TARGET_DELETED",
-        "answerSuppressed": true,
-        "batchQueryCount": 2
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S1]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [],
+      "verification": {
+        "documents": [{"documentId": "doc-A", "lifecycleStatus": "ACTIVE"}],
+        "chunks": []
       },
-      "actual": null,
+      "expectedStatus": {
+        "validSourceRefs": [],
+        "removedReasonCodes": {"S1": "CITATION_TARGET_DELETED"},
+        "derivedErrorCode": "CITATION_TARGET_DELETED",
+        "answerSuppressed": true
+      },
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -76,80 +117,137 @@
       "caseId": "D35-005",
       "scenario": "文档被标记 DEPRECATED：证据不再有效",
       "setup": "生命周期状态由 ACTIVE 改为 DEPRECATED",
-      "sourceIds": ["S1"],
-      "expected": {
-        "errorCode": "EVIDENCE_NOT_EFFECTIVE",
-        "validItems": 0
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S1]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [],
+      "verification": {
+        "documents": [{"documentId": "doc-A", "lifecycleStatus": "DEPRECATED"}],
+        "chunks": [{"chunkId": "chunk-A1", "documentId": "doc-A"}]
       },
-      "actual": null,
+      "expectedStatus": {
+        "validSourceRefs": [],
+        "removedReasonCodes": {"S1": "EVIDENCE_NOT_EFFECTIVE"},
+        "derivedErrorCode": "EVIDENCE_NOT_EFFECTIVE",
+        "answerSuppressed": true
+      },
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-006",
       "scenario": "页码缺失：无可靠 page 时隐藏而非编造",
-      "setup": "ChunkSource.pageNumber 为 null",
-      "sourceIds": ["S1"],
-      "expected": {
-        "page": null,
-        "pageFieldHidden": true,
-        "notMisjudgedAsFailure": true
+      "setup": "向量 metadata 无 page 字段",
+      "executor": "context",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "pageByRef": {"S1": null}
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-007",
-      "scenario": "旧向量无页码元数据：保持 null 并记录覆盖率",
-      "setup": "存量向量 metadata 无 page，且 chunk 行无 page 列",
-      "sourceIds": ["S1"],
-      "expected": {
-        "page": null,
-        "coverageNote": "PAGE_LOCATION_MISSING",
-        "noMagicRestore": true
+      "scenario": "旧向量无页码元数据：保持 null 并记录覆盖率口径",
+      "setup": "存量向量 metadata 无 page，且 chunk 行无 page 列，不做魔法还原",
+      "executor": "context",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "存量向量正文内容。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 4}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "pageByRef": {"S1": null},
+        "notEqualToChunkIndex": true
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-008",
       "scenario": "真实页码返回：物理页从 1 起，禁止用 chunkIndex 推页码",
-      "setup": "ChunkSource 保留 pageNumber=3，chunkIndex=0",
-      "sourceIds": ["S1"],
-      "expected": {
-        "page": 3,
+      "setup": "metadata page=3，chunkIndex=0",
+      "executor": "context",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0, "page": 3, "paragraphIndex": 2}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "pageByRef": {"S1": 3},
+        "paragraphIndexByRef": {"S1": 2},
         "notEqualToChunkIndex": true
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-009",
-      "scenario": "多来源独立编号：≥3 个 Chunk 顺序稳定",
-      "setup": "同一文档 3 个 Chunk 按检索顺序返回",
-      "sourceIds": ["S1", "S2", "S3"],
-      "expected": {
-        "citationIds": ["S1", "S2", "S3"],
-        "orderStable": true
+      "scenario": "多来源独立编号：3 个 Chunk 顺序稳定",
+      "setup": "3 个 Chunk 按检索顺序返回",
+      "executor": "context",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "第一段：额定压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-A", "chunkId": "chunk-A2", "title": "设备手册A", "content": "第二段：额定流量 10。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 1},
+        {"sourceRef": "S3", "documentId": "doc-A", "chunkId": "chunk-A3", "title": "设备手册A", "content": "第三段：额定功率 500。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 2}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1", "S2", "S3"],
+      "expectedSources": [
+        {"sourceId": "doc-A", "chunkId": "chunk-A1"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A2"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A3"}
+      ],
+      "expectedStatus": {
+        "citationIds": ["S1", "S2", "S3"]
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
     {
       "caseId": "D35-010",
       "scenario": "引用片段不串：quotedSnippet 各自来自本 Chunk 真实内容",
-      "setup": "3 个 Chunk 内容互不相同",
-      "sourceIds": ["S1", "S2", "S3"],
-      "expected": {
+      "setup": "3 个 Chunk 内容互不相同，片段上限 200",
+      "executor": "context",
+      "question": "设备参数有哪些",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "第一段：额定压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-A", "chunkId": "chunk-A2", "title": "设备手册A", "content": "第二段：额定流量 10。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 1},
+        {"sourceRef": "S3", "documentId": "doc-A", "chunkId": "chunk-A3", "title": "设备手册A", "content": "第三段：额定功率 500。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 2}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1", "S2", "S3"],
+      "expectedSources": [
+        {"sourceId": "doc-A", "chunkId": "chunk-A1"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A2"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A3"}
+      ],
+      "expectedStatus": {
         "distinctQuotedSnippets": true,
         "snippetMatchesOwnContent": true,
-        "maxChars": 200
+        "quotedSnippetLimit": 200
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -157,12 +255,25 @@
       "caseId": "D35-011",
       "scenario": "cited 语义：仅回答中出现的标记为已引用",
       "setup": "回答仅含 [S1]，来源 S1、S2、S3",
-      "sourceIds": ["S1", "S2", "S3"],
-      "expected": {
-        "citedTrue": ["S1"],
-        "citedFalse": ["S2", "S3"]
+      "executor": "context",
+      "applyMarkCited": true,
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "第一段：额定压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-A", "chunkId": "chunk-A2", "title": "设备手册A", "content": "第二段：额定流量 10。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 1},
+        {"sourceRef": "S3", "documentId": "doc-A", "chunkId": "chunk-A3", "title": "设备手册A", "content": "第三段：额定功率 500。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 2}
+      ],
+      "modelAnswer": "仅采用 [S1]",
+      "expectedCitationIds": ["S1", "S2", "S3"],
+      "expectedSources": [
+        {"sourceId": "doc-A", "chunkId": "chunk-A1"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A2"},
+        {"sourceId": "doc-A", "chunkId": "chunk-A3"}
+      ],
+      "expectedStatus": {
+        "citedRefs": ["S1"]
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -170,12 +281,19 @@
       "caseId": "D35-012",
       "scenario": "跨页 Chunk：lastPage 可选返回",
       "setup": "Chunk 含两个 ChunkSource，页码分别为 3、4",
-      "sourceIds": ["S1"],
-      "expected": {
-        "page": 3,
-        "lastPage": 4
+      "executor": "context",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "跨页正文内容。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0, "page": 3, "lastPage": 4}
+      ],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "pageByRef": {"S1": 3},
+        "lastPageByRef": {"S1": 4}
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -183,13 +301,21 @@
       "caseId": "D35-013",
       "scenario": "虚构/危险 URL 拦截：泄漏数目标为 0",
       "setup": "回答含 javascript: 与 data: 形态链接，证据 URL 白名单为空",
-      "sourceIds": ["S1"],
-      "expected": {
-        "errorCode": "FABRICATED_URL",
-        "dangerousLeakCount": 0,
-        "returnedUrl": null
+      "executor": "validation",
+      "question": "设备文档在哪里",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "见 javascript:alert(1) 与 data:text/html,x",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "fabricatedUrlCount": 2,
+        "derivedErrorCode": "FABRICATED_URL",
+        "answerSuppressed": true
       },
-      "actual": null,
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     },
@@ -197,14 +323,247 @@
       "caseId": "D35-014",
       "scenario": "SSE 与同步 API 一致性及前端安全",
       "setup": "同一问题分别走流式与同步通道，前端以 textContent/createElement 渲染",
-      "sourceIds": ["S1", "S2", "S3"],
-      "expected": {
+      "executor": "not_executable_here",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [],
+      "modelAnswer": null,
+      "expectedCitationIds": ["S1", "S2", "S3"],
+      "expectedSources": [],
+      "expectedStatus": {
         "sameSemanticFields": true,
         "noInnerHtml": true,
         "noXss": true,
         "urlFieldHidden": true
       },
-      "actual": null,
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-015",
+      "scenario": "Chunk-Document 归属不一致（单来源）",
+      "setup": "doc-A 存在且 ACTIVE，chunk-B1 存在但实际属于 doc-B",
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-B1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S1]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [],
+      "verification": {
+        "documents": [{"documentId": "doc-A", "lifecycleStatus": "ACTIVE"}],
+        "chunks": [{"chunkId": "chunk-B1", "documentId": "doc-B"}]
+      },
+      "expectedStatus": {
+        "validSourceRefs": [],
+        "removedReasonCodes": {"S1": "CITATION_OWNERSHIP_MISMATCH"},
+        "derivedErrorCode": "CITATION_OWNERSHIP_MISMATCH",
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-016",
+      "scenario": "多来源中仅一个 Chunk 归属错误",
+      "setup": "S1/S3 归属一致，S2 的 Chunk 实际属于 doc-3",
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-1", "chunkId": "chunk-1", "title": "手册1", "content": "额定压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-2", "chunkId": "chunk-2", "title": "手册2", "content": "额定压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S3", "documentId": "doc-3", "chunkId": "chunk-3", "title": "手册3", "content": "额定压力 1.0。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "额定压力 0.6 [S1]",
+      "expectedCitationIds": ["S1", "S2", "S3"],
+      "expectedSources": [{"sourceId": "doc-1", "chunkId": "chunk-1"}, {"sourceId": "doc-3", "chunkId": "chunk-3"}],
+      "verification": {
+        "documents": [
+          {"documentId": "doc-1", "lifecycleStatus": "ACTIVE"},
+          {"documentId": "doc-2", "lifecycleStatus": "ACTIVE"},
+          {"documentId": "doc-3", "lifecycleStatus": "ACTIVE"}
+        ],
+        "chunks": [
+          {"chunkId": "chunk-1", "documentId": "doc-1"},
+          {"chunkId": "chunk-2", "documentId": "doc-3"},
+          {"chunkId": "chunk-3", "documentId": "doc-3"}
+        ]
+      },
+      "expectedStatus": {
+        "validSourceRefs": ["S1", "S3"],
+        "removedReasonCodes": {"S2": "CITATION_OWNERSHIP_MISMATCH"}
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-017",
+      "scenario": "Chunk 行的 documentId 缺失：归属无法确认",
+      "setup": "chunk-A1 存在，但归属列为空",
+      "executor": "verification",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.6 MPa。[S1]",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [],
+      "verification": {
+        "documents": [{"documentId": "doc-A", "lifecycleStatus": "ACTIVE"}],
+        "chunks": [{"chunkId": "chunk-A1", "documentId": null}]
+      },
+      "expectedStatus": {
+        "validSourceRefs": [],
+        "removedReasonCodes": {"S1": "CITATION_OWNERSHIP_MISMATCH"},
+        "derivedErrorCode": "CITATION_OWNERSHIP_MISMATCH",
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-018",
+      "scenario": "Claim 在别处存在但所引来源不支持",
+      "setup": "S1 为 0.6，S2 为 0.8，回答引用 [S1] 却断言 0.8",
+      "executor": "validation",
+      "question": "设备额定压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "设备额定压力为 0.6 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "设备额定压力为 0.8 MPa。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "设备额定压力为 0.8 MPa。[S1]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}, {"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsUnsupportedClaims": ["额定压力=0.8"],
+        "claimCitationMismatchContains": ["[S1]"],
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-019",
+      "scenario": "同句内两个 Claim 的引用标记互换",
+      "setup": "S1 为 0.8，S2 为 0.6，回答写成 0.6[S1]，0.8[S2]",
+      "executor": "validation",
+      "question": "工作压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "工作压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "工作压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "工作压力 0.6 [S1]，工作压力 0.8 [S2]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}, {"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsUnsupportedClaims": ["工作压力=0.6", "工作压力=0.8"],
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-020",
+      "scenario": "一个 Claim 标注多个 Citation，至少一个支持",
+      "setup": "S1 为 0.6，S2 为 0.8，回答断言 0.8 并标注 [S1][S2]",
+      "executor": "validation",
+      "question": "工作压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "工作压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "工作压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "工作压力 0.8 [S1][S2]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}, {"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "expectedStatus": {
+        "validationPassed": true,
+        "claimCitationMismatchContains": []
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-021",
+      "scenario": "Claim 没有引用标识",
+      "setup": "证据支持 0.8，但回答未标注任何引用",
+      "executor": "validation",
+      "question": "工作压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "工作压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "工作压力 0.8",
+      "expectedCitationIds": ["S1"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsUnsupportedClaims": ["工作压力=0.8"],
+        "claimCitationMismatchContains": ["未标注引用"],
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-022",
+      "scenario": "多 Claim 部分引用错误：不得整体误判为全部正确",
+      "setup": "S1 支持工作压力 0.8，S2 仅含工作温度 30",
+      "executor": "validation",
+      "question": "设备参数是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-A1", "title": "设备手册A", "content": "工作压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "工作温度 30。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0}
+      ],
+      "modelAnswer": "工作压力 0.8 [S1]，额定功率 500 [S2]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-A", "chunkId": "chunk-A1"}, {"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "expectedStatus": {
+        "validationPassed": false,
+        "containsUnsupportedClaims": ["额定功率=500"],
+        "notContainsUnsupportedClaims": ["工作压力=0.8"],
+        "answerSuppressed": true
+      },
+      "actualResult": null,
+      "passed": null,
+      "failureReason": null
+    },
+    {
+      "caseId": "D35-023",
+      "scenario": "归属错误与 Claim 错配同时存在：先剔除错误来源再校验",
+      "setup": "S1 归属错误，S2 合法且支持 0.8，回答引用 [S2]",
+      "executor": "verification",
+      "question": "工作压力是多少",
+      "retrievedChunks": [
+        {"sourceRef": "S1", "documentId": "doc-A", "chunkId": "chunk-B2", "title": "设备手册A", "content": "工作压力 0.6。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 0},
+        {"sourceRef": "S2", "documentId": "doc-B", "chunkId": "chunk-B1", "title": "设备手册B", "content": "工作压力 0.8。", "version": 1, "strategy": "PARAGRAPH", "chunkIndex": 1}
+      ],
+      "modelAnswer": "工作压力 0.8 [S2]",
+      "expectedCitationIds": ["S1", "S2"],
+      "expectedSources": [{"sourceId": "doc-B", "chunkId": "chunk-B1"}],
+      "verification": {
+        "documents": [
+          {"documentId": "doc-A", "lifecycleStatus": "ACTIVE"},
+          {"documentId": "doc-B", "lifecycleStatus": "ACTIVE"}
+        ],
+        "chunks": [
+          {"chunkId": "chunk-B1", "documentId": "doc-B"},
+          {"chunkId": "chunk-B2", "documentId": "doc-B"}
+        ]
+      },
+      "expectedStatus": {
+        "validSourceRefs": ["S2"],
+        "removedReasonCodes": {"S1": "CITATION_OWNERSHIP_MISMATCH"}
+      },
+      "actualResult": null,
       "passed": null,
       "failureReason": null
     }

@@ -1,6 +1,6 @@
 # **费曼口述：引用如何从原始文档传递到响应**
 
-**技术基线：** JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.6、pgvector 0.8.x。
+**技术基线：** JDK 21、Spring Boot 3.5.x、Spring AI 1.1.8、PostgreSQL 18.7、pgvector 0.8.7。
 
 这套题的核心不是“让大模型在答案后面加上 `[S1]`”，而是建立一条**可验证、可追溯、可授权的引用传递链路**：
 
