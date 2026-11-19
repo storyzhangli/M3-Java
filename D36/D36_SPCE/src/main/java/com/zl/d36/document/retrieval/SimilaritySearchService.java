@@ -61,6 +61,7 @@ public class SimilaritySearchService {
      * @return 检索结果视图
      */
     public SimilaritySearchResultView search(SimilaritySearchRequest request) {
+        long totalStart = System.nanoTime();
         String query = normalizeQuery(request.getQuery());
         int topK = normalizeTopK(request.getTopK());
         double threshold = normalizeThreshold(request.getThreshold());
@@ -70,7 +71,9 @@ public class SimilaritySearchService {
         validateLength(query);
 
         // 2) 显式 Query Embedding + 校验：与入库同一模型/空间；失败在此 fail-closed。
+        long embedStart = System.nanoTime();
         float[] queryVector = embedAndValidate(query);
+        long embedNanos = System.nanoTime() - embedStart;
 
         // 3) 构造检索请求：过滤表达式由框架渲染为 SQL/JSON Path 并在 PG WHERE 内下推。
         SearchRequest.Builder builder = SearchRequest.builder()
@@ -80,7 +83,9 @@ public class SimilaritySearchService {
         if (filtered) {
             builder.filterExpression(buildFilterExpression(request));
         }
+        long searchStart = System.nanoTime();
         List<Document> documents = vectorStore.similaritySearch(builder.build());
+        long searchNanos = System.nanoTime() - searchStart;
 
         // 4) 映射真实 Document 分数。
         List<SimilarityMatchView> matches = new ArrayList<>(documents.size());
@@ -101,6 +106,10 @@ public class SimilaritySearchService {
         view.setFiltered(filtered);
         view.setMatches(matches);
         view.setTotal(matches.size());
+        // D36 实验计时：三段拆分（毫秒，3 位小数），仅新增字段，不改变既有契约语义。
+        view.setQueryEmbeddingMs(toMillis(embedNanos));
+        view.setVectorSearchMs(toMillis(searchNanos));
+        view.setRetrievalTotalMs(toMillis(System.nanoTime() - totalStart));
 
         log.info("相似度检索完成: queryLength={}, topK={}, threshold={}, filtered={}, total={}, queryVectorDim={}",
                 query.length(), topK, threshold, filtered, matches.size(), queryVector.length);
@@ -228,5 +237,10 @@ public class SimilaritySearchService {
         } catch (NumberFormatException ex) {
             return null;
         }
+    }
+
+    /** nanoTime 差值 → 毫秒（3 位小数），仅用于实验计时字段。 */
+    private double toMillis(long nanos) {
+        return Math.round(nanos / 1_000.0d) / 1_000.0d;
     }
 }

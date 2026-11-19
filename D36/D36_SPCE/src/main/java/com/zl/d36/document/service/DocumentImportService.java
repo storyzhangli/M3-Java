@@ -124,7 +124,17 @@ public class DocumentImportService {
 
     private void handleText(byte[] bytes, KnowledgeDocument doc) {
         try {
-            parser.parse(bytes);
+            String text = parser.parse(bytes);
+            // D36 最小增量：txt/md 与 PDF 共用页表链路，整篇文本作为第 1 页写入，
+            // 使 indexFromPages（重新切分→Embedding→入库）对文本文档同样可用。
+            DocumentPageContent page = new DocumentPageContent();
+            page.setPageNumber(1);
+            page.setContent(text);
+            page.setContentLength(text.length());
+            page.setBlank(false);
+            LocalDateTime now = LocalDateTime.now();
+            preparePages(doc, List.of(page), now);
+            pageService.replacePages(List.of(page));
             doc.setStatus(DocumentStatus.COMPLETED);
         } catch (DocumentParseException e) {
             markFailed(doc, "PARSE_FAILED", e.getMessage());

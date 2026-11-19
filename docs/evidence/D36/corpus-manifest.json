@@ -1,0 +1,41 @@
+{
+  "corpusVersion": "D36-CORPUS-v1",
+  "sourceFile": "D36/D36_SPCE/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "sourceFileHash": "aad6ac4df5585aad5078d1c94df4e5093af15a9730e230149cfde0940335ab0b",
+  "gitCommit": "7fecbde",
+  "documents": [
+    {
+      "documentId": "DOC-CNC-COOLING-001",
+      "title": "数控机床冷却系统维护手册（教学夹具）",
+      "sourceType": "MANUAL",
+      "file": "corpus/DOC-CNC-COOLING-001.txt",
+      "contentHash": "9f80c6ceb0ca9e58b5344d84a893f2d2a139417fe61897d50993274e34331a97",
+      "charLength": 273,
+      "corpusExcerptCount": 3
+    },
+    {
+      "documentId": "DOC-SERVO-TROUBLE-002",
+      "title": "伺服电机常见故障排查指南（教学夹具）",
+      "sourceType": "GUIDE",
+      "file": "corpus/DOC-SERVO-TROUBLE-002.txt",
+      "contentHash": "c91ad7b7a1974c66c19edb8ca42ea53519f6e77485aa595109557dddef301e1b",
+      "charLength": 271,
+      "corpusExcerptCount": 3
+    },
+    {
+      "documentId": "DOC-WORKORDER-SPEC-003",
+      "title": "设备故障工单分级与响应规范（教学夹具）",
+      "sourceType": "SPEC",
+      "file": "corpus/DOC-WORKORDER-SPEC-003.txt",
+      "contentHash": "d201de0539ff5b6d6b00ac3859620f3f52f60cc49726973bcb5231068927a8b7",
+      "charLength": 177,
+      "corpusExcerptCount": 2
+    }
+  ],
+  "datasetVersion": "D36-DATASET-v1",
+  "datasetHash": "67bfdc93091dad1d963ef4508f97ff2e2dca25c54fb69af2535b874808cbf125",
+  "embeddingModel": "local-hashing-embedding",
+  "embeddingVersion": "local-v1",
+  "dimensions": 384,
+  "distanceMetric": "COSINE"
+}

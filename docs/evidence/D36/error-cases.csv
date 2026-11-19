@@ -1,0 +1,160 @@
+﻿experimentId,questionId,runId,type,detail,expectedSpans,retrievedTop1,top1Score,parameters
+G0,Q001,G0-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q001,G0-RUN-001,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q001,G0-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q001,G0-RUN-002,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q001,G0-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q001,G0-RUN-003,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-001,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-002,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q005,G0-RUN-003,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q010,G0-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q010,G0-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G0,Q010,G0-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-001,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-002,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q001,G3-RUN-003,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-001,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-002,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q005,G3-RUN-003,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q010,G3-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q010,G3-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G3,Q010,G3-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-001,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-002,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q001,G4-RUN-003,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-001,MISS_RECALL,相关证据未进Top-K,若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-002,MISS_RECALL,相关证据未进Top-K,若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q002,G4-RUN-003,MISS_RECALL,相关证据未进Top-K,若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-001,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-002,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q004,G4-RUN-003,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-001,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-002,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q005,G4-RUN-003,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-001,MISS_RECALL,相关证据未进Top-K,工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-002,MISS_RECALL,相关证据未进Top-K,工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q008,G4-RUN-003,MISS_RECALL,相关证据未进Top-K,工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q010,G4-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q010,G4-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G4,Q010,G4-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.35,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B0,Q010,B0-RUN-001,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B0,Q010,B0-RUN-002,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B0,Q010,B0-RUN-003,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B3,Q010,B3-RUN-001,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B3,Q010,B3-RUN-002,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+B3,Q010,B3-RUN-003,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":20,""topK"":10,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g0""}"
+G1,Q001,G1-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q001,G1-RUN-001,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q001,G1-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q001,G1-RUN-002,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q001,G1-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q001,G1-RUN-003,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-001,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-002,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q004,G1-RUN-003,MISS_RECALL,相关证据未进Top-K,伺服驱动器反复报过载时，先核对负载惯量与加减速时间参数，再检查电机动力线端子扭矩；机械卡滞排除前不得盲目提高电流限幅。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-001,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-002,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q005,G1-RUN-003,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q010,G1-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q010,G1-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G1,Q010,G1-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+B1,Q010,B1-RUN-001,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+B1,Q010,B1-RUN-002,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+B1,Q010,B1-RUN-003,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":500,""chunkOverlap"":20,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g1""}"
+G2,Q001,G2-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q001,G2-RUN-001,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q001,G2-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q001,G2-RUN-002,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q001,G2-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q001,G2-RUN-003,MISS_RECALL,相关证据未进Top-K,数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-001,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-002,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q005,G2-RUN-003,MISS_RECALL,相关证据未进Top-K,位置偏差计数器溢出报警多与编码器线缆屏蔽层接地不良有关，应断电检查编码器接头针脚与拖链内线缆弯折半径，确认无断线后重新回零。,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q010,G2-RUN-001,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q010,G2-RUN-002,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+G2,Q010,G2-RUN-003,EMPTY_RETRIEVAL,返回0条(Precision/Noise=N/A),,,,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.25,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+B2,Q010,B2-RUN-001,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+B2,Q010,B2-RUN-002,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"
+B2,Q010,B2-RUN-003,UNANSWERABLE_FALSE_POSITIVE,无答案问题仍返回结果,0,"设备故障工单分级与响应规范（教学夹具）
+第2节 工单分级标准
+导致整条产线停机的设备故障定为一级工单，要求15分钟内响应、2小时内给出临时处置方案；单机可绕行的故障定为二级工单，响应时限为2小时。
+第4节 关单要求
+工单关闭必须填写故障根因、更换备件编号与复测数据三项内容；仅有处理经过但缺少复测数据的工单不得关单，由值班主管退回补充。",0.2143670916557312,"{""chunkSize"":200,""chunkOverlap"":50,""topK"":5,""similarityThreshold"":0.0,""strategy"":""FIXED_SIZE"",""pgTable"":""d36_exp_g2""}"

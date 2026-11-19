@@ -1,0 +1,19 @@
+PASS T1-normalize
+PASS T2-coverage-full
+PASS T3-coverage-half
+PASS T4-coverage-none
+PASS T4b-single-char-below-threshold
+PASS T5-recall-half
+PASS T5-hitDoc
+PASS T6-empty-na
+PASS T7-precision
+PASS T7-noise
+PASS T8-unanswerable
+PASS T9-p50
+PASS T9-p95
+PASS T9-mean
+PASS T10-macro
+PASS T10-macro-allna
+PASS T11-hitrate
+----
+TOTAL PASS=17 FAIL=0

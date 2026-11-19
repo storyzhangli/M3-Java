@@ -34,4 +34,13 @@ public class SimilaritySearchResultView {
 
     /** 命中列表（按相似度降序/距离升序）。 */
     private List<SimilarityMatchView> matches;
+
+    /** D36 实验计时：Query Embedding 段耗时（毫秒，nanoTime 换算，保留 3 位小数）。 */
+    private Double queryEmbeddingMs;
+
+    /** D36 实验计时：VectorStore 检索段耗时（毫秒，含阈值过滤与结果映射前的库内开销）。 */
+    private Double vectorSearchMs;
+
+    /** D36 实验计时：检索总耗时（毫秒）= Embedding + 检索 + 结果后处理；不含生成/网络传输。 */
+    private Double retrievalTotalMs;
 }
