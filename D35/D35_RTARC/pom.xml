@@ -10,7 +10,7 @@
     </parent>
 
     <artifactId>D35_RTARC</artifactId>
-    <description>QWen 4 MAX 迭代：引用溯源与返回契约</description>
+    <description>DoubBao迭代：引用溯源与返回契约</description>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
