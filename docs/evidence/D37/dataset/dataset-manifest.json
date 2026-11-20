@@ -1,0 +1,28 @@
+{
+  "datasetVersion": "v1.0",
+  "frozenAt": "2026-11-20T19:02:16+08:00",
+  "gitHead": "27ab844a37001902470ce7124093ccdd8660387e",
+  "embedding": {
+    "provider": "local",
+    "model": "local-hashing-embedding",
+    "modelVersion": "local-v1",
+    "dimensions": 384,
+    "distanceMetric": "COSINE"
+  },
+  "discipline": "先冻结后评测；看结果反改标注必须升版本并写变更说明；本清单不可变。",
+  "files": {
+    "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+    "D37/D37_RAG_ESAB/src/main/resources/knowledge/equipment-fault-corpus.json": "aad6ac4df5585aad5078d1c94df4e5093af15a9730e230149cfde0940335ab0b",
+    "docs/temp_docs/D37/evaluator/evaluator-config.json": "72a1b84df35ec326eaa1c7e64610ccbdf4a952104944bd037d3ad394cdf658ac",
+    "D37/D37_RAG_ESAB/src/main/java/com/zl/d37/rag/citation/UrlSafetyPolicy.java": "e72b981b84e26af2710ffdb74e6576cf97fe6e7e6d768441cdc9875b8f9d31d7",
+    "docs/temp_docs/D37/evaluator/src/d37eval/Backends.java": "f1d154888a1c77edb825b9de40940ffca7f982126dd291427d2fba2ef032b643",
+    "docs/temp_docs/D37/evaluator/src/d37eval/Corpus.java": "39531fb84eb730ff7c1e1b62c6419bac6c76f8c0a5cbdaa0d315438cbb1b4a56",
+    "docs/temp_docs/D37/evaluator/src/d37eval/Dataset.java": "f417ac93dea5293549bc01ca2e1cebbfd25d811fb8c52760cdbcd1c405d5607c",
+    "docs/temp_docs/D37/evaluator/src/d37eval/EnvProbe.java": "3900c86ae40f2d72fb2d924a01a321bd008dd8be5389ed660bdeeb38793e6f2d",
+    "docs/temp_docs/D37/evaluator/src/d37eval/Evaluator.java": "afab050fdd509977e590635d9896f039830250f694cbca6cbc68210eda47a0bd",
+    "docs/temp_docs/D37/evaluator/src/d37eval/FailureLabels.java": "a166050343d6d9b99a30927178d9655158961ae99c38888b06a97db1a683353a",
+    "docs/temp_docs/D37/evaluator/src/d37eval/LocalEmbedding.java": "1ce62df0975e536974bb5d42e4308095852a39dad6acf46f691a2821c45de86e",
+    "docs/temp_docs/D37/evaluator/src/d37eval/MetricsCalculator.java": "ae3099ba4864090637c6fc302e0a5ffb11ae65d55619ff43d36f2168be17f586",
+    "docs/temp_docs/D37/evaluator/src/d37eval/SelfTest.java": "9fb04f24b364d7cc188c8f75fd98db00bc3865fb289dabbace28b25543746502"
+  }
+}

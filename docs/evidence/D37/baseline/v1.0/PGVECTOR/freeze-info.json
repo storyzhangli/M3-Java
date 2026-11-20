@@ -1,0 +1,12 @@
+{
+  "backend": "PGVECTOR",
+  "datasetVersion": "v1.0",
+  "frozenAt": "2026-11-20T19:15:34+08:00",
+  "gitHead": "27ab844a37001902470ce7124093ccdd8660387e",
+  "sourceRunA": "run-2026-11-20T191420-842933200+0800-PGVECTOR",
+  "sourceRunB": "run-2026-11-20T191437-501794400+0800-PGVECTOR",
+  "consistencyDiff": "runs/consistency-diff-PGVECTOR.json",
+  "diffResult": "质量字段逐字节一致",
+  "vectorSpaceId": "local|local-hashing-embedding|local-v1|384",
+  "note": "基线永久只读；run B 全量产物副本；耗时字段 vectorSearchMs；语料 8 片段经 /api/v1/vector-index/index 以 STRUCTURE/version=1 入库；page 元数据在直接入库 API 无承载字段，PG 侧 page=null（PAGE_LOCATION_MISSING 仅统计）。"
+}

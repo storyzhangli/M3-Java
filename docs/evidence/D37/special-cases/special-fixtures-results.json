@@ -1,0 +1,153 @@
+{
+  "conflict": {
+    "ask": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "answer": null,
+        "sources": [],
+        "retrievalStatus": "SUCCESS",
+        "generationStatus": "CONFLICT",
+        "errorCode": "EVIDENCE_CONFLICT",
+        "errorMessage": "有效证据对同一参数存在冲突，需权威依据或人工确认，未按版本号一刀切。",
+        "retrievedCount": 2,
+        "evidenceCount": 2,
+        "budget": {
+          "budgetUnit": "CHARACTER",
+          "budgetLimit": 6000,
+          "estimatedUsed": 327,
+          "includedChunks": 2,
+          "budgetExcludedChunks": 0,
+          "invalidOrDedupChunks": 0,
+          "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+        },
+        "timing": {
+          "retrievalMs": 2,
+          "assemblyMs": 0,
+          "generationMs": 0,
+          "totalMs": 7
+        },
+        "unknownCitationDetected": false,
+        "decision": "CONFLICT",
+        "clarificationQuestion": null,
+        "missingInformation": [],
+        "conflictGroups": [
+          {
+            "subject": "D37评测冲突夹具压力容器",
+            "parameter": "额定压力",
+            "values": [
+              "0.8",
+              "1.2"
+            ],
+            "evidenceIds": [
+              "S1",
+              "S2"
+            ]
+          }
+        ],
+        "rejectedEvidenceIds": [],
+        "citationValidation": null,
+        "citationNotes": []
+      }
+    },
+    "index": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D37-EVAL-CONFLICT-901",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "chunkCount": 2,
+        "processed": 2,
+        "idempotent": false,
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1
+      }
+    },
+    "register": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D37-EVAL-CONFLICT-901",
+        "source": "MANUAL",
+        "title": "D37评测冲突夹具压力容器",
+        "version": 1,
+        "status": "PENDING",
+        "contentLength": 0,
+        "errorCode": "",
+        "errorMessage": "",
+        "createdAt": "2026-11-20T19:17:46.9963727",
+        "updatedAt": "2026-11-20T19:17:46.9963727"
+      }
+    }
+  },
+  "lifecycle": {
+    "index": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D37-EVAL-LIFECYCLE-902",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "chunkCount": 1,
+        "processed": 1,
+        "idempotent": false,
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1
+      }
+    },
+    "ask": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "answer": "知识库中无有效证据，已停止生成，未调用大模型。",
+        "sources": [],
+        "retrievalStatus": "SUCCESS",
+        "generationStatus": "SKIPPED_NO_EVIDENCE",
+        "errorCode": "NO_EVIDENCE",
+        "errorMessage": "知识库中无有效证据，已停止生成，未调用大模型。",
+        "retrievedCount": 1,
+        "evidenceCount": 1,
+        "budget": {
+          "budgetUnit": "CHARACTER",
+          "budgetLimit": 6000,
+          "estimatedUsed": 162,
+          "includedChunks": 1,
+          "budgetExcludedChunks": 0,
+          "invalidOrDedupChunks": 0,
+          "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+        },
+        "timing": {
+          "retrievalMs": 2,
+          "assemblyMs": 0,
+          "generationMs": 0,
+          "totalMs": 3
+        },
+        "unknownCitationDetected": false,
+        "decision": "REFUSE",
+        "clarificationQuestion": null,
+        "missingInformation": [],
+        "conflictGroups": [],
+        "rejectedEvidenceIds": [
+          "S1"
+        ],
+        "citationValidation": null,
+        "citationNotes": []
+      }
+    }
+  },
+  "cleanup_D37-EVAL-CONFLICT-901": {
+    "remaining": 0,
+    "removed": 2
+  },
+  "cleanup_D37-EVAL-LIFECYCLE-902": {
+    "remaining": 0,
+    "removed": 1
+  }
+}

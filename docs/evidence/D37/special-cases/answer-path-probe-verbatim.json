@@ -1,0 +1,83 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "answer": null,
+    "sources": [
+      {
+        "sourceId": "DOC-CNC-COOLING-001",
+        "citationId": "S1",
+        "sourceRef": "S1",
+        "chunkId": "3b1501c0-6a99-535a-a787-991f877024c8",
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "version": 1,
+        "chunkIndex": 0,
+        "quotedSnippet": "数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。",
+        "cited": false,
+        "strategy": "STRUCTURE",
+        "similarity": 1.0,
+        "distance": 0.0
+      },
+      {
+        "sourceId": "DOC-CNC-COOLING-001",
+        "citationId": "S2",
+        "sourceRef": "S2",
+        "chunkId": "bc123920-e5d8-51f3-886d-7945ff6b3e00",
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "version": 1,
+        "chunkIndex": 2,
+        "quotedSnippet": "冷却泵异响伴随流量下降时，优先检查吸入口滤网与管路气塞；排气后流量仍不足需更换泵体密封件，禁止在系统带压状态下拆卸管路。",
+        "cited": false,
+        "strategy": "STRUCTURE",
+        "similarity": 0.21197479963302612,
+        "distance": 0.7880252003669739
+      },
+      {
+        "sourceId": "DOC-CNC-COOLING-001",
+        "citationId": "S3",
+        "sourceRef": "S3",
+        "chunkId": "fe30f5f7-1844-5a71-b436-2d64a5bd3b76",
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "version": 1,
+        "chunkIndex": 1,
+        "quotedSnippet": "若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。",
+        "cited": false,
+        "strategy": "STRUCTURE",
+        "similarity": 0.20927613973617554,
+        "distance": 0.7907238602638245
+      }
+    ],
+    "retrievalStatus": "SUCCESS",
+    "generationStatus": "NOT_CONFIGURED",
+    "errorCode": "MODEL_NOT_CONFIGURED",
+    "errorMessage": "当前未配置可用的聊天模型，无法执行生成",
+    "retrievedCount": 3,
+    "evidenceCount": 3,
+    "budget": {
+      "budgetUnit": "CHARACTER",
+      "budgetLimit": 6000,
+      "estimatedUsed": 609,
+      "includedChunks": 3,
+      "budgetExcludedChunks": 0,
+      "invalidOrDedupChunks": 0,
+      "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+    },
+    "timing": {
+      "retrievalMs": 3,
+      "assemblyMs": 0,
+      "generationMs": 0,
+      "totalMs": 14
+    },
+    "unknownCitationDetected": false,
+    "decision": "ANSWER",
+    "clarificationQuestion": null,
+    "missingInformation": [],
+    "conflictGroups": [],
+    "rejectedEvidenceIds": [],
+    "citationValidation": null,
+    "citationNotes": []
+  }
+}

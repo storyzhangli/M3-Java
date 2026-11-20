@@ -1,0 +1,11 @@
+{
+  "backend": "IN_MEMORY_LOCAL",
+  "datasetVersion": "v1.0",
+  "frozenAt": "2026-11-20T19:03:12+08:00",
+  "gitHead": "27ab844a37001902470ce7124093ccdd8660387e",
+  "sourceRunA": "run-2026-11-20T190222-174983500+0800-IN_MEMORY_LOCAL",
+  "sourceRunB": "run-2026-11-20T190237-044958300+0800-IN_MEMORY_LOCAL",
+  "consistencyDiff": "runs/consistency-diff-IN_MEMORY_LOCAL.json",
+  "diffResult": "质量字段逐字节一致",
+  "note": "基线永久只读；本目录为 run B 全量产物副本；耗时字段为 inMemorySearchMs，不得与 PGVECTOR 基线直接比较。"
+}

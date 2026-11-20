@@ -1,0 +1,231 @@
+{
+  "code": 200,
+  "msg": "success",
+  "data": {
+    "dryRun": true,
+    "pgTotalRows": 0,
+    "orphanVectors": [],
+    "missingVectors": [
+      {
+        "key": "b6173403-18d9-57e1-ae2e-ae9637b7a269",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "c754072e-d7f6-58b7-8ada-e442ab013a2f",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "ba2debfa-5443-56cb-a10c-5347678c3bbb",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "9c0b1fef-5f3e-5ecf-a695-00d29b66c251",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "88ecb0bb-aba4-549c-8cf4-b0ab61ea5ae8",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "c5c6b381-ef8c-56f1-8d35-d1e7d7827e8a",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "61682b28-23af-5c63-9fb0-47db4aa00bc2",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "bbb72ed7-b036-5e6a-aa7c-b4775e51315e",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "bf8655da-8121-5611-859c-b2c1627414c6",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "2d650c39-6320-5418-abc0-0a69263ab099",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "0533ec49-ca47-59fd-9e9b-42b0611fd5ee",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "bd08580e-91d7-50d0-be46-83367e612401",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "c6fca31c-3fba-5895-af37-d92be81e2e8f",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "67b92d8c-0a7c-5f49-906b-e768ee4dbf70",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "194498d1-13a7-544c-a32e-9d6ebd540355",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "155f0740-c17d-5782-bbff-dfa240f6a523",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "66d193c3-aa73-5422-b1c8-17d255e58208",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "67ff1707-5f90-5473-a27b-492190812faf",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "6944b290-9575-5f73-bf22-b94098787026",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "81528f9b-c090-5965-a457-16107cfaaf8e",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "ac452f51-3f47-509b-8915-04a37af008ce",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "2255e506-211b-5ec9-988d-a24f4c4bc49f",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "00f9c1cc-0b0d-58c9-ac35-afa1554aa271",
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "dcc89bdb-355e-5204-b116-d2181f0abea4",
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "a81b58d3-703f-5b0e-aa33-938d53430131",
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "f92c881a-fad3-519b-8ec2-c5d63afbfed7",
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      },
+      {
+        "key": "fbc3cbe3-7d43-5e48-adf2-0f197b767ee5",
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "detail": "关联行存在但 PG 缺失向量"
+      }
+    ],
+    "stuckTasks": [],
+    "countMismatches": [
+      {
+        "key": "DOC-CNC-COOLING-001|1",
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "detail": "关联数=2 而 PG 数=0"
+      },
+      {
+        "key": "DOC-WORKORDER-SPEC-003|1",
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "detail": "关联数=1 而 PG 数=0"
+      },
+      {
+        "key": "d32eval-code|1",
+        "documentId": "d32eval-code",
+        "version": 1,
+        "detail": "关联数=6 而 PG 数=0"
+      },
+      {
+        "key": "d32eval-model|1",
+        "documentId": "d32eval-model",
+        "version": 1,
+        "detail": "关联数=6 而 PG 数=0"
+      },
+      {
+        "key": "d32eval-air|1",
+        "documentId": "d32eval-air",
+        "version": 1,
+        "detail": "关联数=6 而 PG 数=0"
+      },
+      {
+        "key": "d32eval-pump|1",
+        "documentId": "d32eval-pump",
+        "version": 1,
+        "detail": "关联数=6 而 PG 数=0"
+      },
+      {
+        "key": "DOC-SERVO-TROUBLE-002|1",
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "detail": "关联数=2 而 PG 数=0"
+      }
+    ],
+    "actionsTaken": []
+  }
+}

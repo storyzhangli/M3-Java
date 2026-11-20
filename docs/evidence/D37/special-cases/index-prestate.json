@@ -1,0 +1,128 @@
+{
+  "DOC-CNC-COOLING-001": {
+    "status": [
+      {
+        "id": 129,
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "contentHash": "429f535b6d8622e024c7434c74555a22348ea318085421439b6e2298d8062265",
+        "strategy": "FIXED_SIZE",
+        "chunkCount": 2,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 4,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-19T17:12:32",
+        "updatedAt": "2026-11-19T17:23:33"
+      }
+    ],
+    "chunks": [
+      {
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "strategy": "FIXED_SIZE",
+        "chunkId": "00f9c1cc-0b0d-58c9-ac35-afa1554aa271",
+        "chunkIndex": 0,
+        "chunkContentHash": "a8f66c8565f8c2eff29590d07b6aa6e470d4f73ae8a2f7758e2a76d2b1dc38c6",
+        "charLength": 200,
+        "globalStart": 0,
+        "globalEnd": 200,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "strategy": "FIXED_SIZE",
+        "chunkId": "dcc89bdb-355e-5204-b116-d2181f0abea4",
+        "chunkIndex": 1,
+        "chunkContentHash": "433c4a3479d21710ed82a714f9c69c77debceb3f20358d4816359a055a34fd6f",
+        "charLength": 110,
+        "globalStart": 150,
+        "globalEnd": 260,
+        "status": "INDEXED"
+      }
+    ]
+  },
+  "DOC-SERVO-TROUBLE-002": {
+    "status": [
+      {
+        "id": 130,
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "contentHash": "14bdab69ce036747a1d1f9b99fe439e20172729e6d5a9b28191fcb573bd3bffc",
+        "strategy": "FIXED_SIZE",
+        "chunkCount": 2,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 4,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-19T17:12:33",
+        "updatedAt": "2026-11-19T17:23:33"
+      }
+    ],
+    "chunks": [
+      {
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "strategy": "FIXED_SIZE",
+        "chunkId": "a81b58d3-703f-5b0e-aa33-938d53430131",
+        "chunkIndex": 0,
+        "chunkContentHash": "3c0f9539e91165215319d0d0fd10c36f05fd01ef2d4865a19635b0c709247b7e",
+        "charLength": 179,
+        "globalStart": 0,
+        "globalEnd": 179,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "strategy": "FIXED_SIZE",
+        "chunkId": "f92c881a-fad3-519b-8ec2-c5d63afbfed7",
+        "chunkIndex": 1,
+        "chunkContentHash": "57a392f28c7174a264036f339919f06e190d154e045da713ed7d114ebc531d67",
+        "charLength": 108,
+        "globalStart": 150,
+        "globalEnd": 258,
+        "status": "INDEXED"
+      }
+    ]
+  },
+  "DOC-WORKORDER-SPEC-003": {
+    "status": [
+      {
+        "id": 131,
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "contentHash": "2624a43d8717db3cd0d824d1d8681537957c1d173fdf57634937b4815ef807b6",
+        "strategy": "FIXED_SIZE",
+        "chunkCount": 1,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 3,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-19T17:12:33",
+        "updatedAt": "2026-11-19T17:23:33"
+      }
+    ],
+    "chunks": [
+      {
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "strategy": "FIXED_SIZE",
+        "chunkId": "fbc3cbe3-7d43-5e48-adf2-0f197b767ee5",
+        "chunkIndex": 0,
+        "chunkContentHash": "fa72117f872a8993ab9fe1c9392ffe0c42379ea49da2027e7c964769b60b8c50",
+        "charLength": 168,
+        "globalStart": 0,
+        "globalEnd": 168,
+        "status": "INDEXED"
+      }
+    ]
+  }
+}
