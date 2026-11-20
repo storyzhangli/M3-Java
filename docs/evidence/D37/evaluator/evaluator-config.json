@@ -1,0 +1,24 @@
+{
+  "datasetVersion": "v1.0",
+  "dataset": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "corpus": "D37/D37_RAG_ESAB/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "manifest": "docs/evidence/D37/dataset/dataset-manifest.json",
+  "baseUrl": "http://127.0.0.1:8080",
+  "pgHost": "192.168.200.153",
+  "pgPort": 5432,
+  "topK": 5,
+  "threshold": 0.0,
+  "warmup": 3,
+  "rounds": 3,
+  "retrievalTimeoutMs": 30000,
+  "e2eTimeoutMs": 60000,
+  "noisePrecisionThreshold": 0.5,
+  "embedding": {
+    "provider": "local",
+    "model": "local-hashing-embedding",
+    "modelVersion": "local-v1",
+    "dimensions": 384,
+    "distanceMetric": "COSINE"
+  },
+  "controlledBaselineNote": "EVAL_CONTROLLED_BASELINE：topK/threshold 由本配置显式传入每次请求，不依赖应用默认值；噪声阈值 0.5 正式运行前冻结，禁止看结果后调整。"
+}
