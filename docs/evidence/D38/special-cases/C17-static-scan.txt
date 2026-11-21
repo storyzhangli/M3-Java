@@ -1,0 +1,3 @@
+=== C17 one_ 后端危险渲染静态扫描 ===
+one_ 后端源码危险渲染模式（innerHTML/javascript:/data:text/document.write/eval）零命中
+one_ 引用契约 url=null（ask\one-qa001-ask.json 已核验），不渲染外链；URL 协议黑名单由 local 前端 isSafeUrl 承担（6/6 测试覆盖），one_ 无前端面

@@ -1,0 +1,81 @@
+{
+  "testSuite" : "D38-C16 重试分类受控注入",
+  "zeroRemoteCalls" : true,
+  "stub" : "com.sun.net.httpserver @127.0.0.1 随机端口（脚本化响应）",
+  "fakeKeyOnly" : true,
+  "passCount" : 14,
+  "failCount" : 0,
+  "allPass" : true,
+  "executedAt" : "2026-11-21T17:25:56.191586500+08:00",
+  "scenarios" : [ {
+    "id" : "S1",
+    "name" : "400不重试",
+    "pass" : true,
+    "detail" : "code=BAD_REQUEST hits=1"
+  }, {
+    "id" : "S2",
+    "name" : "401不重试",
+    "pass" : true,
+    "detail" : "code=AUTH_FAILED hits=1"
+  }, {
+    "id" : "S3",
+    "name" : "429重试恢复",
+    "pass" : true,
+    "detail" : "hits=2 elapsedMs=75 tokens=5"
+  }, {
+    "id" : "S4",
+    "name" : "503重试耗尽",
+    "pass" : true,
+    "detail" : "code=REMOTE_ERROR hits=2"
+  }, {
+    "id" : "S5",
+    "name" : "连接拒绝重试",
+    "pass" : true,
+    "detail" : "code=NETWORK attempts=2"
+  }, {
+    "id" : "S6",
+    "name" : "读取超时不重试",
+    "pass" : true,
+    "detail" : "code=READ_TIMEOUT hits=1"
+  }, {
+    "id" : "S7",
+    "name" : "错误体脱敏",
+    "pass" : true,
+    "detail" : "masked=true len=535"
+  }, {
+    "id" : "S8",
+    "name" : "usage真实累计",
+    "pass" : true,
+    "detail" : "tokens=7 unavailable=1"
+  }, {
+    "id" : "S9",
+    "name" : "零向量拒绝",
+    "pass" : true,
+    "detail" : "code=ZERO_VECTOR"
+  }, {
+    "id" : "S10",
+    "name" : "维度不符拒绝",
+    "pass" : true,
+    "detail" : "code=DIMENSION_MISMATCH"
+  }, {
+    "id" : "S11",
+    "name" : "超批拒绝",
+    "pass" : true,
+    "detail" : "code=BATCH_TOO_LARGE hits=0"
+  }, {
+    "id" : "S12",
+    "name" : "429重试耗尽",
+    "pass" : true,
+    "detail" : "code=RATE_LIMITED hits=2"
+  }, {
+    "id" : "S13",
+    "name" : "503重试恢复",
+    "pass" : true,
+    "detail" : "hits=2 tokens=3"
+  }, {
+    "id" : "S14",
+    "name" : "maxAttempts=1不重试",
+    "pass" : true,
+    "detail" : "hits=1"
+  } ]
+}

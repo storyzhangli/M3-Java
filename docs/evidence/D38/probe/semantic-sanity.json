@@ -1,0 +1,21 @@
+{
+  "probedAt": "2026-11-21T16:35:59+08:00",
+  "purpose": "语义 sanity：相关对余弦应显著高于无关对；分量非退化",
+  "texts": [
+    "数控机床冷却液压力不足导致主轴过热报警",
+    "冷却系统液压偏低引发温度过高故障",
+    "周末去公园散步欣赏秋天的银杏叶"
+  ],
+  "cosAB_related": 0.7221120795995367,
+  "cosAC_unrelated": 0.1425650960759005,
+  "cosBC_unrelated": 0.15854220376735453,
+  "componentStats": {
+    "nonZeroCount": 1023,
+    "maxAbs": 0.11688952147960663,
+    "dims": 1024,
+    "minAbs": 0.0,
+    "meanAbs": 0.02475041331824457
+  },
+  "usageTotalTokens": 73,
+  "verdict": "PASS"
+}

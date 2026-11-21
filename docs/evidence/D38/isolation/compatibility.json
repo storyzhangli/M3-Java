@@ -1,0 +1,71 @@
+{
+  "localCandidate": {
+    "decision": "DIMENSION_MISMATCH",
+    "compatible": false,
+    "reason": "向量维度不一致，禁止写入同一索引",
+    "currentIndex": {
+      "provider": "bailian",
+      "modelName": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "indexVersion": 1,
+      "distanceMetric": "COSINE"
+    },
+    "candidate": {
+      "provider": "local",
+      "modelName": "local-hashing-embedding",
+      "modelVersion": "local-v1",
+      "dimensions": 384,
+      "vectorSpaceId": "local|local-hashing-embedding|local-v1|384",
+      "indexVersion": 1,
+      "distanceMetric": null
+    }
+  },
+  "otherSpaceCandidate": {
+    "decision": "MODEL_SPACE_MISMATCH",
+    "compatible": false,
+    "reason": "维度相同但向量空间不同，禁止混合检索",
+    "currentIndex": {
+      "provider": "bailian",
+      "modelName": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "indexVersion": 1,
+      "distanceMetric": "COSINE"
+    },
+    "candidate": {
+      "provider": "bailian",
+      "modelName": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v2",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v2|1024",
+      "indexVersion": 1,
+      "distanceMetric": null
+    }
+  },
+  "sameSpaceCandidate": {
+    "decision": "COMPATIBLE",
+    "compatible": true,
+    "reason": "维度与向量空间一致，可写入同一索引",
+    "currentIndex": {
+      "provider": "bailian",
+      "modelName": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "indexVersion": 1,
+      "distanceMetric": "COSINE"
+    },
+    "candidate": {
+      "provider": "bailian",
+      "modelName": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "indexVersion": 1,
+      "distanceMetric": null
+    }
+  }
+}

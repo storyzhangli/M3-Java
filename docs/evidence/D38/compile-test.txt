@@ -1,0 +1,82 @@
+=== C01-1 mvn test ===
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------------< org.ai.m3.qw:D38_QWE_MROQRE >---------------------
+[INFO] Building D38_QWE_MROQRE 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D38_QWE_MROQRE ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D38_QWE_MROQRE ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D38_QWE_MROQRE ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D38_QWE_MROQRE ---
+[INFO] Copying 1 resource from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D38_QWE_MROQRE ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D38_QWE_MROQRE ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  5.520 s
+[INFO] Finished at: 2026-11-21T17:39:13+08:00
+[INFO] ------------------------------------------------------------------------
+MVN_TEST_EXIT=0
+=== C01-2 前端 node --test ===
+node=C:\Users\zl\AppData\Local\Doubao\User Data\sandbox_runtime\bases\fa694f517e5995233c80a9a8db5212c2\node\node.exe
+TAP version 13
+# Subtest: isSafeUrl 放行公网 http/https
+ok 1 - isSafeUrl 放行公网 http/https
+  ---
+  duration_ms: 1.5143
+  type: 'test'
+  ...
+# Subtest: isSafeUrl 拦截危险协议
+ok 2 - isSafeUrl 拦截危险协议
+  ---
+  duration_ms: 0.22
+  type: 'test'
+  ...
+# Subtest: isSafeUrl 拦截 localhost/环回/内网与本机路径
+ok 3 - isSafeUrl 拦截 localhost/环回/内网与本机路径
+  ---
+  duration_ms: 0.5171
+  type: 'test'
+  ...
+# Subtest: isSafeUrl 对非字符串/空值返回 false
+ok 4 - isSafeUrl 对非字符串/空值返回 false
+  ---
+  duration_ms: 0.4139
+  type: 'test'
+  ...
+# Subtest: 源码无 innerHTML 赋值，使用安全 DOM API
+ok 5 - 源码无 innerHTML 赋值，使用安全 DOM API
+  ---
+  duration_ms: 0.519
+  type: 'test'
+  ...
+# Subtest: 外链仅在安全时创建，且带 noopener noreferrer
+ok 6 - 外链仅在安全时创建，且带 noopener noreferrer
+  ---
+  duration_ms: 0.2795
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 183.1128
+NODE_TEST_EXIT=0

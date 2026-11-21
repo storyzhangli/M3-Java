@@ -1,0 +1,44 @@
+diff --git a/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/embedding/config/EmbeddingConfiguration.java b/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/embedding/config/EmbeddingConfiguration.java
+index 25d46d7..746ef88 100644
+--- a/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/embedding/config/EmbeddingConfiguration.java
++++ b/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/embedding/config/EmbeddingConfiguration.java
+@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
+ import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+ import org.springframework.context.annotation.Bean;
+ import org.springframework.context.annotation.Configuration;
++import org.springframework.context.annotation.Primary;
+ 
+ /**
+  * Embedding 装配配置：依据应用自有命名空间 {@code app.ai.embedding} 构造 EmbeddingModel。
+@@ -19,8 +20,13 @@ public class EmbeddingConfiguration {
+ 
+     /**
+      * 本地哈希词面模型：默认启用，零网络零密钥。
++     *
++     * <p>D38 双轨：标注 {@link Primary} 保证新增 one_ 轨 EmbeddingModel 后，
++     * 既有按类型注入（SimilaritySearchService/DocumentEmbeddingService/pgVectorStore）
++     * 仍解析到 local，行为零变更（任务书 H1 唯一豁免改动之一）。</p>
+      */
+     @Bean
++    @Primary
+     @ConditionalOnMissingBean(EmbeddingModel.class)
+     @ConditionalOnProperty(prefix = "app.ai.embedding", name = "enabled", havingValue = "true", matchIfMissing = true)
+     public EmbeddingModel localHashingEmbeddingModel(EmbeddingProperties properties) {
+diff --git a/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/vectorstore/PgVectorStoreConfiguration.java b/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/vectorstore/PgVectorStoreConfiguration.java
+index 90363f7..f6b3fd6 100644
+--- a/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/vectorstore/PgVectorStoreConfiguration.java
++++ b/D38/D38_QWE_MROQRE/src/main/java/com/zl/d38/document/vectorstore/PgVectorStoreConfiguration.java
+@@ -92,8 +92,13 @@ public class PgVectorStoreConfiguration {
+ 
+     /**
+      * 正式向量存储：维度/距离/索引与 EmbeddingModel 严格对齐。
++     *
++     * <p>D38 双轨：标注 {@link Primary} 保证新增 one_ 轨 PgVectorStore 后，
++     * 既有按类型注入（VectorStore/PgVectorStore）仍解析到 local 表 d38_vector_store，
++     * 行为零变更（任务书 H1 唯一豁免改动之二）。</p>
+      */
+     @Bean
++    @Primary
+     public PgVectorStore pgVectorStore(@Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
+                                        EmbeddingModel embeddingModel,
+                                        PgVectorStoreProperties pgVectorProperties,

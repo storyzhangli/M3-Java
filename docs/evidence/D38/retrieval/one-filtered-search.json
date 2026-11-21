@@ -1,0 +1,88 @@
+{
+  "query": "数控机床出现主轴过热报警，应该先检查什么？",
+  "topK": 5,
+  "threshold": 0.0,
+  "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+  "filtered": true,
+  "total": 3,
+  "matches": [
+    {
+      "chunkId": "3b1501c0-6a99-535a-a787-991f877024c8",
+      "content": "数控机床出现主轴过热报警时，应先检查冷却液液位与冷却泵运行声音，再检查散热器滤网是否堵塞；冷却液液位低于下刻线时必须停机补充同型号冷却液。",
+      "documentId": "DOC-CNC-COOLING-001",
+      "title": "数控机床冷却系统维护手册（教学夹具）",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "chunkIndex": 0,
+      "page": null,
+      "lastPage": null,
+      "paragraphIndex": null,
+      "similarity": 0.8741885125637054,
+      "distance": 0.12581148743629456,
+      "metadata": {
+        "splitVersion": "split-v1",
+        "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+        "chunkContentHash": "bf8b700e79265a630edb1c2fa685f0b0adf04c423753c0ad9a4dce74cec4f490",
+        "distance": 0.12581149,
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "strategy": "STRUCTURE",
+        "chunkIndex": 0,
+        "version": 1
+      }
+    },
+    {
+      "chunkId": "fe30f5f7-1844-5a71-b436-2d64a5bd3b76",
+      "content": "若冷却液充足但仍反复过热报警，应使用万用表测量主轴温度传感器阻值；阻值跳变或与常温对照值偏差超过20%时判定温度传感器老化，需要更换并重新校准。",
+      "documentId": "DOC-CNC-COOLING-001",
+      "title": "数控机床冷却系统维护手册（教学夹具）",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "chunkIndex": 1,
+      "page": null,
+      "lastPage": null,
+      "paragraphIndex": null,
+      "similarity": 0.7532570064067841,
+      "distance": 0.24674299359321594,
+      "metadata": {
+        "splitVersion": "split-v1",
+        "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+        "chunkContentHash": "74f239999cc55e835d6e64089d6a0b94d41ed2f589459b71c2f7c0d04a9b58b4",
+        "distance": 0.246743,
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "strategy": "STRUCTURE",
+        "chunkIndex": 1,
+        "version": 1
+      }
+    },
+    {
+      "chunkId": "bc123920-e5d8-51f3-886d-7945ff6b3e00",
+      "content": "冷却泵异响伴随流量下降时，优先检查吸入口滤网与管路气塞；排气后流量仍不足需更换泵体密封件，禁止在系统带压状态下拆卸管路。",
+      "documentId": "DOC-CNC-COOLING-001",
+      "title": "数控机床冷却系统维护手册（教学夹具）",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "chunkIndex": 2,
+      "page": null,
+      "lastPage": null,
+      "paragraphIndex": null,
+      "similarity": 0.43499863147735596,
+      "distance": 0.565001368522644,
+      "metadata": {
+        "splitVersion": "split-v1",
+        "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+        "chunkContentHash": "8066c4246dec333ba751da6322cd14385d5b157341cf69b8210396845acee2be",
+        "distance": 0.56500137,
+        "documentId": "DOC-CNC-COOLING-001",
+        "title": "数控机床冷却系统维护手册（教学夹具）",
+        "strategy": "STRUCTURE",
+        "chunkIndex": 2,
+        "version": 1
+      }
+    }
+  ],
+  "queryEmbeddingMs": 115.174,
+  "vectorSearchMs": 261.55,
+  "retrievalTotalMs": 380.841
+}

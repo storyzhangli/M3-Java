@@ -1,0 +1,177 @@
+{
+  "conflict": {
+    "ask": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "answer": null,
+        "sources": [],
+        "retrievalStatus": "SUCCESS",
+        "generationStatus": "CONFLICT",
+        "errorCode": "EVIDENCE_CONFLICT",
+        "errorMessage": "有效证据对同一参数存在冲突，需权威依据或人工确认，未按版本号一刀切。",
+        "retrievedCount": 2,
+        "evidenceCount": 2,
+        "budget": {
+          "budgetUnit": "CHARACTER",
+          "budgetLimit": 6000,
+          "estimatedUsed": 331,
+          "includedChunks": 2,
+          "budgetExcludedChunks": 0,
+          "invalidOrDedupChunks": 0,
+          "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+        },
+        "timing": {
+          "retrievalMs": 251,
+          "assemblyMs": 0,
+          "generationMs": 0,
+          "totalMs": 259
+        },
+        "unknownCitationDetected": false,
+        "decision": "CONFLICT",
+        "clarificationQuestion": null,
+        "missingInformation": [],
+        "conflictGroups": [
+          {
+            "subject": "D38one评测冲突夹具压力容器",
+            "parameter": "额定压力",
+            "values": [
+              "0.8",
+              "1.2"
+            ],
+            "evidenceIds": [
+              "S1",
+              "S2"
+            ]
+          }
+        ],
+        "rejectedEvidenceIds": [],
+        "citationValidation": null,
+        "citationNotes": []
+      }
+    },
+    "index": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D38-ONE-CONFLICT-901",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "chunkCount": 2,
+        "processed": 2,
+        "idempotent": false,
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1,
+        "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+      }
+    },
+    "register": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D38-ONE-CONFLICT-901",
+        "source": "MANUAL",
+        "title": "D38one评测冲突夹具压力容器",
+        "version": 1,
+        "status": "PENDING",
+        "contentLength": 0,
+        "errorCode": "",
+        "errorMessage": "",
+        "createdAt": "2026-11-21T17:33:17.5024419",
+        "updatedAt": "2026-11-21T17:33:17.5024419"
+      }
+    }
+  },
+  "lifecycle": {
+    "index": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "documentId": "D38-ONE-LIFECYCLE-902",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "chunkCount": 1,
+        "processed": 1,
+        "idempotent": false,
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1,
+        "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+      }
+    },
+    "ask": {
+      "code": 200,
+      "msg": "success",
+      "data": {
+        "answer": "知识库中无有效证据，已停止生成，未调用大模型。",
+        "sources": [],
+        "retrievalStatus": "SUCCESS",
+        "generationStatus": "SKIPPED_NO_EVIDENCE",
+        "errorCode": "NO_EVIDENCE",
+        "errorMessage": "知识库中无有效证据，已停止生成，未调用大模型。",
+        "retrievedCount": 1,
+        "evidenceCount": 1,
+        "budget": {
+          "budgetUnit": "CHARACTER",
+          "budgetLimit": 6000,
+          "estimatedUsed": 164,
+          "includedChunks": 1,
+          "budgetExcludedChunks": 0,
+          "invalidOrDedupChunks": 0,
+          "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+        },
+        "timing": {
+          "retrievalMs": 217,
+          "assemblyMs": 0,
+          "generationMs": 0,
+          "totalMs": 218
+        },
+        "unknownCitationDetected": false,
+        "decision": "REFUSE",
+        "clarificationQuestion": null,
+        "missingInformation": [],
+        "conflictGroups": [],
+        "rejectedEvidenceIds": [
+          "S1"
+        ],
+        "citationValidation": null,
+        "citationNotes": []
+      }
+    }
+  },
+  "cleanup_D38-ONE-CONFLICT-901": {
+    "removed": 2,
+    "remaining": 0
+  },
+  "cleanup_D38-ONE-LIFECYCLE-902": {
+    "removed": 1,
+    "remaining": 0
+  },
+  "usage": {
+    "after": {
+      "model": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "calls": 500,
+      "totalTokens": 13896,
+      "usageUnavailableCalls": 0
+    },
+    "deltaCalls": 6,
+    "deltaTokens": 200,
+    "before": {
+      "model": "qwen3.7-text-embedding",
+      "modelVersion": "remote-v1",
+      "dimensions": 1024,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+      "calls": 494,
+      "totalTokens": 13696,
+      "usageUnavailableCalls": 0
+    }
+  }
+}

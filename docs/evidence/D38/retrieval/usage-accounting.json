@@ -1,0 +1,23 @@
+{
+  "before": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 0,
+    "totalTokens": 0,
+    "usageUnavailableCalls": 0
+  },
+  "after": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 10,
+    "totalTokens": 272,
+    "usageUnavailableCalls": 0
+  },
+  "callsThisScript": 10,
+  "tokensThisScript": 272,
+  "note": "C09 三次真实检索×2 + C11 两次 ask 检索段×2 = 预期 10 次；拒绝类用例 0 调用；local 检索 0 远程调用"
+}

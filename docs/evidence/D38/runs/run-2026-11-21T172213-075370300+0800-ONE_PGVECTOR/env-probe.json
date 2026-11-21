@@ -1,0 +1,21 @@
+{
+  "probedAt" : "2026-11-21T17:22:13.076889400+08:00",
+  "pgHost" : "192.168.200.153",
+  "pgPort" : 5432,
+  "baseUrl" : "http://127.0.0.1:8080",
+  "dimensions" : {
+    "apiKeyPresent" : true,
+    "modeDeepseek" : false,
+    "pgPortReachable" : true,
+    "appUp" : true,
+    "appRetrievalOk" : true,
+    "chatModelPresent" : false,
+    "chatModelInferred" : true,
+    "oneEndpointOk" : true,
+    "corpusOk" : true
+  },
+  "mode" : "OFFLINE",
+  "retrievalBackend" : "ONE_PGVECTOR",
+  "degradeReason" : "one_ 检索链路真实可用（探测查询成功），PG 端口可达；离线原因：AI_MODE 非 deepseek;无 ChatModel;",
+  "note" : "chatModelPresent 为配置级推断（mock 无 Bean；deepseek+密钥且应用已启动则 Bean 存在），非 Bean 容器直检；one_ 探测查询产生真实远程调用并计入预算；无内存降级后端。"
+}

@@ -1,0 +1,88 @@
+{
+  "gate": "C12 轮间质量投影字节一致（oneeval.Evaluator 内置门禁）",
+  "verdict": "REPEAT_RESULT_DIVERGED",
+  "circuitBreaker": "任务书 §4.3 第5条：非确定性导致基线无法字节一致 → 不冻结假基线，如实 BLOCKED",
+  "run": "run-2026-11-21T172213-075370300+0800-ONE_PGVECTOR",
+  "run1Completed": true,
+  "run2Executed": false,
+  "divergedQuestions": ["QU-005"],
+  "stableQuestions": "其余 19 问三轮质量投影逐字节一致；全部 20 问三轮 decision/errorCode/generationStatus 完全一致",
+  "rootCause": "REMOTE_NON_DETERMINISM：远端 query embedding 每次调用存在 ~1e-4 量级浮点抖动；存储向量固定（P3 一次入库）、PG 仅 8 行 HNSW 等效精确检索，故 distance 漂移只能来自远端查询向量。QU-005 两个无关片段 similarity 近似平局（Δ=2.432e-5），抖动足以翻转其排序。",
+  "qu005": {
+    "question": "红烧肉的家常做法需要哪些配料？",
+    "scenario": "UNANSWERABLE",
+    "expectedDecision": "REFUSE",
+    "semanticFieldsAcrossRounds": {
+      "actualDecision": "REFUSE（三轮一致）",
+      "errorCode": "LOW_RELEVANCE（三轮一致）",
+      "generationStatus": "SKIPPED_NO_EVIDENCE（三轮一致）",
+      "noise": 1,
+      "relevantCount": 0,
+      "hitCount": 5,
+      "labels": "HIGH_NOISE:HIGH_NOISE_PRECISION（三轮一致）",
+      "sourceCount": 0,
+      "mustNotViolated": false,
+      "status": "FAIL（诚实预期 FAIL：噪声题全无关命中，与 D37 local 全 REFUSE 同口径）"
+    },
+    "divergence": "仅 rank2/rank3 两个无关片段排序翻转",
+    "rounds": [
+      {
+        "round": 1,
+        "rank2": {"logicalChunkId": "DOC-WORKORDER-SPEC-003-C02", "similarity": 0.19151335954666138, "distance": 0.8084866404533386},
+        "rank3": {"logicalChunkId": "DOC-CNC-COOLING-001-C02", "similarity": 0.19148904085159302, "distance": 0.808510959148407},
+        "gap": 0.00002431869506836
+      },
+      {
+        "round": 2,
+        "rank2": {"logicalChunkId": "DOC-CNC-COOLING-001-C02", "similarity": 0.19200384616851807, "distance": 0.8079961538314819},
+        "rank3": {"logicalChunkId": "DOC-WORKORDER-SPEC-003-C02", "similarity": 0.19175302982330322, "distance": 0.8082469701766968},
+        "gap": 0.00025081634521485
+      },
+      {
+        "round": 3,
+        "rank2": {"logicalChunkId": "DOC-CNC-COOLING-001-C02", "similarity": 0.19167691469192505, "distance": 0.808323085308075},
+        "rank3": {"logicalChunkId": "DOC-WORKORDER-SPEC-003-C02", "similarity": 0.1910182237625122, "distance": 0.8089817762374878},
+        "gap": 0.00065869092941285
+      }
+    ],
+    "hitSequence": {
+      "round1": "DOC-SERVO-TROUBLE-002-C03 > DOC-WORKORDER-SPEC-003-C02 > DOC-CNC-COOLING-001-C02 > DOC-CNC-COOLING-001-C01 > DOC-SERVO-TROUBLE-002-C01",
+      "round2": "DOC-SERVO-TROUBLE-002-C03 > DOC-CNC-COOLING-001-C02 > DOC-WORKORDER-SPEC-003-C02 > DOC-CNC-COOLING-001-C01 > DOC-SERVO-TROUBLE-002-C01",
+      "round3": "同 round2"
+    }
+  },
+  "jitterEvidence": {
+    "sameStoredChunk": "DOC-SERVO-TROUBLE-002-C03（QU-005 rank1，三轮均第一）",
+    "distanceByRound": [0.7690550088882446, 0.7691391706466675, 0.7685866355895996],
+    "maxDrift": 0.0005525350570679,
+    "interpretation": "同一存储片段、同一问句，三轮 distance 漂移 ~5.5e-4 → 远端查询向量非确定性实锤"
+  },
+  "datasetMinGaps": {
+    "round1": {"minGap": 0.00002432, "question": "QU-005", "pair": "DOC-WORKORDER-SPEC-003-C02 / DOC-CNC-COOLING-001-C02"},
+    "round2": {"minGap": 0.00023019, "question": "QF-004", "pair": "DOC-WORKORDER-SPEC-003-C02 / DOC-SERVO-TROUBLE-002-C02"},
+    "round3": {"minGap": 0.00023019, "question": "QF-004", "pair": "DOC-WORKORDER-SPEC-003-C02 / DOC-SERVO-TROUBLE-002-C02"},
+    "riskNote": "QF-004 间隙 2.3e-4 亦在抖动量级内，本轮未翻转属偶然；严格排序字节一致门禁对任何近似平局对均不可长期保证"
+  },
+  "canaryStatus": {
+    "p0G5": "PASS（cosine=1.0，单次观测；抖动具输入依赖性，该文本恰为确定性观测）",
+    "evaluatorCanary": "PASS（QA-001 两次检索排序逐位一致；其 top1=0.874 与其余 hits 分离度大，排序稳定不证明向量逐位相同）"
+  },
+  "budgetAtStop": {
+    "currentProcessCalls": 494,
+    "currentProcessTokens": 13696,
+    "journeyCalls": 508,
+    "journeyTokens": 15131,
+    "journeyBreakdown": "P0 直连 9/746 + P3 进程 5/689 + 当前进程 494/13696（含 P4 10/272）",
+    "budget": "ONE_CALL_BUDGET=1000 / ONE_TOKEN_BUDGET=200000（用户 2026-11-21 裁决）",
+    "remainingCalls": 492
+  },
+  "taskBookProvisions": [
+    "§3.6：排序对浮点敏感，近似平分可能翻转 → 先报告再决定是否冻结",
+    "P6.2：不冻结假基线，报告分歧明细（哪些问句排序变化、similarity 漂移幅度），由用户裁决",
+    "C12：不达标 → 如实 BLOCKED+分歧明细",
+    "L3：必须 PASS 或如实 BLOCKED（非确定性）",
+    "§4.3.5：非确定性导致基线无法字节一致 → 不冻结假基线，如实 BLOCKED"
+  ],
+  "recordedAt": "2026-11-21T17:35:00+08:00",
+  "zeroAdditionalCallsForThisAnalysis": true
+}

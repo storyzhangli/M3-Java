@@ -1,0 +1,79 @@
+Picked up JAVA_TOOL_OPTIONS: -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+[PASS] precision 空集 N/A
+[PASS] noise 空集 N/A
+[PASS] rate 分母0 N/A
+[PASS] precision 单元素全相关=1
+[PASS] precision 1/4=0.25
+[PASS] noise 1/4 相关=0.75
+[PASS] 无答案问题 precision=0
+[PASS] 单问 Recall 半包含=0.5
+[PASS] 单问 Recall 多证据全覆盖=1
+[PASS] 单问 Recall 无 chunk 标注退化文档级=1
+[PASS] 单问 Recall 无期望标注 N/A
+[PASS] Macro 平均忽略不可判
+[PASS] Macro 全不可判 N/A
+[PASS] HitRate 空 N/A
+[PASS] HitRate 2/3
+[PASS] 耗时 空集 N/A
+[PASS] 耗时 均值=25
+[PASS] 耗时 P50 最近秩=20
+[PASS] 耗时 P95 最近秩=40
+[PASS] 耗时 min/max
+[PASS] 耗时 单元素
+[PASS] fmt N/A 渲染
+[PASS] Embedding 维度=384
+[PASS] Embedding 确定性（逐位一致）
+[PASS] Embedding L2 模长≈1
+[PASS] Embedding 空文本零向量
+[PASS] Embedding 自相似≈1
+[PASS] FNV-1a 空串基准值
+[PASS] 哈希桶范围与符号位
+[PASS] 词法模型相关>无关（方向正确）
+[PASS] 次级排序 高分优先
+[PASS] 次级排序 同分按 chunkId 升序
+[PASS] 次级排序 与输入顺序无关
+[PASS] 场景1 无密钥无PG → OFFLINE/IN_MEMORY
+[PASS] 场景2 无密钥有PG → OFFLINE/PGVECTOR
+[PASS] 场景3 有密钥无PG → OFFLINE/IN_MEMORY
+[PASS] 场景4 有密钥有PG → FULL/PGVECTOR
+[PASS] 场景5 Embedding失败 → BLOCKED（非FAIL）
+[PASS] 场景6 DB链路失败 → IN_MEMORY 降级
+[PASS] 场景7 无ChatModel → OFFLINE/PGVECTOR（密钥≠模型可用）
+[PASS] 场景7附 模型超时 → TIMEOUT_GENERATION 标签
+[PASS] 干净输入 PASS 无标签
+[PASS] MISS_RECALL 空检索归因
+[PASS] MISS_RECALL 低分归因
+[PASS] MISS_RECALL 过滤归因
+[PASS] MISS_RECALL 多证据半包含触发
+[PASS] HIGH_NOISE precision<0.5
+[PASS] HIGH_NOISE 首位不在期望集
+[PASS] FABRICATED_CITATION 触发
+[PASS] REFUSAL 误拒（期望答却拒）
+[PASS] REFUSAL 误答（期望拒却答）
+[PASS] REFUSAL 错误码不匹配
+[PASS] REFUSAL 正确拒答不误报 REFUSAL_ERROR
+[PASS] CLARIFY 期望澄清未澄清
+[PASS] CLARIFY 不应澄清却澄清
+[PASS] METADATA 必填缺失 FAIL
+[PASS] METADATA page缺失仅统计不FAIL
+[PASS] TIMEOUT 检索阶段
+[PASS] TIMEOUT 端到端阶段
+[PASS] MODEL_ERROR 空响应
+[PASS] MODEL_ERROR 通用异常
+[PASS] MODEL NOT_CONFIGURED 不算错误
+[PASS] RETRIEVAL_ERROR Embedding失败
+[PASS] RETRIEVAL_ERROR 后端异常
+[PASS] EMPTY 是成功态不触发 RETRIEVAL_ERROR
+[PASS] BLOCKED 状态独立于 FAIL
+[PASS] 危险协议/盘符路径全拦截
+[PASS] localhost/环回/内网/无主机全拒绝
+[PASS] null 输入拒绝
+[PASS] 公网字面量 http 放行
+[PASS] 公网字面量 https 放行
+[PASS] 非法 JSON 被拒
+[PASS] 未冻结（annotatedAt=null）被拒
+[PASS] 非 20 问被拒
+[PASS] 非法 scenario 被拒
+---- SELFTEST SUMMARY ----
+PASS=75 FAIL=0
+ALL SELFTESTS PASSED

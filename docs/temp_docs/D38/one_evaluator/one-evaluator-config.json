@@ -1,0 +1,29 @@
+{
+  "datasetVersion": "v1.0",
+  "dataset": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "corpus": "D38/D38_QWE_MROQRE/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "manifest": "docs/evidence/D38/dataset/dataset-manifest.json",
+  "baseUrl": "http://127.0.0.1:8080",
+  "pgHost": "192.168.200.153",
+  "pgPort": 5432,
+  "topK": 5,
+  "threshold": 0.0,
+  "warmup": 3,
+  "rounds": 3,
+  "retrievalTimeoutMs": 30000,
+  "e2eTimeoutMs": 60000,
+  "noisePrecisionThreshold": 0.5,
+  "oneCallBudget": 1000,
+  "oneTokenBudget": 200000,
+  "embedding": {
+    "provider": "bailian",
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "distanceMetric": "COSINE",
+    "maxBatch": 16,
+    "normalized": false,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  },
+  "controlledBaselineNote": "EVAL_CONTROLLED_BASELINE：topK/threshold 由本配置显式传入每次请求，不依赖应用默认值；噪声阈值 0.5 正式运行前冻结，禁止看结果后调整。预算 ONE_CALL_BUDGET=1000 经用户 2026-11-21 裁决（全规格 warmup=3）；每问每轮 search+ask 各 2 次真实调用（显式校验 embed + PgVectorStore 内部 embed），探测与 canary 第一次检索复用。"
+}

@@ -1,0 +1,38 @@
+{
+  "dryRun": true,
+  "entries": [
+    {
+      "documentId": "DOC-CNC-COOLING-001",
+      "version": 1,
+      "status": "COMPLETED",
+      "pgCount": 3,
+      "relationCount": 3,
+      "orphanPgIds": [],
+      "missingPgIds": [],
+      "consistent": true
+    },
+    {
+      "documentId": "DOC-SERVO-TROUBLE-002",
+      "version": 1,
+      "status": "COMPLETED",
+      "pgCount": 3,
+      "relationCount": 3,
+      "orphanPgIds": [],
+      "missingPgIds": [],
+      "consistent": true
+    },
+    {
+      "documentId": "DOC-WORKORDER-SPEC-003",
+      "version": 1,
+      "status": "COMPLETED",
+      "pgCount": 2,
+      "relationCount": 2,
+      "orphanPgIds": [],
+      "missingPgIds": [],
+      "consistent": true
+    }
+  ],
+  "orphanPgTotal": 0,
+  "missingPgTotal": 0,
+  "orphanDeleted": 0
+}

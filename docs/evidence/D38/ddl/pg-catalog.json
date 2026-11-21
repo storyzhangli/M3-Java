@@ -1,0 +1,10 @@
+{
+  "pgvectorVersion": "0.8.7",
+  "one_d38_vector_store.embedding": "vector(1024)",
+  "one_d38_vector_store.indexes": [{"name": "one_d38_vector_store_index", "def": "CREATE INDEX one_d38_vector_store_index ON public.one_d38_vector_store USING hnsw (embedding vector_cosine_ops)"}, {"name": "one_d38_vector_store_pkey", "def": "CREATE UNIQUE INDEX one_d38_vector_store_pkey ON public.one_d38_vector_store USING btree (id)"}],
+  "one_d38_vector_store.rowCount": 0,
+  "d38_vector_store.embedding": "vector(384)",
+  "d38_vector_store.indexes": [{"name": "d38_vector_store_index", "def": "CREATE INDEX d38_vector_store_index ON public.d38_vector_store USING hnsw (embedding vector_cosine_ops)"}, {"name": "d38_vector_store_pkey", "def": "CREATE UNIQUE INDEX d38_vector_store_pkey ON public.d38_vector_store USING btree (id)"}],
+  "d38_vector_store.rowCount": 0,
+  "verifiedAt": "2026-11-21T16:49:20.196391900+08:00"
+}

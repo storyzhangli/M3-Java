@@ -222,3 +222,36 @@ app:
     initialize-schema: ${PGVECTOR_INIT_SCHEMA:true}
     max-document-batch-size: ${PGVECTOR_BATCH_SIZE:10000}
     maximum-pool-size: ${PGVECTOR_POOL_SIZE:5}
+  # ------------------------------------------------------------------
+  # D38 新增：one_ 轨阿里百炼远程 Embedding（与 local 轨 app.ai.embedding 完全独立）。
+  # 默认关闭：enabled=false 时应用与骨架行为一致、零远程调用；
+  # 开启须注入 ONE_EMBEDDING_ENABLED=true + ONE_EMBEDDING_DIMENSIONS=1024（P0 冻结值）。
+  # 密钥/地址只经环境变量注入，禁止硬编码；dimensions 上限 2000 为 HNSW vector 红线。
+  # ------------------------------------------------------------------
+  one:
+    embedding:
+      enabled: ${ONE_EMBEDDING_ENABLED:false}
+      provider: ${ONE_EMBEDDING_PROVIDER:bailian}
+      model: ${ONE_EMBEDDING_MODEL:qwen3.7-text-embedding}
+      model-version: ${ONE_EMBEDDING_MODEL_VERSION:remote-v1}
+      base-url: ${BAILIAN_EMBEDDING_BASE_URL:}
+      api-key: ${DASHSCOPE_API_KEY:}
+      dimensions: ${ONE_EMBEDDING_DIMENSIONS:0}
+      max-batch: ${ONE_EMBEDDING_MAX_BATCH:16}
+      max-input-length: ${ONE_EMBEDDING_MAX_INPUT_LENGTH:8192}
+      distance-metric: COSINE
+      connect-timeout: ${ONE_MODEL_CONNECT_TIMEOUT:3s}
+      read-timeout: ${ONE_MODEL_READ_TIMEOUT:30s}
+      total-deadline: ${ONE_MODEL_TOTAL_DEADLINE:60s}
+      max-attempts: ${ONE_MODEL_MAX_ATTEMPTS:2}
+      retry-on-read-timeout: ${ONE_MODEL_RETRY_ON_READ_TIMEOUT:false}
+      initial-backoff-ms: ${ONE_MODEL_BACKOFF_INITIAL:200}
+      backoff-multiplier: ${ONE_MODEL_BACKOFF_MULTIPLIER:2.0}
+      max-backoff-ms: ${ONE_MODEL_BACKOFF_MAX:5000}
+      jitter-factor: ${ONE_MODEL_BACKOFF_JITTER:0.2}
+      send-dimensions-param: ${ONE_EMBEDDING_SEND_DIMENSIONS:false}
+    pgvector:
+      table: ${ONE_PGVECTOR_TABLE:one_d38_vector_store}
+      schema: ${ONE_PGVECTOR_SCHEMA:public}
+      initialize-schema: ${ONE_PGVECTOR_INIT_SCHEMA:true}
+      max-document-batch-size: ${ONE_PGVECTOR_BATCH_SIZE:10000}

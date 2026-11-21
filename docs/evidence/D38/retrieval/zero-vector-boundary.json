@@ -1,0 +1,4 @@
+{
+  "zeroVectorRejection": "N/A_REMOTE",
+  "reason": "远程模型对任意非空文本均返回非零向量，无法经 API 真实触发全零分支；守卫逻辑与 local 轨一致（validate+isZeroVector），属代码路径对齐而非运行时取证"
+}

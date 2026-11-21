@@ -1,0 +1,24 @@
+{
+  "datasetVersion": "v1.0",
+  "dataset": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "corpus": "D38/D38_QWE_MROQRE/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "manifest": "docs/evidence/D37/dataset/dataset-manifest.json",
+  "baseUrl": "http://127.0.0.1:8080",
+  "pgHost": "192.168.200.153",
+  "pgPort": 5432,
+  "topK": 5,
+  "threshold": 0.0,
+  "warmup": 3,
+  "rounds": 3,
+  "retrievalTimeoutMs": 30000,
+  "e2eTimeoutMs": 60000,
+  "noisePrecisionThreshold": 0.5,
+  "embedding": {
+    "provider": "local",
+    "model": "local-hashing-embedding",
+    "modelVersion": "local-v1",
+    "dimensions": 384,
+    "distanceMetric": "COSINE"
+  },
+  "controlledBaselineNote": "D38 local 回归专用：数据集/manifest 只读复用 D37 冻结资产，语料取 D38 模块（与 D37 逐字一致），端点为 D38 应用 local 轨。质量字段必须与 D37 PGVECTOR 基线字节一致。"
+}

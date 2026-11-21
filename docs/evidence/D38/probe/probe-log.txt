@@ -1,0 +1,14 @@
+[16:34:53] G1 START model=qwen3.7-text-embedding base=https://ws-b5h7p6oc83qc6dn5.cn-beijing.maas.aliyuncs.com/compatible-mode/v1 keyLength=116
+[16:34:54] G1 OK status=200 n=1 dims=1024 usageTotal=17 ms=739
+[16:34:54] G1 PASS dims=1024 L2norm=0.021778
+[16:34:54] G2 PASS dims=1024 <= 2000
+[16:34:54] G4 RECORDED NOT_NORMALIZED norm=0.0217778906226158
+[16:34:55] G3-batch2 OK status=200 n=2 dims=1024 usageTotal=34 ms=275
+[16:34:55] G3-batch8 OK status=200 n=8 dims=1024 usageTotal=136 ms=355
+[16:34:55] G3-batch10 OK status=200 n=10 dims=1024 usageTotal=170 ms=368
+[16:34:56] G3-batch16 OK status=200 n=16 dims=1024 usageTotal=272 ms=472
+[16:34:56] G3-batch25 FAIL status=400 error={"error":{"message":"<400> InternalError.Algo.InvalidParameter: Value error, batch size is invalid, it should not be larger than 20.: input.contents","type":"invalid_request_error","param":null,"code":"invalid_parameter_error"}} ms=211
+[16:34:56] G3 PASS maxBatch=16
+[16:34:56] G5-canary1 OK status=200 n=1 dims=1024 usageTotal=22 ms=233
+[16:34:56] G5-canary2 OK status=200 n=1 dims=1024 usageTotal=22 ms=224
+[16:34:56] G5 PASS cosine=1

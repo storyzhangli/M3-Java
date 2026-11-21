@@ -92,8 +92,13 @@ public class PgVectorStoreConfiguration {
 
     /**
      * 正式向量存储：维度/距离/索引与 EmbeddingModel 严格对齐。
+     *
+     * <p>D38 双轨：标注 {@link Primary} 保证新增 one_ 轨 PgVectorStore 后，
+     * 既有按类型注入（VectorStore/PgVectorStore）仍解析到 local 表 d38_vector_store，
+     * 行为零变更（任务书 H1 唯一豁免改动之二）。</p>
      */
     @Bean
+    @Primary
     public PgVectorStore pgVectorStore(@Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
                                        EmbeddingModel embeddingModel,
                                        PgVectorStoreProperties pgVectorProperties,

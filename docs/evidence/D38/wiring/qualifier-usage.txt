@@ -1,0 +1,27 @@
+OneEmbeddingConfiguration.java:17: *       组件扫描顺序 document &lt; one 保证 local 先注册；本类 Bean 后注册，local 加 {@code @Primary}
+OneEmbeddingConfiguration.java:20: *       {@code @Qualifier("localHashingEmbeddingModel")}——若扫描顺序异常导致 local Bean 被条件回退，
+OneEmbeddingConfiguration.java:26: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneEmbeddingConfiguration.java:29: @Bean
+OneEmbeddingConfiguration.java:39: @Bean
+OneEmbeddingConfiguration.java:42: @Qualifier("localHashingEmbeddingModel") EmbeddingModel localGuard) {
+OnePgVectorStoreConfiguration.java:21: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OnePgVectorStoreConfiguration.java:24: @Bean
+OnePgVectorStoreConfiguration.java:25: public PgVectorStore onePgVectorStore(@Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
+OnePgVectorStoreConfiguration.java:26: @Qualifier("oneEmbeddingModel") EmbeddingModel oneEmbeddingModel,
+OneRemoteEmbeddingModel.java:20: * 本类<b>不加 {@code @Primary}</b>，所有注入点必须显式 {@code @Qualifier("oneEmbeddingModel")}；
+OneRemoteEmbeddingModel.java:21: * local 轨 Bean 标注 {@code @Primary} 保证既有按类型注入仍解析到 local（H1 双轨契约）。</p>
+OneDocumentVectorIndexService.java:56: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneDocumentVectorIndexService.java:72: public OneDocumentVectorIndexService(@Qualifier("onePgVectorStore") VectorStore oneVectorStore,
+OneDocumentVectorIndexService.java:73: @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
+OneVectorIndexStateTx.java:22: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneVectorReconciliationService.java:27: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneRagOrchestrator.java:43: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneRagRetrievalService.java:23: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneSimilaritySearchService.java:42: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneSimilaritySearchService.java:50: public OneSimilaritySearchService(@Qualifier("onePgVectorStore") VectorStore oneVectorStore,
+OneSimilaritySearchService.java:51: @Qualifier("oneEmbeddingModel") EmbeddingModel oneEmbeddingModel,
+OneIndexCompatibilityService.java:22: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneEmbeddingController.java:31: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneRagController.java:22: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneSimilaritySearchController.java:22: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")
+OneVectorIndexController.java:28: @ConditionalOnProperty(prefix = "app.one.embedding", name = "enabled", havingValue = "true")

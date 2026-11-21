@@ -1,0 +1,38 @@
+[
+  {
+    "case": "topK=0",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  },
+  {
+    "case": "topK=21",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  },
+  {
+    "case": "threshold=1.5",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  },
+  {
+    "case": "threshold=-0.1",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  },
+  {
+    "case": "query空白",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  },
+  {
+    "case": "query超长8193",
+    "httpStatus": 200,
+    "code": 4001,
+    "message": null
+  }
+]

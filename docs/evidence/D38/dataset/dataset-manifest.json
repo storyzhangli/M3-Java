@@ -1,0 +1,23 @@
+{
+  "datasetVersion": "v1.0",
+  "generatedAt": "2026-11-21T17:40:00+08:00",
+  "reusePolicy": "只读复用 D37 冻结 20 问数据集，不重新标注；本 manifest 仅新增哈希引用与 one_ 轨绑定说明",
+  "sourceDataset": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "sourceManifest": "docs/evidence/D37/dataset/dataset-manifest.json",
+  "datasetSha256Prefix": "75cc8d83cfb2",
+  "files": {
+    "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+    "D38/D38_QWE_MROQRE/src/main/resources/knowledge/equipment-fault-corpus.json": "aad6ac4df5585aad5078d1c94df4e5093af15a9730e230149cfde0940335ab0b"
+  },
+  "embeddingBinding": {
+    "provider": "bailian",
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "distanceMetric": "COSINE",
+    "maxBatch": 16,
+    "normalized": false,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  },
+  "note": "corpus 为 D38 骨架冻结语料（与 D37 语料内容一致、路径不同）；哈希复算由 oneeval.Evaluator verifyManifest 强制执行，篡改即终止。"
+}

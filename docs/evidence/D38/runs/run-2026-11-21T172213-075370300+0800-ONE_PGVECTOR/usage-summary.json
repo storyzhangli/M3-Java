@@ -1,0 +1,52 @@
+{
+  "recordedAt" : "2026-11-21T17:23:16.548854400+08:00",
+  "embeddingBinding" : {
+    "provider" : "bailian",
+    "model" : "qwen3.7-text-embedding",
+    "modelVersion" : "remote-v1",
+    "dimensions" : 1024,
+    "distanceMetric" : "COSINE",
+    "maxBatch" : 16,
+    "normalized" : false,
+    "vectorSpaceId" : "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  },
+  "callBudget" : 1000,
+  "tokenBudget" : 200000,
+  "rounds" : 3,
+  "warmup" : 3,
+  "tokenSource" : "API usage.total_tokens 真实累计（LongAdder），非字符数估算",
+  "phases" : {
+    "probe" : {
+      "calls" : 2,
+      "totalTokens" : 40,
+      "usageUnavailableCalls" : 0
+    },
+    "canary" : {
+      "calls" : 2,
+      "totalTokens" : 40,
+      "usageUnavailableCalls" : 0
+    },
+    "warmup" : {
+      "calls" : 240,
+      "totalTokens" : 6672,
+      "usageUnavailableCalls" : 0
+    },
+    "formal" : {
+      "calls" : 240,
+      "totalTokens" : 6672,
+      "usageUnavailableCalls" : 0
+    }
+  },
+  "totalThisRun" : {
+    "calls" : 484,
+    "totalTokens" : 13424,
+    "usageUnavailableCalls" : 0
+  },
+  "cumulativeApp" : {
+    "calls" : 494,
+    "totalTokens" : 13696,
+    "usageUnavailableCalls" : 0,
+    "vectorSpaceId" : "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  },
+  "note" : "baseline 为本运行启动前应用累计（含 P0/P3/P4 等前序阶段）；全程总实耗以 usage/usage-summary.json 汇总为准。"
+}

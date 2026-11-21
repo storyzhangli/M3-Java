@@ -1,0 +1,45 @@
+{
+  "documentId": "DOC-WORKORDER-SPEC-003",
+  "structureChunkIds": [
+    "ea060e98-c367-5994-bcf7-b5b83bdf1b86",
+    "a229290f-7ae2-5e5f-bd40-cba9e20bceb1"
+  ],
+  "fixedSizeChunkIds": [
+    "e885663c-25dc-5240-adde-1fe0eafffea2",
+    "3de9e2f9-b481-5255-9e7f-4c309689429b"
+  ],
+  "idsChangedOnStrategySwitch": true,
+  "restoredStructureChunkIds": [
+    "ea060e98-c367-5994-bcf7-b5b83bdf1b86",
+    "a229290f-7ae2-5e5f-bd40-cba9e20bceb1"
+  ],
+  "restoredIdsIdentical": true,
+  "fixedResult": {
+    "documentId": "DOC-WORKORDER-SPEC-003",
+    "version": 1,
+    "strategy": "FIXED_SIZE",
+    "status": "COMPLETED",
+    "stage": "CLEANUP",
+    "chunkCount": 2,
+    "processed": 2,
+    "idempotent": false,
+    "errorCode": "",
+    "errorMessage": "",
+    "attemptCount": 1,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  },
+  "restoreResult": {
+    "documentId": "DOC-WORKORDER-SPEC-003",
+    "version": 1,
+    "strategy": "STRUCTURE",
+    "status": "COMPLETED",
+    "stage": "CLEANUP",
+    "chunkCount": 2,
+    "processed": 2,
+    "idempotent": false,
+    "errorCode": "",
+    "errorMessage": "",
+    "attemptCount": 1,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  }
+}

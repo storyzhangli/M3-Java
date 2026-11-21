@@ -1,0 +1,56 @@
+[
+  {
+    "documentId": "DOC-CNC-COOLING-001",
+    "deletedBefore": 0,
+    "result": {
+      "documentId": "DOC-CNC-COOLING-001",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 3,
+      "processed": 3,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+    }
+  },
+  {
+    "documentId": "DOC-SERVO-TROUBLE-002",
+    "deletedBefore": 0,
+    "result": {
+      "documentId": "DOC-SERVO-TROUBLE-002",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 3,
+      "processed": 3,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+    }
+  },
+  {
+    "documentId": "DOC-WORKORDER-SPEC-003",
+    "deletedBefore": 0,
+    "result": {
+      "documentId": "DOC-WORKORDER-SPEC-003",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1,
+      "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024"
+    }
+  }
+]

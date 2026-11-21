@@ -1,0 +1,15 @@
+{
+  "enabled": false,
+  "started": true,
+  "oneUsageHttpStatus": 200,
+  "oneUsageBodyCode": 5000,
+  "oneUsageBodyMsg": "系统繁忙，请稍后重试",
+  "oneUsageBodyData": null,
+  "oneEndpointAbsent": "日志 NoResourceFoundException: No static resource api/v1/one/embeddings/usage → OneEmbeddingController 未装配（@ConditionalOnProperty enabled=false）；HTTP200 为全局异常包装，body code=5000 非 usage 数据",
+  "localSearchCode": 200,
+  "localTop1Similarity": 0.37974774837493896,
+  "localVectorSpaceId": "local|local-hashing-embedding|local-v1|384",
+  "localTotal": 5,
+  "zeroRemoteCalls": "enabled=false → oneEmbeddingModel/OneBailianEmbeddingClient Bean 不存在，结构性零远程调用；local 哈希模型零网络；启动日志无任何 one_ embed 调用",
+  "verdict": "PASS：启动成功+one_端点absent+local检索零回归+结构性零远程"
+}

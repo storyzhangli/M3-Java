@@ -1,0 +1,83 @@
+{
+  "iteration": "D38/R01",
+  "recordedAt": "2026-11-21T17:47:00+08:00",
+  "tokenSource": "API usage.total_tokens 真实累计（应用进程内 LongAdder + P0 直连响应 usage），非字符数估算",
+  "budget": {
+    "oneCallBudget": 1000,
+    "oneTokenBudget": 200000,
+    "adjudication": "用户 2026-11-21 裁决：ONE_CALL_BUDGET=1000，全规格 warmup=3（任务书 §5 默认 350 经用户上调）"
+  },
+  "crossProcessNote": "usage 计数器为应用进程内 LongAdder，重启归零。全程总实耗须跨进程手工汇总：P0 为 PowerShell 直连百炼（不经应用计数器）；P3 入库在已停进程；P4+评测run1+夹具在同一进程（终值500/13896）。",
+  "phases": {
+    "P0_probe_direct": {
+      "calls": 9,
+      "totalTokens": 746,
+      "channel": "PowerShell 直连百炼（G1×1+G3×5+G5×2+余量1），不经应用计数器",
+      "evidence": "probe/probe-result.json、probe/one-embedding-params.json"
+    },
+    "P3_index_stoppedProcess": {
+      "calls": 5,
+      "totalTokens": 689,
+      "channel": "one_ 语料入库进程（8 chunk 按 maxBatch=16 单批 + 幂等/strategy/reconcile 验证），进程已停",
+      "evidence": "index/usage-accounting.json"
+    },
+    "P4_retrieval_ask_currentProcess": {
+      "calls": 10,
+      "totalTokens": 272,
+      "channel": "当前进程初始段（检索契约/隔离/兼容性/ask 验证）",
+      "evidence": "retrieval/usage-accounting.json"
+    },
+    "eval_run1_currentProcess": {
+      "calls": 484,
+      "totalTokens": 13424,
+      "breakdown": {
+        "probe": {"calls": 2, "totalTokens": 40},
+        "canary": {"calls": 2, "totalTokens": 40, "note": "c1 复用探测调用，c2 独立"},
+        "warmup": {"calls": 240, "totalTokens": 6672, "note": "3轮×20问×4次/问，不计入结果"},
+        "formal": {"calls": 240, "totalTokens": 6672, "note": "3轮×20问×4次/问（search2+ask2）"}
+      },
+      "evidence": "runs/run-2026-11-21T172213-075370300+0800-ONE_PGVECTOR/usage-summary.json",
+      "outcome": "C12 轮间质量投影分歧（QU-005 近似平局排序），REPEAT_RESULT_DIVERGED，run2 未执行，基线未冻结"
+    },
+    "fixtures_currentProcess": {
+      "calls": 6,
+      "totalTokens": 200,
+      "channel": "C11 夹具专项（CONFLICT index1+ask2，生命周期 index1+ask2）",
+      "evidence": "special-cases/special-fixtures-results.json"
+    },
+    "C16_resilience": {
+      "calls": 0,
+      "totalTokens": 0,
+      "channel": "本地 com.sun.net.httpserver 桩受控注入，零真实远程调用",
+      "evidence": "resilience/retry-classification.json"
+    },
+    "C04_disabled_startup": {
+      "calls": 0,
+      "totalTokens": 0,
+      "channel": "enabled=false 独立进程，one_ Bean 不存在结构性零远程；local 哈希零网络",
+      "evidence": "startup/c04-disabled-probe.json"
+    },
+    "local_regression_C07": {
+      "calls": 0,
+      "totalTokens": 0,
+      "channel": "local 哈希模型零网络，不占百炼预算",
+      "evidence": "regression/"
+    }
+  },
+  "currentProcessFinal": {
+    "calls": 500,
+    "totalTokens": 13896,
+    "composition": "P4 10/272 + eval_run1 484/13424 + fixtures 6/200",
+    "usageUnavailableCalls": 0
+  },
+  "journeyTotal": {
+    "calls": 514,
+    "totalTokens": 15331,
+    "composition": "P0直连 9/746 + P3进程 5/689 + 当前进程 500/13896",
+    "remainingCalls": 486,
+    "remainingTokens": 184669,
+    "withinBudget": true
+  },
+  "verdict": "C14 PASS：全程调用数/Token 数来自 API usage 真实累计，跨进程如实汇总，未超预算（514/1000，15331/200000），per-phase 明细齐全",
+  "honestNote": "run1 因远端非确定性熔断（C12 BLOCKED），run2 未执行，故评测实耗低于全规格两跑预估（968）；全程 514 次为真实终值，非估算。"
+}

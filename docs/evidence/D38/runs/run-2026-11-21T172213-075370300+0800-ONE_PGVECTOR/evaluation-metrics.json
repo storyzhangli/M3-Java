@@ -1,0 +1,55 @@
+{
+  "retrievalBackend" : "ONE_PGVECTOR",
+  "mode" : "OFFLINE",
+  "overall" : {
+    "hitRateAtK" : 1.0,
+    "recallMacro" : 1.0,
+    "precisionMacro" : 0.2555555555555556,
+    "noiseMacro" : 0.7444444444444445,
+    "refusalAccuracy" : 0.625,
+    "falseRefusalRate" : 0.0,
+    "falseAnswerRate" : 0.0,
+    "clarifyAccuracy" : 1.0,
+    "citationLegality" : null,
+    "metadataCompleteness" : null,
+    "pageMissingQuestionCount" : 0,
+    "denominators" : "refuseExpected=8 answerExpected=10 unanswerable=8 clarifyExpected=2 withSources=0 sourcesTotal=0 decisionsJudged=20",
+    "statusCounts" : {
+      "PASS" : 2,
+      "FAIL" : 18,
+      "BLOCKED" : 0,
+      "NOT_RUN" : 0
+    },
+    "labelDistribution" : {
+      "HIGH_NOISE:HIGH_NOISE_PRECISION" : 15,
+      "WRONG_CLARIFICATION:CLARIFY_UNEXPECTED" : 13
+    }
+  },
+  "timingStats" : {
+    "queryEmbeddingMs" : {
+      "mean" : 125.84945,
+      "p50" : 112.837,
+      "p95" : 200.371,
+      "min" : 91.05,
+      "max" : 239.466,
+      "count" : 20
+    },
+    "vectorSearchMs" : {
+      "mean" : 135.81840000000003,
+      "p50" : 123.269,
+      "p95" : 176.05,
+      "min" : 101.911,
+      "max" : 178.864,
+      "count" : 20
+    },
+    "retrievalTotalMs" : {
+      "mean" : 261.6948,
+      "p50" : 254.86,
+      "p95" : 341.4,
+      "min" : 204.169,
+      "max" : 367.025,
+      "count" : 20
+    },
+    "note" : "耗时只报分布，不进基线对比键；不含 SSE 传输/前端渲染/人工等待；one_ 轨 vectorSearchMs 为真实 PG 检索段（远程 Embedding 耗时在 queryEmbeddingMs）。"
+  }
+}

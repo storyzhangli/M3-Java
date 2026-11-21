@@ -1,0 +1,44 @@
+{
+  "before": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 0,
+    "totalTokens": 0,
+    "usageUnavailableCalls": 0
+  },
+  "afterFirstPass": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 3,
+    "totalTokens": 461,
+    "usageUnavailableCalls": 0
+  },
+  "afterIdempotent": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 3,
+    "totalTokens": 461,
+    "usageUnavailableCalls": 0
+  },
+  "final": {
+    "model": "qwen3.7-text-embedding",
+    "modelVersion": "remote-v1",
+    "dimensions": 1024,
+    "vectorSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+    "calls": 5,
+    "totalTokens": 689,
+    "usageUnavailableCalls": 0
+  },
+  "firstPassCalls": 3,
+  "idempotentDeltaCalls": 0,
+  "strategySwitchCalls": 2,
+  "totalCallsThisScript": 5,
+  "totalTokensThisScript": 689,
+  "note": "calls 为应用 LongAdder 真实累计；tokens 来自 API usage 真实返回；换 strategy 段含 FIXED_SIZE 重建+STRUCTURE 恢复两次真实入库"
+}

@@ -1,0 +1,70 @@
+{
+  "probedAt": "2026-11-21T16:34:53+08:00",
+  "baseUrlHost": "ws-b5h7p6oc83qc6dn5.cn-beijing.maas.aliyuncs.com",
+  "baseUrlPath": "/compatible-mode/v1",
+  "modelRequested": "qwen3.7-text-embedding",
+  "gates": {
+    "G1": {
+      "modelEcho": "qwen3.7-text-embedding",
+      "httpStatus": 200,
+      "status": "PASS",
+      "ms": 739
+    },
+    "G2": {
+      "status": "PASS",
+      "dims": 1024
+    },
+    "G4": {
+      "note": "NOT_NORMALIZED：仍用 COSINE_DISTANCE（余弦对模长不敏感），文档明示",
+      "l2norm": 0.021777890622615814,
+      "status": "RECORDED",
+      "normalized": false
+    },
+    "G3": {
+      "probes": [
+        {
+          "ok": true,
+          "httpStatus": 200,
+          "batch": 2,
+          "errorCode": null
+        },
+        {
+          "ok": true,
+          "httpStatus": 200,
+          "batch": 8,
+          "errorCode": null
+        },
+        {
+          "ok": true,
+          "httpStatus": 200,
+          "batch": 10,
+          "errorCode": null
+        },
+        {
+          "ok": true,
+          "httpStatus": 200,
+          "batch": 16,
+          "errorCode": null
+        },
+        {
+          "ok": false,
+          "httpStatus": 400,
+          "batch": 25,
+          "errorCode": "invalid_parameter_error"
+        }
+      ],
+      "status": "PASS",
+      "note": "单条 Token 上限未在探测中触达，以官方文档/运行时 4xx 为准",
+      "maxBatch": 16
+    },
+    "G5": {
+      "gate": "OK",
+      "status": "PASS",
+      "deterministic": true,
+      "canaryCosine": 1.0
+    }
+  },
+  "callsUsed": 8,
+  "tokensUsed": 673,
+  "usageUnavailableCalls": 0
+}

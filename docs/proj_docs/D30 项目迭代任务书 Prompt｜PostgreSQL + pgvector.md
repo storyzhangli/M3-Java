@@ -141,7 +141,7 @@ E:\AI\project\AI-Learning-one\M3-Java\D30\D30_postgresqlAndpgvector
 | Port            | `5432`                                             |
 | Database        | `spring_ai`                                        |
 | Username        | `postgres`                                         |
-| Password        | Postgres@2026                                      |
+| Password        | ${PG_VECTOR_PASSWORD}（环境变量注入，禁止硬编码）                                      |
 | JDBC URL        | `jdbc:postgresql://192.168.200.153:5432/spring_ai` |
 | 时区            | Asia/Shanghai                                      |
 | 数据卷          | `pgvector-stack_pg18_data`                         |
@@ -155,7 +155,7 @@ spring:
   datasource:
     url: jdbc:postgresql://192.168.200.153:5432/spring_ai
     username: postgres
-    password: ${PGVECTOR_DB_PASSWORD:Postgres@2026}
+    password: ${PGVECTOR_DB_PASSWORD:}
 ```
 
 以上配置仅用于说明连接参数。最终配置必须结合当前 D30 的 Spring Boot、Spring AI 和数据源设计确定。

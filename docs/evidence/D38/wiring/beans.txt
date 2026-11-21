@@ -1,0 +1,46 @@
+# C06 双轨装配 Bean 清单与 Primary 标记
+
+> 取证方式说明：D38 模块未引入 spring-boot-actuator（pom.xml 核验无该依赖），
+> 无法直接 dump /actuator/beans。本清单由 @Configuration 源码静态推导，
+> 并以同进程运行时共存实证（local 与 one_ 端点同时可用）佐证，诚实标注取证边界。
+
+## EmbeddingModel Bean（2 个）
+| Bean 名 | 来源类 | 条件 | Primary | 注入解析 |
+|---|---|---|---|---|
+| localHashingEmbeddingModel | document.embedding.config.EmbeddingConfiguration | @ConditionalOnMissingBean(EmbeddingModel.class) + @ConditionalOnProperty(app.ai.embedding.enabled, matchIfMissing=true) | **@Primary**（D38 新增，H1 豁免1） | 既有 SimilaritySearchService/DocumentEmbeddingService/pgVectorStore 按类型注入解析到此 |
+| oneEmbeddingModel | one.config.OneEmbeddingConfiguration | @ConditionalOnProperty(app.one.embedding.enabled=true) | 无（OneRemoteEmbeddingModel 明确不加 @Primary） | one_ 各服务显式 @Qualifier("oneEmbeddingModel") |
+
+## VectorStore Bean（2 个）
+| Bean 名 | 来源类 | 条件 | Primary | 注入解析 |
+|---|---|---|---|---|
+| pgVectorStore | document.vectorstore.PgVectorStoreConfiguration | 无条件（local 轨默认） | **@Primary**（D38 新增，H1 豁免2） | 既有按类型注入解析到此（local 表 d38_vector_store vector(384)） |
+| onePgVectorStore | one.config.OnePgVectorStoreConfiguration | @ConditionalOnProperty(app.one.embedding.enabled=true) | 无 | one_ 各服务显式 @Qualifier("onePgVectorStore")（one_ 表 one_d38_vector_store vector(1024)） |
+
+## one_ 条件装配组件（全部 @ConditionalOnProperty(app.one.embedding.enabled=true)）
+OneEmbeddingConfiguration / OnePgVectorStoreConfiguration / OneDocumentVectorIndexService /
+OneVectorIndexStateTx / OneVectorReconciliationService / OneSimilaritySearchService /
+OneRagRetrievalService / OneRagOrchestrator / OneIndexCompatibilityService /
+OneEmbeddingController / OneVectorIndexController / OneSimilaritySearchController / OneRagController
+
+## one_ 注入点 Qualifier 核验（qualifier-usage.txt 摘录）
+- OneEmbeddingConfiguration.oneEmbeddingModel(... @Qualifier("localHashingEmbeddingModel") EmbeddingModel localGuard)
+  → localGuard 防静默换轨：若 local Bean 被条件回退则启动失败，而非悄悄替换 local。
+- OnePgVectorStoreConfiguration.onePgVectorStore(@Qualifier("pgVectorJdbcTemplate") ..., @Qualifier("oneEmbeddingModel") ...)
+- OneSimilaritySearchService(@Qualifier("onePgVectorStore") VectorStore, @Qualifier("oneEmbeddingModel") EmbeddingModel)
+- OneDocumentVectorIndexService(@Qualifier("onePgVectorStore") VectorStore, @Qualifier("pgVectorJdbcTemplate") JdbcTemplate)
+- one_ 轨无任何按类型裸注入 EmbeddingModel/VectorStore 的点（全 Qualifier）。
+
+## 既有文件改动核验（diff-annotations.patch）
+git diff HEAD 仅 2 文件：EmbeddingConfiguration.java 与 PgVectorStoreConfiguration.java，
+各仅新增 import Primary + @Primary 注解 + javadoc 说明，无任何业务逻辑/签名/条件改动。
+符合任务书 H1 唯一豁免（2 注解）。
+
+## 运行时共存实证（同进程，one_ enabled=true）
+- local 检索可用：isolation\local-search-isolation.json（QA-001 local top1 delta=0，local metadata 无 vectorSpaceId 键）
+- one_ 检索可用：retrieval\one-qa001-search.json（QA-001 one top1 sim=0.874209761619568，vectorSpaceId=bailian|...|1024）
+- 两证据取自同一应用进程（P4，8080，ONE_EMBEDDING_ENABLED=true）→ 证明 local(@Primary) 与 one_ 两对 Bean 同时存在且各自解析正确。
+- C07 local 无回归（D37 评测器完整跑 diff 字节一致）进一步证明 @Primary 未改变 local 行为。
+
+## 结论
+C06 PASS：容器含 local(@Primary)+one_ 两个 EmbeddingModel/VectorStore；one_ 注入全 Qualifier；
+既有文件改动仅 2 个 @Primary（git diff 核验）。取证边界：无 actuator 直接 dump，以源码推导+运行时共存实证替代。

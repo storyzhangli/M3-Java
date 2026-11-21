@@ -1,0 +1,33 @@
+{
+  "answer": "检索结果仅关键词相似，不能支持该问题，不包装为答案。",
+  "sources": [],
+  "retrievalStatus": "SUCCESS",
+  "generationStatus": "SKIPPED_NO_EVIDENCE",
+  "errorCode": "LOW_RELEVANCE",
+  "errorMessage": "检索结果仅关键词相似，不能支持该问题，不包装为答案。",
+  "retrievedCount": 5,
+  "evidenceCount": 5,
+  "budget": {
+    "budgetUnit": "CHARACTER",
+    "budgetLimit": 6000,
+    "estimatedUsed": 1001,
+    "includedChunks": 5,
+    "budgetExcludedChunks": 0,
+    "invalidOrDedupChunks": 0,
+    "estimationNote": "单位为 UTF-16 字符(code unit)，非 Token；本工程无 Tokenizer，采用字符长度保守估算，真实 Token 数随分词器变化，可能存在偏差，未伪称 Token。"
+  },
+  "timing": {
+    "retrievalMs": 328,
+    "assemblyMs": 0,
+    "generationMs": 0,
+    "totalMs": 370
+  },
+  "unknownCitationDetected": false,
+  "decision": "REFUSE",
+  "clarificationQuestion": null,
+  "missingInformation": [],
+  "conflictGroups": [],
+  "rejectedEvidenceIds": [],
+  "citationValidation": null,
+  "citationNotes": []
+}

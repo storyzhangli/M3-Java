@@ -1,0 +1,31 @@
+{
+  "model": "qwen3.7-text-embedding",
+  "serverModelEcho": "qwen3.7-text-embedding",
+  "modelVersion": "remote-v1",
+  "modelVersionNote": "配置级版本指纹标签（服务端未暴露独立版本号）；服务端模型变更时须人工 bump 此标签并重建 one_ 空间",
+  "dimensions": 1024,
+  "maxBatch": 16,
+  "maxBatchNote": "G3 实测：2/8/10/16 成功，25 返回 400 invalid_parameter_error",
+  "maxInputTokens": null,
+  "maxInputTokensNote": "探测未触达单条上限，待官方文档/运行时核验",
+  "normalized": false,
+  "l2norm": 0.021777890622615814,
+  "normalizedNote": "NOT_NORMALIZED：分量均值绝对值约 0.0248，非退化（1023/1024 非零）；COSINE_DISTANCE 对模长不敏感，口径与 local 轨一致",
+  "canaryCosine": 1.0,
+  "deterministic": true,
+  "semanticSanity": {
+    "verdict": "PASS",
+    "cosAB_related": 0.722112,
+    "cosAC_unrelated": 0.142565,
+    "cosBC_unrelated": 0.158542,
+    "evidence": "probe/semantic-sanity.json"
+  },
+  "distanceMetric": "COSINE",
+  "baseUrlHost": "ws-b5h7p6oc83qc6dn5.cn-beijing.maas.aliyuncs.com",
+  "baseUrlEnvVar": "BAILIAN_EMBEDDING_BASE_URL",
+  "apiKeyEnvVar": "DASHSCOPE_API_KEY",
+  "probedAt": "2026-11-21T16:34:53+08:00",
+  "probeCalls": 9,
+  "probeTokens": 746,
+  "probeCallsNote": "G1×1 + G3×5 + G5×2 + 语义sanity×1 = 9，未超 P0 预算"
+}

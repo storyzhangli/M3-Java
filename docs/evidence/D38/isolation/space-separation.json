@@ -1,0 +1,12 @@
+{
+  "oneSpaceId": "bailian|qwen3.7-text-embedding|remote-v1|1024",
+  "localSpaceId": "local|local-hashing-embedding|local-v1|384",
+  "oneTop1Similarity": 0.8742097616195679,
+  "localTop1Similarity": 0.37974774837493896,
+  "oneMetadataSpaceIds": [
+    "bailian|qwen3.7-text-embedding|remote-v1|1024"
+  ],
+  "localMetadataHasSpaceIdKey": false,
+  "sameLogicalChunkIdCrossTrack": true,
+  "note": "稳定 chunkId 与模型无关（StableChunkIdGenerator 不含模型身份），两轨同逻辑 chunk 同 UUID 是设计特性；空间隔离由表分离+metadata.vectorSpaceId+分数差异证明"
+}
