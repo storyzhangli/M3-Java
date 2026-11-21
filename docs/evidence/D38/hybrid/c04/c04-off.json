@@ -1,0 +1,16 @@
+{
+  "iteration": "D38-R02",
+  "check": "C04-off",
+  "probedAt": "2026-11-21T22:14:35.1988722+08:00",
+  "appLaunchEnv": "HYBRID_ENABLED=false; AI_MODE=mock; 最新编译类（含 static idf/bm25Score 微改）",
+  "hybridSearchBusinessCode": 5000,
+  "hybridAskBusinessCode": 5000,
+  "hybridStatsBusinessCode": 5000,
+  "hybridEndpointHttpStatus": "HTTP200+code=5000（HandlerNotFound 经全局异常包装；路由与 Bean 未装配）",
+  "startupLogNote": "启动日志无 hybrid 倒排构建/指纹行（开态应打印 fingerprint ok digest=760729…）",
+  "sharedChainTop1ChunkId": "3b1501c0-6a99-535a-a787-991f877024c8",
+  "sharedChainTop1Similarity": 0.37974774837493896,
+  "frozenTop1Similarity": "0.37974774837493896（D37 冻结；本值 0.379747748374939 十位一致 PASS）",
+  "questionNote": "QA-001 数据集原文=数控机床出现主轴过热报警，应该先检查什么？（首轮手打缺“出现”致 0.3544，已按原文重验）",
+  "verdict": "C04_OFF_PASS"
+}

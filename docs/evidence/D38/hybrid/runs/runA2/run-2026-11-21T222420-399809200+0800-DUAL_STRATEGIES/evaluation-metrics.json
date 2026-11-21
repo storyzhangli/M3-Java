@@ -1,0 +1,151 @@
+{
+  "retrievalBackend" : "DUAL_STRATEGIES",
+  "mode" : "OFFLINE",
+  "PURE_VECTOR" : {
+    "strategy" : "PURE_VECTOR",
+    "overall" : {
+      "hitRateAtK" : 1.0,
+      "recallMacro" : 1.0,
+      "precisionMacro" : 0.2222222222222222,
+      "mrrMacro" : 1.0,
+      "top1InExpectedCount" : 10,
+      "noiseMacro" : 0.7777777777777778,
+      "refusalAccuracy" : 1.0,
+      "falseRefusalRate" : 1.0,
+      "falseAnswerRate" : 0.0,
+      "clarifyAccuracy" : 0.0,
+      "citationLegality" : null,
+      "metadataCompleteness" : null,
+      "pageMissingQuestionCount" : 0,
+      "denominators" : "refuseExpected=8 answerExpected=10 unanswerable=8 clarifyExpected=2 withSources=0 sourcesTotal=0 decisionsJudged=20",
+      "statusCounts" : {
+        "PASS" : 0,
+        "FAIL" : 20,
+        "BLOCKED" : 0,
+        "NOT_RUN" : 0
+      },
+      "labelDistribution" : {
+        "HIGH_NOISE:HIGH_NOISE_PRECISION" : 17,
+        "REFUSAL_ERROR:REFUSAL_FALSE_NEGATIVE" : 10,
+        "WRONG_CLARIFICATION:CLARIFY_EXPECTED_MISSING" : 2
+      }
+    },
+    "timingStats" : {
+      "queryEmbeddingMs" : {
+        "mean" : 0.03115,
+        "p50" : 0.028,
+        "p95" : 0.041,
+        "min" : 0.021,
+        "max" : 0.044,
+        "count" : 20
+      },
+      "vectorSearchMs" : {
+        "mean" : 2.10725,
+        "p50" : 2.013,
+        "p95" : 2.968,
+        "min" : 1.703,
+        "max" : 3.13,
+        "count" : 20
+      },
+      "keywordSearchMs" : {
+        "mean" : null,
+        "p50" : null,
+        "p95" : null,
+        "min" : null,
+        "max" : null,
+        "count" : 0
+      },
+      "fusionMs" : {
+        "mean" : null,
+        "p50" : null,
+        "p95" : null,
+        "min" : null,
+        "max" : null,
+        "count" : 0
+      },
+      "retrievalTotalMs" : {
+        "mean" : 2.1593500000000003,
+        "p50" : 2.077,
+        "p95" : 3.034,
+        "min" : 1.744,
+        "max" : 3.176,
+        "count" : 20
+      },
+      "note" : "耗时只报分布，不进基线对比键；不含 SSE 传输/前端渲染/人工等待；PURE_VECTOR 无 keyword/fusion 两段（样本 0）。"
+    }
+  },
+  "HYBRID_RRF" : {
+    "strategy" : "HYBRID_RRF",
+    "overall" : {
+      "hitRateAtK" : 1.0,
+      "recallMacro" : 1.0,
+      "precisionMacro" : 0.2222222222222222,
+      "mrrMacro" : 1.0,
+      "top1InExpectedCount" : 10,
+      "noiseMacro" : 0.7777777777777778,
+      "refusalAccuracy" : 1.0,
+      "falseRefusalRate" : 0.9,
+      "falseAnswerRate" : 0.0,
+      "clarifyAccuracy" : 0.0,
+      "citationLegality" : null,
+      "metadataCompleteness" : null,
+      "pageMissingQuestionCount" : 0,
+      "denominators" : "refuseExpected=8 answerExpected=10 unanswerable=8 clarifyExpected=2 withSources=0 sourcesTotal=0 decisionsJudged=20",
+      "statusCounts" : {
+        "PASS" : 0,
+        "FAIL" : 20,
+        "BLOCKED" : 0,
+        "NOT_RUN" : 0
+      },
+      "labelDistribution" : {
+        "HIGH_NOISE:HIGH_NOISE_PRECISION" : 17,
+        "REFUSAL_ERROR:REFUSAL_FALSE_NEGATIVE" : 9,
+        "WRONG_CLARIFICATION:CLARIFY_EXPECTED_MISSING" : 2,
+        "WRONG_CLARIFICATION:CLARIFY_UNEXPECTED" : 1
+      }
+    },
+    "timingStats" : {
+      "queryEmbeddingMs" : {
+        "mean" : 0.029600000000000005,
+        "p50" : 0.027,
+        "p95" : 0.047,
+        "min" : 0.021,
+        "max" : 0.048,
+        "count" : 20
+      },
+      "vectorSearchMs" : {
+        "mean" : 2.1369499999999997,
+        "p50" : 2.064,
+        "p95" : 2.787,
+        "min" : 1.405,
+        "max" : 2.899,
+        "count" : 20
+      },
+      "keywordSearchMs" : {
+        "mean" : 0.0984,
+        "p50" : 0.096,
+        "p95" : 0.154,
+        "min" : 0.059,
+        "max" : 0.162,
+        "count" : 20
+      },
+      "fusionMs" : {
+        "mean" : 0.021199999999999997,
+        "p50" : 0.018,
+        "p95" : 0.037,
+        "min" : 0.011,
+        "max" : 0.039,
+        "count" : 20
+      },
+      "retrievalTotalMs" : {
+        "mean" : 2.9781500000000007,
+        "p50" : 2.69,
+        "p95" : 4.446,
+        "min" : 2.13,
+        "max" : 7.493,
+        "count" : 20
+      },
+      "note" : "耗时只报分布，不进基线对比键；不含 SSE 传输/前端渲染/人工等待；PURE_VECTOR 无 keyword/fusion 两段（样本 0）。"
+    }
+  }
+}

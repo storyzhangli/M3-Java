@@ -1,0 +1,17 @@
+{
+  "pgAfter": {
+    "d38_vector_store": 8,
+    "d37_vector_store": 8,
+    "one_d38_vector_store": 8
+  },
+  "pgIdentical": true,
+  "check": "C06-three-track-isolation-post",
+  "verdict": "C06_PASS（评测前后 PG 三表行数零变化：hybrid 只读、one_ 未触碰、local 主表未写）",
+  "pgBefore": {
+    "d38_vector_store": 8,
+    "d37_vector_store": 8,
+    "one_d38_vector_store": 8
+  },
+  "remoteCalls": "0（全程 AI_MODE=mock；DeepSeek/百炼 0 次；one_ 端点缺省未装配）",
+  "mysqlNote": "MySQL 段前后行数见两个 json（information_schema.table_rows 为估算，允许 ±抖动；本次评测链路设计上零 MySQL 写路径）"
+}

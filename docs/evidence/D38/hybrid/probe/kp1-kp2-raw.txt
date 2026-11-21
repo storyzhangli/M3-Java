@@ -1,0 +1,19 @@
+KP1_SERVER_VERSION=18.7 (Debian 18.7-1.pgdg12+2)
+KP1_INSTALLED_EXTENSIONS=hstore,plpgsql,uuid-ossp,vector,
+KP1_AVAIL=pg_trgm|defVer=1.6|installedVer=null
+KP1_AVAIL=vector|defVer=0.8.7|installedVer=0.8.7
+KP1_TSV_SIMPLE='数控机床主轴过热报警':1
+KP1_CN_TS_CONFIG_COUNT=0
+KP2_ROW_COUNT=8
+KP2_CHUNKS_BEGIN
+KP2_CHUNK=2e69bea2-c85d-5d71-8311-90f0d63b5608|ea9c2f814b6836f731cd18571e7894a9fee3c5699aa17194220aa560243411d2|79|{"title": "伺服电机常见故障排查指南（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 2, "documentId": "DOC-SERVO-TROUBLE-002", "splitVersion": "split-v1", "chunkContentHash": "ea9c2f814b6836f731cd18571e7894a9fee3c5699aa17194220aa560243411d2"}
+KP2_CHUNK=3b1501c0-6a99-535a-a787-991f877024c8|bf8b700e79265a630edb1c2fa685f0b0adf04c423753c0ad9a4dce74cec4f490|69|{"title": "数控机床冷却系统维护手册（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 0, "documentId": "DOC-CNC-COOLING-001", "splitVersion": "split-v1", "chunkContentHash": "bf8b700e79265a630edb1c2fa685f0b0adf04c423753c0ad9a4dce74cec4f490"}
+KP2_CHUNK=416e02c9-5227-5218-a1f3-0e713d88fa9f|cf5632e0c1fa11d922a051eb510f6a5caf598e59734780c5d6b7b5cd1ff66788|59|{"title": "伺服电机常见故障排查指南（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 0, "documentId": "DOC-SERVO-TROUBLE-002", "splitVersion": "split-v1", "chunkContentHash": "cf5632e0c1fa11d922a051eb510f6a5caf598e59734780c5d6b7b5cd1ff66788"}
+KP2_CHUNK=a229290f-7ae2-5e5f-bd40-cba9e20bceb1|a4e5b344eaf01817acf512ad2ea28900fb3d29673005a71ffc3a81512ba593df|60|{"title": "设备故障工单分级与响应规范（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 1, "documentId": "DOC-WORKORDER-SPEC-003", "splitVersion": "split-v1", "chunkContentHash": "a4e5b344eaf01817acf512ad2ea28900fb3d29673005a71ffc3a81512ba593df"}
+KP2_CHUNK=bc123920-e5d8-51f3-886d-7945ff6b3e00|8066c4246dec333ba751da6322cd14385d5b157341cf69b8210396845acee2be|60|{"title": "数控机床冷却系统维护手册（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 2, "documentId": "DOC-CNC-COOLING-001", "splitVersion": "split-v1", "chunkContentHash": "8066c4246dec333ba751da6322cd14385d5b157341cf69b8210396845acee2be"}
+KP2_CHUNK=ea060e98-c367-5994-bcf7-b5b83bdf1b86|eb75f6e6fe6fe8fbde524f4816771c36bc671f0af38c9028898ab7580b279020|67|{"title": "设备故障工单分级与响应规范（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 0, "documentId": "DOC-WORKORDER-SPEC-003", "splitVersion": "split-v1", "chunkContentHash": "eb75f6e6fe6fe8fbde524f4816771c36bc671f0af38c9028898ab7580b279020"}
+KP2_CHUNK=f52b9dd9-710c-59fa-98f4-56abafbb09f4|9cbc235a94feae0dcfc6d9c72c8715d6e5a5538ef5d34980889dba5c09b37765|62|{"title": "伺服电机常见故障排查指南（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 1, "documentId": "DOC-SERVO-TROUBLE-002", "splitVersion": "split-v1", "chunkContentHash": "9cbc235a94feae0dcfc6d9c72c8715d6e5a5538ef5d34980889dba5c09b37765"}
+KP2_CHUNK=fe30f5f7-1844-5a71-b436-2d64a5bd3b76|74f239999cc55e835d6e64089d6a0b94d41ed2f589459b71c2f7c0d04a9b58b4|72|{"title": "数控机床冷却系统维护手册（教学夹具）", "version": 1, "strategy": "STRUCTURE", "chunkIndex": 1, "documentId": "DOC-CNC-COOLING-001", "splitVersion": "split-v1", "chunkContentHash": "74f239999cc55e835d6e64089d6a0b94d41ed2f589459b71c2f7c0d04a9b58b4"}
+KP2_CHUNKS_END
+KP2_COLLECTION_FINGERPRINT=2bdc87af59d815757d2d86c76fd78d63c7f03a5f6190064b8d486a4b94404d24
+KP_DONE=OK

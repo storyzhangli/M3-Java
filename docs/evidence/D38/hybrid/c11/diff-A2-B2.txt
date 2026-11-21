@@ -1,0 +1,4 @@
+runA=E:\AI\project\AI-Learning-one\M3-Java\docs\evidence\D38\hybrid\runs\runA2\run-2026-11-21T222420-399809200+0800-DUAL_STRATEGIES
+runB=E:\AI\project\AI-Learning-one\M3-Java\docs\evidence\D38\hybrid\runs\runB2\run-2026-11-21T222452-530989300+0800-DUAL_STRATEGIES
+recordsA=120 recordsB=120
+QUALITY_FIELDS_IDENTICAL

@@ -1,0 +1,28 @@
+{
+  "frozenAt": "2026-11-21T21:35:39+08:00",
+  "gate_basis": "任务书 §2 P0.2 默认冻结值，KP1/KP2/KP3 全部 PASS 后生效",
+  "keywordRoute": "IN_PROCESS_INVERTED",
+  "keywordRouteEvidence": "KP1: PG18.7 已装扩展仅 hstore/plpgsql/uuid-ossp/vector；zhparser/pg_jieba 未装且禁 CREATE EXTENSION；to_tsvector(simple) 整句单 token；pg_trgm 可用未装",
+  "featureSubset": [
+    "w",
+    "g"
+  ],
+  "featureSubsetNote": "c: 停用（单字符区分度低）；w: 保留 E101/20 等整词与 CJK 连续段（KP3 实测：15分钟→w:15分钟 合并、%非token→w:20、CJK 连续段成单 w:）；中文部分匹配由 g: bigram 承担",
+  "bm25": {
+    "k1": 1.2,
+    "b": 0.75
+  },
+  "rrfK": 60,
+  "candidateTopN": 10,
+  "candidateTopNClamp": "1..20",
+  "topK": 5,
+  "threshold": 0,
+  "tieBreak": "分数降序→chunkId 升序",
+  "corpusFile": "D38/D38_QWE_MROQRE/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "corpusFileSha256": "aad6ac4df5585aad5078d1c94df4e5093af15a9730e230149cfde0940335ab0b",
+  "pgCollectionFingerprint": "2bdc87af59d815757d2d86c76fd78d63c7f03a5f6190064b8d486a4b94404d24",
+  "datasetFile": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "datasetSha256": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+  "embeddingTrack": "local / local-hashing-embedding / local-v1 / 384 / COSINE（one_ 轨 NOT RUN，§0.3）",
+  "antiTamper": "实现与评测一律引用本文件冻结值；禁止看结果后调参（H6）"
+}

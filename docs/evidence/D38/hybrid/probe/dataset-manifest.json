@@ -1,0 +1,23 @@
+{
+  "iteration": "D38-R02",
+  "createdAt": "2026-11-21T21:35:39+08:00",
+  "dataset": {
+    "path": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+    "sha256": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+    "questions": 20,
+    "readOnly": true,
+    "note": "H4 冻结资产只读，新 manifest 引用 SHA-256"
+  },
+  "corpus": {
+    "file": "D38/D38_QWE_MROQRE/src/main/resources/knowledge/equipment-fault-corpus.json",
+    "sha256": "aad6ac4df5585aad5078d1c94df4e5093af15a9730e230149cfde0940335ab0b",
+    "documents": 3,
+    "chunks": 8,
+    "pgTable": "public.d38_vector_store",
+    "pgCollectionFingerprint": "2bdc87af59d815757d2d86c76fd78d63c7f03a5f6190064b8d486a4b94404d24",
+    "consistencyEvidence": "kp2-corpus-consistency.json"
+  },
+  "baselinesReferenced": [
+    "docs/evidence/D37/baseline/v1.0/PGVECTOR（D2 裁决：对照组锚定）"
+  ]
+}

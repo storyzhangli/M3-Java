@@ -1,0 +1,21 @@
+{
+  "hybridTrack": {
+    "matches": 5,
+    "strategy": "HYBRID_RRF",
+    "code": 200
+  },
+  "env": "ONE_EMBEDDING_ENABLED=false(缺省) HYBRID_ENABLED=true AI_MODE=mock",
+  "rowcountBefore": "见 rowcount-before.json：d38_vector_store=8 d37_vector_store=8 one_d38_vector_store=8（评测后再取 after 对比）",
+  "localTrack": {
+    "top1": "3b1501c0-6a99-535a-a787-991f877024c8",
+    "top1Sim": 0.37974774837493896,
+    "code": 200
+  },
+  "oneTrackDefaultState": {
+    "note": "one_ Bean 未装配（缺省关），零远程调用零 one_ 表写入",
+    "businessCode": 5000,
+    "endpoint": "/api/v1/one/retrieval/search"
+  },
+  "verdict": "C06_PRE_OK（三轨互不串扰：local 读 PG 主表、hybrid 只读同表建内存倒排、one_ 缺省未装配）",
+  "check": "C06-three-track-isolation-pre"
+}

@@ -1,0 +1,21 @@
+{
+  "probedAt" : "2026-11-21T22:22:21.874911700+08:00",
+  "pgHost" : "192.168.200.153",
+  "pgPort" : 5432,
+  "baseUrl" : "http://127.0.0.1:8080",
+  "dimensions" : {
+    "apiKeyPresent" : true,
+    "modeDeepseek" : false,
+    "pgPortReachable" : true,
+    "appUp" : true,
+    "vectorEndpointOk" : true,
+    "hybridEndpointOk" : true,
+    "chatModelPresent" : false,
+    "chatModelInferred" : true,
+    "corpusOk" : true
+  },
+  "mode" : "OFFLINE",
+  "retrievalBackend" : "DUAL_STRATEGIES",
+  "degradeReason" : "两策略端点探测均成功（/retrieval/search + /hybrid/retrieval/search）；离线原因：AI_MODE 非 deepseek;无 ChatModel;",
+  "note" : "无内存兜底（P4.1）：对照必须走与 D37 基线同链路；chatModelPresent 为配置级推断，探测零模型调用、零远程 Embedding。"
+}

@@ -1,0 +1,46 @@
+{
+  "iteration": "D38-R02",
+  "evaluator": "hybrideval",
+  "datasetVersion": "v1.0",
+  "dataset": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+  "corpus": "D37/D37_RAG_ESAB/src/main/resources/knowledge/equipment-fault-corpus.json",
+  "manifest": "docs/evidence/D37/dataset/dataset-manifest.json",
+  "baseUrl": "http://127.0.0.1:8080",
+  "pgHost": "192.168.200.153",
+  "pgPort": 5432,
+  "topK": 5,
+  "threshold": 0.0,
+  "warmup": 3,
+  "rounds": 3,
+  "retrievalTimeoutMs": 30000,
+  "e2eTimeoutMs": 60000,
+  "strategies": ["PURE_VECTOR", "HYBRID_RRF"],
+  "endpoints": {
+    "PURE_VECTOR": {
+      "search": "/api/v1/retrieval/search",
+      "ask": "/api/v1/rag/ask"
+    },
+    "HYBRID_RRF": {
+      "search": "/api/v1/hybrid/retrieval/search",
+      "ask": "/api/v1/hybrid/rag/ask"
+    }
+  },
+  "controlledVariablesNote": "H3：两策略共用同一数据集（75cc8d83…）、同一语料（aad6ac4d…）、同一请求体（query/topK=5/threshold=0.0）、同一应用进程、同一串行轮次；唯一差异=检索策略端点。manifest 复用 D37 冻结清单（files 哈希形状，先校验后评测）。",
+  "noRemoteNote": "评测全程 AI_MODE=mock，DeepSeek/百炼远程调用恒为 0（任务书 §5）。",
+  "embedding": {
+    "provider": "local",
+    "model": "local-hashing-embedding",
+    "modelVersion": "local-v1",
+    "dimensions": 384,
+    "distanceMetric": "COSINE"
+  },
+  "hybridParams": {
+    "keywordRoute": "IN_PROCESS_INVERTED",
+    "features": ["w", "g"],
+    "k1": 1.2,
+    "b": 0.75,
+    "rrfK": 60,
+    "candidateTopN": 10,
+    "canonicalFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9"
+  }
+}

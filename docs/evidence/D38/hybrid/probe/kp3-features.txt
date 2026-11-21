@@ -1,0 +1,32 @@
+FIXTURE=[E101]
+  w: w:e101
+  c: c:e c:1 c:0 c:1
+  g: g:e1 g:10 g:01
+K3JSON={"fixture":"E101","features":["w:e101","c:e","c:1","g:e1","c:0","g:10","c:1","g:01"]}
+FIXTURE=[20%]
+  w: w:20
+  c: c:2 c:0 c:%
+  g: g:20 g:0%
+K3JSON={"fixture":"20%","features":["w:20","c:2","c:0","g:20","c:%","g:0%"]}
+FIXTURE=[15分钟]
+  w: w:15分钟
+  c: c:1 c:5 c:分 c:钟
+  g: g:15 g:5分 g:分钟
+K3JSON={"fixture":"15分钟","features":["w:15分钟","c:1","c:5","g:15","c:分","g:5分","c:钟","g:分钟"]}
+FIXTURE=[主轴过热]
+  w: w:主轴过热
+  c: c:主 c:轴 c:过 c:热
+  g: g:主轴 g:轴过 g:过热
+K3JSON={"fixture":"主轴过热","features":["w:主轴过热","c:主","c:轴","g:主轴","c:过","g:轴过","c:热","g:过热"]}
+FIXTURE=[数控机床主轴过热报警处置]
+  w: w:数控机床主轴过热报警处置
+  c: c:数 c:控 c:机 c:床 c:主 c:轴 c:过 c:热 c:报 c:警 c:处 c:置
+  g: g:数控 g:控机 g:机床 g:床主 g:主轴 g:轴过 g:过热 g:热报 g:报警 g:警处 g:处置
+K3JSON={"fixture":"数控机床主轴过热报警处置","features":["w:数控机床主轴过热报警处置","c:数","c:控","g:数控","c:机","g:控机","c:床","g:机床","c:主","g:床主","c:轴","g:主轴","c:过","g:轴过","c:热","g:过热","c:报","g:热报","c:警","g:报警","c:处","g:警处","c:置","g:处置"]}
+ASSERT_PASS A1_e101_whole_word
+ASSERT_PASS A2_20pct_word_20
+ASSERT_PASS A3_15min_w_token_is_merged_run(记录事实:数字与CJK合并为单一w:token)
+ASSERT_PASS A4_bigram_covers_15分钟
+ASSERT_PASS A5_bigram_covers_chinese
+ASSERT_PASS A6_w_cjk_run_preserved
+KP3_ASSERT_PASS=6 FAIL=0

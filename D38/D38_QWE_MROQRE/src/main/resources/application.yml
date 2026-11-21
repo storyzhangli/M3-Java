@@ -255,3 +255,21 @@ app:
       schema: ${ONE_PGVECTOR_SCHEMA:public}
       initialize-schema: ${ONE_PGVECTOR_INIT_SCHEMA:true}
       max-document-batch-size: ${ONE_PGVECTOR_BATCH_SIZE:10000}
+  # ------------------------------------------------------------------
+  # D38 R02 新增：混合检索实验分支（关键词 BM25 + 向量 + RRF 融合）。
+  # H2 硬契约：默认关闭（无 matchIfMissing）；关闭时 hybrid 全套 Bean 不装配、零行为差异。
+  # H1 硬契约：本段为 application.yml 唯一追加改动，不触碰任何既有行；
+  # 参数与 docs/evidence/D38/hybrid/probe/hybrid-params.json 冻结值一一对应（H6 禁事后调参）。
+  # 倒排只读加载 PG d38_vector_store（零 DDL 零写入），规范指纹不等即 CORPUS_DRIFT fail-fast。
+  # ------------------------------------------------------------------
+  hybrid:
+    enabled: ${HYBRID_ENABLED:false}
+    feature-subset: [w, g]
+    bm25-k1: 1.2
+    bm25-b: 0.75
+    rrf-k: 60
+    candidate-top-n: 10
+    schema: ${HYBRID_PG_SCHEMA:public}
+    table: ${HYBRID_PG_TABLE:d38_vector_store}
+    expected-collection-fingerprint: ${HYBRID_EXPECTED_FINGERPRINT:10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9}
+

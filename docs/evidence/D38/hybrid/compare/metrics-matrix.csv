@@ -1,0 +1,14 @@
+metric,pure_vector,hybrid_rrf,delta_hyb_minus_pure,note
+hitRateAtK,1.000000,1.000000,+0.0000,宏平均；百分点=×100
+recallMacro,1.000000,1.000000,+0.0000,宏平均；百分点=×100
+precisionMacro,0.222222,0.222222,+0.0000,宏平均；百分点=×100
+mrrMacro,1.000000,1.000000,+0.0000,宏平均；百分点=×100
+noiseMacro,0.777778,0.777778,+0.0000,宏平均；百分点=×100
+refusalAccuracy,1.000000,1.000000,+0.0000,宏平均；百分点=×100
+falseRefusalRate,1.000000,0.900000,-0.1000,宏平均；百分点=×100
+falseAnswerRate,0.000000,0.000000,+0.0000,宏平均；百分点=×100
+clarifyAccuracy,0.000000,0.000000,+0.0000,宏平均；百分点=×100
+citationLegality,N/A,N/A,N/A,宏平均；百分点=×100
+metadataCompleteness,N/A,N/A,N/A,宏平均；百分点=×100
+top1InExpectedCount,10,10,+0,计数（分母=有文档期望题数）
+retrievalTotalMsMean,2.16,2.98,1.38x,毫秒均值；纯本地 localhost

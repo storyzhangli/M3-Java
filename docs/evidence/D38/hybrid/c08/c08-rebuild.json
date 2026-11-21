@@ -1,0 +1,53 @@
+{
+  "statsAfter": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "chunkCount": 8,
+      "termCount": 482,
+      "postingCount": 523,
+      "avgDocumentLength": 69.5,
+      "indexUtf8Bytes": 25957,
+      "collectionFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+      "indexDigest": "76072916235eb1333a6c62aea0f9d187509f6eae69497db79d9dbab77160ca76",
+      "buildMs": 7.148,
+      "buildHeapDeltaBytes": 1168272,
+      "builtAt": "2026-11-21T22:18:52.6416836+08:00"
+    }
+  },
+  "verdict": "C08_PASS（启动构建+同进程两跑 rebuild 三方一致=冻结值；前版 FAIL 为 PS 字符串索引误判，已修正逻辑复核）",
+  "check": "C08-rebuild-determinism",
+  "rebuild1": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "chunkCount": 8,
+      "termCount": 482,
+      "postingCount": 523,
+      "avgDocumentLength": 69.5,
+      "indexUtf8Bytes": 25957,
+      "collectionFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+      "indexDigest": "76072916235eb1333a6c62aea0f9d187509f6eae69497db79d9dbab77160ca76",
+      "buildMs": 9.74,
+      "buildHeapDeltaBytes": 1158600,
+      "builtAt": "2026-11-21T22:18:52.5485583+08:00"
+    }
+  },
+  "distinctDigests": 1,
+  "rebuild2": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "chunkCount": 8,
+      "termCount": 482,
+      "postingCount": 523,
+      "avgDocumentLength": 69.5,
+      "indexUtf8Bytes": 25957,
+      "collectionFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+      "indexDigest": "76072916235eb1333a6c62aea0f9d187509f6eae69497db79d9dbab77160ca76",
+      "buildMs": 7.148,
+      "buildHeapDeltaBytes": 1168272,
+      "builtAt": "2026-11-21T22:18:52.6416836+08:00"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "startupLogLine": "hybrid 倒排构建完成: chunks=8, terms=482, postings=523, avgLen=69.5, utf8Bytes=25957, fingerprint=10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9, digest=76072916235eb1333a6c62aea0f9d187509f6eae69497db79d9dbab77160ca76",
+  "env": "HYBRID_ENABLED=true 新类 PID31212",
+  "statsPathNote": "真实路径 /api/v1/hybrid/keyword-index/stats 开态 200；关态同路径未取证但 retrieval/ask 两端点已证 5000 且启动日志无 hybrid 构建行",
+  "verdict": "C04_ON_PASS",
+  "check": "C04-on",
+  "stats": {
+    "code": 200,
+    "msg": "success",
+    "data": {
+      "chunkCount": 8,
+      "termCount": 482,
+      "postingCount": 523,
+      "avgDocumentLength": 69.5,
+      "indexUtf8Bytes": 25957,
+      "collectionFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+      "indexDigest": "76072916235eb1333a6c62aea0f9d187509f6eae69497db79d9dbab77160ca76",
+      "buildMs": 36.836,
+      "buildHeapDeltaBytes": 53528,
+      "builtAt": "2026-11-21T22:15:25.2257591+08:00"
+    }
+  },
+  "fingerprintMatchesFrozen": true
+}

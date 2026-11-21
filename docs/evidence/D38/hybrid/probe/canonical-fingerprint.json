@@ -1,0 +1,10 @@
+{
+  "definition": "sha256(按行升序排序后 LF 连接的规范行)；行格式: uuid|contentSha256|contentChars|documentId|version|strategy|chunkIndex|splitVersion（字段缺失置字面 null）",
+  "canonicalFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+  "rowCount": 8,
+  "note": "InvertedIndex 构建期以同一算法复算并等值断言（CORPUS_DRIFT fail-fast）",
+  "sampleLines": [
+    "2e69bea2-c85d-5d71-8311-90f0d63b5608|ea9c2f814b6836f731cd18571e7894a9fee3c5699aa17194220aa560243411d2|79|DOC-SERVO-TROUBLE-002|1|STRUCTURE|2|split-v1",
+    "3b1501c0-6a99-535a-a787-991f877024c8|bf8b700e79265a630edb1c2fa685f0b0adf04c423753c0ad9a4dce74cec4f490|69|DOC-CNC-COOLING-001|1|STRUCTURE|0|split-v1"
+  ]
+}

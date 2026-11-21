@@ -1,0 +1,152 @@
+{
+  "matches": [
+    {
+      "rank": 1,
+      "score": 0.03278688524590164,
+      "similarity": 0.37974774837493896,
+      "similaritySource": "VECTOR",
+      "hitSource": "BOTH",
+      "matchedTerms": [
+        "g:主轴",
+        "g:先检",
+        "g:出现",
+        "g:床出",
+        "g:报警",
+        "g:控机",
+        "g:数控",
+        "g:机床",
+        "g:检查",
+        "g:热报",
+        "g:现主",
+        "g:轴过",
+        "g:过热",
+        "g:，应"
+      ]
+    },
+    {
+      "rank": 2,
+      "score": 0.03225806451612903,
+      "similarity": 0.22532498836517334,
+      "similaritySource": "VECTOR",
+      "hitSource": "BOTH",
+      "matchedTerms": [
+        "g:主轴",
+        "g:报警",
+        "g:热报",
+        "g:警，",
+        "g:过热",
+        "g:，应"
+      ]
+    },
+    {
+      "rank": 3,
+      "score": 0.03149801587301587,
+      "similarity": 0.14651590585708618,
+      "similaritySource": "VECTOR",
+      "hitSource": "BOTH",
+      "matchedTerms": [
+        "g:报警",
+        "g:检查",
+        "g:，应"
+      ]
+    },
+    {
+      "rank": 4,
+      "score": 0.031024531024531024,
+      "similarity": 0.20548319816589355,
+      "similaritySource": "VECTOR",
+      "hitSource": "BOTH",
+      "matchedTerms": [
+        "g:检查"
+      ]
+    },
+    {
+      "rank": 5,
+      "score": 0.03076923076923077,
+      "similarity": 0.11122101545333862,
+      "similaritySource": "VECTOR",
+      "hitSource": "BOTH",
+      "matchedTerms": [
+        "g:出现"
+      ]
+    }
+  ],
+  "question": "QA-001 原文",
+  "fusionTrace": [
+    {
+      "finalRank": 1,
+      "chunkId": "3b1501c0-6a99-535a-a787-991f877024c8",
+      "hitSource": "BOTH",
+      "vectorRank": 1,
+      "keywordRank": 1,
+      "rrfScore": 0.03278688524590164,
+      "vectorContribution": 0.01639344262295082,
+      "keywordContribution": 0.01639344262295082,
+      "vectorOriginalSimilarity": 0.37974774837493896
+    },
+    {
+      "finalRank": 2,
+      "chunkId": "fe30f5f7-1844-5a71-b436-2d64a5bd3b76",
+      "hitSource": "BOTH",
+      "vectorRank": 2,
+      "keywordRank": 2,
+      "rrfScore": 0.03225806451612903,
+      "vectorContribution": 0.016129032258064516,
+      "keywordContribution": 0.016129032258064516,
+      "vectorOriginalSimilarity": 0.22532498836517334
+    },
+    {
+      "finalRank": 3,
+      "chunkId": "f52b9dd9-710c-59fa-98f4-56abafbb09f4",
+      "hitSource": "BOTH",
+      "vectorRank": 4,
+      "keywordRank": 3,
+      "rrfScore": 0.03149801587301587,
+      "vectorContribution": 0.015625,
+      "keywordContribution": 0.015873015873015872,
+      "vectorOriginalSimilarity": 0.14651590585708618
+    },
+    {
+      "finalRank": 4,
+      "chunkId": "416e02c9-5227-5218-a1f3-0e713d88fa9f",
+      "hitSource": "BOTH",
+      "vectorRank": 3,
+      "keywordRank": 6,
+      "rrfScore": 0.031024531024531024,
+      "vectorContribution": 0.015873015873015872,
+      "keywordContribution": 0.015151515151515152,
+      "vectorOriginalSimilarity": 0.20548319816589355
+    },
+    {
+      "finalRank": 5,
+      "chunkId": "2e69bea2-c85d-5d71-8311-90f0d63b5608",
+      "hitSource": "BOTH",
+      "vectorRank": 5,
+      "keywordRank": 5,
+      "rrfScore": 0.03076923076923077,
+      "vectorContribution": 0.015384615384615385,
+      "keywordContribution": 0.015384615384615385,
+      "vectorOriginalSimilarity": 0.11122101545333862
+    }
+  ],
+  "check": "C09-score-semantics",
+  "verdict": "C09_PASS（score=RRF 语义不伪装余弦；关键词独有命中 similarity=null 不伪造；贡献和=总分）",
+  "responseCore": {
+    "fusionMs": 2.449,
+    "candidateTopN": 10,
+    "rrfK": 60,
+    "keywordSearchMs": 3.084,
+    "strategy": "HYBRID_RRF",
+    "scoreSemantic": "RRF"
+  },
+  "assertions": {
+    "scoreSemanticIsRRF": true,
+    "strategyIsHYBRID": true,
+    "rrfScoreMatchesTrace": true,
+    "keywordOnlyHasNullSimilarity": true,
+    "vectorOriginalInRange": true,
+    "scoreInRangeRRF": true,
+    "traceContributionsAddUp": true,
+    "qa001VectorOriginalTop1": 0.37974774837493896
+  }
+}

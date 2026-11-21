@@ -1,0 +1,4 @@
+VERDICT=ROLLBACK
+Δrecall=+0.0000pp Δprecision=+0.0000pp QU误检=0→0 Δt=1.38x 新增引用/拒答FAIL=[]
+QF-004=REFUSE→REFUSE
+deterministic=true
