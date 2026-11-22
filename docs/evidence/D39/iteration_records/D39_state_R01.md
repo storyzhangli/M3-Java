@@ -1,5 +1,5 @@
 # D39_state_R01 —— 知识权限与元数据过滤
-- 迭代/切片：D39 / R01；基线 commit：da180ef（执行时 HEAD 复核一致）
+- 迭代/切片：D39 / R01；基线 commit：da180ef（执行时 HEAD 复核一致）；本切片交付 commit：1ca6634（108 files，+4697/-29，不 push）
 - 技术基线：Spring Boot 3.5.16 / JDK21 / Spring AI 1.1.8 / MyBatis-Plus 3.5.17
 - 冻结参数：predicateScheme=tenant eq ∧ GROUP(OR dept eq/eq"*") ∧ GROUP(IN device∪"*")（ADMIN=tenant eq）wildcardSentinel="*" principalTable=d39_auth_principal baselineFingerprint=10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9 fixtureFingerprint=388a593ca72d32d72a8c7a9b45e596393385f1aeed937f725be2bc0587088a48 datasetHash=75cc8d83cfb2… denyCode=4030（probe/access-params.json）
 - 偏差裁决：D1 最小服务端凭据 ✓ / D2 三键+哨兵 ✓ / D3 无标签=权限空间外 ✓ / D4 端点分级（实扫 68=18 类+50 方法，任务书 66 为编制口径差异）✓ / D5 指纹耦合（HYBRID_EXPECTED_FINGERPRINT env 注入+清理复验）✓ / D6 缓存裁决（零新增检索缓存）✓
