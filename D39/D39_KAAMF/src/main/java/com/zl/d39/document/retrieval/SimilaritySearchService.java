@@ -1,5 +1,6 @@
 package com.zl.d39.document.retrieval;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.document.embedding.config.EmbeddingProperties;
 import com.zl.d39.document.embedding.support.VectorValidator;
 import com.zl.d39.document.retrieval.dto.SimilarityMatchView;
@@ -12,6 +13,7 @@ import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -44,14 +46,23 @@ public class SimilaritySearchService {
 
     private final VectorValidator vectorValidator;
 
+    /**
+     * D39 P3 追加（H1 白名单最小改）：权限谓词服务。<b>可选依赖</b>——
+     * app.access.enabled=false（缺省）时 Bean 不存在 → getIfAvailable()=null → 过滤链
+     * 与本对象引入前逐语句等价（C05 零差异）。
+     */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public SimilaritySearchService(VectorStore vectorStore,
                                    EmbeddingModel embeddingModel,
                                    EmbeddingProperties embeddingProperties,
-                                   VectorValidator vectorValidator) {
+                                   VectorValidator vectorValidator,
+                                   ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.vectorStore = vectorStore;
         this.embeddingModel = embeddingModel;
         this.embeddingProperties = embeddingProperties;
         this.vectorValidator = vectorValidator;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     /**
@@ -80,8 +91,16 @@ public class SimilaritySearchService {
                 .query(query)
                 .topK(topK)
                 .similarityThreshold(threshold);
-        if (filtered) {
-            builder.filterExpression(buildFilterExpression(request));
+        // D39 P3（H4）：权限谓词在 Top-K 之前与业务过滤 AND 组合下推；
+        // enabled 时无服务端上下文 → requireCurrent 抛 AccessDeniedException（H3/H5 fail-closed，
+        // 不会被本方法吞掉——此处无 catch）；disabled 时 policy=null，与原逻辑逐语句一致。
+        Filter.Expression business = filtered ? buildFilterExpression(request) : null;
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        Filter.Expression effective = policy == null
+                ? business
+                : policy.andWithAccess(business, policy.requireCurrent());
+        if (effective != null) {
+            builder.filterExpression(effective);
         }
         long searchStart = System.nanoTime();
         List<Document> documents = vectorStore.similaritySearch(builder.build());

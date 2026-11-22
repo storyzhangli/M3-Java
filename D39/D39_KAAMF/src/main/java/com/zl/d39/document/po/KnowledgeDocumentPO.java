@@ -47,4 +47,12 @@ public class KnowledgeDocumentPO {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
+
+    // ---- D39 P2 追加列（NULL 默认，遗留行禁补值，D3） ----
+
+    private String tenantId;
+
+    private String deptId;
+
+    private String deviceId;
 }

@@ -1,0 +1,98 @@
+[
+  {
+    "resp": {
+      "documentId": "DOC-D39-F1",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F1"
+  },
+  {
+    "resp": {
+      "documentId": "DOC-D39-F2",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F2"
+  },
+  {
+    "resp": {
+      "documentId": "DOC-D39-F3",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F3"
+  },
+  {
+    "resp": {
+      "documentId": "DOC-D39-F4",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F4"
+  },
+  {
+    "resp": {
+      "documentId": "DOC-D39-F5",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F5"
+  },
+  {
+    "resp": {
+      "documentId": "DOC-D39-F6",
+      "version": 1,
+      "strategy": "STRUCTURE",
+      "status": "COMPLETED",
+      "stage": "CLEANUP",
+      "chunkCount": 2,
+      "processed": 2,
+      "idempotent": false,
+      "errorCode": "",
+      "errorMessage": "",
+      "attemptCount": 1
+    },
+    "documentId": "DOC-D39-F6"
+  }
+]

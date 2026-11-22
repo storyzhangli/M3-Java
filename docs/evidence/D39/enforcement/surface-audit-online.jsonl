@@ -1,0 +1,9 @@
+{"principal":"userA","desc":"userA 跨部门预览 F6 pages","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F6/pages"}
+{"principal":"userA","desc":"userA 跨部门预览 F6 chunks","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F6/chunks"}
+{"principal":"userA","desc":"userA 跨部门预览 F6 embeddings（POST 方法修正复测：首轮 5000=脚本误用 GET 触发 NoResourceFound 兜底，非产品缺陷）","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F6/embeddings"}
+{"principal":"userA","desc":"userA 跨部门 vector-index chunks","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/vector-index/documents/DOC-D39-F6/chunks"}
+{"principal":"userA","desc":"userA 跨部门 vector-index status","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/vector-index/documents/DOC-D39-F6/status"}
+{"principal":"userA","desc":"userA 本人 F1 合规预览","expected":200,"actual":200,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F1/pages"}
+{"principal":"adminT1","desc":"adminT1 租户内 bypass","expected":200,"actual":200,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F6/pages"}
+{"principal":"adminT1","desc":"adminT1 跨租户 F5（H7）","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/documents/DOC-D39-F5/pages"}
+{"principal":"userA","desc":"无标签遗留 fail-closed（D3）","expected":4030,"actual":4030,"result":"PASS","entry":"/api/v1/documents/DOC-CNC-COOLING-001/pages"}

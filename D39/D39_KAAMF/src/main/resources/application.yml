@@ -273,3 +273,22 @@ app:
     table: ${HYBRID_PG_TABLE:d39_vector_store}
     expected-collection-fingerprint: ${HYBRID_EXPECTED_FINGERPRINT:10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9}
 
+  # ------------------------------------------------------------------
+  # D39-R01 知识权限与元数据过滤（access 包，冻结于 probe/access-params.json）
+  # H2：enabled 默认 false——缺省时 access 全套 Bean 不装配、过滤器不拦截，
+  #     检索/会话/raw 端点与引入前逐字节一致（C05 证明）。
+  # 取证矩阵经环境变量 ACCESS_ENABLED=true 启动注入（不落盘、不入 Git 修改）。
+  # H9：本节零密钥；Bearer 凭据只存 MySQL d39_auth_principal（SHA-256 哈希），
+  #     明文仅在 docs/temp_docs/D39/auth/fixture-tokens.json 夹具（禁提交）。
+  # ------------------------------------------------------------------
+  access:
+    enabled: ${ACCESS_ENABLED:false}
+    token-header: Authorization
+    bearer-prefix: "Bearer "
+    wildcard-sentinel: "*"
+    public-paths:
+      - /error
+    deny-code: 4030
+    deny-message: 认证缺失、无效或已过期，请携带有效 Bearer 凭据重试
+
+

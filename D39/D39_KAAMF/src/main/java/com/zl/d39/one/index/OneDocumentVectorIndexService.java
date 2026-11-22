@@ -33,6 +33,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zl.d39.access.DocumentScope;
+import com.zl.d39.document.mapper.KnowledgeDocumentMapper;
+import com.zl.d39.document.po.KnowledgeDocumentPO;
+import org.springframework.beans.factory.ObjectProvider;
+
 /**
  * one_ 轨文档向量索引编排服务（阿里百炼远程 Embedding）。
  *
@@ -70,6 +76,9 @@ public class OneDocumentVectorIndexService {
     private final VectorIndexProperties properties;
     private final OneVectorIndexStateTx stateTx;
 
+    /** D39 P2 追加（代码就位，真实 one_ 链路 NOT RUN）：文档权限三列读取，与 local 轨同源。 */
+    private final ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider;
+
     public OneDocumentVectorIndexService(@Qualifier("onePgVectorStore") VectorStore oneVectorStore,
                                          @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
                                          OnePgVectorProperties onePgProperties,
@@ -79,7 +88,8 @@ public class OneDocumentVectorIndexService {
                                          StableChunkIdGenerator idGenerator,
                                          Sha256ContentHasher hasher,
                                          VectorIndexProperties properties,
-                                         OneVectorIndexStateTx stateTx) {
+                                         OneVectorIndexStateTx stateTx,
+                                         ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider) {
         this.oneVectorStore = oneVectorStore;
         this.pgVectorJdbcTemplate = pgVectorJdbcTemplate;
         this.onePgProperties = onePgProperties;
@@ -90,6 +100,21 @@ public class OneDocumentVectorIndexService {
         this.hasher = hasher;
         this.properties = properties;
         this.stateTx = stateTx;
+        this.documentMapperProvider = documentMapperProvider;
+    }
+
+    /** D39 P2：读取文档权限三列（与 local 轨同语义：无行/mapper 缺席/未打标 → null）。 */
+    private DocumentScope lookupDocumentScope(String documentId) {
+        KnowledgeDocumentMapper mapper = documentMapperProvider.getIfAvailable();
+        if (mapper == null) {
+            return null;
+        }
+        KnowledgeDocumentPO po = mapper.selectOne(
+                new QueryWrapper<KnowledgeDocumentPO>().eq("document_id", documentId));
+        if (po == null) {
+            return null;
+        }
+        return new DocumentScope(documentId, po.getTenantId(), po.getDeptId(), po.getDeviceId());
     }
 
     /**
@@ -108,6 +133,8 @@ public class OneDocumentVectorIndexService {
         ChunkStrategy targetStrategy = resolveStrategy(strategy);
         List<Chunk> normalized = normalizeChunks(documentId, targetVersion, targetStrategy, title, chunks);
         String spaceId = oneEmbeddingProperties.vectorSpaceId();
+        // D39 P2（代码就位）：入库前读取文档权限三列，与 local 轨同源同语义
+        DocumentScope permission = lookupDocumentScope(documentId);
 
         LocalDateTime now = LocalDateTime.now();
         OneDocumentVectorIndexPO existing = findIndexRow(documentId, targetVersion);
@@ -183,7 +210,7 @@ public class OneDocumentVectorIndexService {
                     documents.add(Document.builder()
                             .id(pc.chunkId())
                             .text(pc.chunk().getContent())
-                            .metadata(buildMetadata(pc, spaceId))
+                            .metadata(buildMetadata(pc, spaceId, permission))
                             .build());
                 }
                 oneVectorStore.add(documents);
@@ -348,7 +375,7 @@ public class OneDocumentVectorIndexService {
                 .eq("status", VectorIndexStatus.COMPLETED.name()));
     }
 
-    private Map<String, Object> buildMetadata(PreparedChunk pc, String spaceId) {
+    private Map<String, Object> buildMetadata(PreparedChunk pc, String spaceId, DocumentScope permission) {
         Map<String, Object> metadata = new LinkedHashMap<>();
         Chunk chunk = pc.chunk();
         metadata.put("documentId", chunk.getDocumentId());
@@ -362,6 +389,18 @@ public class OneDocumentVectorIndexService {
         metadata.put("splitVersion", properties.getSplitVersion());
         // one_ 轨专属：向量空间绑定（跨空间复用拒绝依据）
         metadata.put("vectorSpaceId", spaceId);
+        // D39 P2（D2 裁决）：权限三键有值才写（含显式 '*'）；无标签不写键，缺失键谓词天然排除
+        if (permission != null) {
+            if (permission.tenantId() != null && !permission.tenantId().isBlank()) {
+                metadata.put("tenantId", permission.tenantId());
+            }
+            if (permission.deptId() != null && !permission.deptId().isBlank()) {
+                metadata.put("deptId", permission.deptId());
+            }
+            if (permission.deviceId() != null && !permission.deviceId().isBlank()) {
+                metadata.put("deviceId", permission.deviceId());
+            }
+        }
         // 真实页码/段落定位：仅写入切分阶段保留的真实非空值，缺失则不写，禁止推断或补造。
         if (chunk.hasPageLocation()) {
             metadata.put("page", chunk.getFirstPageNumber());

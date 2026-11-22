@@ -1,0 +1,9 @@
+[RUN1] COLUMN_EXISTS tenant_id (idempotent skip)
+[RUN1] COLUMN_EXISTS dept_id (idempotent skip)
+[RUN1] COLUMN_EXISTS device_id (idempotent skip)
+[RUN1] OK rows=3 tenant_null=3 (NULL δ��ֵ)
+[RUN2] COLUMN_EXISTS tenant_id (idempotent skip)
+[RUN2] COLUMN_EXISTS dept_id (idempotent skip)
+[RUN2] COLUMN_EXISTS device_id (idempotent skip)
+[RUN2] OK rows=3 tenant_null=3 (NULL δ��ֵ)
+[DONE] KD_COLUMNS_IDEMPOTENT_X2_OK

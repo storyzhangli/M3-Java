@@ -1,5 +1,6 @@
 package com.zl.d39.document.controller;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.common.Result;
 import com.zl.d39.document.chunk.dto.ChunkComparisonView;
 import com.zl.d39.document.chunk.dto.ChunkView;
@@ -16,6 +17,7 @@ import com.zl.d39.document.service.DocumentPageService;
 import com.zl.d39.document.service.DocumentRegistrationService;
 import com.zl.d39.document.support.DocumentConverter;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -37,18 +39,35 @@ public class DocumentController {
     private final DocumentChunkService chunkService;
     private final ChunkViewMapper chunkViewMapper;
 
+    /**
+     * D39 P3：文档级范围校验可选依赖（DOC_SCOPE_CHECK 分级，C18）。enabled 时预览类端点
+     * 先校验 AuthContext 对目标文档的读取权限（无标签/跨租户/越部门设备=4030，不泄露存在性差异，
+     * 且校验<b>先于</b>任何页面/Chunk 内容返回，H4）；disabled 时 Bean 缺席 → 零差异（H1）。
+     */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public DocumentController(DocumentRegistrationService registrationService,
                               DocumentImportService importService,
                               DocumentPageService pageService,
                               DocumentConverter converter,
                               DocumentChunkService chunkService,
-                              ChunkViewMapper chunkViewMapper) {
+                              ChunkViewMapper chunkViewMapper,
+                              ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.registrationService = registrationService;
         this.importService = importService;
         this.pageService = pageService;
         this.converter = converter;
         this.chunkService = chunkService;
         this.chunkViewMapper = chunkViewMapper;
+        this.accessPolicyProvider = accessPolicyProvider;
+    }
+
+    /** enabled 时执行文档级读取校验；disabled 跳过。 */
+    private void checkReadable(String documentId) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireDocument(policy.requireCurrent(), documentId);
+        }
     }
 
     /** 文档登记：仅元数据，落 PENDING。 */
@@ -81,6 +100,7 @@ public class DocumentController {
     /** 来源定位：按物理页码顺序查询页面级提取文本。 */
     @GetMapping("/{documentId}/pages")
     public Result<List<DocumentPageView>> pages(@PathVariable("documentId") String documentId) {
+        checkReadable(documentId);
         List<DocumentPageView> views = pageService.listPages(documentId).stream()
                 .map(converter::toPageView).toList();
         return Result.success(views);
@@ -90,6 +110,7 @@ public class DocumentController {
     @GetMapping("/{documentId}/pages/{pageNumber}")
     public Result<DocumentPageView> page(@PathVariable("documentId") String documentId,
                                          @PathVariable("pageNumber") int pageNumber) {
+        checkReadable(documentId);
         return Result.success(converter.toPageView(pageService.getPage(documentId, pageNumber)));
     }
 
@@ -101,6 +122,7 @@ public class DocumentController {
     public Result<List<ChunkView>> chunks(
             @PathVariable("documentId") String documentId,
             @RequestParam(value = "strategy", defaultValue = "FIXED_SIZE") ChunkStrategy strategy) {
+        checkReadable(documentId);
         ChunkResult result = chunkService.process(pageService.listPages(documentId));
         List<ChunkView> views = chunkViewMapper.toChunkViews(
                 strategy == ChunkStrategy.STRUCTURE
@@ -112,6 +134,7 @@ public class DocumentController {
     /** 两策略切分对比：相同清洗输入，返回数量/长度/Overlap/覆盖/定位等统计。 */
     @GetMapping("/{documentId}/chunks/comparison")
     public Result<ChunkComparisonView> chunkComparison(@PathVariable("documentId") String documentId) {
+        checkReadable(documentId);
         ChunkResult result = chunkService.process(pageService.listPages(documentId));
         return Result.success(chunkViewMapper.toComparisonView(result.getComparison()));
     }

@@ -56,9 +56,19 @@ public class DocumentRegistrationService {
         doc.setErrorMessage("");
         doc.setCreatedAt(now);
         doc.setUpdatedAt(now);
+        // D39 P2 追加（D2 裁决）：权限三字段可选透传；空白归一为 NULL=无标签（未传=遗留语义，D3），
+        // 通配必须显式 "*"，禁止把空白悄悄变成通配。
+        doc.setTenantId(blankToNull(request.getTenantId()));
+        doc.setDeptId(blankToNull(request.getDeptId()));
+        doc.setDeviceId(blankToNull(request.getDeviceId()));
 
         mapper.insert(converter.toPO(doc));
         return doc;
+    }
+
+    /** 空白 → null；有值 trim。 */
+    private static String blankToNull(String value) {
+        return value == null || value.isBlank() ? null : value.trim();
     }
 
     public KnowledgeDocument getByDocumentId(String documentId) {

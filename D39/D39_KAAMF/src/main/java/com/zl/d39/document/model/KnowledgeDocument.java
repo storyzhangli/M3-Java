@@ -53,4 +53,15 @@ public class KnowledgeDocument {
 
     /** 状态更新时间。 */
     private LocalDateTime updatedAt;
+
+    // ---- D39 P2 追加：权限范围三字段（NULL=遗留无标签，D3；'*'=显式通配，D2） ----
+
+    /** 租户标签。 */
+    private String tenantId;
+
+    /** 部门标签（可为 '*'）。 */
+    private String deptId;
+
+    /** 设备标签（可为 '*'）。 */
+    private String deviceId;
 }

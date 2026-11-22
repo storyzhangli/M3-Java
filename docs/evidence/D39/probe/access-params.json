@@ -1,0 +1,27 @@
+{
+  "iteration": "D39-R01",
+  "probedAt": "2026-11-22T02:40:00+08:00",
+  "predicateScheme": {
+    "USER": "eq(tenantId) AND ( eq(deptId,ctx.dept) OR eq(deptId,'*') ) AND ( in(deviceId,ctx.devices) OR eq(deviceId,'*') )",
+    "ADMIN": "eq(tenantId,ctx.tenant)  // 租户内 bypass 部门/设备；H7 任何角色不得跨租户",
+    "composition": "既有业务过滤表达式与权限表达式经 new Filter.Expression(ExpressionType.AND, existing, access) 顶层 AND（1.1.8 javap 证实 Filter$Expression implements Operand、构造公开）",
+    "apiCapability": "spring-ai-vector-store 1.1.8 FilterExpressionBuilder：eq/ne/gt/gte/lt/lte/and/or/in/nin/isNull/isNotNull/group/not 全集可用（javap 实测）"
+  },
+  "wildcardSentinel": "*",
+  "wildcardRule": "「不限」必须显式写 '*'；null/缺失键=权限空间外（fail-closed），禁止用 null 表达不限",
+  "tokenHeader": "Authorization: Bearer <token>",
+  "tokenHash": "SHA-256(UTF-8 token) 小写 hex = d39_auth_principal.token_sha256 主键；DB 不存明文",
+  "principalTable": "ai_db.d39_auth_principal (MySQL)",
+  "metadataKeys": ["tenantId", "deptId", "deviceId"],
+  "metadataColumnType": "d39_vector_store.metadata 实际类型=json（非 jsonb，PgVectorStore 1.1.8 建表行为）；converter 谓词渲染对缺失键三形态（-> IS NOT NULL / ->> = / ::jsonb @>）均实证排除（kp2-inventory.json.kp3_missing_key_evidence 全 0，对照 documentId 键 8/8）",
+  "baselineFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+  "fixtureFingerprint": "P4 夹具注入后按冻结算法重算并经 HYBRID_EXPECTED_FINGERPRINT env 覆盖（D5），清理后恢复本值并复验",
+  "datasetHash": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+  "kp4Method": "行为学决定性证明：d39-fixture-T2D2-06 片段与查询词面完全一致且含唯一精确码 D2P-771（无过滤必 Top1，admin raw 可见）；USER(A) topK=20/th=0 权限端点 vector/hybrid/rag 三入口零命中；辅证 Filter.Expression 结构单测",
+  "deviationsFromTaskDoc": [
+    "D39 骨架 d39_vector_store 实为 0 行（任务书 §1.1 假设遗留 8 片段已在）：已按熔断#2 先修资产——D37 冻结流程改编 d39_index-corpus.ps1 入库 3+3+2=8 chunks，指纹/锚点 top1(3b1501c0)/sim(0.379747748374939) 与冻结值逐字节一致，证明修复无损（证据 index/ + kp2-inventory-postfix.json）",
+    "端点账目：实扫 Mapping 注解 68 行=18 类级+50 方法级；任务书 66 为编制口径差异，执行以 50 为准（endpoint-inventory.csv 全量无遗漏）",
+    "register 4001：文档已登记时重复 register 返回 4001（幂等拒绝），不影响入库（脚本容忍继续）",
+    "hybrid 配置注释路径 docs/evidence/D39/hybrid/probe/hybrid-params.json 为骨架从 D38 复制的文案；D39 冻结文件统一落 docs/evidence/D39/probe/（本文件），D38 R02 原文件只读不动"
+  ]
+}

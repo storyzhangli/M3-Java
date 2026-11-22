@@ -1,5 +1,6 @@
 package com.zl.d39.one.retrieval;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.document.embedding.support.VectorValidator;
 import com.zl.d39.document.retrieval.dto.SimilarityMatchView;
 import com.zl.d39.document.retrieval.dto.SimilaritySearchRequest;
@@ -12,6 +13,7 @@ import org.springframework.ai.vectorstore.SearchRequest;
 import org.springframework.ai.vectorstore.VectorStore;
 import org.springframework.ai.vectorstore.filter.Filter;
 import org.springframework.ai.vectorstore.filter.FilterExpressionBuilder;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
@@ -47,14 +49,23 @@ public class OneSimilaritySearchService {
     private final OneEmbeddingProperties oneProperties;
     private final VectorValidator vectorValidator;
 
+    /**
+     * D39 P3 追加（代码就位，one_ 轨本轮 NOT RUN）：权限谓词可选依赖，与 local 轨同构——
+     * enabled 时权限 AND 谓词下推 one_ 表 WHERE（表内无权限键行 → 缺失键 NULL 语义天然全拒，
+     * D3 fail-closed）；disabled 时 Bean 缺席，链路与引入前逐语句等价（H1）。
+     */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public OneSimilaritySearchService(@Qualifier("onePgVectorStore") VectorStore oneVectorStore,
                                       @Qualifier("oneEmbeddingModel") EmbeddingModel oneEmbeddingModel,
                                       OneEmbeddingProperties oneProperties,
-                                      VectorValidator vectorValidator) {
+                                      VectorValidator vectorValidator,
+                                      ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.oneVectorStore = oneVectorStore;
         this.oneEmbeddingModel = oneEmbeddingModel;
         this.oneProperties = oneProperties;
         this.vectorValidator = vectorValidator;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     /** 执行 one_ 轨相似度检索。 */
@@ -75,8 +86,14 @@ public class OneSimilaritySearchService {
                 .query(query)
                 .topK(topK)
                 .similarityThreshold(threshold);
-        if (filtered) {
-            builder.filterExpression(buildFilterExpression(request));
+        // D39 P3（代码就位）：与 local 轨同构的权限前置组合（H4/H5），下推目标为 one_ 表
+        Filter.Expression business = filtered ? buildFilterExpression(request) : null;
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        Filter.Expression effective = policy == null
+                ? business
+                : policy.andWithAccess(business, policy.requireCurrent());
+        if (effective != null) {
+            builder.filterExpression(effective);
         }
         long searchStart = System.nanoTime();
         List<Document> documents = oneVectorStore.similaritySearch(builder.build());

@@ -1,8 +1,10 @@
 package com.zl.d39.hybrid.web;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.common.Result;
 import com.zl.d39.hybrid.keyword.InvertedIndex;
 import com.zl.d39.hybrid.keyword.KeywordIndexStats;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,8 +26,13 @@ public class HybridKeywordIndexController {
 
     private final InvertedIndex invertedIndex;
 
-    public HybridKeywordIndexController(@Qualifier("invertedIndex") InvertedIndex invertedIndex) {
+    /** D39 P3：rebuild=ADMIN_ONLY（endpoint-inventory，D4）；stats 只读取保留 canRead。 */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
+    public HybridKeywordIndexController(@Qualifier("invertedIndex") InvertedIndex invertedIndex,
+                                        ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.invertedIndex = invertedIndex;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     /** 当前快照统计（chunk/term/posting 数、utf8 精确字节、指纹、摘要、构建耗时与堆差值）。 */
@@ -37,6 +44,10 @@ public class HybridKeywordIndexController {
     /** 显式重建内存倒排（语料变更后的受控动作；返回新快照统计）。 */
     @PostMapping("/rebuild")
     public Result<KeywordIndexStats> rebuild() {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireAdmin(policy.requireCurrent());
+        }
         return Result.success(invertedIndex.rebuild());
     }
 }

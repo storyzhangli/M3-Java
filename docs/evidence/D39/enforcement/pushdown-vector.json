@@ -1,0 +1,61 @@
+{
+  "case": "C07 KP4 向量路下推决定性证明",
+  "evidence": "security/t1.jsonl + security/t9.jsonl + AccessPolicyServiceVectorPredicateTest",
+  "decisive": [
+    {
+      "principal": "userA",
+      "entry": "/api/v1/retrieval/search",
+      "query": "数控机床出现主轴过热报警，应该先检查什么？",
+      "code": 200,
+      "returnedChunkIds": [
+        "46be2c09-3a86-5ca0-87b6-35d98af95051",
+        "087a27db-729b-5f65-b0f5-d683f4fa3a73",
+        "56bf3bfe-cddd-5d94-912b-4b5080381220",
+        "be457444-d1ad-516e-a35a-f6c24711d286",
+        "9e1604ab-feba-519a-9d80-694298fe3e44",
+        "66b81d52-5235-5fe4-b999-a3efe995a605"
+      ],
+      "returnedDocumentIds": [
+        "DOC-D39-F1",
+        "DOC-D39-F2",
+        "DOC-D39-F4"
+      ],
+      "forbiddenHits": [],
+      "unexpectedPermissionlessHits": [],
+      "legacyUntaggedHits": [],
+      "tokenUsed": "userA.token",
+      "result": "PASS"
+    },
+    {
+      "principal": "userA",
+      "entry": "/api/v1/retrieval/search",
+      "query": "D2P-771 工单 DEV-B 输送线变频过流 巡检机器人 冷却泵叶轮",
+      "code": 200,
+      "returnedChunkIds": [
+        "087a27db-729b-5f65-b0f5-d683f4fa3a73",
+        "46be2c09-3a86-5ca0-87b6-35d98af95051",
+        "66b81d52-5235-5fe4-b999-a3efe995a605",
+        "be457444-d1ad-516e-a35a-f6c24711d286"
+      ],
+      "returnedDocumentIds": [
+        "DOC-D39-F1",
+        "DOC-D39-F2"
+      ],
+      "forbiddenHits": [],
+      "unexpectedPermissionlessHits": [],
+      "legacyUntaggedHits": [],
+      "tokenUsed": "userA.token",
+      "result": "PASS"
+    }
+  ],
+  "inDbProof": [
+    {
+      "principal": "adminT1",
+      "entry": "POST /api/v1/vector-store/search(运维通道)",
+      "returnedCount": 20,
+      "frozenVisible": 8,
+      "result": "PASS(数据在库可见)"
+    }
+  ],
+  "conclusion": "topK=20/threshold=0 下 F6(字面同锚点句)/F3 对 userA 零命中；userB 与 admin raw 通道同数据可见 => WHERE 下推先于 Top-K"
+}

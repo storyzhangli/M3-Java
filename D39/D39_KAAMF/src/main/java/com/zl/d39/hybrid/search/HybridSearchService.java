@@ -1,5 +1,7 @@
 package com.zl.d39.hybrid.search;
 
+import com.zl.d39.access.AccessPolicyService;
+import com.zl.d39.access.PermissionScope;
 import com.zl.d39.document.retrieval.SimilaritySearchService;
 import com.zl.d39.document.retrieval.dto.SimilarityMatchView;
 import com.zl.d39.document.retrieval.dto.SimilaritySearchRequest;
@@ -14,6 +16,7 @@ import com.zl.d39.hybrid.search.dto.HybridSearchRequest;
 import com.zl.d39.hybrid.search.dto.HybridSearchResponseView;
 import com.zl.d39.hybrid.search.dto.FusionTraceEntry;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
@@ -46,15 +49,20 @@ public class HybridSearchService {
     private final RrfFusionService rrfFusionService;
     private final HybridProperties properties;
 
+    /** D39 P3：权限代数可选依赖（disabled→null→criteria 无权限组件，零差异，H1）。 */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public HybridSearchService(
             @Qualifier("similaritySearchService") SimilaritySearchService similaritySearchService,
             @Qualifier("keywordSearchService") KeywordSearchService keywordSearchService,
             @Qualifier("rrfFusionService") RrfFusionService rrfFusionService,
-            @Qualifier("hybridProperties") HybridProperties properties) {
+            @Qualifier("hybridProperties") HybridProperties properties,
+            ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.similaritySearchService = similaritySearchService;
         this.keywordSearchService = keywordSearchService;
         this.rrfFusionService = rrfFusionService;
         this.properties = properties;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     public HybridSearchBundle search(HybridSearchRequest request) {
@@ -65,7 +73,8 @@ public class HybridSearchService {
         int candidateN = Math.max(SimilaritySearchRequest.MIN_TOP_K,
                 Math.min(SimilaritySearchRequest.MAX_TOP_K, properties.getCandidateTopN()));
         KeywordFilterCriteria criteria = new KeywordFilterCriteria(
-                request.getDocumentId(), request.getTitle(), request.getVersion(), request.getStrategy());
+                request.getDocumentId(), request.getTitle(), request.getVersion(), request.getStrategy(),
+                permissionOrNull());
         boolean filtered = !criteria.isEmpty();
 
         // 1) 向量路（先执行；空白/超长/零向量拒绝语义在此 fail-closed，与 local 一致）
@@ -198,6 +207,15 @@ public class HybridSearchService {
             return 0.0d;
         }
         return Math.min(raw, 1.0d);
+    }
+
+    /** D39 P3（H4 融合闭包）：关键词路权限代数注入点。enabled 时 currentScope→requireCurrent
+     *  间接取上下文（无上下文抛 4030）；disabled（Bean 缺席）返回 null=不参与过滤。
+     *  向量路谓词在 SimilaritySearchService 内注入——两路同源 PermissionScope，
+     *  RRF 只消费两路已过滤名次，融合结果必为权限集子集（闭包，单测断言基于返回 ID 集合）。 */
+    private PermissionScope permissionOrNull() {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        return policy == null ? null : policy.currentScope();
     }
 
     private double toMillis(long nanos) {

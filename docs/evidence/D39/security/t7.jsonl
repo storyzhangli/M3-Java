@@ -1,0 +1,3 @@
+{"principal":"userA","entry":"/api/v1/hybrid/retrieval/search","query":"D2P-771（关键词独占）","returnedChunkIds":["087a27db-729b-5f65-b0f5-d683f4fa3a73","46be2c09-3a86-5ca0-87b6-35d98af95051","66b81d52-5235-5fe4-b999-a3efe995a605"],"f6Hits":[],"fusionClosureOk":true,"result":"PASS"}
+{"principal":"userB","entry":"/api/v1/hybrid/retrieval/search","query":"D2P-771（正证可见）","returnedChunkIds":["46f8898b-15b9-5b75-a197-30960e98a4da","b11947d8-701f-5cb1-babe-29e58ed0d623","0d661b84-cdeb-5c18-91f0-0de6ed046841","fcd090b5-e398-5f00-a3ed-e0faa6709be9"],"f6Hits":["46f8898b-15b9-5b75-a197-30960e98a4da","b11947d8-701f-5cb1-babe-29e58ed0d623"],"result":"PASS"}
+{"principal":"userA","entry":"/api/v1/hybrid/rag/ask","query":"D2P-771","returnedChunkIds":[],"f6Hits":[],"result":"PASS"}

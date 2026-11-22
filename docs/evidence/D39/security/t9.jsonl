@@ -1,0 +1,3 @@
+{"principal":"userA","entry":"/api/v1/retrieval/search","query":"冻结语料词面","legacyUntaggedHits":[],"result":"PASS"}
+{"principal":"adminT1","entry":"/api/v1/retrieval/search","query":"冻结语料词面","legacyUntaggedHits":[],"result":"PASS"}
+{"principal":"adminT1","entry":"POST /api/v1/vector-store/search(运维通道)","returnedCount":20,"frozenVisible":8,"result":"PASS(数据在库可见)"}

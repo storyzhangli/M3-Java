@@ -1,0 +1,51 @@
+method,path,controller,classification,rationale
+Post,/api/v1/ai/chat,ChatController,AUTH_CONTEXT+PUBLIC_STATIC,"enabled 时 owner=AuthContext.userId；retrieveEnabled 分支走 classpath 静态教学语料（D4 裁决 PUBLIC_STATIC，T4 断言其中不含 d39- 夹具）"
+Post,/api/v1/ai/chat/stream,ChatStreamController,AUTH_CONTEXT+PUBLIC_STATIC,"同上；SSE 授权快照在请求线程内捕获后传递（3.3 禁令：ThreadLocal 不得泄漏到异步线程）"
+Get,/api/v1/ai/health,ChatController,OUT_OF_SCOPE,"仅应用元数据（mode/窗口/devIdentity 文案），无知识内容"
+Get,/api/v1/ai/prompts,PromptTemplateController,OUT_OF_SCOPE,"D6：prompt 模板=全局配置资产非知识内容，缓存键不含权限维度（T4 留痕）"
+Post,/api/v1/ai/prompts,PromptTemplateController,OUT_OF_SCOPE,"同上（写侧为模板管理，学习环境无模板权限体系）"
+Delete,/api/v1/ai/prompts/{templateId},PromptTemplateController,OUT_OF_SCOPE,同上
+Put,/api/v1/ai/prompts/{templateId},PromptTemplateController,OUT_OF_SCOPE,同上
+Get,/api/v1/ai/prompts/{templateId},PromptTemplateController,OUT_OF_SCOPE,同上
+Patch,/api/v1/ai/prompts/{templateId}/status,PromptTemplateController,OUT_OF_SCOPE,同上
+Get,/api/v1/ai/roles,PromptTemplateController,OUT_OF_SCOPE,"角色枚举元数据，无知识内容"
+Get,/api/v1/ai/sessions,HistoryController,AUTH_CONTEXT,"enabled 时 owner=AuthContext，跨 owner 列表隔离（T4）"
+Get,/api/v1/ai/sessions/{sessionId}/messages,HistoryController,AUTH_CONTEXT,"requireOwnedSession(owner=AuthContext)（T4）"
+Post,/api/v1/device/chat,DeviceChatController,AUTH_CONTEXT,"owner 改由 AuthContext；设备语料面同 chat 裁决"
+Get,/api/v1/documents,DocumentController,OUT_OF_SCOPE,"登记元数据列表（source/title/status），无正文/分块内容；白名单外禁改（H1），遗留风险记录状态文件"
+Get,/api/v1/documents/{documentId},DocumentController,OUT_OF_SCOPE,同上
+Get,/api/v1/documents/{documentId}/chunks,DocumentController,DOC_SCOPE_CHECK,"canReadDocument 校验（MySQL 分块正文预览）"
+Get,/api/v1/documents/{documentId}/chunks/comparison,DocumentController,DOC_SCOPE_CHECK,同上（切分对比含正文）
+Post,/api/v1/documents/{documentId}/embeddings,EmbeddingController,DOC_SCOPE_CHECK,"向量预览暴露 chunk 文本，文档级范围校验（C18）"
+Get,/api/v1/documents/{documentId}/pages,DocumentController,DOC_SCOPE_CHECK,"原文页预览（H4 暴露面收口）"
+Get,/api/v1/documents/{documentId}/pages/{pageNumber},DocumentController,DOC_SCOPE_CHECK,同上
+Post,/api/v1/documents/import,DocumentController,OUT_OF_SCOPE,"写入口（登记+解析），读越权模型不约束写；登记权限三字段由调用方声明（D2），学习环境裁决留痕"
+Post,/api/v1/documents/register,DocumentController,OUT_OF_SCOPE,"同上，P2 追加可选权限三字段入口"
+Post,/api/v1/embeddings/index/compatibility,EmbeddingController,OUT_OF_SCOPE,"兼容性探测，无知识内容"
+Get,/api/v1/embeddings/model,EmbeddingController,OUT_OF_SCOPE,"模型元数据"
+Post,/api/v1/hybrid/keyword-index/rebuild,HybridKeywordIndexController,ADMIN_ONLY,"索引重建=运维写操作（P3 白名单）"
+Get,/api/v1/hybrid/keyword-index/stats,HybridKeywordIndexController,OUT_OF_SCOPE,"仅计数元数据（chunks/terms/postings/指纹），无正文；白名单未含 stats，最小权限改行政裁决：保持现状并在 C18 记录"
+Post,/api/v1/hybrid/rag/ask,HybridRagController,FORCE_FILTER,"双路已过滤候选融合；无 AuthContext 拒绝（C09/C10）"
+Post,/api/v1/hybrid/retrieval/search,HybridSearchController,FORCE_FILTER,"向量路 AND 谓词+关键词路先过滤后排名（C07/C08）"
+Post,/api/v1/one/embeddings/index/compatibility,OneEmbeddingController,OUT_OF_SCOPE,"one_ 轨默认关（dims=0），本轮 NOT RUN；代码面无知识暴露"
+Get,/api/v1/one/embeddings/model,OneEmbeddingController,OUT_OF_SCOPE,同上
+Get,/api/v1/one/embeddings/usage,OneEmbeddingController,OUT_OF_SCOPE,同上
+Post,/api/v1/one/rag/ask,OneRagController,FORCE_FILTER_CODE_ONLY,"同谓词注入代码就位+单测；真实链路 NOT RUN（§0.3）"
+Post,/api/v1/one/retrieval/search,OneSimilaritySearchController,FORCE_FILTER_CODE_ONLY,同上
+Delete,/api/v1/one/vector-index/documents/{documentId},OneVectorIndexController,OUT_OF_SCOPE,"one_ 写运维面，默认关 NOT RUN，裁决留痕"
+Get,/api/v1/one/vector-index/documents/{documentId}/chunks,OneVectorIndexController,DOC_SCOPE_CHECK,"代码就位+单测；真实 NOT RUN"
+Get,/api/v1/one/vector-index/documents/{documentId}/status,OneVectorIndexController,DOC_SCOPE_CHECK,同上
+Post,/api/v1/one/vector-index/index,OneVectorIndexController,OUT_OF_SCOPE,"写运维面"
+Post,/api/v1/one/vector-index/reconcile,OneVectorIndexController,OUT_OF_SCOPE,同上
+Post,/api/v1/rag/ask,RagController,FORCE_FILTER,"复用 SimilaritySearchService 过滤链；无 AuthContext 拒绝"
+Post,/api/v1/retrieval/search,SimilaritySearchController,FORCE_FILTER,"Filter.Expression AND 权限谓词 SQL 下推（C07）"
+Delete,/api/v1/vector-index/documents/{documentId},VectorIndexController,OUT_OF_SCOPE,"写运维面（重索引走 D4/D5 流程），白名单外"
+Get,/api/v1/vector-index/documents/{documentId}/chunks,VectorIndexController,DOC_SCOPE_CHECK,"PG 向量 chunks 预览=文档级校验（C18）"
+Post,/api/v1/vector-index/documents/{documentId}/index,VectorIndexController,OUT_OF_SCOPE,"写运维面"
+Get,/api/v1/vector-index/documents/{documentId}/status,VectorIndexController,DOC_SCOPE_CHECK,"状态含 documentId 归属信息，文档级校验"
+Post,/api/v1/vector-index/index,VectorIndexController,OUT_OF_SCOPE,"写运维面"
+Post,/api/v1/vector-index/reconcile,VectorIndexController,OUT_OF_SCOPE,同上
+Post,/api/v1/vector-index/recover,VectorIndexController,OUT_OF_SCOPE,同上
+Post,/api/v1/vector-store/documents,PgVectorController,ADMIN_ONLY,"raw 向量库读写（D4：admin-only 运维通道，T9 admin 可见遗留文档）"
+Post,/api/v1/vector-store/search,PgVectorController,ADMIN_ONLY,"raw 检索无过滤（仅 admin）；兼作 KP4 下推证明对照组"
+Get,/api/v1/vector-store/stats,PgVectorController,ADMIN_ONLY,"stats 类只读计数=admin-only（P3 白名单行明确）"

@@ -51,10 +51,12 @@ public class InvertedIndex {
     /** 索引侧 chunk 显式字段（缺字段容忍为 null，不补造——任务书 §3.7）。 */
     public record ChunkEntry(String chunkId, String content, String contentSha256, int contentChars,
                              String documentId, String title, Integer version, String strategy,
-                             Integer chunkIndex, String splitVersion, int documentLength) {
+                             Integer chunkIndex, String splitVersion, int documentLength,
+                             String tenantId, String deptId, String deviceId) {
 
         public KeywordFilterCriteria.ChunkFields filterFields() {
-            return new KeywordFilterCriteria.ChunkFields(documentId, title, version, strategy);
+            return new KeywordFilterCriteria.ChunkFields(documentId, title, version, strategy,
+                    tenantId, deptId, deviceId);
         }
     }
 
@@ -176,6 +178,11 @@ public class InvertedIndex {
             String title = textOrNull(meta, "title");
             String strategy = textOrNull(meta, "strategy");
             String splitVersion = textOrNull(meta, "splitVersion");
+            // D39 P2：权限三键从 metadata 读取（缺键=null=遗留无标签，匹配端 fail-closed）。
+            // 注意：canonical 指纹行<b>不含</b>权限键——既有行补写 metadata 不改变冻结指纹（H6 依据）。
+            String tenantId = textOrNull(meta, "tenantId");
+            String deptId = textOrNull(meta, "deptId");
+            String deviceId = textOrNull(meta, "deviceId");
 
             List<String> features = tokenizer.extract(content);
             SortedMap<String, Integer> tf = new TreeMap<>();
@@ -189,7 +196,7 @@ public class InvertedIndex {
             docLength.put(chunkId, features.size());
             chunksById.put(chunkId, new ChunkEntry(chunkId, content, contentSha, content.length(),
                     documentId, title, version, strategy, chunkIndex, splitVersion,
-                    features.size()));
+                    features.size(), tenantId, deptId, deviceId));
             canonicalLines.add(String.join("|", chunkId, contentSha, String.valueOf(content.length()),
                     orNull(documentId), orNull(version), orNull(strategy), orNull(chunkIndex),
                     orNull(splitVersion)));

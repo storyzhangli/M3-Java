@@ -1,5 +1,6 @@
 package com.zl.d39.rag.retrieval;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.document.retrieval.SimilaritySearchService;
 import com.zl.d39.document.retrieval.dto.SimilarityMatchView;
 import com.zl.d39.document.retrieval.dto.SimilaritySearchRequest;
@@ -7,6 +8,7 @@ import com.zl.d39.rag.model.RetrievalStatus;
 import com.zl.d39.rag.retrieval.RagRetrievalQuery;
 import com.zl.d39.rag.retrieval.RagRetrievalResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,8 +26,19 @@ public class RagRetrievalService {
 
     private final SimilaritySearchService similaritySearchService;
 
-    public RagRetrievalService(SimilaritySearchService similaritySearchService) {
+    /**
+     * D39 P3 追加：权限服务可选依赖。enabled 时在<b>try 之外</b>预门禁 requireCurrent——
+     * 无服务端上下文抛 AccessDeniedException（4030，H5 fail-closed），
+     * 绝不落入本方法 catch(RuntimeException)→FAILED 的吞异常路径；
+     * disabled 时 Bean 缺席 → 门禁不启用，链路与引入前等价（H1）。
+     * 检索谓词注入在 SimilaritySearchService 内部完成（单一代数源，本层不重复拼谓词）。
+     */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
+    public RagRetrievalService(SimilaritySearchService similaritySearchService,
+                               ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.similaritySearchService = similaritySearchService;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     /**
@@ -35,6 +48,10 @@ public class RagRetrievalService {
      * @return 检索结果（永不返回 null）
      */
     public RagRetrievalResult retrieve(RagRetrievalQuery query) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireCurrent();
+        }
         SimilaritySearchRequest request = buildRequest(query);
         try {
             var view = similaritySearchService.search(request);

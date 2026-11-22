@@ -1,0 +1,15 @@
+{
+  "case": "C08 关键词路同口径",
+  "evidence": "security/t7.jsonl",
+  "decisive": [
+    {
+      "principal": "userA",
+      "entry": "/api/v1/hybrid/rag/ask",
+      "query": "D2P-771",
+      "returnedChunkIds": [],
+      "f6Hits": [],
+      "result": "PASS"
+    }
+  ],
+  "conclusion": "精确码独占命中场景：userA 零命中、userB 必现 => 先过滤后排名，两路同谓词代数"
+}

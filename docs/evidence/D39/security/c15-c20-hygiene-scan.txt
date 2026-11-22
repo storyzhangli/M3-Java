@@ -1,0 +1,8 @@
+C15_CACHE_GREP hits=0（基线零命中，本轮零新增；access 包含 @Cacheable/CacheManager/Caffeine=0）
+C15_EXISTING_PROMPT_CACHE_FILES（既有非新增）:
+  D39\D39_KAAMF\src\main\java\com\zl\d39\config\PromptCacheProperties.java
+  D39\D39_KAAMF\src\main\java\com\zl\d39\prompt\MybatisPromptTemplateRepository.java
+
+C20_SCAN target: evidence\D39 + temp_docs\D39(除 auth\fixture-tokens.json 白名单) + proj_docs D39*
+C20_VIOLATIONS=0
+GIT_UNTRACKED_FORBIDDEN_HITS=0

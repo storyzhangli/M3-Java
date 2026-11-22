@@ -1,0 +1,8 @@
+{"principal":"NONE","entry":"/api/v1/retrieval/search","scenario":"无 Authorization","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"INVALID","entry":"/api/v1/retrieval/search","scenario":"无效 token","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"EXPIRED","entry":"/api/v1/retrieval/search","scenario":"过期 token","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"NONE","entry":"/api/v1/hybrid/retrieval/search","scenario":"无 token","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"NONE","entry":"/api/v1/rag/ask","scenario":"无 token","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"NONE","entry":"/api/v1/documents/{id}/pages","scenario":"无 token","code":4030,"expected":"4030","result":"PASS"}
+{"principal":"userA","entry":"GET /api/v1/vector-store/stats","scenario":"raw admin-only","code":4030,"result":"PASS"}
+{"principal":"adminT1","entry":"GET /api/v1/vector-store/stats","scenario":"raw admin 放行","code":200,"result":"PASS"}

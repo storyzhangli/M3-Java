@@ -1,0 +1,28 @@
+{
+  "case": "C10 RAG 入口许可集",
+  "evidence": "security/t1.jsonl + t7.jsonl(rag cases) + t8.jsonl(无 token=4030)",
+  "rag": [
+    {
+      "principal": "userA",
+      "entry": "/api/v1/rag/ask(citations)",
+      "query": "数控机床出现主轴过热报警，应该先检查什么？",
+      "code": 200,
+      "returnedChunkIds": [],
+      "returnedDocumentIds": null,
+      "forbiddenHits": [],
+      "unexpectedPermissionlessHits": [],
+      "legacyUntaggedHits": [],
+      "tokenUsed": "userA.token",
+      "result": "PASS"
+    },
+    {
+      "principal": "userA",
+      "entry": "/api/v1/hybrid/rag/ask",
+      "query": "D2P-771",
+      "returnedChunkIds": [],
+      "f6Hits": [],
+      "result": "PASS"
+    }
+  ],
+  "conclusion": "sources/citations ⊆ 许可集；无 AuthContext 拒绝(4030)"
+}

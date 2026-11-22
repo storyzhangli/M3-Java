@@ -1,0 +1,18 @@
+{
+  "case": "C09 融合闭包",
+  "evidence": "security/t7.jsonl + RrfFusionClosureTest(单测)",
+  "closure": [
+    {
+      "principal": "userA",
+      "entry": "/api/v1/hybrid/retrieval/search",
+      "returnedChunkIds": [
+        "087a27db-729b-5f65-b0f5-d683f4fa3a73",
+        "46be2c09-3a86-5ca0-87b6-35d98af95051",
+        "66b81d52-5235-5fe4-b999-a3efe995a605"
+      ],
+      "fusionClosureOk": true,
+      "result": "PASS"
+    }
+  ],
+  "conclusion": "RRF 输出 ⊆ 两路已过滤候选并集（集成断言 fusionClosureOk=true + 纯函数单测）"
+}

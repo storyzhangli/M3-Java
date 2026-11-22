@@ -1,0 +1,6 @@
+[DDL] d39_auth_principal created-if-absent, runs=2 (idempotent x2 OK)
+[SEED] upsert rows=5 (INSERT..ON DUPLICATE KEY UPDATE)
+[FIXTURE] tokens written (plaintext once): docs\temp_docs\D39\auth\fixture-tokens.json
+[VERIFY] adminT1(T1/D-HQ/ADMIN/on) expiredUser(T1/D2/USER/on/exp) userA(T1/D1/USER/on) userB(T1/D2/USER/on) userC(T2/D1/USER/on) count=5
+[VERIFY] all 5 token_sha256 hit by runtime-algorithm hash
+[DONE] SEED_OK

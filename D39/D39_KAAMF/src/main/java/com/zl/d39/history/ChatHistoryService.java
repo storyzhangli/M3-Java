@@ -59,11 +59,16 @@ public class ChatHistoryService {
 
     public ChatHistoryService(ChatSessionMapper sessionMapper,
                               HistoryMessageMapper messageMapper,
-                              HistoryProperties properties) {
+                              HistoryProperties properties,
+                              org.springframework.beans.factory.ObjectProvider<com.zl.d39.access.AccessPolicyService> accessPolicyProvider) {
         this.sessionMapper = sessionMapper;
         this.messageMapper = messageMapper;
         this.properties = properties;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
+
+    /** D39 P3（D6）：enabled 时会话 owner 单源=服务端可信身份；disabled Bean 缺席→原链路零差异（H1）。 */
+    private final org.springframework.beans.factory.ObjectProvider<com.zl.d39.access.AccessPolicyService> accessPolicyProvider;
 
     /**
      * 一轮开始的返回：会话与已落库的 PENDING 用户消息。
@@ -83,6 +88,11 @@ public class ChatHistoryService {
      * @param headerValue 请求头原始值，空白时取默认归属
      */
     public String resolveOwner(String headerValue) {
+        // D39 P3（D6，H3）：access enabled 时 owner 只取服务端 AuthContext.userId，
+        // 完全忽略客户端 X-Dev-User 头（防伪造他人会话）；无上下文 fail-closed（CONTEXT_MISSING）。
+        if (accessPolicyProvider.getIfAvailable() != null) {
+            return com.zl.d39.access.AuthContextHolder.current().userId();
+        }
         if (!StringUtils.hasText(headerValue)) {
             return properties.getDefaultOwner();
         }

@@ -1,12 +1,16 @@
 package com.zl.d39.document.vectorindex.service;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zl.d39.access.DocumentScope;
 import com.zl.d39.document.chunk.model.Chunk;
 import com.zl.d39.document.chunk.model.ChunkStrategy;
 import com.zl.d39.document.chunk.service.DocumentChunkService;
 import com.zl.d39.document.mapper.DocumentChunkIndexMapper;
 import com.zl.d39.document.mapper.DocumentVectorIndexMapper;
+import com.zl.d39.document.mapper.KnowledgeDocumentMapper;
 import com.zl.d39.document.po.DocumentChunkIndexPO;
 import com.zl.d39.document.po.DocumentVectorIndexPO;
+import com.zl.d39.document.po.KnowledgeDocumentPO;
 import com.zl.d39.document.service.DocumentPageService;
 import com.zl.d39.document.support.Sha256ContentHasher;
 import com.zl.d39.document.vectorindex.VectorIndexException;
@@ -77,6 +81,9 @@ public class DocumentVectorIndexService {
 
     private final ObjectProvider<DocumentChunkService> chunkServiceProvider;
 
+    /** D39 P2 追加：文档权限三列读取（knowledge_document 权威；缺失=无标签，metadata 不写权限键）。 */
+    private final ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider;
+
     public DocumentVectorIndexService(VectorStore vectorStore,
                                       @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
                                       PgVectorStoreProperties pgProperties,
@@ -87,7 +94,8 @@ public class DocumentVectorIndexService {
                                       VectorIndexProperties properties,
                                       VectorIndexStateTx stateTx,
                                       ObjectProvider<DocumentPageService> pageServiceProvider,
-                                      ObjectProvider<DocumentChunkService> chunkServiceProvider) {
+                                      ObjectProvider<DocumentChunkService> chunkServiceProvider,
+                                      ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider) {
         this.vectorStore = vectorStore;
         this.pgVectorJdbcTemplate = pgVectorJdbcTemplate;
         this.pgProperties = pgProperties;
@@ -99,6 +107,7 @@ public class DocumentVectorIndexService {
         this.stateTx = stateTx;
         this.pageServiceProvider = pageServiceProvider;
         this.chunkServiceProvider = chunkServiceProvider;
+        this.documentMapperProvider = documentMapperProvider;
     }
 
     // ------------------------------------------------------------------
@@ -185,6 +194,9 @@ public class DocumentVectorIndexService {
             persistState(task, now);
         }
 
+        // D39 P2：入库前一次性读取文档权限范围（服务端权威列，不信任请求体声明）
+        DocumentScope permission = lookupDocumentScope(documentId);
+
         // 计算稳定 ID 与内容指纹
         List<PreparedChunk> prepared = new ArrayList<>(normalized.size());
         for (Chunk chunk : normalized) {
@@ -205,7 +217,7 @@ public class DocumentVectorIndexService {
                     documents.add(Document.builder()
                             .id(pc.chunkId())
                             .text(pc.chunk().getContent())
-                            .metadata(buildMetadata(pc))
+                            .metadata(buildMetadata(pc, permission))
                             .build());
                 }
                 // 框架原生 DB 级 Upsert：稳定 UUID 冲突即更新，不产生重复行
@@ -459,6 +471,28 @@ public class DocumentVectorIndexService {
                 task.getAttemptCount(), task.getNextRetryAt(), task.getChunkCount(), now);
     }
 
+    /**
+     * D39 P2：读取文档权限三列（knowledge_document 权威）。
+     * 文档行不存在 / mapper 缺席 / 三列全空 → 返回 null（无标签，metadata 不写权限键）。
+     * 查询异常不吞——入库 fail-closed（权限链路不允许静默降级为无标签，H5 同向）。
+     */
+    private DocumentScope lookupDocumentScope(String documentId) {
+        KnowledgeDocumentMapper mapper = documentMapperProvider.getIfAvailable();
+        if (mapper == null) {
+            return null;
+        }
+        KnowledgeDocumentPO po = mapper.selectOne(
+                new QueryWrapper<KnowledgeDocumentPO>().eq("document_id", documentId));
+        if (po == null) {
+            return null;
+        }
+        return new DocumentScope(documentId, po.getTenantId(), po.getDeptId(), po.getDeviceId());
+    }
+
+    private static boolean isNotBlank(String value) {
+        return value != null && !value.isBlank();
+    }
+
     private DocumentVectorIndexPO findIndexRow(String documentId, Integer version) {
         List<DocumentVectorIndexPO> rows = indexMapper.selectList(
                 new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<DocumentVectorIndexPO>()
@@ -475,7 +509,7 @@ public class DocumentVectorIndexService {
                         .eq("status", VectorIndexStatus.COMPLETED.name()));
     }
 
-    private Map<String, Object> buildMetadata(PreparedChunk pc) {
+    private Map<String, Object> buildMetadata(PreparedChunk pc, DocumentScope permission) {
         Map<String, Object> metadata = new LinkedHashMap<>();
         Chunk chunk = pc.chunk();
         metadata.put("documentId", chunk.getDocumentId());
@@ -487,6 +521,20 @@ public class DocumentVectorIndexService {
         metadata.put("chunkIndex", chunk.getChunkIndex());
         metadata.put("chunkContentHash", pc.chunkContentHash());
         metadata.put("splitVersion", properties.getSplitVersion());
+
+        // D39 P2（D2 裁决）：权限三键有值才写（含显式 '*' 通配）；无标签文档不写键——
+        // json 缺失键在 eq/in 谓词下 NULL 不成立，天然被权限端点排除（D3 fail-closed，KP3 实证）。
+        if (permission != null) {
+            if (isNotBlank(permission.tenantId())) {
+                metadata.put("tenantId", permission.tenantId());
+            }
+            if (isNotBlank(permission.deptId())) {
+                metadata.put("deptId", permission.deptId());
+            }
+            if (isNotBlank(permission.deviceId())) {
+                metadata.put("deviceId", permission.deviceId());
+            }
+        }
 
         // 真实页码/段落定位：仅写入切分阶段保留的真实非空值，缺失则不写，禁止推断或补造。
         if (chunk.hasPageLocation()) {

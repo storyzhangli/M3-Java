@@ -1,5 +1,6 @@
 package com.zl.d39.one.rag;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.document.retrieval.dto.SimilarityMatchView;
 import com.zl.d39.document.retrieval.dto.SimilaritySearchRequest;
 import com.zl.d39.one.retrieval.OneSimilaritySearchService;
@@ -7,6 +8,7 @@ import com.zl.d39.rag.model.RetrievalStatus;
 import com.zl.d39.rag.retrieval.RagRetrievalQuery;
 import com.zl.d39.rag.retrieval.RagRetrievalResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +19,10 @@ import java.util.List;
  * 结果类型只读复用共享 {@link RagRetrievalResult}，供 OneRagOrchestrator 消费。
  *
  * <p>明确区分 EMPTY（成功无命中）与 FAILED（执行失败）；不调用 ChatModel。</p>
+ *
+ * <p>D39 P3（代码就位，one_ 轨本轮 NOT RUN）：与 local 轨同构的权限门禁——
+ * enabled 时 try 外预检 requireCurrent（无上下文=4030，不被下方 catch 吞为 FAILED）；
+ * 谓词注入在 OneSimilaritySearchService 内。disabled 零差异（H1）。</p>
  */
 @Slf4j
 @Service
@@ -25,11 +31,19 @@ public class OneRagRetrievalService {
 
     private final OneSimilaritySearchService oneSimilaritySearchService;
 
-    public OneRagRetrievalService(OneSimilaritySearchService oneSimilaritySearchService) {
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
+    public OneRagRetrievalService(OneSimilaritySearchService oneSimilaritySearchService,
+                                  ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.oneSimilaritySearchService = oneSimilaritySearchService;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     public RagRetrievalResult retrieve(RagRetrievalQuery query) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireCurrent();
+        }
         SimilaritySearchRequest request = buildRequest(query);
         try {
             var view = oneSimilaritySearchService.search(request);

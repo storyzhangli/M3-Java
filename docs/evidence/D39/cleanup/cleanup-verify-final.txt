@@ -1,0 +1,34 @@
+=== VERIFY(PRE) 2026-11-22T17:30:50.6865920+08:00 ===
+FIXTURE_ROWS_PG=0
+TOTAL_ROWS_PG=8
+FINGERPRINT=10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9
+FIXTURE_ROWS_MYSQL_knowledge_document=6
+TOTAL_ROWS_MYSQL_knowledge_document=9
+FIXTURE_ROWS_MYSQL_document_vector_index=0
+TOTAL_ROWS_MYSQL_document_vector_index=7
+FIXTURE_ROWS_MYSQL_document_chunk_index=0
+TOTAL_ROWS_MYSQL_document_chunk_index=32
+=== APPLY 2026-11-22T17:31:28.5448760+08:00 ===
+PG_APPLY_DELETED=0
+FIXTURE_ROWS_PG=0
+TOTAL_ROWS_PG=8
+FINGERPRINT=10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9
+MYSQL_APPLY_DELETED_knowledge_document=6
+FIXTURE_ROWS_MYSQL_knowledge_document=0
+TOTAL_ROWS_MYSQL_knowledge_document=3
+MYSQL_APPLY_DELETED_document_vector_index=0
+FIXTURE_ROWS_MYSQL_document_vector_index=0
+TOTAL_ROWS_MYSQL_document_vector_index=7
+MYSQL_APPLY_DELETED_document_chunk_index=0
+FIXTURE_ROWS_MYSQL_document_chunk_index=0
+TOTAL_ROWS_MYSQL_document_chunk_index=32
+=== VERIFY 2026-11-22T17:31:38.0983430+08:00 ===
+FIXTURE_ROWS_PG=0
+TOTAL_ROWS_PG=8
+FINGERPRINT=10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9
+FIXTURE_ROWS_MYSQL_knowledge_document=0
+TOTAL_ROWS_MYSQL_knowledge_document=3
+FIXTURE_ROWS_MYSQL_document_vector_index=0
+TOTAL_ROWS_MYSQL_document_vector_index=7
+FIXTURE_ROWS_MYSQL_document_chunk_index=0
+TOTAL_ROWS_MYSQL_document_chunk_index=32

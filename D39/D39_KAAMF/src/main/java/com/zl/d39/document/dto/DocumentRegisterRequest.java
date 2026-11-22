@@ -23,4 +23,18 @@ public class DocumentRegisterRequest {
     /** 可选：外部指定文档标识；为空时服务端生成。 */
     @Size(max = 64, message = "文档标识长度不能超过 64")
     private String documentId;
+
+    // ---- D39 P2 追加（D2 裁决）：权限三字段全部可选；未传=无标签（遗留语义，D3 权限空间外） ----
+
+    /** 可选：租户标签（建议显式值；权限端点可见性的必要条件之一）。 */
+    @Size(max = 64, message = "租户标识长度不能超过 64")
+    private String tenantId;
+
+    /** 可选：部门标签；显式 "*"=租户内不限部门（禁止用 null/空白表达不限）。 */
+    @Size(max = 64, message = "部门标识长度不能超过 64")
+    private String deptId;
+
+    /** 可选：设备标签；显式 "*"=不限设备。 */
+    @Size(max = 64, message = "设备标识长度不能超过 64")
+    private String deviceId;
 }

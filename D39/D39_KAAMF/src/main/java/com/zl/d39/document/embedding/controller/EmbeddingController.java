@@ -1,5 +1,6 @@
 package com.zl.d39.document.embedding.controller;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.common.Result;
 import com.zl.d39.document.chunk.model.Chunk;
 import com.zl.d39.document.chunk.model.ChunkResult;
@@ -13,6 +14,7 @@ import com.zl.d39.document.embedding.service.DocumentEmbeddingService;
 import com.zl.d39.document.embedding.service.VectorIndexCompatibilityService;
 import com.zl.d39.document.service.DocumentPageService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -37,16 +39,21 @@ public class EmbeddingController {
 
     private final EmbeddingViewMapper mapper;
 
+    /** D39 P3：embed 端点带 documentId 暴露向量内容 → DOC_SCOPE_CHECK（C18）；disabled 零差异（H1）。 */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public EmbeddingController(DocumentPageService pageService,
                                DocumentChunkService chunkService,
                                DocumentEmbeddingService embeddingService,
                                VectorIndexCompatibilityService compatibilityService,
-                               EmbeddingViewMapper mapper) {
+                               EmbeddingViewMapper mapper,
+                               ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.pageService = pageService;
         this.chunkService = chunkService;
         this.embeddingService = embeddingService;
         this.compatibilityService = compatibilityService;
         this.mapper = mapper;
+        this.accessPolicyProvider = accessPolicyProvider;
     }
 
     /**
@@ -64,6 +71,10 @@ public class EmbeddingController {
     public Result<List<EmbeddingRecordView>> embed(
             @PathVariable("documentId") String documentId,
             @RequestParam(value = "strategy", defaultValue = "FIXED_SIZE") ChunkStrategy strategy) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireDocument(policy.requireCurrent(), documentId);
+        }
         ChunkResult chunkResult = chunkService.process(pageService.listPages(documentId));
         List<Chunk> chunks = strategy == ChunkStrategy.STRUCTURE
                 ? chunkResult.getStructureChunks()

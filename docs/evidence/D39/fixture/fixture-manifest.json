@@ -1,0 +1,56 @@
+{
+  "DOC-D39-F1": {
+    "tenantId": "T1",
+    "deptId": "D1",
+    "deviceId": "DEV-A",
+    "chunkIds": [
+      "46be2c09-3a86-5ca0-87b6-35d98af95051",
+      "087a27db-729b-5f65-b0f5-d683f4fa3a73"
+    ]
+  },
+  "DOC-D39-F2": {
+    "tenantId": "T1",
+    "deptId": "D1",
+    "deviceId": "*",
+    "chunkIds": [
+      "66b81d52-5235-5fe4-b999-a3efe995a605",
+      "be457444-d1ad-516e-a35a-f6c24711d286"
+    ]
+  },
+  "DOC-D39-F3": {
+    "tenantId": "T1",
+    "deptId": "D2",
+    "deviceId": "DEV-B",
+    "chunkIds": [
+      "fcd090b5-e398-5f00-a3ed-e0faa6709be9",
+      "0d661b84-cdeb-5c18-91f0-0de6ed046841"
+    ]
+  },
+  "DOC-D39-F4": {
+    "tenantId": "T1",
+    "deptId": "*",
+    "deviceId": "*",
+    "chunkIds": [
+      "56bf3bfe-cddd-5d94-912b-4b5080381220",
+      "9e1604ab-feba-519a-9d80-694298fe3e44"
+    ]
+  },
+  "DOC-D39-F5": {
+    "tenantId": "T2",
+    "deptId": "D1",
+    "deviceId": "*",
+    "chunkIds": [
+      "a9ef54e3-4f78-59b6-b9e6-2fc6a038bf92",
+      "b0ecaeb5-f3b6-5544-85f0-b38bde760040"
+    ]
+  },
+  "DOC-D39-F6": {
+    "tenantId": "T1",
+    "deptId": "D2",
+    "deviceId": "*",
+    "chunkIds": [
+      "b11947d8-701f-5cb1-babe-29e58ed0d623",
+      "46f8898b-15b9-5b75-a197-30960e98a4da"
+    ]
+  }
+}

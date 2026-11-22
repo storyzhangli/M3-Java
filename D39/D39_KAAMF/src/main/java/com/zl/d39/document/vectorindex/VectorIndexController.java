@@ -1,5 +1,6 @@
 package com.zl.d39.document.vectorindex;
 
+import com.zl.d39.access.AccessPolicyService;
 import com.zl.d39.common.Result;
 import com.zl.d39.document.chunk.model.Chunk;
 import com.zl.d39.document.chunk.model.ChunkStrategy;
@@ -9,6 +10,7 @@ import com.zl.d39.document.vectorindex.dto.*;
 import com.zl.d39.document.vectorindex.service.DocumentVectorIndexService;
 import com.zl.d39.document.vectorindex.service.VectorReconciliationService;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -28,10 +30,23 @@ public class VectorIndexController {
 
     private final VectorReconciliationService reconciliationService;
 
+    /** D39 P3：status/chunks 预览端点=DOC_SCOPE_CHECK（inventory）；disabled 零差异（H1）。 */
+    private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
+
     public VectorIndexController(DocumentVectorIndexService indexService,
-                                 VectorReconciliationService reconciliationService) {
+                                 VectorReconciliationService reconciliationService,
+                                 ObjectProvider<AccessPolicyService> accessPolicyProvider) {
         this.indexService = indexService;
         this.reconciliationService = reconciliationService;
+        this.accessPolicyProvider = accessPolicyProvider;
+    }
+
+    /** enabled 时文档级读取校验；disabled 跳过。 */
+    private void checkReadable(String documentId) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy != null) {
+            policy.requireDocument(policy.requireCurrent(), documentId);
+        }
     }
 
     /**
@@ -84,6 +99,7 @@ public class VectorIndexController {
      */
     @GetMapping("/documents/{documentId}/status")
     public Result<List<DocumentVectorIndexPO>> status(@PathVariable String documentId) {
+        checkReadable(documentId);
         return Result.success(indexService.getStatus(documentId));
     }
 
@@ -92,6 +108,7 @@ public class VectorIndexController {
      */
     @GetMapping("/documents/{documentId}/chunks")
     public Result<List<ChunkIndexView>> chunks(@PathVariable String documentId) {
+        checkReadable(documentId);
         List<ChunkIndexView> views = new ArrayList<>();
         for (DocumentChunkIndexPO po : indexService.listChunks(documentId)) {
             views.add(ChunkIndexView.from(po));

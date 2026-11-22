@@ -34,6 +34,10 @@ public class DocumentConverter {
         doc.setErrorMessage(po.getErrorMessage());
         doc.setCreatedAt(po.getCreatedAt());
         doc.setUpdatedAt(po.getUpdatedAt());
+        // D39 P2 追加：权限三字段透传（NULL 原样保留=遗留无标签）
+        doc.setTenantId(po.getTenantId());
+        doc.setDeptId(po.getDeptId());
+        doc.setDeviceId(po.getDeviceId());
         return doc;
     }
 
@@ -53,6 +57,10 @@ public class DocumentConverter {
         po.setErrorMessage(doc.getErrorMessage());
         po.setCreatedAt(doc.getCreatedAt());
         po.setUpdatedAt(doc.getUpdatedAt());
+        // D39 P2 追加
+        po.setTenantId(doc.getTenantId());
+        po.setDeptId(doc.getDeptId());
+        po.setDeviceId(doc.getDeviceId());
         return po;
     }
 

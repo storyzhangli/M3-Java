@@ -1,0 +1,23 @@
+{
+  "gate": "C05_D39_ZERO_DIFF_REGRESSION",
+  "finishedAt": "2026-11-22T17:33:32+08:00",
+  "instance": "ACCESS_ENABLED 缺省(false) AI_MODE=mock（默认零差异态）",
+  "anonProbe": {
+    "top1": "3b1501c0-6a99-535a-a787-991f877024c8",
+    "total": 3,
+    "code": 200
+  },
+  "selftestExit": 0,
+  "runExit": 1,
+  "runExitNote": "1=冻结基线业务 FAIL 行(QA-001 REFUSAL_FALSE_NEGATIVE)属业务事实非漂移，D38 先例口径",
+  "diffExitVsD37": 0,
+  "diffReport": "diff-vs-d37-frozen.txt: QUALITY_FIELDS_IDENTICAL records=60/60",
+  "qa001Top1Id": "3b1501c0-6a99-535a-a787-991f877024c8",
+  "qa001Top1": 0.37974774837493896,
+  "qa001Delta": 0.0,
+  "qa001Tolerance": 1E-09,
+  "runDir": "run-2026-11-22T173221-836086300+0800-PGVECTOR",
+  "remoteCalls": "0（local 轨）",
+  "precondition": "C19 夹具清理 PASS 后执行（PG=8 行 指纹=10fc69d5…）",
+  "verdict": "PASS"
+}
