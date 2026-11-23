@@ -1,0 +1,8 @@
+{
+  "scenario": "E5 cleanupSuperseded 注入失败(cleanup delete#1 抛)",
+  "nonBlocking": "接口 200 v2 COMPLETED，失败落库不上抛",
+  "detect": "C12 步骤 B3",
+  "repair": "B4 consistency 管线 + B5 sync retry",
+  "recheck": "B6 d40 域归零",
+  "evidence": "consistency\\detect-report.json + consistency\\repair-recheck.json + probe\\snap-injB-*.json"
+}

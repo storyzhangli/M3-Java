@@ -1,0 +1,83 @@
+{
+  "at" : "2026-11-23T18:21:08.847720800",
+  "d40_admin_audit" : [ {
+    "actorUserId" : "userA1",
+    "tenantId" : "T1",
+    "role" : "USER",
+    "action" : "sync.retry",
+    "targetDocumentId" : "__none__",
+    "version" : 0,
+    "result" : "DENIED",
+    "reasonCode" : "ADMIN_REQUIRED",
+    "requestId" : "1a22a34c7ac9436b8b779a614ef6a66b",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "userA1",
+    "tenantId" : "T1",
+    "role" : "USER",
+    "action" : "vector-index.delete",
+    "targetDocumentId" : "d40-doc-d",
+    "version" : 0,
+    "result" : "DENIED",
+    "reasonCode" : "ADMIN_REQUIRED",
+    "requestId" : "c2c8ad3aef3844aa91f2287d8fee5cae",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "userA1",
+    "tenantId" : "T1",
+    "role" : "USER",
+    "action" : "documents.register",
+    "targetDocumentId" : "d40-doc-y",
+    "version" : 0,
+    "result" : "DENIED",
+    "reasonCode" : "ADMIN_REQUIRED",
+    "requestId" : "8752e4ff82824c25aa1bb5fd5dc2d7d2",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "adminA1",
+    "tenantId" : "T1",
+    "role" : "ADMIN",
+    "action" : "sync.status",
+    "targetDocumentId" : "d40-doc-a",
+    "version" : 0,
+    "result" : "ALLOWED",
+    "reasonCode" : "",
+    "requestId" : "dde733028e714e03b99ea6f44fd0e941",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "adminA1",
+    "tenantId" : "T1",
+    "role" : "ADMIN",
+    "action" : "sync.retry",
+    "targetDocumentId" : "__no_such_doc__",
+    "version" : 0,
+    "result" : "ALLOWED",
+    "reasonCode" : "",
+    "requestId" : "2743ba0e80a8474a8b788a06fc7b2c0b",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "adminA1",
+    "tenantId" : "T1",
+    "role" : "ADMIN",
+    "action" : "sync.consistency",
+    "targetDocumentId" : "d40-doc-",
+    "version" : 0,
+    "result" : "ALLOWED",
+    "reasonCode" : "",
+    "requestId" : "24dd6b9612b04947b785efa90284371f",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  }, {
+    "actorUserId" : "adminA1",
+    "tenantId" : "T1",
+    "role" : "ADMIN",
+    "action" : "documents.register",
+    "targetDocumentId" : "d40-doc-e1",
+    "version" : 0,
+    "result" : "ALLOWED",
+    "reasonCode" : "",
+    "requestId" : "a1b50cbd73d6485db91909b1b85c4b9c",
+    "createdAt" : "2026-11-23 18:21:08.0"
+  } ],
+  "audit_rows" : 7,
+  "principal_rows" : 4
+}

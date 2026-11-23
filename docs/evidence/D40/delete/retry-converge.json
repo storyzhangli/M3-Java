@@ -1,0 +1,10 @@
+{
+  "sync": {
+    "attempt": 1,
+    "reason": "",
+    "status": "SYNCED"
+  },
+  "pgCount_g": 0,
+  "chunkRows_g": 0,
+  "taskRows_g": 0
+}

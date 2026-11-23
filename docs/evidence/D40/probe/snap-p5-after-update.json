@@ -1,0 +1,133 @@
+{
+  "phase" : "p5-after-update",
+  "at" : 1795427167548,
+  "pg_d40_vector_store_by_doc" : [ {
+    "documentId" : "d40-doc-a",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-b",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-c",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-d",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-up",
+    "rows" : 2
+  }, {
+    "documentId" : "DOC-CNC-COOLING-001",
+    "rows" : 3
+  }, {
+    "documentId" : "DOC-SERVO-TROUBLE-002",
+    "rows" : 3
+  }, {
+    "documentId" : "DOC-WORKORDER-SPEC-003",
+    "rows" : 2
+  } ],
+  "pg_total_rows" : 18,
+  "knowledge_document_d40" : [ {
+    "documentId" : "d40-doc-a",
+    "version" : 1,
+    "lifecycle" : "DEPRECATED"
+  }, {
+    "documentId" : "d40-doc-b",
+    "version" : 1,
+    "lifecycle" : "DEPRECATED"
+  }, {
+    "documentId" : "d40-doc-c",
+    "version" : 1,
+    "lifecycle" : "DEPRECATED"
+  }, {
+    "documentId" : "d40-doc-d",
+    "version" : 1,
+    "lifecycle" : "ACTIVE"
+  }, {
+    "documentId" : "d40-doc-up",
+    "version" : 2,
+    "lifecycle" : "ACTIVE"
+  } ],
+  "d40_document_sync" : [ {
+    "documentId" : "d40-doc-up",
+    "operation" : "UPDATE_CLEANUP",
+    "version" : 1,
+    "status" : "SYNCED",
+    "reason" : "",
+    "attempt" : 0,
+    "payloadHash12" : "e3fef4c73413"
+  }, {
+    "documentId" : "d40-doc-a",
+    "operation" : "DELETE",
+    "version" : 0,
+    "status" : "SYNCED",
+    "reason" : "",
+    "attempt" : 0,
+    "payloadHash12" : "fda585985398"
+  }, {
+    "documentId" : "d40-doc-b",
+    "operation" : "DELETE",
+    "version" : 0,
+    "status" : "SYNCED",
+    "reason" : "",
+    "attempt" : 0,
+    "payloadHash12" : "d0cf2037daa7"
+  }, {
+    "documentId" : "d40-doc-c",
+    "operation" : "DELETE",
+    "version" : 0,
+    "status" : "SYNCED",
+    "reason" : "",
+    "attempt" : 0,
+    "payloadHash12" : "771e0ffdc271"
+  }, {
+    "documentId" : "d40-doc-up",
+    "operation" : "UPDATE_CLEANUP",
+    "version" : 2,
+    "status" : "SYNCED",
+    "reason" : "",
+    "attempt" : 0,
+    "payloadHash12" : "64436ff69ef1"
+  } ],
+  "chunk_index_d40" : [ {
+    "documentId" : "d40-doc-a",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-b",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-c",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-d",
+    "rows" : 2
+  }, {
+    "documentId" : "d40-doc-up",
+    "rows" : 2
+  } ],
+  "vector_index_tasks_d40" : [ {
+    "documentId" : "d40-doc-a",
+    "version" : 1,
+    "status" : "COMPLETED"
+  }, {
+    "documentId" : "d40-doc-b",
+    "version" : 1,
+    "status" : "COMPLETED"
+  }, {
+    "documentId" : "d40-doc-c",
+    "version" : 1,
+    "status" : "COMPLETED"
+  }, {
+    "documentId" : "d40-doc-d",
+    "version" : 1,
+    "status" : "COMPLETED"
+  }, {
+    "documentId" : "d40-doc-up",
+    "version" : 1,
+    "status" : "SUPERSEDED"
+  }, {
+    "documentId" : "d40-doc-up",
+    "version" : 2,
+    "status" : "COMPLETED"
+  } ]
+}

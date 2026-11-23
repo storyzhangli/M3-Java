@@ -1,0 +1,26 @@
+{
+  "f_after_rerun": {
+    "chunkIds": [],
+    "status": "COMPLETED",
+    "relationCount": 1,
+    "pgCount": 0,
+    "contentHashes": [],
+    "contentHash": "d54b9de21701e46cfb5b91195bf2a0ab0918e2a76177fa11161b9217ae46ec43"
+  },
+  "f2_one_pass": {
+    "chunkIds": [],
+    "status": "COMPLETED",
+    "relationCount": 1,
+    "pgCount": 0,
+    "contentHashes": [],
+    "contentHash": "d54b9de21701e46cfb5b91195bf2a0ab0918e2a76177fa11161b9217ae46ec43"
+  },
+  "match": {
+    "taskContentHashEqual": true,
+    "chunkContentHashEqual": true,
+    "pgCountEqual": true,
+    "relationCountEqual": true,
+    "note": "chunkId 以 documentId 为 UUIDv5 盐，f/f2 间结构性不同（如实标注）；f 自身重跑前后 chunkId 集不变=稳定 ID 幂等（见 injA-after-e2fail vs after-e2rerun）",
+    "f_partial_ids": []
+  }
+}

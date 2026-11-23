@@ -1,0 +1,32 @@
+{
+  "at" : "2026-11-23T18:12:05.914628300",
+  "mode" : "construct",
+  "pg_rows_d40-doc-j" : [ {
+    "id" : "4ff6870e-67db-55c4-85a2-3c650665b2ea",
+    "version" : "1"
+  }, {
+    "id" : "c98c0422-a54b-5d28-a6f0-6b96d48481a5",
+    "version" : "1"
+  } ],
+  "pg_deleted_j" : 1,
+  "pg_deleted_j_id" : "4ff6870e-67db-55c4-85a2-3c650665b2ea",
+  "chunk_rows_d40-doc-k" : [ {
+    "chunkId" : "ae84d419-824b-54df-8f43-15b959513197",
+    "version" : 2,
+    "contentHash" : "c145d99b5c649746fc7ac800c0c40b3e7ac85dab2aaec320df79c3b6bbea4dc0"
+  }, {
+    "chunkId" : "f5dad50a-2386-5ca3-91d4-44dfebb03343",
+    "version" : 2,
+    "contentHash" : "2ff7b10e632cc18d700c9a6e24666b68722c39893e8c7877a7d5ff4289c0015c"
+  } ],
+  "version_pointers_before" : [ {
+    "documentId" : "d40-doc-j",
+    "version" : 1
+  }, {
+    "documentId" : "d40-doc-k",
+    "version" : 2
+  } ],
+  "mysql_chunk_rows_deleted_k" : 2,
+  "pointer_set_j9" : 1,
+  "pointer_set_k3" : 1
+}

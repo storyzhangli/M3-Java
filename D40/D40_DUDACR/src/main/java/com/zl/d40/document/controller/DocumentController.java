@@ -1,6 +1,8 @@
 package com.zl.d40.document.controller;
 
+import com.zl.d40.access.AccessDeniedException;
 import com.zl.d40.access.AccessPolicyService;
+import com.zl.d40.access.AuthContext;
 import com.zl.d40.common.Result;
 import com.zl.d40.document.chunk.dto.ChunkComparisonView;
 import com.zl.d40.document.chunk.dto.ChunkView;
@@ -16,6 +18,7 @@ import com.zl.d40.document.service.DocumentImportService;
 import com.zl.d40.document.service.DocumentPageService;
 import com.zl.d40.document.service.DocumentRegistrationService;
 import com.zl.d40.document.support.DocumentConverter;
+import com.zl.d40.document.sync.service.AdminAuditService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +30,9 @@ import java.util.List;
  * 知识文档入口：登记与文件导入职责分离。
  *
  * <p>HTTP 层统一返回 {@link Result}，业务结果通过 code 区分。</p>
+ *
+ * <p><b>D40 P3 写面收口</b>（H7）：enabled 时 register/import 两个写端点
+ * ADMIN-only + 审计留痕；disabled 时门禁整体跳过（H1）。读端点分级不变。</p>
  */
 @RestController
 @RequestMapping("/api/v1/documents")
@@ -46,13 +52,17 @@ public class DocumentController {
      */
     private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
 
+    /** D40 P3：写面 ADMIN-only 审计（可选依赖，disabled 时缺席即零留痕）。 */
+    private final ObjectProvider<AdminAuditService> auditProvider;
+
     public DocumentController(DocumentRegistrationService registrationService,
                               DocumentImportService importService,
                               DocumentPageService pageService,
                               DocumentConverter converter,
                               DocumentChunkService chunkService,
                               ChunkViewMapper chunkViewMapper,
-                              ObjectProvider<AccessPolicyService> accessPolicyProvider) {
+                              ObjectProvider<AccessPolicyService> accessPolicyProvider,
+                              ObjectProvider<AdminAuditService> auditProvider) {
         this.registrationService = registrationService;
         this.importService = importService;
         this.pageService = pageService;
@@ -60,6 +70,7 @@ public class DocumentController {
         this.chunkService = chunkService;
         this.chunkViewMapper = chunkViewMapper;
         this.accessPolicyProvider = accessPolicyProvider;
+        this.auditProvider = auditProvider;
     }
 
     /** enabled 时执行文档级读取校验；disabled 跳过。 */
@@ -70,18 +81,52 @@ public class DocumentController {
         }
     }
 
-    /** 文档登记：仅元数据，落 PENDING。 */
+    /**
+     * D40 P3（H7）：ADMIN 校验 + 双分支审计，语义与 D40SyncController.guardAdmin 一致。
+     */
+    private void guardAdmin(String action, String targetDocumentId) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy == null) {
+            return;
+        }
+        AuthContext context = null;
+        try {
+            context = policy.requireCurrent();
+            policy.requireAdmin(context);
+        } catch (AccessDeniedException denied) {
+            recordAudit(context, action, targetDocumentId,
+                    AdminAuditService.RESULT_DENIED, denied.reason().name());
+            throw denied;
+        }
+        recordAudit(context, action, targetDocumentId, AdminAuditService.RESULT_ALLOWED, "");
+    }
+
+    private void recordAudit(AuthContext context, String action, String target,
+                             String result, String reasonCode) {
+        AdminAuditService audit = auditProvider.getIfAvailable();
+        if (audit == null) {
+            return;
+        }
+        audit.record(context == null ? "ANONYMOUS" : context.userId(),
+                context == null ? "" : context.tenantId(),
+                context == null ? "" : context.role().name(),
+                action, target, 0, result, reasonCode);
+    }
+
+    /** 文档登记：仅元数据，落 PENDING。D40：ADMIN-only（写面收口）。 */
     @PostMapping("/register")
     public Result<DocumentView> register(@Valid @RequestBody DocumentRegisterRequest request) {
+        guardAdmin("documents.register", request.getDocumentId() == null ? "" : request.getDocumentId());
         return Result.success(converter.toView(registrationService.register(request)));
     }
 
-    /** 文件导入：服务端校验、去重、状态机与基础解析。 */
+    /** 文件导入：服务端校验、去重、状态机与基础解析。D40：ADMIN-only（写面收口）。 */
     @PostMapping("/import")
     public Result<DocumentImportView> importFile(@RequestParam("file") MultipartFile file,
                                                  @RequestParam(value = "documentId", required = false) String documentId,
                                                  @RequestParam(value = "source", required = false) String source,
                                                  @RequestParam(value = "title", required = false) String title) {
+        guardAdmin("documents.import", documentId == null ? "" : documentId);
         return Result.success(importService.importFile(file, documentId, source, title));
     }
 

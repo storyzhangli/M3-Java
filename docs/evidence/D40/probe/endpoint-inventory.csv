@@ -1,0 +1,54 @@
+no,controller,method,path,current_gating_40,d40_classification,d40_action
+1,ChatController,POST,/api/v1/ai/chat,history.resolveOwner(头 X-Dev-User；enabled 时 AuthContext.userId),UNAUTH_SESSION,OUT_OF_SCOPE（D39 已定 owner 单点；本轮不动）
+2,ChatController,GET,/api/v1/ai/health,无,PUBLIC_META,OUT_OF_SCOPE（D39 C18 已裁决 enabled 时要求凭据由过滤器兜底；本轮不动）
+3,ChatStreamController,POST,/api/v1/ai/chat/stream,SSE；resolveOwner,UNAUTH_SESSION,OUT_OF_SCOPE（SSE 全路径权限=§0.3 NOT RUN）
+4,DeviceChatController,POST,/api/v1/device/chat,resolveOwner,UNAUTH_SESSION,OUT_OF_SCOPE（设备域候选 DTO 链；D39 边界）
+5,DocumentController,POST,/api/v1/documents/register,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计（H7/D6）
+6,DocumentController,POST,/api/v1/documents/import,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计（H7/D6）
+7,DocumentController,GET,/api/v1/documents/{documentId},无门禁（实测；任务书 §1.1 口径差异已在 baseline-review §4 留痕）,DOC_SCOPE_READ,本轮不动（避免范围蔓延；列 D41 候选）
+8,DocumentController,GET,/api/v1/documents,无门禁,PUBLIC_LIST,本轮不动（D39 inventory 先例未收口；列 D41）
+9,DocumentController,GET,/api/v1/documents/{documentId}/pages,checkReadable,DOC_SCOPE_PREVIEW,不动（D39 已收口）
+10,DocumentController,GET,/api/v1/documents/{documentId}/pages/{pageNumber},checkReadable,DOC_SCOPE_PREVIEW,不动
+11,DocumentController,GET,/api/v1/documents/{documentId}/chunks,checkReadable,DOC_SCOPE_PREVIEW,不动
+12,DocumentController,GET,/api/v1/documents/{documentId}/chunks/comparison,checkReadable,DOC_SCOPE_PREVIEW,不动
+13,EmbeddingController,GET,/api/v1/embeddings/model,无,PUBLIC_META,OUT_OF_SCOPE（D41 候选，D6 裁决）
+14,EmbeddingController,POST,/api/v1/documents/{documentId}/embeddings,requireDocument（D39 实测为 @PostMapping）,DOC_SCOPE_PREVIEW,不动
+15,EmbeddingController,POST,/api/v1/embeddings/index/compatibility,无,OUT_OF_SCOPE,D41 候选（Embedding 管理面不收口，D6）
+16,SimilaritySearchController,POST,/api/v1/retrieval/search,检索路 andWithAccess（D39）,SEARCH_PREDICATE,不动
+17,VectorIndexController,POST,/api/v1/vector-index/index,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计
+18,VectorIndexController,POST,/api/v1/vector-index/documents/{documentId}/index,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计
+19,VectorIndexController,DELETE,/api/v1/vector-index/documents/{documentId},无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计（删除闭环主体）
+20,VectorIndexController,POST,/api/v1/vector-index/reconcile,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计
+21,VectorIndexController,POST,/api/v1/vector-index/recover,无门禁,ADMIN_WRITE,D40-P3 追加 requireAdmin+审计
+22,VectorIndexController,GET,/api/v1/vector-index/documents/{documentId}/status,checkReadable,DOC_SCOPE_PREVIEW,不动
+23,VectorIndexController,GET,/api/v1/vector-index/documents/{documentId}/chunks,checkReadable,DOC_SCOPE_PREVIEW,不动
+24,PgVectorController,POST,/api/v1/vector-store/documents,requireAdmin（D39）,ADMIN_EXISTING,不动（核验复测）
+25,PgVectorController,POST,/api/v1/vector-store/search,requireAdmin（D39）,ADMIN_EXISTING,不动
+26,PgVectorController,GET,/api/v1/vector-store/stats,requireAdmin（D39）,ADMIN_EXISTING,不动
+27,HistoryController,GET,/api/v1/ai/sessions,resolveOwner,UNAUTH_SESSION,OUT_OF_SCOPE（D41）
+28,HistoryController,GET,/api/v1/ai/sessions/{sessionId}/messages,resolveOwner,UNAUTH_SESSION,OUT_OF_SCOPE（D41）
+29,HybridKeywordIndexController,GET,/api/v1/hybrid/keyword-index/stats,无门禁（hybrid 关闭时不可达）,HYBRID_ADMIN_ADJ,不动（D38/D39 先例：rebuild 收口、stats 只读统计）
+30,HybridKeywordIndexController,POST,/api/v1/hybrid/keyword-index/rebuild,requireAdmin（D39）,ADMIN_EXISTING,不动
+31,HybridRagController,POST,/api/v1/hybrid/rag/ask,RAG 入口 try 外 requireCurrent + 两路同源谓词（D39）,SEARCH_PREDICATE,不动
+32,HybridSearchController,POST,/api/v1/hybrid/retrieval/search,两路同源谓词（D39）,SEARCH_PREDICATE,不动
+33,OneEmbeddingController,GET,/api/v1/one/embeddings/usage,one_ 轨默认关,OUT_OF_SCOPE,不动（one_ 轨 §0.3）
+34,OneEmbeddingController,GET,/api/v1/one/embeddings/model,同上,OUT_OF_SCOPE,不动
+35,OneEmbeddingController,POST,/api/v1/one/embeddings/index/compatibility,同上,OUT_OF_SCOPE,不动
+36,OneRagController,POST,/api/v1/one/rag/ask,one_ 检索谓词,OUT_OF_SCOPE,不动
+37,OneSimilaritySearchController,POST,/api/v1/one/retrieval/search,one_ 检索谓词,OUT_OF_SCOPE,不动
+38,OneVectorIndexController,POST,/api/v1/one/vector-index/index,无门禁（one_ 轨默认关）,OUT_OF_SCOPE,不动（§0.3 one_ 零远程）
+39,OneVectorIndexController,DELETE,/api/v1/one/vector-index/documents/{documentId},无门禁（同上）,OUT_OF_SCOPE,不动
+40,OneVectorIndexController,GET,/api/v1/one/vector-index/documents/{documentId}/status,同上,OUT_OF_SCOPE,不动
+41,OneVectorIndexController,GET,/api/v1/one/vector-index/documents/{documentId}/chunks,同上,OUT_OF_SCOPE,不动
+42,OneVectorIndexController,POST,/api/v1/one/vector-index/reconcile,同上,OUT_OF_SCOPE,不动
+43,PromptTemplateController,GET,/api/v1/ai/prompts,无,OUT_OF_SCOPE,不动（D41）
+44,PromptTemplateController,GET,/api/v1/ai/prompts/{templateId},无,OUT_OF_SCOPE,不动
+45,PromptTemplateController,POST,/api/v1/ai/prompts,无,OUT_OF_SCOPE,不动
+46,PromptTemplateController,PUT,/api/v1/ai/prompts/{templateId},无,OUT_OF_SCOPE,不动
+47,PromptTemplateController,PATCH,/api/v1/ai/prompts/{templateId}/status,无,OUT_OF_SCOPE,不动
+48,PromptTemplateController,DELETE,/api/v1/ai/prompts/{templateId},无,OUT_OF_SCOPE,不动
+49,PromptTemplateController,GET,/api/v1/ai/roles,无,OUT_OF_SCOPE,不动
+50,RagController,POST,/api/v1/rag/ask,RAG 入口 requireCurrent（D39）,SEARCH_PREDICATE,不动
+51,D40SyncController,GET,/api/v1/sync/status,新端点,ADMIN_WRITE,P1 新建：requireAdmin+审计（失败可查询）
+52,D40SyncController,POST,/api/v1/sync/retry,新端点,ADMIN_WRITE,P1 新建：requireAdmin+审计（手动重试恒可用）
+53,D40SyncController,POST,/api/v1/sync/consistency,新端点,ADMIN_WRITE,P1 新建：requireAdmin+审计（dryRun 默认 true）

@@ -1,0 +1,8 @@
+{
+  "gate": "C20_D40_HYGIENE_AND_COST",
+  "finishedAt": "2026-11-23T18:36+08:00",
+  "evidence_hygiene": {"pattern_scan_sk_bearer_token": "HIT_COUNT=0（docs\\evidence\\D40 全树）", "fixture_token_cross_compare": "TOKEN_LEAK=0（4 个 principal token 内存比对，明文未入日志）", "gitignore": "docs/temp_docs/D40/auth/fixture-tokens.json 已被 check-ignore 命中（exit=0），git status 无 tokens/.class/target 待提交项"},
+  "cost": {"AI_MODE": "全程 mock（r1–r5/injA/injB/gateC 各实例一致）", "deepseek_calls": 0, "bailian_calls": 0, "log_scan": "运行日志 REMOTE_HITS=0（无 api.deepseek/dashscope/bailian 出网点）", "model_tokens_spent": 0},
+  "note": "学习型知识笔记按约定在对话输出不落盘；代码/证据/脚本/双文档落盘。PG_VECTOR_PASSWORD 仅经用户级环境变量注入，未写入任何文件。",
+  "verdict": "PASS"
+}

@@ -1,0 +1,61 @@
+{
+  "driftSummary": {
+    "driftMetaOnly": 25,
+    "driftVectorOnly": 2,
+    "driftStaleVersion": 0,
+    "driftVersionMismatch": 2,
+    "driftSyncStuck": 0,
+    "countMismatch": 5,
+    "stuckTask": 0,
+    "total": 34
+  },
+  "missing": [
+    "b6173403-18d9-57e1-ae2e-ae9637b7a269",
+    "c754072e-d7f6-58b7-8ada-e442ab013a2f",
+    "ba2debfa-5443-56cb-a10c-5347678c3bbb",
+    "9c0b1fef-5f3e-5ecf-a695-00d29b66c251",
+    "88ecb0bb-aba4-549c-8cf4-b0ab61ea5ae8",
+    "c5c6b381-ef8c-56f1-8d35-d1e7d7827e8a",
+    "61682b28-23af-5c63-9fb0-47db4aa00bc2",
+    "bbb72ed7-b036-5e6a-aa7c-b4775e51315e",
+    "bf8655da-8121-5611-859c-b2c1627414c6",
+    "2d650c39-6320-5418-abc0-0a69263ab099",
+    "0533ec49-ca47-59fd-9e9b-42b0611fd5ee",
+    "bd08580e-91d7-50d0-be46-83367e612401",
+    "c6fca31c-3fba-5895-af37-d92be81e2e8f",
+    "b80a9a8d-c1a7-5d4e-9998-4db342c4c423",
+    "67b92d8c-0a7c-5f49-906b-e768ee4dbf70",
+    "194498d1-13a7-544c-a32e-9d6ebd540355",
+    "155f0740-c17d-5782-bbff-dfa240f6a523",
+    "66d193c3-aa73-5422-b1c8-17d255e58208",
+    "67ff1707-5f90-5473-a27b-492190812faf",
+    "6944b290-9575-5f73-bf22-b94098787026",
+    "6f43b1ca-69d0-5f98-980e-1a36acd07cf1",
+    "81528f9b-c090-5965-a457-16107cfaaf8e",
+    "ac452f51-3f47-509b-8915-04a37af008ce",
+    "2255e506-211b-5ec9-988d-a24f4c4bc49f",
+    "4ff6870e-67db-55c4-85a2-3c650665b2ea"
+  ],
+  "orphan": [
+    {
+      "type": null,
+      "doc": "d40-doc-k",
+      "key": "ae84d419-824b-54df-8f43-15b959513197"
+    },
+    {
+      "type": null,
+      "doc": "d40-doc-k",
+      "key": "f5dad50a-2386-5ca3-91d4-44dfebb03343"
+    }
+  ],
+  "versionMismatches": [
+    {
+      "doc": "d40-doc-j",
+      "key": "d40-doc-j|1"
+    },
+    {
+      "doc": "d40-doc-k",
+      "key": "d40-doc-k|2"
+    }
+  ]
+}

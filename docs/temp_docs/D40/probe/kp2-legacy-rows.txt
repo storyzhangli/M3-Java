@@ -1,0 +1,16 @@
+== document_vector_index rows ==
+d32eval-air v=1 COMPLETED STRUCTURE chunks=6
+d32eval-code v=1 COMPLETED STRUCTURE chunks=6
+d32eval-model v=1 COMPLETED STRUCTURE chunks=6
+d32eval-pump v=1 COMPLETED STRUCTURE chunks=6
+DOC-CNC-COOLING-001 v=1 COMPLETED STRUCTURE chunks=3
+DOC-SERVO-TROUBLE-002 v=1 COMPLETED STRUCTURE chunks=3
+DOC-WORKORDER-SPEC-003 v=1 COMPLETED STRUCTURE chunks=2
+== document_chunk_index prefix counts detail ==
+d32eval-air rows=6
+d32eval-code rows=6
+d32eval-model rows=6
+d32eval-pump rows=6
+DOC-CNC-COOLING-001 rows=3
+DOC-SERVO-TROUBLE-002 rows=3
+DOC-WORKORDER-SPEC-003 rows=2

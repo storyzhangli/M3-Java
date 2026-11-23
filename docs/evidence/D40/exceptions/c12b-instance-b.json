@@ -1,0 +1,92 @@
+{
+  "scenario": "C12b 五类漂移全命中+管线修复（KP5 裁决）",
+  "steps": [
+    {
+      "step": "register:d40-doc-j",
+      "at": "2026-11-23T18:12:04.2084894+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "register:d40-doc-k",
+      "at": "2026-11-23T18:12:04.2341964+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "index:j:v1",
+      "at": "2026-11-23T18:12:04.3237486+08:00",
+      "detail": {
+        "code": 200,
+        "st": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:k:v1",
+      "at": "2026-11-23T18:12:04.4053066+08:00",
+      "detail": {
+        "code": 200,
+        "st": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:k:v2",
+      "at": "2026-11-23T18:12:04.5123203+08:00",
+      "detail": {
+        "code": 200,
+        "st": "COMPLETED"
+      }
+    },
+    {
+      "step": "construct(META删j1行PG/VECTOR删k关联行/MISMATCH j→9 k→3)",
+      "at": "2026-11-23T18:12:06.5348656+08:00",
+      "detail": null
+    },
+    {
+      "step": "C12:detect(expect META>=1 VECTOR=2 VERSION=2)",
+      "at": "2026-11-23T18:12:06.6114724+08:00",
+      "detail": {
+        "driftMetaOnly": 25,
+        "driftVectorOnly": 2,
+        "driftStaleVersion": 0,
+        "driftVersionMismatch": 2,
+        "driftSyncStuck": 0,
+        "countMismatch": 5,
+        "stuckTask": 0,
+        "total": 34
+      }
+    },
+    {
+      "step": "C13:repair(pipeline-only)",
+      "at": "2026-11-23T18:12:06.6604024+08:00",
+      "detail": {
+        "actions": [
+          "删除孤儿向量 2 条（scope=d40-doc-）",
+          "重建缺失向量 documentId=d40-doc-j version=1",
+          "文档版本指针重放 documentId=d40-doc-j → v1（stateTx 本地事务）",
+          "文档版本指针重放 documentId=d40-doc-k → v2（stateTx 本地事务）"
+        ]
+      }
+    },
+    {
+      "step": "recheck(归零)",
+      "at": "2026-11-23T18:12:06.7228920+08:00",
+      "detail": {
+        "pointer_j": 9,
+        "d40": {
+          "driftMetaOnly": 25,
+          "driftVectorOnly": 0,
+          "driftStaleVersion": 0,
+          "driftVersionMismatch": 2,
+          "driftSyncStuck": 0,
+          "countMismatch": 5,
+          "stuckTask": 0,
+          "total": 32
+        },
+        "pointer_k": 3
+      }
+    }
+  ]
+}

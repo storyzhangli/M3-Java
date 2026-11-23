@@ -1,0 +1,140 @@
+{
+  "instance": "B(fault-injection: delete#1 throw, batch=100)",
+  "steps": [
+    {
+      "step": "snap:injB-pre",
+      "at": "2026-11-23T18:08:53.3889292+08:00",
+      "detail": null
+    },
+    {
+      "step": "register:h",
+      "at": "2026-11-23T18:08:53.9885653+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "index:h:v1",
+      "at": "2026-11-23T18:08:54.2280707+08:00",
+      "detail": {
+        "status": "COMPLETED",
+        "code": 200
+      }
+    },
+    {
+      "step": "E5:index:h:v2(non-blocking COMPLETED + cleanup FAILED)",
+      "at": "2026-11-23T18:08:55.5056473+08:00",
+      "detail": {
+        "chunk_h": 4,
+        "pg_h": 4,
+        "code": 200,
+        "tasks": [
+          {
+            "s": "SUPERSEDED",
+            "v": 1
+          },
+          {
+            "s": "COMPLETED",
+            "v": 2
+          }
+        ],
+        "sync": [
+          {
+            "op": "UPDATE_CLEANUP",
+            "attempt": 1,
+            "reason": "PG_UNREACHABLE",
+            "st": "FAILED",
+            "v": 1
+          }
+        ],
+        "returnedStatus": "COMPLETED"
+      }
+    },
+    {
+      "step": "C12:detect(d40域 expect STALE>=2 & STUCK>=1; 全域 expect META/VECTOR_ONLY>0)",
+      "at": "2026-11-23T18:08:57.6804621+08:00",
+      "detail": {
+        "global_driftSummary": {
+          "driftMetaOnly": 24,
+          "driftVectorOnly": 0,
+          "driftStaleVersion": 2,
+          "driftVersionMismatch": 0,
+          "driftSyncStuck": 1,
+          "countMismatch": 4,
+          "stuckTask": 0,
+          "total": 31
+        },
+        "d40_driftSummary": {
+          "driftMetaOnly": 24,
+          "driftVectorOnly": 0,
+          "driftStaleVersion": 2,
+          "driftVersionMismatch": 0,
+          "driftSyncStuck": 1,
+          "countMismatch": 4,
+          "stuckTask": 0,
+          "total": 31
+        }
+      }
+    },
+    {
+      "step": "C13:consistency-repair(non-dryRun prefix=d40-doc-)",
+      "at": "2026-11-23T18:08:58.7549959+08:00",
+      "detail": {
+        "code": 200,
+        "chunk_h": 4,
+        "actionsTaken": [
+          "删除孤儿向量 2 条（scope=d40-doc-）"
+        ],
+        "pg_h": 2
+      }
+    },
+    {
+      "step": "H6:repair-without-prefix(expect 4001)",
+      "at": "2026-11-23T18:08:58.7620801+08:00",
+      "detail": {
+        "msg": "非 dryRun 修复必须指定非空 documentPrefix（夹具域隔离，防跨遗留行误修复）",
+        "code": 4001
+      }
+    },
+    {
+      "step": "C11:sync:retry:h",
+      "at": "2026-11-23T18:08:58.8396895+08:00",
+      "detail": {
+        "sync": [
+          {
+            "op": "UPDATE_CLEANUP",
+            "attempt": 1,
+            "reason": "",
+            "st": "SYNCED",
+            "v": 1
+          }
+        ],
+        "code": 200,
+        "results": [
+          {
+            "op": "UPDATE_CLEANUP",
+            "st": null,
+            "v": 1
+          }
+        ]
+      }
+    },
+    {
+      "step": "C13+E5:recheck(expect d40域 STALE=0 STUCK=0, pg_h=2)",
+      "at": "2026-11-23T18:08:59.9067628+08:00",
+      "detail": {
+        "driftSummary": {
+          "driftMetaOnly": 24,
+          "driftVectorOnly": 0,
+          "driftStaleVersion": 0,
+          "driftVersionMismatch": 0,
+          "driftSyncStuck": 0,
+          "countMismatch": 4,
+          "stuckTask": 0,
+          "total": 28
+        },
+        "pg_h": 2
+      }
+    }
+  ]
+}

@@ -1,11 +1,14 @@
 package com.zl.d40.document.vectorindex;
 
+import com.zl.d40.access.AccessDeniedException;
 import com.zl.d40.access.AccessPolicyService;
+import com.zl.d40.access.AuthContext;
 import com.zl.d40.common.Result;
 import com.zl.d40.document.chunk.model.Chunk;
 import com.zl.d40.document.chunk.model.ChunkStrategy;
 import com.zl.d40.document.po.DocumentChunkIndexPO;
 import com.zl.d40.document.po.DocumentVectorIndexPO;
+import com.zl.d40.document.sync.service.AdminAuditService;
 import com.zl.d40.document.vectorindex.dto.*;
 import com.zl.d40.document.vectorindex.service.DocumentVectorIndexService;
 import com.zl.d40.document.vectorindex.service.VectorReconciliationService;
@@ -21,6 +24,11 @@ import java.util.List;
  *
  * <p>统一返回 {@link Result}；所有写操作基于稳定 ID 与数据库约束，
  * 重复调用安全。无鉴权，仅提供本地开发/学习用途。</p>
+ *
+ * <p><b>D40 P3 写面收口</b>（H7）：enabled 时 5 个<b>写</b>端点
+ * （index / indexFromPages / delete / reconcile / recover）ADMIN-only + 审计留痕
+ * （DENIED 也留痕）；disabled 时 AccessPolicyService 不装配 → 门禁整体跳过 →
+ * 零差异（H1）。读端点（status/chunks）维持 D39 DOC_SCOPE_CHECK 分级不变。</p>
  */
 @RestController
 @RequestMapping("/api/v1/vector-index")
@@ -33,12 +41,17 @@ public class VectorIndexController {
     /** P3：status/chunks 预览端点=DOC_SCOPE_CHECK（inventory）；disabled 零差异（H1）。 */
     private final ObjectProvider<AccessPolicyService> accessPolicyProvider;
 
+    /** D40 P3：写面 ADMIN-only 审计（可选依赖，disabled 时缺席即零留痕）。 */
+    private final ObjectProvider<AdminAuditService> auditProvider;
+
     public VectorIndexController(DocumentVectorIndexService indexService,
                                  VectorReconciliationService reconciliationService,
-                                 ObjectProvider<AccessPolicyService> accessPolicyProvider) {
+                                 ObjectProvider<AccessPolicyService> accessPolicyProvider,
+                                 ObjectProvider<AdminAuditService> auditProvider) {
         this.indexService = indexService;
         this.reconciliationService = reconciliationService;
         this.accessPolicyProvider = accessPolicyProvider;
+        this.auditProvider = auditProvider;
     }
 
     /** enabled 时文档级读取校验；disabled 跳过。 */
@@ -50,10 +63,46 @@ public class VectorIndexController {
     }
 
     /**
+     * D40 P3（H7）：ADMIN 校验 + 双分支审计，语义与 D40SyncController.guardAdmin 一致；
+     * disabled 时整体跳过（零差异）。
+     */
+    private void guardAdmin(String action, String targetDocumentId, int version) {
+        AccessPolicyService policy = accessPolicyProvider.getIfAvailable();
+        if (policy == null) {
+            return;
+        }
+        AuthContext context = null;
+        try {
+            context = policy.requireCurrent();
+            policy.requireAdmin(context);
+        } catch (AccessDeniedException denied) {
+            recordAudit(context, action, targetDocumentId, version,
+                    AdminAuditService.RESULT_DENIED, denied.reason().name());
+            throw denied;
+        }
+        recordAudit(context, action, targetDocumentId, version,
+                AdminAuditService.RESULT_ALLOWED, "");
+    }
+
+    private void recordAudit(AuthContext context, String action, String target, int version,
+                             String result, String reasonCode) {
+        AdminAuditService audit = auditProvider.getIfAvailable();
+        if (audit == null) {
+            return;
+        }
+        audit.record(context == null ? "ANONYMOUS" : context.userId(),
+                context == null ? "" : context.tenantId(),
+                context == null ? "" : context.role().name(),
+                action, target, version, result, reasonCode);
+    }
+
+    /**
      * 直接 Chunk 幂等入库（不依赖原文页表）。
      */
     @PostMapping("/index")
     public Result<VectorIndexResultView> index(@Valid @RequestBody VectorIndexRequest request) {
+        guardAdmin("vector-index.index", request.getDocumentId(),
+                request.getVersion() == null ? 0 : request.getVersion());
         List<Chunk> chunks = toChunks(request);
         return Result.success(indexService.indexChunks(request.getDocumentId(),
                 request.getVersion(), request.getStrategy(), request.getTitle(), chunks));
@@ -65,6 +114,7 @@ public class VectorIndexController {
     @PostMapping("/documents/{documentId}/index")
     public Result<VectorIndexResultView> indexFromPages(@PathVariable String documentId,
                                                         @RequestParam(required = false) String strategy) {
+        guardAdmin("vector-index.indexFromPages", documentId, 0);
         return Result.success(indexService.indexFromPages(documentId, strategy));
     }
 
@@ -73,6 +123,7 @@ public class VectorIndexController {
      */
     @DeleteMapping("/documents/{documentId}")
     public Result<Integer> delete(@PathVariable String documentId) {
+        guardAdmin("vector-index.delete", documentId, 0);
         int before = indexService.listChunks(documentId).size();
         indexService.deleteByDocument(documentId);
         return Result.success(before);
@@ -80,9 +131,14 @@ public class VectorIndexController {
 
     /**
      * 跨系统一致性核对：默认 dryRun。
+     *
+     * <p>D40 风险提示：非 dryRun 全域修复会波及跨 Dxx 遗留关联行
+     * （详见 {@link VectorReconciliationService#reconcile(boolean)} javadoc）；
+     * 带修复域限定的核查请使用 ADMIN 的 /api/v1/sync/consistency。</p>
      */
     @PostMapping("/reconcile")
     public Result<ReconciliationReportView> reconcile(@Valid @RequestBody ReconcileRequest request) {
+        guardAdmin("vector-index.reconcile", "", 0);
         return Result.success(reconciliationService.reconcile(Boolean.TRUE.equals(request.getDryRun())));
     }
 
@@ -91,6 +147,7 @@ public class VectorIndexController {
      */
     @PostMapping("/recover")
     public Result<List<VectorIndexResultView>> recover() {
+        guardAdmin("vector-index.recover", "", 0);
         return Result.success(indexService.recoverStuckTasks());
     }
 

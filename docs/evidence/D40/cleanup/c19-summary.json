@@ -1,0 +1,15 @@
+{
+  "gate": "C19_D40_FIXTURE_CLEANUP",
+  "finishedAt": "2026-11-23T18:30+08:00",
+  "instance": "默认 r5（ACCESS_ENABLED/FAULT_INJECTION 全缺省）",
+  "order_decision": "先 C19 清理再 C05 回归（对齐 D39 脚本注释口径：夹具清理是回归前置，消除 d40 向量对 topK 干扰变量）",
+  "pipeline_delete": "12 个 d40-doc-* DELETE 全部 code=200（a/b/c/g tombstone 幂等短路、d/e1/f/f2/h/j/k/up 完整闭环；同步状态以 harness before 计数与 PG 归零结果为准）",
+  "before_apply": {"kd_d40": 12, "sync_total": 16, "audit_total": 7, "chunk_d40": 0, "vecidx_d40": 0, "pg_d40_fixture": 0, "pg_total": 8, "kd_doc_zero_touch": 3},
+  "deleted": {"knowledge_document": 12, "d40_document_sync": 16, "d40_admin_audit": 7, "assoc_tables_d40": 0, "pg_d40_fixture": 0},
+  "after": {"kd_d40": 0, "sync_total": 0, "audit_total": 0, "chunk_d40": 0, "vecidx_d40": 0, "pg_d40_fixture": 0, "FIXTURE_REMAINING": 0},
+  "zero_touch_verified": {"DOC_*_rows": 3, "chunk_other": 32, "pg_total_corpus": 8, "note": "关联表 d40 行在管线删除/一致性修复阶段已归零（chunk_d40 before=0 为证）"},
+  "principal_boundary": "d40_auth_principal 4 行为治理基础设施（DDL 种子，非文档夹具）——任务书 C19 未列清零，保留并如实标注",
+  "fingerprint_restored": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9（D40Probe 复算，= kp2-inventory-postseed 冻结值，d40_vector_store count=8）",
+  "evidence": ["cleanup-dryrun.json", "cleanup-apply.json", "cleanup-verify.json", "postclean-inventory.json"],
+  "verdict": "PASS"
+}

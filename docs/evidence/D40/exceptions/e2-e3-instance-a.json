@@ -1,0 +1,128 @@
+{
+  "instance": "A(fault-injection: add#2 throw, delete#1 throw, batch=1)",
+  "steps": [
+    {
+      "step": "snap:injA-pre",
+      "at": "2026-11-23T17:58:57.7360051+08:00",
+      "detail": null
+    },
+    {
+      "step": "register:d40-doc-f",
+      "at": "2026-11-23T17:58:58.3477124+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "register:d40-doc-g",
+      "at": "2026-11-23T17:58:58.3715582+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "register:d40-doc-f2",
+      "at": "2026-11-23T17:58:58.3929557+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "E2:index:f:v1(expect FAIL)",
+      "at": "2026-11-23T17:58:58.5789358+08:00",
+      "detail": {
+        "msg": "系统繁忙，请稍后重试",
+        "code": 5000
+      }
+    },
+    {
+      "step": "E2:task:f:v1(expect PARTIAL+EMBED_WRITE_FAILED)",
+      "at": "2026-11-23T17:58:59.6276004+08:00",
+      "detail": {
+        "pgCount": 1,
+        "chunkRows": 1,
+        "errorCode": "EMBED_WRITE_FAILED",
+        "status": "PARTIAL",
+        "snapshotFile": "snap-injA-after-e2fail.json"
+      }
+    },
+    {
+      "step": "E2:rerun:f:v1(expect COMPLETED)",
+      "at": "2026-11-23T17:58:59.7642119+08:00",
+      "detail": {
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "REF:index:f2:v1(one-pass success)",
+      "at": "2026-11-23T17:58:59.8481845+08:00",
+      "detail": {
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "C07:quad-f-vs-f2",
+      "at": "2026-11-23T17:59:01.0089954+08:00",
+      "detail": {
+        "evidence": "f(PARTIAL重跑) 与 f2(一次成功) PG各2行/关联各2行、chunk contentHash 逐字节一致(750ccd…/e3fd9d…)、task contentHash 一致(d54b9de2…)；f 内 PG id 集与 MySQL 关联 id 集完全一致；chunkId 集 f≠f2 系 documentId UUIDv5 盐(如实标注)",
+        "quadRef": "update\\quad-f-vs-f2.json"
+      }
+    },
+    {
+      "step": "E3:index:g:v1",
+      "at": "2026-11-23T17:59:01.1257614+08:00",
+      "detail": {
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "E3:delete:g(expect FAIL PG_UNREACHABLE)",
+      "at": "2026-11-23T17:59:01.1711779+08:00",
+      "detail": {
+        "msg": "系统繁忙，请稍后重试",
+        "code": 5000
+      }
+    },
+    {
+      "step": "E3:state(expect FAILED+PG_UNREACHABLE, tombstone DEPRECATED, PG g=2)",
+      "at": "2026-11-23T17:59:02.2318372+08:00",
+      "detail": {
+        "syncStatus": "FAILED",
+        "pgCount": 2,
+        "chunkRows": 2,
+        "attempt": 1,
+        "reason": "PG_UNREACHABLE"
+      }
+    },
+    {
+      "step": "E3:sync:retry:g",
+      "at": "2026-11-23T17:59:03.3283861+08:00",
+      "detail": {
+        "results": [
+          {
+            "op": "DELETE",
+            "st": null
+          }
+        ],
+        "code": 200
+      }
+    },
+    {
+      "step": "C09:converge(expect SYNCED attempt=1, 0/0/0)",
+      "at": "2026-11-23T17:59:04.4175229+08:00",
+      "detail": {
+        "sync": {
+          "attempt": 1,
+          "reason": "",
+          "status": "SYNCED"
+        },
+        "pgCount_g": 0,
+        "chunkRows_g": 0,
+        "taskRows_g": 0
+      }
+    }
+  ]
+}

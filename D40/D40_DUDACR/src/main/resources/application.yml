@@ -291,4 +291,27 @@ app:
     deny-code: 4030
     deny-message: 认证缺失、无效或已过期，请携带有效 Bearer 凭据重试
 
+  # ------------------------------------------------------------------
+  # D40 追加：向量索引治理开关（仅新增键；既有 vector-index 参数沿用
+  # VectorIndexProperties 代码默认值，不在此展开，H1 零触碰既有行）。
+  # H2：fault-injection 与 sync-retry 均默认 false、无 matchIfMissing——
+  #     主 profile 永不装配（C18/熔断#6）；矩阵/取证经环境变量启动注入切换，
+  #     不落盘修改本文件（D39 ACCESS_ENABLED 先例）。
+  # 审计面：随 app.access.enabled 门禁（AdminAuditService 同条件装配），
+  #     无独立开关——disabled 开发态零审计写入（H1 零差异）。
+  # 参数冻结：docs/evidence/D40/probe/sync-params.json（fail-* 0=禁用，
+  #     N=第 N 次调用抛一次 SIMULATED_PG_CONNECTION_LOST）。
+  # ------------------------------------------------------------------
+  vector-index:
+    # E2 取证形态：分批入库中途失败需小批次；默认 100=代码原默认，主 profile 零行为变化
+    batch-size: ${VECTOR_INDEX_BATCH_SIZE:100}
+    fault-injection:
+      enabled: ${FAULT_INJECTION_ENABLED:false}
+      fail-add-attempt: ${FAULT_INJECTION_ADD_ATTEMPT:0}
+      fail-delete-attempt: ${FAULT_INJECTION_DELETE_ATTEMPT:0}
+    sync-retry:
+      enabled: ${SYNC_RETRY_ENABLED:false}
+      scan-interval-ms: ${SYNC_RETRY_SCAN_INTERVAL_MS:60000}
+      initial-delay-ms: ${SYNC_RETRY_INITIAL_DELAY_MS:10000}
+
 

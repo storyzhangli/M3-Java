@@ -1,0 +1,14 @@
+{
+  "case": "C16/E1 解析失败",
+  "at": "2026-11-23T17:52+08:00",
+  "injection": "非 PDF 字节流(4E 4F 54 2D 41 2D 50 44 46)以 .pdf 上传 POST /documents/import（先 register d40-doc-e1——矩阵第一遍实测 import 前置依赖登记行，未 register 直接 4001 文档不存在，该负路径亦留痕 p5-matrix.json import:e1）",
+  "facts": {
+    "register": "code=200 status=PENDING",
+    "import": "code=200（受理成功，解析阶段异步失败落状态）",
+    "doc_status": "GET /documents/d40-doc-e1 → status=FAILED errorCode=PARSE_FAILED",
+    "pg_delta": "snap 对比：d40-doc-e1 在 pg_d40_vector_store_by_doc 无行（delta=0），injA-pre pg_total=12 不含 e1",
+    "relation_residual": "document_chunk_index/document_vector_index 均无 e1 行（矩阵 snap 系列）",
+    "lifecycle": "knowledge_document e1 行 lifecycle=ACTIVE（解析失败非删除态，如实记录）"
+  },
+  "verdict": "PASS——不进向量库、DocumentStatus=FAILED+PARSE_FAILED、PG/关联零残留"
+}

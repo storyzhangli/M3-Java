@@ -1,0 +1,15 @@
+{
+  "d40_driftSummary": {
+    "driftMetaOnly": 25,
+    "driftVectorOnly": 0,
+    "driftStaleVersion": 0,
+    "driftVersionMismatch": 2,
+    "driftSyncStuck": 0,
+    "countMismatch": 5,
+    "stuckTask": 0,
+    "total": 32
+  },
+  "pointer_j": 9,
+  "pointer_k": 3,
+  "expect": "d40 域 META/VECTOR/VERSION/STALE/STUCK 全 0；j 指针回 1、k 回 2（repointVersionPointer 管线）"
+}

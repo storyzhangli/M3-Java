@@ -13,6 +13,7 @@ import com.zl.d40.document.po.DocumentVectorIndexPO;
 import com.zl.d40.document.po.KnowledgeDocumentPO;
 import com.zl.d40.document.service.DocumentPageService;
 import com.zl.d40.document.support.Sha256ContentHasher;
+import com.zl.d40.document.sync.po.DocumentSyncPO;
 import com.zl.d40.document.vectorindex.VectorIndexException;
 import com.zl.d40.document.vectorindex.config.VectorIndexProperties;
 import com.zl.d40.document.vectorindex.dto.VectorIndexResultView;
@@ -84,6 +85,9 @@ public class DocumentVectorIndexService {
     /** P2 追加：文档权限三列读取（knowledge_document 权威；缺失=无标签，metadata 不写权限键）。 */
     private final ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider;
 
+    /** D40 P2 追加：操作级同步状态机（删除闭环/清理钩子的落库入口；不构成依赖环——本服务→syncService 单向）。 */
+    private final com.zl.d40.document.sync.service.DocumentSyncService syncService;
+
     public DocumentVectorIndexService(VectorStore vectorStore,
                                       @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
                                       PgVectorStoreProperties pgProperties,
@@ -95,7 +99,8 @@ public class DocumentVectorIndexService {
                                       VectorIndexStateTx stateTx,
                                       ObjectProvider<DocumentPageService> pageServiceProvider,
                                       ObjectProvider<DocumentChunkService> chunkServiceProvider,
-                                      ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider) {
+                                      ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider,
+                                      com.zl.d40.document.sync.service.DocumentSyncService syncService) {
         this.vectorStore = vectorStore;
         this.pgVectorJdbcTemplate = pgVectorJdbcTemplate;
         this.pgProperties = pgProperties;
@@ -108,6 +113,7 @@ public class DocumentVectorIndexService {
         this.pageServiceProvider = pageServiceProvider;
         this.chunkServiceProvider = chunkServiceProvider;
         this.documentMapperProvider = documentMapperProvider;
+        this.syncService = syncService;
     }
 
     // ------------------------------------------------------------------
@@ -126,6 +132,21 @@ public class DocumentVectorIndexService {
     public VectorIndexResultView indexChunks(String documentId, Integer version,
                                              String strategy, String title,
                                              List<Chunk> chunks) {
+        return indexChunks(documentId, version, strategy, title, chunks, false);
+    }
+
+    /**
+     * D40 P4 修复追加（C12b 实测缺陷）：{@code forceReindex=true} 跳过幂等短路。
+     *
+     * <p>幂等短路面三元组（COMPLETED ∧ payloadHash ∧ 关联数）不含 PG 侧——对
+     * <b>重复事件</b>（E4 冻结语义）成立；但一致性修复的 META_ONLY 场景恰是
+     * "MySQL 三面一致而 PG 缺行"，默认调用会被短路成零写入（C12b 第一遍实测）。
+     * force 仅由 {@code VectorReconciliationService} 修复路径使用；默认重载行为
+     * 逐字节不变，E4 语义不受影响。</p>
+     */
+    public VectorIndexResultView indexChunks(String documentId, Integer version,
+                                             String strategy, String title,
+                                             List<Chunk> chunks, boolean forceReindex) {
         if (documentId == null || documentId.isBlank()) {
             throw new IllegalArgumentException("documentId 不能为空");
         }
@@ -141,8 +162,9 @@ public class DocumentVectorIndexService {
         DocumentVectorIndexPO existing = findIndexRow(documentId, targetVersion);
         String payloadHash = hasher.hash(buildPayloadText(normalized));
 
-        // 重复导入幂等短路：已完成且指纹与关联数一致，不再产生写入
-        if (existing != null
+        // 重复导入幂等短路：已完成且指纹与关联数一致，不再产生写入（forceReindex=修复态跳过）
+        if (!forceReindex
+                && existing != null
                 && VectorIndexStatus.COMPLETED.name().equals(existing.getStatus())
                 && payloadHash.equals(existing.getContentHash())
                 && chunkMapper.selectByDocumentVersion(documentId, targetVersion).size()
@@ -312,6 +334,19 @@ public class DocumentVectorIndexService {
      *
      * <p>PG 删除语句 {@code DELETE ... WHERE id=?} 对已不存在的 id 不报错，
      * 因此中途失败后重试仍然安全；MySQL 行在 PG 删除成功后才清理。</p>
+     *
+     * <p><b>D40 P2 同步闭环</b>（任务书 D1/D2 裁决）：</p>
+     * <ol>
+     *   <li>幂等短路：已收敛（无关联/无任务/PG=0 ∧ sync 行 SYNCED）→ 零写入零状态变化返回
+     *       （重复事件 E4 判据）；</li>
+     *   <li>标记事务：lifecycle→DEPRECATED + sync PENDING 同一 MySQL 本地事务
+     *       （{@code stateTx.markDeletedTx}）；</li>
+     *   <li>PG 分批删除：连接类异常→PG_UNREACHABLE，其余→PG_DELETE_FAILED 落库后异常上抛
+     *       （状态已落库可查询可重试）；</li>
+     *   <li>MySQL 关联/任务行清理；</li>
+     *   <li>双端确认（唯一 SYNCED 判据）：PG count=0 ∧ 关联行=0 ∧ 任务行=0，
+     *       任一非零→CONFIRM_MISMATCH 落库上抛（§3.4：只清一端不算收敛）。</li>
+     * </ol>
      */
     public void deleteByDocument(String documentId) {
         if (documentId == null || documentId.isBlank()) {
@@ -322,13 +357,163 @@ public class DocumentVectorIndexService {
         for (DocumentChunkIndexPO row : rows) {
             ids.add(row.getChunkId());
         }
-        int batchSize = Math.max(1, properties.getBatchSize());
-        for (int from = 0; from < ids.size(); from += batchSize) {
-            int to = Math.min(from + batchSize, ids.size());
-            vectorStore.delete(ids.subList(from, to));
+        String payloadHash = hasher.hash(chunkIdSetText(ids));
+        DocumentSyncPO existingSync = syncService.find(documentId,
+                com.zl.d40.document.sync.model.SyncOperation.DELETE, null);
+
+        // 步骤 0：重复删除事件幂等短路（不写 PG、不动 MySQL、不改 sync 状态、attempt 不增长）
+        long taskRows = indexMapper.selectCount(new QueryWrapper<DocumentVectorIndexPO>()
+                .eq("document_id", documentId));
+        long pgRemaining = countPgForDocument(documentId);
+        if (rows.isEmpty() && taskRows == 0 && pgRemaining == 0
+                && existingSync != null
+                && com.zl.d40.document.sync.model.SyncStatus.SYNCED.name()
+                        .equals(existingSync.getSyncStatus())) {
+            log.info("重复删除事件命中已收敛 SYNCED，幂等短路零写入 documentId={}", documentId);
+            return;
         }
-        stateTx.deleteDocumentRows(documentId);
-        log.info("文档向量已删除 documentId={} vectors={}", documentId, ids.size());
+
+        // 步骤 1：标记事务（tombstone + PENDING 原子）
+        LocalDateTime markTime = LocalDateTime.now();
+        DocumentSyncPO pendingRow = new DocumentSyncPO();
+        pendingRow.setDocumentId(documentId);
+        pendingRow.setOperation(com.zl.d40.document.sync.model.SyncOperation.DELETE.name());
+        pendingRow.setVersion(com.zl.d40.document.sync.model.SyncOperation.DELETE
+                .normalizeVersion(null));
+        pendingRow.setSyncStatus(com.zl.d40.document.sync.model.SyncStatus.PENDING.name());
+        pendingRow.setReasonCode("");
+        pendingRow.setAttemptCount(existingSync == null || existingSync.getAttemptCount() == null
+                ? 0 : existingSync.getAttemptCount());
+        pendingRow.setNextRetryAt(null);
+        pendingRow.setPayloadHash(payloadHash);
+        pendingRow.setCreatedAt(markTime);
+        pendingRow.setUpdatedAt(markTime);
+        try {
+            stateTx.markDeletedTx(documentId, pendingRow, markTime);
+        } catch (Exception markEx) {
+            syncService.markFailed(documentId,
+                    com.zl.d40.document.sync.model.SyncOperation.DELETE, null,
+                    com.zl.d40.document.sync.model.SyncReasonCode.MARK_FAILED, payloadHash);
+            throw new VectorIndexException("MARK_FAILED",
+                    "删除标记事务失败，状态已落库可重试: " + safeMessage(markEx), markEx);
+        }
+
+        int batchSize = Math.max(1, properties.getBatchSize());
+        // 步骤 2：PG 分批删除（失败落库后上抛——重试安全）
+        try {
+            for (int from = 0; from < ids.size(); from += batchSize) {
+                int to = Math.min(from + batchSize, ids.size());
+                vectorStore.delete(ids.subList(from, to));
+            }
+        } catch (Exception pgEx) {
+            com.zl.d40.document.sync.model.SyncReasonCode reason =
+                    com.zl.d40.document.sync.model.SyncReasonCode.classify(pgEx);
+            syncService.markFailed(documentId,
+                    com.zl.d40.document.sync.model.SyncOperation.DELETE, null, reason, payloadHash);
+            throw new VectorIndexException(reason.name(),
+                    "PG 向量删除失败，状态已落库可重试: " + safeMessage(pgEx), pgEx);
+        }
+
+        // 步骤 3：MySQL 关联/任务行清理；失败不直接抛，进入双端确认按事实归因 CONFIRM_MISMATCH
+        try {
+            stateTx.deleteDocumentRows(documentId);
+        } catch (Exception rowsEx) {
+            log.warn("MySQL 关联清理异常，进入双端确认按事实裁决 documentId={} type={}",
+                    documentId, rowsEx.getClass().getSimpleName());
+        }
+
+        // 步骤 4：双端确认（SYNCED 唯一判据）
+        long pgAfter = countPgForDocument(documentId);
+        long chunkAfter = chunkMapper.selectCount(new QueryWrapper<DocumentChunkIndexPO>()
+                .eq("document_id", documentId));
+        long taskAfter = indexMapper.selectCount(new QueryWrapper<DocumentVectorIndexPO>()
+                .eq("document_id", documentId));
+        if (pgAfter != 0 || chunkAfter != 0 || taskAfter != 0) {
+            syncService.markFailed(documentId,
+                    com.zl.d40.document.sync.model.SyncOperation.DELETE, null,
+                    com.zl.d40.document.sync.model.SyncReasonCode.CONFIRM_MISMATCH, payloadHash);
+            throw new VectorIndexException("CONFIRM_MISMATCH",
+                    "双端确认不一致 pg=%d chunk=%d task=%d，状态已落库可重试"
+                            .formatted(pgAfter, chunkAfter, taskAfter), null);
+        }
+        syncService.markSynced(documentId,
+                com.zl.d40.document.sync.model.SyncOperation.DELETE, null, payloadHash);
+        log.info("文档向量已删除并双端确认 documentId={} vectors={} confirm=0/0/0",
+                documentId, ids.size());
+    }
+
+    /**
+     * D40 P2：UPDATE_CLEANUP 单版本重试入口（{@code SyncRetryRunner} 管线回调，H4）。
+     *
+     * <p>语义=对 SUPERSEDED 旧版本重跑清理：PG 分批删除 → MySQL 该版本关联行清理 →
+     * 版本级双端确认 → SYNCED/FAILED 落库。关联行缺失但 PG 向量在（Outbox 无快照）→
+     * 转孤儿补偿：按 PG 实查 id 走 {@link #deleteVectorsByIds} 补偿管线（SNAPSHOT_MISSING
+     * 落原因码后再清，不裸 SQL 直改）。</p>
+     */
+    public void retryCleanupVersion(String documentId, Integer version) {
+        com.zl.d40.document.sync.model.SyncOperation operation =
+                com.zl.d40.document.sync.model.SyncOperation.UPDATE_CLEANUP;
+        if (documentId == null || documentId.isBlank() || version == null || version <= 0) {
+            throw new IllegalArgumentException("retryCleanupVersion 需 documentId 与正版本号");
+        }
+        List<DocumentChunkIndexPO> oldRows =
+                chunkMapper.selectByDocumentVersion(documentId, version);
+        List<String> ids = new ArrayList<>(oldRows.size());
+        for (DocumentChunkIndexPO r : oldRows) {
+            ids.add(r.getChunkId());
+        }
+        String payloadHash = hasher.hash(chunkIdSetText(ids));
+        syncService.markPending(documentId, operation, version, payloadHash);
+
+        int batchSize = Math.max(1, properties.getBatchSize());
+        try {
+            if (ids.isEmpty()) {
+                // 快照缺失态：PG 仍在（版本级实查 id）→ 补偿管线删除；PG 也空 → 直接进确认
+                List<String> pgIds = listPgIdsForVersion(documentId, version);
+                if (!pgIds.isEmpty()) {
+                    syncService.markFailed(documentId, operation, version,
+                            com.zl.d40.document.sync.model.SyncReasonCode.SNAPSHOT_MISSING,
+                            payloadHash);
+                    log.warn("清理重试遇关联缺但 PG 向量在，转孤儿补偿 documentId={} version={} pgIds={}",
+                            documentId, version, pgIds.size());
+                    for (int from = 0; from < pgIds.size(); from += batchSize) {
+                        int to = Math.min(from + batchSize, pgIds.size());
+                        deleteVectorsByIds(pgIds.subList(from, to));
+                    }
+                }
+            } else {
+                for (int from = 0; from < ids.size(); from += batchSize) {
+                    int to = Math.min(from + batchSize, ids.size());
+                    vectorStore.delete(ids.subList(from, to));
+                }
+            }
+        } catch (Exception cleanupEx) {
+            com.zl.d40.document.sync.model.SyncReasonCode reason =
+                    com.zl.d40.document.sync.model.SyncReasonCode.classify(cleanupEx);
+            syncService.markFailed(documentId, operation, version, reason, payloadHash);
+            throw new VectorIndexException(reason.name(),
+                    "旧版本清理重试失败，状态已落库可继续重试: " + safeMessage(cleanupEx), cleanupEx);
+        }
+
+        // 版本级 MySQL 关联清理（异常进入确认按事实归因，同删除闭环裁决）
+        try {
+            stateTx.deleteOldVersionRows(documentId, version);
+        } catch (Exception rowsEx) {
+            log.warn("旧版本关联清理异常，进入版本级双端确认 documentId={} version={} type={}",
+                    documentId, version, rowsEx.getClass().getSimpleName());
+        }
+
+        long pgAfter = countPgForVersion(documentId, version);
+        long chunkAfter = chunkMapper.selectCount(new QueryWrapper<DocumentChunkIndexPO>()
+                .eq("document_id", documentId).eq("version", version));
+        if (pgAfter != 0 || chunkAfter != 0) {
+            syncService.markFailed(documentId, operation, version,
+                    com.zl.d40.document.sync.model.SyncReasonCode.CONFIRM_MISMATCH, payloadHash);
+            throw new VectorIndexException("CONFIRM_MISMATCH",
+                    "旧版本双端确认不一致 pg=%d chunk=%d".formatted(pgAfter, chunkAfter), null);
+        }
+        syncService.markSynced(documentId, operation, version, payloadHash);
+        log.info("旧版本清理重试收敛 SYNCED documentId={} version={}", documentId, version);
     }
 
     // ------------------------------------------------------------------
@@ -424,31 +609,72 @@ public class DocumentVectorIndexService {
     // 内部辅助
     // ------------------------------------------------------------------
 
+    /**
+     * 旧版本清理（SWITCH 后调用；不阻断新版本收敛）。
+     *
+     * <p><b>D40 P2 钩子</b>（D4 裁决：失败必落库）：单版本清理异常不再是仅 warn——
+     * 建 UPDATE_CLEANUP sync FAILED 任务 + 细分原因码（异常分类冻结口径），
+     * 由 sync 手动/自动重试管线收敛；成功则记 SYNCED 行（操作级事实留痕，
+     * 同时支撑 DRIFT_SYNC_STUCK/复查断言）。保持非阻断语义：新版本已活动，不上抛。</p>
+     */
     private void cleanupSuperseded(String documentId) {
         List<DocumentVectorIndexPO> superseded = indexMapper.selectList(
                 new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<DocumentVectorIndexPO>()
                         .eq("document_id", documentId)
                         .eq("status", VectorIndexStatus.SUPERSEDED.name()));
         for (DocumentVectorIndexPO old : superseded) {
+            List<String> oldIds = new ArrayList<>();
+            String payloadHash = "";
             try {
                 List<DocumentChunkIndexPO> oldRows =
                         chunkMapper.selectByDocumentVersion(documentId, old.getVersion());
-                List<String> oldIds = new ArrayList<>(oldRows.size());
                 for (DocumentChunkIndexPO r : oldRows) {
                     oldIds.add(r.getChunkId());
                 }
+                payloadHash = hasher.hash(chunkIdSetText(oldIds));
                 int batchSize = Math.max(1, properties.getBatchSize());
                 for (int from = 0; from < oldIds.size(); from += batchSize) {
                     int to = Math.min(from + batchSize, oldIds.size());
                     vectorStore.delete(oldIds.subList(from, to));
                 }
                 stateTx.deleteOldVersionRows(documentId, old.getVersion());
+                syncService.markSynced(documentId,
+                        com.zl.d40.document.sync.model.SyncOperation.UPDATE_CLEANUP,
+                        old.getVersion(), payloadHash);
             } catch (Exception cleanupEx) {
-                // 非致命：新版本已活动，记录并留给核对补偿
-                log.warn("旧版本清理失败，等待核对补偿 documentId={} version={} reason={}",
-                        documentId, old.getVersion(), safeMessage(cleanupEx));
+                // D40：非致命语义保留（不上抛），但失败必须落库——UPDATE_CLEANUP FAILED + 原因码
+                com.zl.d40.document.sync.model.SyncReasonCode reason =
+                        com.zl.d40.document.sync.model.SyncReasonCode.classify(cleanupEx);
+                syncService.markFailed(documentId,
+                        com.zl.d40.document.sync.model.SyncOperation.UPDATE_CLEANUP,
+                        old.getVersion(), reason, payloadHash);
+                log.warn("旧版本清理失败已落库 UPDATE_CLEANUP FAILED，等待 sync 重试收敛 documentId={} version={} reason={} type={}",
+                        documentId, old.getVersion(), reason, cleanupEx.getClass().getSimpleName());
             }
         }
+    }
+
+    /** 幂等证明引用：受影响 chunkId 集排序连接文本（KP4 四元组之一，禁口头断言）。 */
+    private static String chunkIdSetText(List<String> ids) {
+        List<String> sorted = new ArrayList<>(ids);
+        java.util.Collections.sort(sorted);
+        return String.join("\n", sorted);
+    }
+
+    /** PG 中文档全版本向量数（DELETE 双端确认引用）。 */
+    public long countPgForDocument(String documentId) {
+        String sql = "SELECT COUNT(*) FROM " + qualifiedTable()
+                + " WHERE (metadata->>'documentId') = ?";
+        Long count = pgVectorJdbcTemplate.queryForObject(sql, Long.class, documentId);
+        return count == null ? 0L : count;
+    }
+
+    /** PG 中文档指定版本的向量 id 实查（快照缺失转孤儿补偿引用，H4 管线口径）。 */
+    public List<String> listPgIdsForVersion(String documentId, Integer version) {
+        String sql = "SELECT id::text FROM " + qualifiedTable()
+                + " WHERE (metadata->>'documentId') = ? AND (metadata->>'version') = ?";
+        return pgVectorJdbcTemplate.queryForList(sql, String.class,
+                documentId, String.valueOf(version));
     }
 
     private void handleWriteFailure(DocumentVectorIndexPO task, int processed, Exception ex) {

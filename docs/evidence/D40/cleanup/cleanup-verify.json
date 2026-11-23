@@ -1,0 +1,28 @@
+{
+  "at" : "2026-11-23T18:28:15.571427300",
+  "mode" : "dryRun",
+  "before" : {
+    "kd_d40" : 0,
+    "kd_doc_zero_touch" : 3,
+    "chunk_d40" : 0,
+    "chunk_other" : 32,
+    "vecidx_d40" : 0,
+    "sync_total" : 0,
+    "audit_total" : 0,
+    "principal_total" : 4,
+    "pg_total" : 8,
+    "pg_d40_fixture" : 0
+  },
+  "after" : {
+    "kd_d40" : 0,
+    "kd_doc_zero_touch" : 3,
+    "chunk_d40" : 0,
+    "chunk_other" : 32,
+    "vecidx_d40" : 0,
+    "sync_total" : 0,
+    "audit_total" : 0,
+    "principal_total" : 4,
+    "pg_total" : 8,
+    "pg_d40_fixture" : 0
+  }
+}

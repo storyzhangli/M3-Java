@@ -1,0 +1,18 @@
+{
+  "case": "C18 故障注入收口（主 profile 永不装配、回归态零注入残留）",
+  "at": "2026-11-23T18:20:00+08:00",
+  "assembly_gate": {
+    "class": "document/vectorstore/FaultInjectionConfiguration.java",
+    "condition": "@ConditionalOnProperty(prefix=\"app.vector-index.fault-injection\", name=\"enabled\", havingValue=\"true\")——无 matchIfMissing，键缺省=false 不装配",
+    "yml": "application.yml: enabled=${FAULT_INJECTION_ENABLED:false}；fail-add/delete-attempt 默认 0=禁用；sync-retry.enabled=${SYNC_RETRY_ENABLED:false}"
+  },
+  "log_scan": {
+    "d40_run-default-8080-r2.log": "fault-injection 命中 0 行（P5 主矩阵默认实例）",
+    "d40_run-default-8080-r4.log": "fault-injection 命中 0 行（修复复验默认实例）",
+    "d40_run-injA-8080.log": "fault-injection 命中 2 行（仅专用注入实例）",
+    "sync_retry_auto_scan": "全部实例日志 SyncRetryRunner 自动调度 0 命中（SYNC_RETRY_ENABLED 从未置 true，重试均经手动 /sync/retry）"
+  },
+  "instance_isolation": "注入计数器为装饰器 per-instance 内存态（AtomicInteger），实例重启归零；注入态实例(A/B)与回归态实例(r2/r4)物理分离——熔断#6 不命中",
+  "regression_state": "P6 回归将在 r4（fault-injection=false + access=false + 新代码）执行；当前库 d40 域向量数将由 C19 清理后回 8 行冻结指纹（10fc69d5…）",
+  "verdict": "PASS"
+}

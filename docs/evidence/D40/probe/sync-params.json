@@ -1,0 +1,93 @@
+{
+  "syncTable": "d40_document_sync",
+  "auditTable": "d40_admin_audit",
+  "syncTableColumnsFrozen": {
+    "id": "BIGINT AUTO_INCREMENT PK",
+    "document_id": "VARCHAR(64) NOT NULL",
+    "operation": "ENUM('DELETE','UPDATE_CLEANUP') NOT NULL",
+    "version": "INT NOT NULL DEFAULT 0 COMMENT '0=全版本(DELETE)；>0=目标旧版本(UPDATE_CLEANUP)'",
+    "sync_status": "ENUM('PENDING','SYNCED','FAILED') NOT NULL",
+    "reason_code": "VARCHAR(64) NOT NULL DEFAULT ''",
+    "attempt_count": "INT NOT NULL DEFAULT 0",
+    "next_retry_at": "DATETIME NULL",
+    "payload_hash": "CHAR(64) NOT NULL DEFAULT '' COMMENT '排序chunkId集 SHA-256（操作快照指纹）'",
+    "created_at": "DATETIME NOT NULL",
+    "updated_at": "DATETIME NOT NULL",
+    "unique_key": "uk_doc_op_version(document_id, operation, version)",
+    "version_null_adjudication": "任务书 D1 原文 version NULL；MySQL 唯一键 NULL 不判重（多行合法）与 uk 防重复事件目标冲突，冻结为 NOT NULL DEFAULT 0（0=全版本语义），偏差留痕 kp1-kp4-adjudication.md §KP4-1"
+  },
+  "auditColumnsFrozen": {
+    "id": "BIGINT AUTO_INCREMENT PK",
+    "actor_user_id": "VARCHAR(64) NOT NULL",
+    "tenant_id": "VARCHAR(64) NOT NULL",
+    "role": "VARCHAR(16) NOT NULL COMMENT '服务端权威 role 快照'",
+    "action": "VARCHAR(64) NOT NULL COMMENT '端点动作名（如 vector-index.delete / sync.retry）'",
+    "target_document_id": "VARCHAR(64) NOT NULL DEFAULT ''",
+    "version": "INT NOT NULL DEFAULT 0",
+    "result": "VARCHAR(16) NOT NULL COMMENT 'ALLOWED/DENIED'",
+    "reason_code": "VARCHAR(64) NOT NULL DEFAULT '' COMMENT '拒绝原因码或空'",
+    "request_id": "VARCHAR(64) NOT NULL DEFAULT '' COMMENT '既有 requestId 链路贯通'",
+    "created_at": "DATETIME NOT NULL"
+  },
+  "reasonCodes": {
+    "sync_operation_codes": ["PG_UNREACHABLE", "PG_DELETE_FAILED", "CONFIRM_MISMATCH", "MARK_FAILED", "SNAPSHOT_MISSING", "RETRY_EXHAUSTED"],
+    "existing_codes_kept_semantics": {
+      "EMBED_WRITE_FAILED": "索引任务 document_vector_index.error_code（既有，不动）",
+      "COUNT_MISMATCH": "索引任务写后核对（既有，不动）",
+      "NO_SNAPSHOT": "索引任务写入前崩溃无 Outbox（既有，不动）",
+      "PARSE_FAILED": "导入侧 DocumentStatus FAILED（既有语义，不新建存储位）"
+    },
+    "retry_exhausted_representation": "sync_status=FAILED ∧ reason_code=RETRY_EXHAUSTED ∧ attempt_count>=maxAttempts；具体失败原因保留于应用日志与证据文件（表无 error_message 列，冻结列不加）",
+    "reason_classification_rule": "删除/清理管线 catch：异常链含连接类（SQLTransientException/CannotGetJdbcConnectionException/PSQLException communication/SimulatedConnectionLost/SocketTimeout/Connection refused）→ PG_UNREACHABLE；其余存储层异常 → PG_DELETE_FAILED；双端确认非零 → CONFIRM_MISMATCH；标记事务失败 → MARK_FAILED"
+  },
+  "stateMachineFrozen": {
+    "transitions": [
+      "PENDING -> SYNCED（双端确认通过）",
+      "PENDING -> FAILED（任一步失败+原因码，attempt+1，next_retry_at=now+retryBackoffMs）",
+      "FAILED -> PENDING（retry：手动端点恒可用；自动调度仅 sync-retry.enabled=true 且 attempt<max）",
+      "FAILED ∧ attempt>=maxAttempts -> 保持 FAILED 且 reason_code=RETRY_EXHAUSTED（待人工）",
+      "RETRY_EXHAUSTED -> PENDING（仅 ADMIN 手动 retry：attempt_count 重置 0 后执行一次，审计留痕）"
+    ],
+    "synced_predicate_DELETE": "countPG(document_id 全版本)=0 ∧ document_chunk_index 行=0 ∧ document_vector_index 任务行=0",
+    "synced_predicate_UPDATE_CLEANUP": "countPgForVersion(document_id,targetVersion)=0 ∧ 该版本 chunk 关联行=0",
+    "mark_pending_atomicity": "lifecycle→DEPRECATED + sync PENDING 同一 MySQL 本地事务（markDeletedTx）",
+    "duplicate_event_semantics": "deleteByDocument 幂等短路：无关联行 ∧ 无任务行 ∧ 无 PG 向量 ∧ 最近 sync 行=SYNCED → 零写入零状态变化返回（E4）；重复 UPDATE_CLEANUP 事件经 uk_doc_op_version upsert 不产生新行"
+  },
+  "driftTaxonomy": {
+    "DRIFT_META_ONLY": "既有 missingVectors 显式标类：关联行存在 ∧ PG 无对应 id",
+    "DRIFT_VECTOR_ONLY": "既有 orphanVectors 标类：PG 有 ∧ (无关联行 ∨ 任务非活动)；SUPERSEDED 任务向量单列为 STALE",
+    "DRIFT_STALE_VERSION": "orphan 子集显式标类：所属任务 status=SUPERSEDED 的 PG 向量 / SUPERSEDED 任务残留关联行",
+    "DRIFT_VERSION_MISMATCH": "新增两类判定：(a) knowledge_document.version ≠ 该文档最新 COMPLETED 任务版本（行存在且无 COMPLETED 任务时跳过不误报）；(b) 同一 chunkId 的 PG metadata.version ≠ document_chunk_index.version",
+    "DRIFT_SYNC_STUCK": "新增：sync 行 FAILED ∧ (next_retry_at IS NULL ∨ now>next_retry_at)；或 PENDING ∧ updated_at 超 stuckMinutes（崩溃滞留）；或 RETRY_EXHAUSTED",
+    "legacy_scope_rule": "修复与归零断言仅针对 d40- 前缀夹具 + DOC-* 冻结语料；d32eval-*（D32 遗留 24 关联行，向量属历史表资产）判定为 LEGACY_OUT_OF_SCOPE：核查报告如实列出、不纳入修复、不纳入归零断言分母（H6 零触碰）"
+  },
+  "fingerprintMethod": {
+    "idempotency_quadruple": ["payloadHash（document_vector_index.content_hash 重算=Sha256ContentHasher 规范串）", "sorted_chunkIds_sha256（该 documentId+version 全部 chunk_id 字典序 join 的 SHA-256）", "pg_count（countPgForVersion）", "relation_count（selectByDocumentVersion.size）"],
+    "proof_rule": "重跑/重试前后四元组逐字节一致才算与一次成功完全一致（C07/C10/E2）；禁口头断言",
+    "collection_fingerprint_algorithm": "与 InvertedIndex.build/D39Probe 一致：行=chunkId|sha256(content)|chars|documentId|version|strategy|chunkIndex|splitVersion，字典序 \\n join 后 SHA-256"
+  },
+  "faultInjectionGate": {
+    "bean": "FaultInjectingVectorStore 包装真实 pgVectorStore Bean，@Primary + @Bean 位于 FaultInjectionConfiguration",
+    "gate": "app.vector-index.fault-injection.enabled 默认 false，@ConditionalOnProperty(havingValue=true) 无 matchIfMissing → 主 profile 永不装配（C18）",
+    "properties": {"fail-add-attempt": "0=禁用；N=第 N 次 add() 调用抛一次受控异常", "fail-delete-attempt": "0=禁用；N=第 N 次 delete() 调用抛一次受控异常"},
+    "exception": "SimulatedConnectionLostException extends RuntimeException, message=SIMULATED_PG_CONNECTION_LOST（客户端边界失败≡连接丢失；PG 本体真实不动，H5）",
+    "counter_scope": "add/delete 各自独立计数，进程生命周期内单调",
+    "aux_method": "坏端口启动 fail-fast 演练（PGVECTOR_PORT=59999，继承 D39 T8/C16）",
+    "regression_isolation": "P6 回归必须 fault-injection.enabled=false 实例；注入残留→熔断#6"
+  },
+  "citationCrossCheck": {
+    "path": "真实 CitationVerificationService Bean + 实库：夹具入库→取真实 chunkId→DELETE 管线删除（chunk 行清除）→verify(EvidenceItem{documentId,chunkId})→removed.reasonCode 断言",
+    "expected_branch": "tombstone 保留 knowledge_document 行 → doc!=null ∧ chunkId 不在 chunkOwners → CITATION_TARGET_DELETED（chunkOwners-missing 分支，非 doc-null 分支）",
+    "race_condition_scope": "生成中删除竞态 mock 下不可观测 → N/A 留痕（沿用 OneRagOrchestrator 既有注释口径，H8）"
+  },
+  "baselineFingerprint": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+  "baselineFingerprintVerifiedAt": "2026-11-23T17:04+08:00（KP2 seeding 后 harness 复算逐字节一致）",
+  "fixtureFingerprintIfInjected": "重注夹具后须现场重算并冻结（D39 先例 388a593c… 不适用本轮 d40 表，夹具文档集不同）",
+  "datasetHash": "75cc8d83cfb218c404149ed718998d286faa2e2cafddcfefa394584db4b17cfe",
+  "legacyDocIds": ["DOC-CNC-COOLING-001", "DOC-SERVO-TROUBLE-002", "DOC-WORKORDER-SPEC-003", "d32eval-air", "d32eval-code", "d32eval-model", "d32eval-pump"],
+  "legacyDocIdsNote": "与 docs/temp_docs/D40/probe/kp2-legacy-rows.txt 实测一致：3 冻结语料 DOC-*（8 关联）+ 4 D32 遗留 d32eval-*（24 关联），全部零触碰；d40- 前缀为唯一可清理夹具域",
+  "seedingResult": {"d40_vector_store_rows": 8, "metadata_keys": ["chunkContentHash", "chunkIndex", "documentId", "splitVersion", "strategy", "title", "version"], "qa001_anchor_chunk": "3b1501c0-6a99-535a-a787-991f877024c8", "one_d40_vector_store": "NOT_EXIST（one_ 轨默认关，预期）"},
+  "storageFacts": {"pg_metadata_column_type": "json（非 jsonb，D39 口径沿用）", "d40_auth_principal": "NOT_EXIST（P1 DDL 新建，表结构同构 d39_auth_principal）", "d40_document_sync": "NOT_EXIST（P1 新建）", "d40_admin_audit": "NOT_EXIST（P1 新建）", "knowledge_document": "3 行 DOC-* v=1 COMPLETED ACTIVE scope=null"},
+  "skeletonHead": "f3cf475cd735f7aa35462535b93c193faf645404",
+  "probedAt": "2026-11-23T17:05:00+08:00"
+}

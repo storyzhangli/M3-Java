@@ -1,0 +1,21 @@
+{
+  "gate": "C05_D40_ZERO_DIFF_REGRESSION",
+  "finishedAt": "2026-11-23T18:29:20+08:00",
+  "instance": "ACCESS_ENABLED 缺省(false) FAULT_INJECTION 缺省(false) AI_MODE=mock（默认零差异态 r5）",
+  "precondition": "C19 夹具已清理（对齐 D39 先清理后回归口径）",
+  "anonProbe": {
+    "total": 3,
+    "top1": "3b1501c0-6a99-535a-a787-991f877024c8",
+    "code": 200
+  },
+  "selftestExit": 0,
+  "runExit": 1,
+  "diffExitVsD37": 0,
+  "qa001Top1Id": "3b1501c0-6a99-535a-a787-991f877024c8",
+  "qa001Top1": 0.37974774837493896,
+  "qa001Delta": 0.0,
+  "qa001Tolerance": 1E-09,
+  "runDir": "run-2026-11-23T182916-257841200+0800-PGVECTOR",
+  "remoteCalls": "0（local 轨）",
+  "verdict": "PASS"
+}

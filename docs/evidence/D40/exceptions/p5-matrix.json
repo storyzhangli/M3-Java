@@ -1,0 +1,195 @@
+{
+  "steps": [
+    {
+      "step": "snap-pre",
+      "at": "2026-11-23T17:46:06.4803520+08:00",
+      "detail": null
+    },
+    {
+      "step": "register:d40-doc-a",
+      "at": "2026-11-23T17:46:06.6314688+08:00",
+      "detail": {
+        "code": 4001,
+        "version": null,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "register:d40-doc-b",
+      "at": "2026-11-23T17:46:06.6423110+08:00",
+      "detail": {
+        "code": 4001,
+        "version": null,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "register:d40-doc-c",
+      "at": "2026-11-23T17:46:06.6512809+08:00",
+      "detail": {
+        "code": 4001,
+        "version": null,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "register:d40-doc-d",
+      "at": "2026-11-23T17:46:06.6605245+08:00",
+      "detail": {
+        "code": 4001,
+        "version": null,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "register:d40-doc-up",
+      "at": "2026-11-23T17:46:06.6710218+08:00",
+      "detail": {
+        "code": 4001,
+        "version": null,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "register-dup-expect-4001",
+      "at": "2026-11-23T17:46:06.6799933+08:00",
+      "detail": {
+        "code": 4001
+      }
+    },
+    {
+      "step": "index:",
+      "at": "2026-11-23T17:46:06.7659946+08:00",
+      "detail": {
+        "embedded": null,
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:",
+      "at": "2026-11-23T17:46:06.8457144+08:00",
+      "detail": {
+        "embedded": null,
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:",
+      "at": "2026-11-23T17:46:06.9237817+08:00",
+      "detail": {
+        "embedded": null,
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:",
+      "at": "2026-11-23T17:46:06.9330608+08:00",
+      "detail": {
+        "embedded": null,
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:up:v1",
+      "at": "2026-11-23T17:46:07.0303424+08:00",
+      "detail": {
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "index:up:v2",
+      "at": "2026-11-23T17:46:07.1432456+08:00",
+      "detail": {
+        "code": 200,
+        "status": "COMPLETED"
+      }
+    },
+    {
+      "step": "status:up",
+      "at": "2026-11-23T17:46:07.1540646+08:00",
+      "detail": [
+        {
+          "s": "SUPERSEDED",
+          "v": 1
+        },
+        {
+          "s": "COMPLETED",
+          "v": 2
+        }
+      ]
+    },
+    {
+      "step": "pointer:up(expect version=2)",
+      "at": "2026-11-23T17:46:07.1639072+08:00",
+      "detail": {
+        "code": 200,
+        "version": 2,
+        "lifecycle": null
+      }
+    },
+    {
+      "step": "delete:a",
+      "at": "2026-11-23T17:46:08.1769473+08:00",
+      "detail": {
+        "code": 200,
+        "removedBefore": 2
+      }
+    },
+    {
+      "step": "sync:a(expect SYNCED)",
+      "at": "2026-11-23T17:46:08.1875989+08:00",
+      "detail": {
+        "st": "SYNCED",
+        "op": "DELETE",
+        "reason": "",
+        "attempt": 0
+      }
+    },
+    {
+      "step": "delete:a:again(expect short-circuit)",
+      "at": "2026-11-23T17:46:09.2072019+08:00",
+      "detail": {
+        "removedBefore": 0,
+        "code": 200,
+        "sync": {
+          "st": "SYNCED",
+          "hash12": "fda585985398",
+          "attempt": 0
+        }
+      }
+    },
+    {
+      "step": "delete:b+tombstone",
+      "at": "2026-11-23T17:46:09.2603931+08:00",
+      "detail": {
+        "delCode": 200,
+        "lifecycle": null,
+        "docRowExists": true,
+        "sync": {
+          "st": "SYNCED",
+          "attempt": 0
+        }
+      }
+    },
+    {
+      "step": "delete:c",
+      "at": "2026-11-23T17:46:09.3059684+08:00",
+      "detail": {
+        "code": 200
+      }
+    },
+    {
+      "step": "import:e1(expect FAIL code)",
+      "at": "2026-11-23T17:46:09.3467136+08:00",
+      "detail": {
+        "code": 4001,
+        "msg": "文档不存在: d40-doc-e1"
+      }
+    }
+  ]
+}

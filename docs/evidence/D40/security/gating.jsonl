@@ -1,0 +1,15 @@
+
+{"probe":"G1a anon POST /sync/retry","method":"Post","path":"/sync/retry","code":4030}
+{"probe":"G1b anon GET /sync/status","method":"Get","path":"/sync/status?documentId=d40-doc-a","code":4030}
+{"probe":"G1c anon POST /vector-index/index","method":"Post","path":"/vector-index/index","code":4030}
+{"probe":"G1d anon DELETE /vector-index/documents/d40-doc-d","method":"Delete","path":"/vector-index/documents/d40-doc-d","code":4030}
+{"probe":"G1e anon POST /documents/register","method":"Post","path":"/documents/register","code":4030}
+{"probe":"G2a user POST /sync/retry","method":"Post","path":"/sync/retry","code":4030}
+{"probe":"G2b user DELETE /vector-index/documents/d40-doc-d","method":"Delete","path":"/vector-index/documents/d40-doc-d","code":4030}
+{"probe":"G2c user POST /documents/register","method":"Post","path":"/documents/register","code":4030}
+{"probe":"G3a admin GET /sync/status","method":"Get","path":"/sync/status?documentId=d40-doc-a","code":200}
+{"probe":"G3b admin POST /sync/retry(noop)","method":"Post","path":"/sync/retry","code":200}
+{"probe":"G3c admin POST /sync/consistency(dryRun)","method":"Post","path":"/sync/consistency","code":200}
+{"probe":"G3d admin POST /documents/register(dup-4001)","method":"Post","path":"/documents/register","code":4001}
+{"probe":"G4a user GET /documents/d40-doc-d","method":"Get","path":"/documents/d40-doc-d","code":200}
+{"note":"C14/C15 判定","C14":"PASS——匿名写面5探针+非ADMIN 3探针全部 4030 拒绝；adminA1 4 探针以业务码放行(200/4001)；G4a 读面 GET /documents userA1=200 属 D39 既有可读语义(非写门禁对象)如实记录","C15":"PASS——d40_admin_audit 7 行(ALLOWED=4/DENIED=3)，actor/role/action/target/version/result/reason_code/request_id(32字符 MDC 贯通)零缺失","anonymous_boundary":"匿名请求(无/坏 Bearer)由 access filter 在进入 controller guard 前 4030 拦截，guard 级审计结构上不触发(D39 同型语义，如实标注)；DENIED 留痕以已通过 filter 的非 ADMIN 凭据请求为准","instance":"gateC(ACCESS_ENABLED=true)；disabled 态零差异回归由 C05/P6 匿名探针覆盖"}

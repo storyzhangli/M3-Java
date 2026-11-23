@@ -1,0 +1,20 @@
+{
+  "case": "C17 引用交叉验证（删除后 CITATION_TARGET_DELETED，D35 不回退）",
+  "at": "2026-11-23T18:20:00+08:00",
+  "classification_evidence": {
+    "code": "rag/citation/CitationVerificationService.classify L131/L135：doc 缺失 或 chunk 缺失 → CITATION_TARGET_DELETED（先于 lifecycle/EVIDENCE_NOT_EFFECTIVE 判定）",
+    "d35_no_regression": "git status --porcelain 对 rag/citation/ 与 rag/model/RagErrorCode.java 输出为空 = D40 全程零变更该二处",
+    "unit_test": "CitationDeletedClassificationTest 5 case：mvn -B test 实测 Tests run: 42, Failures: 0, BUILD SUCCESS（2026-11-23 18:15）",
+    "test_file": "src/test/java/com/zl/d40/document/sync/CitationDeletedClassificationTest.java"
+  },
+  "db_fact_evidence": {
+    "deleted_docs": ["d40-doc-a", "d40-doc-b", "d40-doc-c"],
+    "facts": "删除闭环后（snap-p5-final/injA-*）：document_chunk_index 关联行数=0、PG 向量=0、knowledge_document.lifecycle=DEPRECATED(tombstone 保留行)、sync DELETE SYNCED attempt=0",
+    "classify_path_hit": "对已删文档的 EvidenceItem(documentId+chunkId)：docMap 含 tombstone 行→L130 不命中；chunkOwners 不含已清 chunk→L133-135 命中 CITATION_TARGET_DELETED（与 D35 整改 P1-01 归属校验同层不回退）"
+  },
+  "race_window": {
+    "status": "N/A（如实留痕，不伪造）",
+    "reason": "verify 唯一调用方=三 Orchestrator 的 ask 管线（grep 4 处），EvidenceItem 只能来自检索结果；已删文档 chunk 在 PG 中不存在，检索侧结构上无法返回被删 chunk → 删除竞态窗口在 mock+真实 PG 态均不可自然观测；与 OneRagOrchestrator L39 javadoc 既有口径一致"
+  },
+  "verdict": "PASS（分类单测+实库事实+结构性 N/A 留痕 三层组合证明）"
+}
