@@ -104,8 +104,10 @@ class DocumentSyncServiceStateMachineTest {
     }
 
     @Test
-    @DisplayName("claimForRetry：手动 ∧ 耗尽 → attempt 重置 0；PENDING 由 updateById 落库")
+    @DisplayName("claimForRetry（R02 原子领取）：手动 ∧ 耗尽 → newAttempt=0 条件 UPDATE，affected=1 领取成功")
     void claimManualResetsExhausted() {
+        when(mapper.claimFailedAtomically(eq(1L), eq(0), eq(""), any(LocalDateTime.class)))
+                .thenReturn(1);
         DocumentSyncPO exhausted = row(SyncStatus.FAILED, SyncReasonCode.RETRY_EXHAUSTED, 3);
         DocumentSyncPO claimed = service.claimForRetry(exhausted, true);
         assertNotNull(claimed);
@@ -113,12 +115,15 @@ class DocumentSyncServiceStateMachineTest {
         assertEquals(0, claimed.getAttemptCount());
         assertEquals("", claimed.getReasonCode());
         assertNull(claimed.getNextRetryAt());
-        verify(mapper).updateById(claimed);
+        verify(mapper).claimFailedAtomically(eq(1L), eq(0), eq(""), any(LocalDateTime.class));
+        verify(mapper, never()).updateById(any(DocumentSyncPO.class));
     }
 
     @Test
-    @DisplayName("claimForRetry：自动重试未耗尽保留 attempt（先捕获后清空回归——顺序 bug 哨兵）")
+    @DisplayName("claimForRetry（R02）：自动未耗尽保留 attempt（不自增，递增点=markFailed）；先捕获后清空顺序哨兵保留")
     void claimAutoKeepsAttempt() {
+        when(mapper.claimFailedAtomically(eq(1L), eq(1), eq(""), any(LocalDateTime.class)))
+                .thenReturn(1);
         DocumentSyncPO failed = row(SyncStatus.FAILED, SyncReasonCode.PG_UNREACHABLE, 1);
         DocumentSyncPO claimed = service.claimForRetry(failed, false);
         assertNotNull(claimed);
@@ -127,11 +132,15 @@ class DocumentSyncServiceStateMachineTest {
     }
 
     @Test
-    @DisplayName("claimForRetry：非 FAILED（PENDING/SYNCED）与 null → no-op 返回 null 不写库")
+    @DisplayName("claimForRetry（R02）：非 FAILED（PENDING/SYNCED）、null、无 id → no-op 返回 null 不发 UPDATE")
     void claimRejectsNonFailed() {
         assertNull(service.claimForRetry(null, true));
         assertNull(service.claimForRetry(row(SyncStatus.PENDING, null, 0), true));
         assertNull(service.claimForRetry(row(SyncStatus.SYNCED, null, 1), true));
+        DocumentSyncPO noId = row(SyncStatus.FAILED, null, 1);
+        noId.setId(null);
+        assertNull(service.claimForRetry(noId, true));
+        verify(mapper, never()).claimFailedAtomically(any(), anyInt(), anyString(), any());
         verify(mapper, never()).updateById(any(DocumentSyncPO.class));
     }
 

@@ -110,24 +110,36 @@ public class DocumentSyncService {
     }
 
     /**
-     * 重试认领：FAILED → PENDING（attempt 已在行内；RETRY_EXHAUSTED 手动路径重置 attempt=0，
-     * 其余保留 attempt 供 maxAttempts 继续判定）。返回认领后的行；非 FAILED 行返回 null（no-op）。
+     * 重试认领（R02 整改后形态）：FAILED → PENDING 经<b>单条条件 UPDATE 原子领取</b>
+     * （{@code WHERE id=? AND sync_status='FAILED'}），以受影响行数判定归属——
+     * 多实例并发竞争同一行时最多一个调用方拿到非 null，其余返回 null（必须放弃执行）。
+     *
+     * <p>attempt 冻结语义不变：递增点在 {@link #markFailed}，领取不自增（防双重计数，
+     * 与整改任务书示意 SQL 的差异已按其 2.1"以当前项目为准"记录）；RETRY_EXHAUSTED
+     * 手动路径经参数重置 attempt=0，其余保留行内既有 attempt 供 maxAttempts 继续判定。
+     * 非 FAILED 入参行返回 null（no-op，不发 UPDATE）。</p>
      */
     public DocumentSyncPO claimForRetry(DocumentSyncPO row, boolean manual) {
-        if (row == null || !SyncStatus.FAILED.name().equals(row.getSyncStatus())) {
+        if (row == null || row.getId() == null
+                || !SyncStatus.FAILED.name().equals(row.getSyncStatus())) {
             return null;
         }
         LocalDateTime now = LocalDateTime.now();
         // 先捕获原原因码再改写（claim 后 reason 被清空，耗尽判定必须基于捕获值）
         boolean wasExhausted = SyncReasonCode.RETRY_EXHAUSTED.name().equals(row.getReasonCode());
+        int newAttempt = (manual && wasExhausted) ? 0
+                : (row.getAttemptCount() == null ? 0 : row.getAttemptCount());
+        if (syncMapper.claimFailedAtomically(row.getId(), newAttempt,
+                SyncReasonCode.NONE, now) != 1) {
+            // 已被其他实例领取 / 状态已变化 / 行不存在——不执行后续管线
+            return null;
+        }
+        // 领取成功：内存视图与 DB 落库结果一致回显
         row.setSyncStatus(SyncStatus.PENDING.name());
         row.setReasonCode(SyncReasonCode.NONE);
         row.setNextRetryAt(null);
+        row.setAttemptCount(newAttempt);
         row.setUpdatedAt(now);
-        if (manual && wasExhausted) {
-            row.setAttemptCount(0);
-        }
-        syncMapper.updateById(row);
         return row;
     }
 

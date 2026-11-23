@@ -521,21 +521,49 @@ public class DocumentVectorIndexService {
     // ------------------------------------------------------------------
 
     /**
-     * 恢复卡住任务：扫描 PENDING/INDEXING 且超过 stuckMinutes 的行，
+     * 恢复卡住任务（全量语义，兼容既有调用方）：扫描 PENDING/INDEXING 且超过 stuckMinutes 的行，
      * 依据 Outbox 中的 Chunk 快照重新幂等入库。
+     *
+     * <p>R01 整改：一致性补偿路径必须走 {@link #recoverStuckTasks(String)} 传递 scope，
+     * 本无参入口仅保留给管理端点显式全量恢复场景。</p>
      *
      * @return 实际恢复的任务结果
      */
     public List<VectorIndexResultView> recoverStuckTasks() {
+        return recoverStuckTasks(null);
+    }
+
+    /**
+     * 恢复卡住任务（R01 范围隔离）：documentPrefix 非空时仅恢复
+     * {@code document_id LIKE 'prefix%'} 的任务——过滤在 Mapper SQL 层完成
+     * （likeRight=前缀 LIKE，走索引可用形态），执行前逐行二次校验，
+     * 防止查询与执行之间混入范围外行；范围外任务的向量、关联、attempt 一律不触碰。
+     *
+     * @param documentPrefix null/空白=全量恢复（保留原语义）
+     */
+    public List<VectorIndexResultView> recoverStuckTasks(String documentPrefix) {
         LocalDateTime cutoff = LocalDateTime.now().minusMinutes(properties.getStuckMinutes());
-        List<DocumentVectorIndexPO> stuck = indexMapper.selectList(
+        com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<DocumentVectorIndexPO> query =
                 new com.baomidou.mybatisplus.core.conditions.query.QueryWrapper<DocumentVectorIndexPO>()
                         .in("status",
                                 VectorIndexStatus.PENDING.name(),
                                 VectorIndexStatus.INDEXING.name())
-                        .lt("updated_at", cutoff));
+                        .lt("updated_at", cutoff);
+        boolean scoped = documentPrefix != null && !documentPrefix.isBlank();
+        if (scoped) {
+            query.likeRight("document_id", documentPrefix);
+        }
+        List<DocumentVectorIndexPO> stuck = indexMapper.selectList(query);
         List<VectorIndexResultView> results = new ArrayList<>();
         for (DocumentVectorIndexPO task : stuck) {
+            // 执行前范围终校验（查询→执行防线：行在并发窗口被改动的可能性由幂等管线兜底，
+            // 但范围外行绝不允许进入本路径恢复）
+            if (scoped && (task.getDocumentId() == null
+                    || !task.getDocumentId().startsWith(documentPrefix))) {
+                log.warn("范围外卡住行被跳过（防御性拦截） documentId={} prefix={}",
+                        task.getDocumentId(), documentPrefix);
+                continue;
+            }
             if (task.getAttemptCount() != null && task.getAttemptCount() >= properties.getMaxAttempts()) {
                 log.warn("卡住任务已达最大尝试次数，跳过自动恢复，需人工介入 documentId={} version={}",
                         task.getDocumentId(), task.getVersion());

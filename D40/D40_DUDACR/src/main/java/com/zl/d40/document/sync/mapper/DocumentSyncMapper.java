@@ -68,4 +68,27 @@ public interface DocumentSyncMapper extends BaseMapper<DocumentSyncPO> {
             LIMIT 500
             """)
     List<DocumentSyncPO> selectForStatusView(@Param("documentId") String documentId);
+
+    /**
+     * R02 原子领取：单条条件 UPDATE 完成 FAILED → PENDING 抢占（数据库层互斥，
+     * 替代"查询→内存判断→无条件 updateById"的竞态窗口）。
+     *
+     * <p>返回值语义：affectedRows==1=本实例领取成功；0=已被其他实例领取、
+     * 状态已变化或行不存在——调用方必须放弃执行重试管线。</p>
+     *
+     * <p>attempt_count 递增点保持冻结语义（markFailed 写入，领取不自增，防双重计数）；
+     * 手动耗尽行重置经 newAttemptCount=0 参数化承载。字段/状态名均以本表 DDL 为准
+     * （表名 d40_document_sync，非整改任务书示意名 document_sync）。</p>
+     */
+    @Update("""
+            UPDATE d40_document_sync
+               SET sync_status = 'PENDING', reason_code = #{reasonCode},
+                   next_retry_at = NULL, attempt_count = #{newAttemptCount},
+                   updated_at = #{now}
+             WHERE id = #{id} AND sync_status = 'FAILED'
+            """)
+    int claimFailedAtomically(@Param("id") Long id,
+                              @Param("newAttemptCount") int newAttemptCount,
+                              @Param("reasonCode") String reasonCode,
+                              @Param("now") LocalDateTime now);
 }

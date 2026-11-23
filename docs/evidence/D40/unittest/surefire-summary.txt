@@ -1,0 +1,13 @@
+surefire raw summary - mvn -B test - 2026-11-23 (D40-R01 整改后全量)
+命令: mvn.cmd -B test (JDK21, 模块 D40\D40_DUDACR)；退出码 0；BUILD SUCCESS
+com.zl.d40.document.sync.AdminAuditServiceTest: Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.297 s -- in com.zl.d40.document.sync.AdminAuditServiceTest
+com.zl.d40.document.sync.CitationDeletedClassificationTest: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.197 s -- in com.zl.d40.document.sync.CitationDeletedClassificationTest
+com.zl.d40.document.sync.D40SyncControllerConsistencyTest: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.434 s -- in com.zl.d40.document.sync.D40SyncControllerConsistencyTest
+com.zl.d40.document.sync.DocumentSyncServiceAtomicClaimTest: Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s -- in com.zl.d40.document.sync.DocumentSyncServiceAtomicClaimTest
+com.zl.d40.document.sync.DocumentSyncServiceStateMachineTest: Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s -- in com.zl.d40.document.sync.DocumentSyncServiceStateMachineTest
+com.zl.d40.document.sync.FaultInjectingVectorStoreTest: Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s -- in com.zl.d40.document.sync.FaultInjectingVectorStoreTest
+com.zl.d40.document.sync.ReconciliationReportViewDriftSummaryTest: Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.zl.d40.document.sync.ReconciliationReportViewDriftSummaryTest
+com.zl.d40.document.sync.SyncOperationAndReasonCodeTest: Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.zl.d40.document.sync.SyncOperationAndReasonCodeTest
+com.zl.d40.document.sync.SyncRetryRunnerPipelineTest: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.zl.d40.document.sync.SyncRetryRunnerPipelineTest
+com.zl.d40.document.vectorindex.service.RecoverStuckTasksScopeTest: Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.874 s -- in com.zl.d40.document.vectorindex.service.RecoverStuckTasksScopeTest
+TOTAL: Tests run: 53, Failures: 0, Errors: 0, Skipped: 0

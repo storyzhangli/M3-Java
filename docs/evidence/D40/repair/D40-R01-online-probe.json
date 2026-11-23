@@ -1,0 +1,16 @@
+{
+  "probe": "在线范围隔离契约（r6，R01/R02 整改后代码）",
+  "endpoint_note": "/vector-index/reconcile 仅 ReconcileRequest(dryRun)=全量语义（单参重载，scope 恒空）；带 prefix 修复域的端点=/api/v1/sync/consistency（ConsistencyCheckRequest.documentPrefix）——首跑探针打错端点+错字段名（repairDocumentPrefix 为 service 形参名）两处均已修正，留痕",
+  "sync_d40": {
+    "scopePrefix": "d40-",
+    "code": 200,
+    "driftTotal": 28
+  },
+  "sync_empty": {
+    "code": 200,
+    "scopePrefix": ""
+  },
+  "observation": "全域 dryRun driftMetaOnly=24（d32eval/DOC-* 域 D31 时代历史差异）——数字本身实证 R01 动机：无 scope 隔离时全局非 dryRun 修复会跨域误重索引；现恢复段受 prefix 约束（单测 C + 真实库 harness 锁定）",
+  "note": "dryRun=true 零写副作用；scopePrefix 回显=参数贯通 controller→reconcile(scope)→applyCompensation→recoverStuckTasks(prefix)",
+  "verdict": "PASS"
+}

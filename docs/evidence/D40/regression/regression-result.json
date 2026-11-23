@@ -1,21 +1,23 @@
 {
   "gate": "C05_D40_ZERO_DIFF_REGRESSION",
-  "finishedAt": "2026-11-23T18:29:20+08:00",
-  "instance": "ACCESS_ENABLED 缺省(false) FAULT_INJECTION 缺省(false) AI_MODE=mock（默认零差异态 r5）",
+  "finishedAt": "2026-11-23T23:20:03+08:00",
+  "instance": "ACCESS_ENABLED 缺省(false) FAULT_INJECTION 缺省(false) AI_MODE=mock（默认零差异态）",
   "precondition": "C19 夹具已清理（对齐 D39 先清理后回归口径）",
   "anonProbe": {
     "total": 3,
-    "top1": "3b1501c0-6a99-535a-a787-991f877024c8",
-    "code": 200
+    "code": 200,
+    "top1": "3b1501c0-6a99-535a-a787-991f877024c8"
   },
   "selftestExit": 0,
   "runExit": 1,
   "diffExitVsD37": 0,
+  "runExitNote": "runExit=1 ⇔ 数据集业务判定含 FAIL 行（fail>0 即返回 1，属 D37 冻结基线既有业务事实，QA-001 REFUSAL_FALSE_NEGATIVE，D38/D39 同口径先例）。非执行失败：执行失败/环境异常路径为 exit 2（无 PASS）与 REPEAT_RESULT_DIVERGED 分支（脚本已单独检测并熔断 exit 3）。本门禁判定链=SelfTest 75/75 → 三轮间零发散 → diffExit=0（质量投影 60/60 逐字节）→ QA-001 锚点 delta≤1e-9；diffExit=0 仅证明与冻结基线一致，其成立前提已含\"runExit 属预期语义集合 {0,1}\"，两者互证而非互相替代。",
+  "runExitContractSource": "docs/temp_docs/D37/evaluator/src/d37eval/Evaluator.java L648-651（if (fail>0) return 1; return pass>0?0:2）",
   "qa001Top1Id": "3b1501c0-6a99-535a-a787-991f877024c8",
   "qa001Top1": 0.37974774837493896,
   "qa001Delta": 0.0,
   "qa001Tolerance": 1E-09,
-  "runDir": "run-2026-11-23T182916-257841200+0800-PGVECTOR",
+  "runDir": "run-2026-11-23T231959-532118400+0800-PGVECTOR",
   "remoteCalls": "0（local 轨）",
   "verdict": "PASS"
 }

@@ -367,8 +367,10 @@ public class VectorReconciliationService {
         }
 
         // 卡住任务恢复（recoverStuckTasks=既有恢复管线）
+        // R01 整改：修复必须具备范围隔离——scope 空串=全量（原语义），非空=仅前缀内恢复，
+        // 杜绝跨业务范围（其他 Dxx 域卡住行）被一致性修复意外重索引。
         List<com.zl.d40.document.vectorindex.dto.VectorIndexResultView> recovered =
-                indexService.recoverStuckTasks();
+                indexService.recoverStuckTasks(scope.isEmpty() ? null : scope);
         if (!recovered.isEmpty()) {
             report.getActionsTaken().add("恢复卡住任务 " + recovered.size() + " 个");
         }

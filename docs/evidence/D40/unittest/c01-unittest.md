@@ -39,3 +39,21 @@ mvn.cmd -B test
 ## 判定
 
 **C01 = PASS**（37 Java 单测 + 6 前端测试全绿；测试仅 mock 边界，零外部调用，零成本合规）。
+
+---
+
+## 口径沿革说明（R03 整改追加，2026-11-23 晚）
+
+本文件记录的是 **P4 时点首版 C01**（37/37）。后续口径演进如下，最终以
+`final-test-summary.md` + `surefire-summary.txt` 为准：
+
+| 时点 | `mvn -B test` 结果 | 差异原因 |
+|---|---|---|
+| P4 首版（本文件原文） | **37/37** | 7 个测试类基线 |
+| P5（C17 引用交叉） | **42/42** | 新增 CitationDeletedClassificationTest 5 case |
+| R01/R02 整改后 | **53/53** | 再新增 DocumentSyncServiceAtomicClaimTest 6（原子领取）+ RecoverStuckTasksScopeTest 5（范围隔离） |
+
+37→42→53 每一步数字均可在 `target\surefire-reports\` 原始报告核对
+（整改后快照已复制至本目录 `surefire-summary.txt`），非人工修改数字。
+`D40_state_R01.md` 记录 42/42 对应 P5 收官时点，与本文件 P4 记录不矛盾，
+统一以 final-test-summary.md 为整改后权威口径。

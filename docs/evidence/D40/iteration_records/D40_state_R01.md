@@ -44,8 +44,18 @@ L1=PASS（C01）L2=PASS（C02–C05）L3=PASS（C06–C18）L4=PASS（C19–C20�
 DeepSeek calls=0 tokens=0（AI_MODE=mock 全程，运行日志 REMOTE_HITS=0）；百炼 calls=0（未启用）；向量全部本地哈希 Embedding 384 维；夹具清理 FIXTURE_REMAINING=0。
 
 ## 诚实声明
+
 - 已执行并通过：上表全部 PASS（每条指向实测证据文件）；`mvn -B test`（42/42）与 `node --test`（6/6）真实退出码 0；D37 评测器全量 20 问×3 轮+SelfTest 75/75；五类漂移构造-检测-修复-复查全链真实执行；14 探针门禁矩阵真实执行；C19 harness before/after 实数。
 - 已执行但失败（均修复或留痕，无带病项）：产品缺陷 2 项（上节）；脚本类——gating 探针 token 引用路径（.token 漏级）、D40AuditDump 列名对齐 DDL、cleanup 脚本 D40Probe 传参误用（改 stdout 重定向）+类未编译、Out-File 目录未建、E1 矩阵首跑漏 register 前置（负路径留痕）——均测试/治理脚本缺陷，非产品断言失败。
 - 尚未执行（建议后续验证）：真实模型态端到端（本迭代纯 mock）；DDL 在生产 PG 实例的迁移演练；SYNCED 行长期归档策略。
 - N/A 项：删除竞态（结构不可达，C17 留痕）；L5 跨机；分布式并发多实例 retry 互斥（本地单实例，水位条件已具备但未双实例演练）。
 - 遗留风险与 D41 候选：filter 层匿名拒绝审计（当前设计语义）；IdP/RBAC 真实接入时 token 生命周期；多实例部署下 sync 行乐观锁/领取语义（claimed 残留路径 SyncRetryResultView 已如实呈现）；knowledge_document.version 权威与 PG metadata version 冗余键的单向同步文档化；d40_document_sync SYNCED 行归档。
+
+## R01 整改段（2026-11-23，本文件增补，追加于诚实声明之后）
+
+- 整改基线=f3cf475+2f2af95；三问题扫描判定**全部属实**（实码证据见 `iteration_records\D40_R01_repair-summary.md` §1）；整改提交=`fix(D40): enforce reconciliation scope and atomic retry claim`（hash 见 `git log -1`，不 push）。
+- **R01 范围隔离**：`recoverStuckTasks(String documentPrefix)` 重载（SQL likeRight+行内 startsWith 双层）+ `applyCompensation` 恢复段透传 scope；无参=全量兼容不变。证据：`repair\D40-R01-scope-isolation-realdb.json`（真实库 4 夹具行，越界行零触达）+ `repair\D40-R01-online-probe.json`（scopePrefix 回显契约；全域 driftMetaOnly=24 为跨域误修复风险的在线实证）。
+- **R02 原子领取**：`claimFailedAtomically` 条件 UPDATE（`WHERE id=? AND sync_status='FAILED'`，affected≠1→null 让位）；attempt 递增点冻结在 markFailed 不变；SyncRetryRunner 零改动。证据：`repair\D40-R02-atomic-claim-realdb.json`（真实 MySQL 双连接双线程 winners=1、attempt 不双增）。
+- **R03 口径统一**：单测权威口径 **53/53**（沿革 37→42→53 注记于 `unittest\c01-unittest.md`，逐类数字 `unittest\surefire-summary.txt` + `unittest\final-test-summary.md`）；C05 重跑零差异（新 run `run-2026-11-23T231959-…`，diff 60/60 IDENTICAL，`regression-result.json` 补 runExitNote）；**runExit=1=冻结基线已知业务 FAIL**（Evaluator.java L648-651 契约 `fail>0→1`，非执行失败；分析全文 `regression\final-regression-report.md`）。
+- 口径修订：上文 C01 行与诚实声明中"mvn -B test（42/42）"为主迭代时点事实（保留不改写历史）；**自整改起权威口径为 53/53**（final-test-summary.md）。其余 PASS 行不受影响（R01/R02 未改变既有业务语义路径，C05 零差异佐证）。
+- 遗留更新：上文 N/A 项"分布式并发多实例 retry 互斥"部分升级——领取互斥原语已获真实 MySQL 双连接实证，**生产多进程调度互斥**仍待真实多实例演练；在线请求契约提醒：带修复域端点=`/api/v1/sync/consistency`，字段=`documentPrefix`（`/vector-index/reconcile` 仅 dryRun=全量语义）。

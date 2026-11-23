@@ -1,0 +1,1 @@
+{"testA_scoped_hits":["d40-r01-in1","d40-r01-in2"],"testA_pass":true,"testB_full_hits":["d39-r01-out","d40-r01-in1","d40-r01-in2","d41-r01-out"],"testB_pass":true,"testC_scoped_updates":2,"testC_out_of_scope_untouched":true,"testC_pass":true,"fixtures_cleaned":4,"table":"document_vector_index（真实 MySQL ai_db；生产 SQL 同型 QueryWrapper 投影）"}
