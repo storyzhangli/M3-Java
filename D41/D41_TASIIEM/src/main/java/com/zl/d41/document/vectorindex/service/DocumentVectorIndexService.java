@@ -88,6 +88,9 @@ public class DocumentVectorIndexService {
     /** P2 追加：操作级同步状态机（删除闭环/清理钩子的落库入口；不构成依赖环——本服务→syncService 单向）。 */
     private final com.zl.d41.document.sync.service.DocumentSyncService syncService;
 
+    /** D41 追加：表格分支行数（删除幂等短路谓词；可选依赖，缺失=按零行原语义）。 */
+    private final ObjectProvider<com.zl.d41.document.table.service.TableRecordService> tableServiceProvider;
+
     public DocumentVectorIndexService(VectorStore vectorStore,
                                       @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
                                       PgVectorStoreProperties pgProperties,
@@ -100,7 +103,8 @@ public class DocumentVectorIndexService {
                                       ObjectProvider<DocumentPageService> pageServiceProvider,
                                       ObjectProvider<DocumentChunkService> chunkServiceProvider,
                                       ObjectProvider<KnowledgeDocumentMapper> documentMapperProvider,
-                                      com.zl.d41.document.sync.service.DocumentSyncService syncService) {
+                                      com.zl.d41.document.sync.service.DocumentSyncService syncService,
+                                      ObjectProvider<com.zl.d41.document.table.service.TableRecordService> tableServiceProvider) {
         this.vectorStore = vectorStore;
         this.pgVectorJdbcTemplate = pgVectorJdbcTemplate;
         this.pgProperties = pgProperties;
@@ -114,6 +118,7 @@ public class DocumentVectorIndexService {
         this.chunkServiceProvider = chunkServiceProvider;
         this.documentMapperProvider = documentMapperProvider;
         this.syncService = syncService;
+        this.tableServiceProvider = tableServiceProvider;
     }
 
     // ------------------------------------------------------------------
@@ -362,10 +367,18 @@ public class DocumentVectorIndexService {
                 com.zl.d41.document.sync.model.SyncOperation.DELETE, null);
 
         // 步骤 0：重复删除事件幂等短路（不写 PG、不动 MySQL、不改 sync 状态、attempt 不增长）
+        // D41 追加谓词：表格行必须同样清零才可短路——否则"从未索引、曾空删、后有表格入库"
+        // 文档的表行会被短路永久遗漏（文档行仍 COMPLETED，reconcile 也检不出）。
         long taskRows = indexMapper.selectCount(new QueryWrapper<DocumentVectorIndexPO>()
                 .eq("document_id", documentId));
         long pgRemaining = countPgForDocument(documentId);
-        if (rows.isEmpty() && taskRows == 0 && pgRemaining == 0
+        long tableRemaining = 0L;
+        com.zl.d41.document.table.service.TableRecordService tableSvc =
+                tableServiceProvider.getIfAvailable();
+        if (tableSvc != null) {
+            tableRemaining = tableSvc.countForDocument(documentId);
+        }
+        if (rows.isEmpty() && taskRows == 0 && pgRemaining == 0 && tableRemaining == 0
                 && existingSync != null
                 && com.zl.d41.document.sync.model.SyncStatus.SYNCED.name()
                         .equals(existingSync.getSyncStatus())) {

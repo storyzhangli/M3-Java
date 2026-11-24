@@ -41,13 +41,17 @@ public class DocumentImportService {
     private final KnowledgeDocumentMapper mapper;
     private final DocumentConverter converter;
 
+    /** D41 P2 追加：表格结构化分支（REQUIRES_NEW 独立事务，失败不连坐正文）。 */
+    private final com.zl.d41.document.table.service.TableRecordService tableRecordService;
+
     public DocumentImportService(FileUploadValidator validator,
                                  Sha256ContentHasher hasher,
                                  BasicDocumentParser parser,
                                  PdfDocumentParser pdfParser,
                                  DocumentPageService pageService,
                                  KnowledgeDocumentMapper mapper,
-                                 DocumentConverter converter) {
+                                 DocumentConverter converter,
+                                 com.zl.d41.document.table.service.TableRecordService tableRecordService) {
         this.validator = validator;
         this.hasher = hasher;
         this.parser = parser;
@@ -55,6 +59,7 @@ public class DocumentImportService {
         this.pageService = pageService;
         this.mapper = mapper;
         this.converter = converter;
+        this.tableRecordService = tableRecordService;
     }
 
     /**
@@ -109,6 +114,9 @@ public class DocumentImportService {
             boolean anyUsable = pages.stream().anyMatch(p -> !Boolean.TRUE.equals(p.getBlank()));
             if (anyUsable) {
                 doc.setStatus(DocumentStatus.COMPLETED);
+                // D41 表格钩子（独立分支）：REQUIRES_NEW 独立事务 + 静默降级，
+                // 失败只记日志（正文 COMPLETED 不受影响，缺表由 TABLE_ORPHAN 对账暴露）。
+                extractTablesQuietly(doc.getDocumentId(), doc.getVersion(), pages, bytes, true);
             } else {
                 // 全部页面无可用文字：扫描型/空文本，明确识别能力边界，不伪造成功。
                 markFailed(doc, "NO_EXTRACTABLE_TEXT", "PDF 无可用提取文本，可能为扫描件，需要 OCR");
@@ -135,11 +143,30 @@ public class DocumentImportService {
             preparePages(doc, List.of(page), now);
             pageService.replacePages(List.of(page));
             doc.setStatus(DocumentStatus.COMPLETED);
+            // D41 表格钩子：md 管道表/tab 表文本重放解析（同 PDF 分支的解耦语义）。
+            extractTablesQuietly(doc.getDocumentId(), doc.getVersion(), List.of(page), null, false);
         } catch (DocumentParseException e) {
             markFailed(doc, "PARSE_FAILED", e.getMessage());
         } catch (RuntimeException e) {
             log.error("文档处理发生未预期异常", e);
             markFailed(doc, "PROCESSING_FAILED", "文档处理失败，请稍后重试");
+        }
+    }
+
+    /**
+     * 表格分支调用包装：任何异常都不向上抛出（分支隔离）。
+     * 注意 extractAndPersist 为 REQUIRES_NEW——其失败整体回滚表事务，
+     * 外层正文事务不因 rollback-only 连坐（这正是选择 REQUIRES_NEW 的原因）。
+     */
+    private void extractTablesQuietly(String documentId, int version,
+                                      List<DocumentPageContent> pages, byte[] pdfBytes, boolean pdf) {
+        try {
+            var result = tableRecordService.extractAndPersist(documentId, version, pages, pdfBytes, pdf);
+            log.info("表格分支完成 document={} tables={} rows={} skipped={}",
+                    documentId, result.tableCount(), result.rowCount(), result.skipped());
+        } catch (Exception e) {
+            log.error("表格分支失败（正文不受影响；TABLE_ORPHAN 对账/重抽取兜底） document={} type={}",
+                    documentId, e.getClass().getSimpleName(), e);
         }
     }
 

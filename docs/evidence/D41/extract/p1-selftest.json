@@ -1,0 +1,78 @@
+[ {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-fault-code.pdf",
+  "page" : 1,
+  "kind" : "d41-fault-code",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-param-spec.pdf",
+  "page" : 1,
+  "kind" : "d41-param-spec",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-anomaly-merged.pdf",
+  "page" : 1,
+  "kind" : "d41-merged",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-anomaly-merged.pdf",
+  "page" : 2,
+  "kind" : "d41-noruling",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-anomaly-crosspage.pdf",
+  "page" : 1,
+  "kind" : "d41-crosspage-A",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-anomaly-crosspage.pdf",
+  "page" : 2,
+  "kind" : "d41-crosspage-B",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-anomaly-missing.pdf",
+  "page" : 1,
+  "kind" : "d41-missing",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-image-table.pdf",
+  "page" : 1,
+  "kind" : "d41-image-table",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "pdf-cellwise",
+  "file" : "d41-no-table.pdf",
+  "page" : 1,
+  "kind" : "d41-no-table",
+  "verdict" : "PASS",
+  "diffs" : [ ]
+}, {
+  "stage" : "md-smoke",
+  "file" : "d41-pipe-table.md",
+  "tables" : 1,
+  "detail" : "[hdr=[部件, 型号, 额定扭矩, 寿命] rows=3 flags=[] cont=false]",
+  "nullCells" : 1,
+  "verdict" : "SMOKE"
+}, {
+  "stage" : "md-smoke",
+  "file" : "d41-pipe-continuation.md",
+  "tables" : 2,
+  "detail" : "[hdr=[编号, 名称, 数量] rows=2 flags=[] cont=false] [hdr=[编号, 名称, 数量] rows=1 flags=[] cont=false]",
+  "nullCells" : 0,
+  "verdict" : "SMOKE"
+} ]

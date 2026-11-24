@@ -125,6 +125,16 @@ app:
         - text/plain
         - text/markdown
         - application/pdf
+      # ------------------------------------------------------------------
+      # D41 新增：表格结构化抽取分支（独立于正文文本处理器，解耦红线）。
+      # enabled=false 时导入钩子整体旁路（零表写，回归零差异口径，H1）。
+      # ocr.enabled 恒默认 false：无 OCR 引擎（H3 熔断红线），true 亦不产生行为，
+      # 仅接口占位——图片表格诚实标注 IMAGE_TABLE_NOT_PARSED。
+      # ------------------------------------------------------------------
+      table:
+        enabled: ${DOCUMENT_TABLE_ENABLED:true}
+        ocr:
+          enabled: ${DOCUMENT_TABLE_OCR_ENABLED:false}
     # ------------------------------------------------------------------
     # 新增：文本清洗与可配置 Chunk 切分。
     # 长度单位固定为 UTF-16 code unit（字符长度，非 Token）；配置与算法分离。

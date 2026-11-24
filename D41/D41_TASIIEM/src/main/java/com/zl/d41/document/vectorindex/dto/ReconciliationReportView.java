@@ -42,6 +42,9 @@ public class ReconciliationReportView {
     /** 新增：sync FAILED 到期/耗尽、PENDING 滞留超 stuckMinutes。 */
     private List<Issue> syncStuck = new ArrayList<>();
 
+    /** D41 新增：表格记录孤儿（所属文档行不存在，或 version ≠ 活动 COMPLETED 版本；补偿=标记 ORPHANED）。 */
+    private List<Issue> tableOrphans = new ArrayList<>();
+
     /** 实际执行的补偿动作（dryRun 时为空）。 */
     private List<String> actionsTaken = new ArrayList<>();
 
@@ -54,7 +57,7 @@ public class ReconciliationReportView {
     public int totalIssues() {
         return orphanVectors.size() + missingVectors.size()
                 + stuckTasks.size() + countMismatches.size()
-                + versionMismatches.size() + syncStuck.size();
+                + versionMismatches.size() + syncStuck.size() + tableOrphans.size();
     }
 
     /** 依据当前列表刷新 driftSummary 计数（调用方在全部填充后执行一次）。 */
@@ -66,6 +69,7 @@ public class ReconciliationReportView {
         driftSummary.setDriftStaleVersion((int) stale);
         driftSummary.setDriftVersionMismatch(versionMismatches.size());
         driftSummary.setDriftSyncStuck(syncStuck.size());
+        driftSummary.setDriftTableOrphan(tableOrphans.size());
         driftSummary.setCountMismatch(countMismatches.size());
         driftSummary.setStuckTask(stuckTasks.size());
         driftSummary.setTotal(totalIssues());
@@ -79,6 +83,7 @@ public class ReconciliationReportView {
         private int driftStaleVersion;
         private int driftVersionMismatch;
         private int driftSyncStuck;
+        private int driftTableOrphan;
         private int countMismatch;
         private int stuckTask;
         private int total;

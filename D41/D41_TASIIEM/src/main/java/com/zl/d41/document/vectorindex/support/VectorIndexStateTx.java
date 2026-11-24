@@ -42,14 +42,19 @@ public class VectorIndexStateTx {
     /** P2：删除标记与 sync PENDING 同事务落库。 */
     private final DocumentSyncMapper syncMapper;
 
+    /** D41 P2 追加：表格结构化分支清理（删除/旧版本清表随同一本地事务，D7 复用不建新状态机）。 */
+    private final com.zl.d41.document.table.service.TableRecordService tableRecordService;
+
     public VectorIndexStateTx(DocumentVectorIndexMapper indexMapper,
                               DocumentChunkIndexMapper chunkMapper,
                               KnowledgeDocumentMapper documentMapper,
-                              DocumentSyncMapper syncMapper) {
+                              DocumentSyncMapper syncMapper,
+                              com.zl.d41.document.table.service.TableRecordService tableRecordService) {
         this.indexMapper = indexMapper;
         this.chunkMapper = chunkMapper;
         this.documentMapper = documentMapper;
         this.syncMapper = syncMapper;
+        this.tableRecordService = tableRecordService;
     }
 
     /**
@@ -78,20 +83,24 @@ public class VectorIndexStateTx {
 
     /**
      * 删除文档的 MySQL 关联行与状态行（本地事务），在 PG 向量删除成功后调用。
+     * D41 追加：表格结构化记录随同一事务清理（全版本），不残留孤儿表行。
      */
     @Transactional(rollbackFor = Exception.class)
     public void deleteDocumentRows(String documentId) {
         chunkMapper.deleteByDocumentId(documentId);
         indexMapper.delete(new QueryWrapper<DocumentVectorIndexPO>()
                 .eq("document_id", documentId));
+        tableRecordService.deleteAllForDocument(documentId);
     }
 
     /**
      * 删除指定旧版本的关联行（旧版本向量清理后调用）。
+     * D41 追加：同版本表格记录+行一并清理。
      */
     @Transactional(rollbackFor = Exception.class)
     public void deleteOldVersionRows(String documentId, Integer version) {
         chunkMapper.deleteByDocumentVersion(documentId, version);
+        tableRecordService.deleteForVersion(documentId, version);
     }
 
     /**

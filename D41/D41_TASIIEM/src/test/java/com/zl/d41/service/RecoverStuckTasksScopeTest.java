@@ -59,7 +59,8 @@ class RecoverStuckTasksScopeTest {
                 mock(com.zl.d41.document.support.Sha256ContentHasher.class),
                 properties, mock(VectorIndexStateTx.class),
                 mock(ObjectProvider.class), mock(ObjectProvider.class),
-                mock(ObjectProvider.class), mock(DocumentSyncService.class));
+                mock(ObjectProvider.class), mock(DocumentSyncService.class),
+                mock(ObjectProvider.class));
     }
 
     @Test
@@ -141,7 +142,8 @@ class RecoverStuckTasksScopeTest {
                 new ObjectMapper(),
                 mock(KnowledgeDocumentMapper.class),
                 mock(DocumentSyncMapper.class),
-                mock(VectorIndexStateTx.class));
+                mock(VectorIndexStateTx.class),
+                mock(com.zl.d41.document.table.mapper.TableExtractMapper.class));
 
         service.reconcile(false, "d41-");
 
@@ -165,7 +167,8 @@ class RecoverStuckTasksScopeTest {
                 new ObjectMapper(),
                 mock(KnowledgeDocumentMapper.class),
                 mock(DocumentSyncMapper.class),
-                mock(VectorIndexStateTx.class));
+                mock(VectorIndexStateTx.class),
+                mock(com.zl.d41.document.table.mapper.TableExtractMapper.class));
 
         service.reconcile(false, "");
 

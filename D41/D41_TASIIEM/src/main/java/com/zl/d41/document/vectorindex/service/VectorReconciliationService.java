@@ -60,6 +60,9 @@ public class VectorReconciliationService {
     public static final String CAT_COUNT_MISMATCH = "COUNT_MISMATCH";
     public static final String CAT_STUCK_TASK = "STUCK_TASK";
 
+    /** D41 新增漂移类别：表格记录孤儿（additive，不影响既有类别与契约）。 */
+    public static final String DRIFT_TABLE_ORPHAN = "DRIFT_TABLE_ORPHAN";
+
     private final JdbcTemplate pgVectorJdbcTemplate;
 
     private final PgVectorStoreProperties pgProperties;
@@ -83,6 +86,9 @@ public class VectorReconciliationService {
     /** P4 追加：版本指针修复走既有本地事务管线（H4，禁裸 SQL）。 */
     private final VectorIndexStateTx stateTx;
 
+    /** D41 追加：表格结构化记录对账（TABLE_ORPHAN 检出+ORPHANED 标记）。 */
+    private final com.zl.d41.document.table.mapper.TableExtractMapper tableExtractMapper;
+
     public VectorReconciliationService(
             @Qualifier("pgVectorJdbcTemplate") JdbcTemplate pgVectorJdbcTemplate,
             PgVectorStoreProperties pgProperties,
@@ -93,7 +99,8 @@ public class VectorReconciliationService {
             ObjectMapper objectMapper,
             com.zl.d41.document.mapper.KnowledgeDocumentMapper documentMapper,
             com.zl.d41.document.sync.mapper.DocumentSyncMapper syncMapper,
-            VectorIndexStateTx stateTx) {
+            VectorIndexStateTx stateTx,
+            com.zl.d41.document.table.mapper.TableExtractMapper tableExtractMapper) {
         this.pgVectorJdbcTemplate = pgVectorJdbcTemplate;
         this.pgProperties = pgProperties;
         this.indexMapper = indexMapper;
@@ -104,6 +111,7 @@ public class VectorReconciliationService {
         this.documentMapper = documentMapper;
         this.syncMapper = syncMapper;
         this.stateTx = stateTx;
+        this.tableExtractMapper = tableExtractMapper;
     }
 
     /**
@@ -275,15 +283,46 @@ public class VectorReconciliationService {
             }
         }
 
+        // 7) 新增 DRIFT_TABLE_ORPHAN（D41）：表格记录所属文档行不存在，
+        //    或表记录 version ≠ 该文档活动 COMPLETED 版本。
+        //    无索引 COMPLETED 任务的文档（纯登记/直连导入语料）active=null 不报——表行天然合法，
+        //    避免把"未建索引"误判为孤儿（诚实检测，宁漏不误）。
+        Map<String, KnowledgeDocumentPO> docById = new HashMap<>();
+        for (KnowledgeDocumentPO doc : documentMapper.selectList(null)) {
+            docById.put(doc.getDocumentId(), doc);
+        }
+        for (com.zl.d41.document.table.po.TableExtractPO table
+                : tableExtractMapper.selectList(null)) {
+            KnowledgeDocumentPO doc = docById.get(table.getDocumentId());
+            if (doc == null) {
+                report.getTableOrphans().add(new ReconciliationReportView.Issue(
+                        table.getId() + "|" + table.getDocumentId(), table.getDocumentId(),
+                        table.getVersion(),
+                        "表格记录对应文档行不存在（删除管线遗漏表行）", DRIFT_TABLE_ORPHAN));
+                continue;
+            }
+            Integer active = activeVersionByDoc.get(table.getDocumentId());
+            if (active != null && table.getVersion() != null
+                    && !active.equals(table.getVersion())) {
+                report.getTableOrphans().add(new ReconciliationReportView.Issue(
+                        table.getId() + "|" + table.getDocumentId(), table.getDocumentId(),
+                        table.getVersion(),
+                        "表格版本=%d ≠ 活动 COMPLETED 版本=%d"
+                                .formatted(table.getVersion(), active),
+                        DRIFT_TABLE_ORPHAN));
+            }
+        }
+
         if (!dryRun) {
             applyCompensation(report, scope, orphanIds, missingByVersion);
         }
         report.refreshDriftSummary();
-        log.info("核对完成 dryRun={} scope={} issues={} (orphan={}, missing={}, mismatch={}, stuck={}, version={}, syncStuck={})",
+        log.info("核对完成 dryRun={} scope={} issues={} (orphan={}, missing={}, mismatch={}, stuck={}, version={}, syncStuck={}, tableOrphan={})",
                 dryRun, scope, report.totalIssues(),
                 report.getOrphanVectors().size(), report.getMissingVectors().size(),
                 report.getCountMismatches().size(), report.getStuckTasks().size(),
-                report.getVersionMismatches().size(), report.getSyncStuck().size());
+                report.getVersionMismatches().size(), report.getSyncStuck().size(),
+                report.getTableOrphans().size());
         return report;
     }
 
@@ -373,6 +412,29 @@ public class VectorReconciliationService {
                 indexService.recoverStuckTasks(scope.isEmpty() ? null : scope);
         if (!recovered.isEmpty()) {
             report.getActionsTaken().add("恢复卡住任务 " + recovered.size() + " 个");
+        }
+
+        // D41 表格孤儿修复：标记补偿（非物理删除——ORPHANED 保留取证，
+        // 物理清理由删除管线 deleteDocumentRows/deleteForVersion 负责）。
+        int tableMarked = 0;
+        for (ReconciliationReportView.Issue issue : report.getTableOrphans()) {
+            if (!inScope(issue.getDocumentId(), scope)) {
+                continue;
+            }
+            long tableId = Long.parseLong(issue.getKey().substring(0,
+                    issue.getKey().indexOf('|')));
+            com.zl.d41.document.table.po.TableExtractPO patch =
+                    tableExtractMapper.selectById(tableId);
+            if (patch != null && !"ORPHANED".equals(patch.getStatus())) {
+                patch.setStatus("ORPHANED");
+                patch.setUpdatedAt(LocalDateTime.now());
+                tableExtractMapper.updateById(patch);
+                tableMarked++;
+            }
+        }
+        if (tableMarked > 0) {
+            report.getActionsTaken().add("标记表格孤儿 " + tableMarked + " 条 ORPHANED"
+                    + (scope.isEmpty() ? "" : "（scope=" + scope + "）"));
         }
 
         // 版本不一致修复（走管线，H4）：

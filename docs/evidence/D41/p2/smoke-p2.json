@@ -1,0 +1,41 @@
+{
+  "ts": "2026-11-24 15:18:12",
+  "tokenMeta": "principal=adminA1 prefix=d41tok-k sha8=fba1ed29",
+  "steps": [
+    {
+      "step": "register-import-completed",
+      "pass": true,
+      "detail": "regCode=200 impCode=200 status=COMPLETED dup=False msg=success"
+    },
+    {
+      "step": "tables-listed",
+      "pass": true,
+      "detail": "tables=1 fields=id,documentId,version,pageNumber,tableIndex,header,rowCount,colCount,sourceGlobalStart,sourceGlobalEnd,sourceLineStart,sourceLineEnd,detectFlags,confidence,continuationOfTableId,status"
+    },
+    {
+      "step": "dual-track-offsets",
+      "pass": true,
+      "detail": "start=10 end=157"
+    },
+    {
+      "step": "rows-listed",
+      "pass": true,
+      "detail": "rows=3 firstHash=5ec5c7f5b236"
+    },
+    {
+      "step": "anon-bypass-default-disabled",
+      "pass": true,
+      "detail": "code=200（enabled=false 旁路为 H1 预期；P3 复验拒绝态）"
+    },
+    {
+      "step": "reconcile-tableOrphans-field",
+      "pass": true,
+      "detail": "field=True smokeOrphans=0 total=28 driftTableOrphan=0"
+    },
+    {
+      "step": "delete-clears-tables",
+      "pass": true,
+      "detail": "delCode=200 tablesAfter=0"
+    }
+  ]
+}

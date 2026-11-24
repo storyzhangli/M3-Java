@@ -1,0 +1,14 @@
+endpoint,method,face,auth_tier,notes
+/api/v1/documents/register,POST,写,ADMIN(D39既有),登记文档
+/api/v1/documents/import,POST,写,ADMIN(D39既有),导入解析(P2追加表格钩子)
+/api/v1/documents/{id}/tables,GET,读,文档级checkReadable,P1新增-表格清单
+/api/v1/tables/{tableId}/rows,GET,读,文档级(经table反查document),P1新增-行明细
+/api/v1/documents/{id}/tables/query,GET,读,文档级checkReadable,P1新增-按列值精确检索
+/api/v1/documents/{id}/tables/extract,POST,写,ADMIN+审计d41_admin_audit,P1新增-重抽取幂等
+/api/v1/vector-index/documents/index,POST,写,ADMIN(D40既有),零改动
+/api/v1/vector-index/documents/{id},DELETE,写,ADMIN(D40既有),StateTx追加清表行
+/api/v1/vector-index/documents/{id}/retry,POST,写,ADMIN(D40既有),零改动
+/api/v1/vector-index/reconcile,POST,写,ADMIN(D40既有),追加TABLE_ORPHAN检测字段
+/api/v1/sync/status,GET,管理,ADMIN(D40既有),零改动
+/api/v1/sync/retry,POST,管理,ADMIN(D40既有),零改动
+/api/v1/sync/consistency,POST,管理,ADMIN(D40既有),documentPrefix契约沿用
