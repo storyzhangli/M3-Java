@@ -400,8 +400,12 @@ public class PdfTableExtractor {
         int previousOrdinal = -1;
         int ordinal = 0;
         for (DetectedTable t : tables) {
+            // R01 整改（R02 反例红线）：仅"表头相同"不构成续表证据——同页两张独立
+            // 同表头表会被误链。收敛为跨页续表：页序前进 + 表头一致才回链；
+            // 证据不足宁可不链（漏链保持独立表不失真，误链产生虚假父子关系）。
             if (previous != null && !t.getHeader().isEmpty()
                     && t.getHeader().equals(previous.getHeader())
+                    && t.getPageNumber() > previous.getPageNumber()
                     && !previous.hasFlag(TablePatterns.FLAG_IMAGE_TABLE_NOT_PARSED)) {
                 t.markContinuation(previous.getPageNumber(), previousOrdinal);
                 t.addFlag(TablePatterns.FLAG_CONT_REPEAT_HEADER);

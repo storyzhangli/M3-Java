@@ -1,0 +1,14 @@
+# D41-R01 整改 R02/R03 专项测试执行命令（真实执行，非示例）
+# 执行机: ZL (Windows)  JAVA_HOME=D:\SoftwareInstall\JDK\JDK21
+# 执行时间: 2026-11-24 (Asia/Shanghai)
+# 基线: HEAD=b76c106 之上的工作区修改（整改未提交前生成）
+
+# 1) 专项四类（R03 重建回归 + R02 三个专项）:
+mvn.cmd -B test "-Dtest=TableCellTypingTest,TextTableExtractorTest,PdfTableFixtureTruthTest,TableRecordRebuildTest"
+
+# 2) 全量回归（模块 D41_TASIIEM 全部测试类）:
+mvn.cmd -B test
+
+# Maven: D:\SoftwareInstall\Apache\Maven\apache-maven-3.9.16\bin\mvn.cmd
+# 本目录 test-output.txt = 第 2 条命令的完整真实输出；exit code 记录于 test-summary.md
+

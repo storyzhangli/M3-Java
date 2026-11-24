@@ -1,0 +1,1253 @@
+{
+  "meta": {
+    "producedBy": "D41 实际解析主路径 PdfTableExtractor.extract(byte[]) 经 D41RealManualProbe 单次全文件解析后按页过滤，未做任何后处理",
+    "pdfSha256": "6050f8f300db6ad08eb166bb00238cf1b8d5e58efc2294e54e60f919d8c2a60a",
+    "fullRunStats": {
+      "totalTables": 368,
+      "totalParsedPages": 410,
+      "costMs": 4486
+    },
+    "diffMethod": "行标签前缀匹配抽取行；真值与抽取值字符串等值比对；列可辨识=模型名列名（原文含□）出现在该页抽取表头。value_hit=行内值命中；missing_in_extraction=行或值缺失；wrong_value=行内出现与任何真值不符的错值（本手册为 0）"
+  },
+  "tables": [
+    {
+      "pageNumber": 396,
+      "header": [
+        "",
+        "Model",
+        "",
+        "C10602□S",
+        "C10604□S"
+      ],
+      "rowCount": 15,
+      "colCount": 5,
+      "flags": [
+        "COLUMN_MISALIGNMENT"
+      ],
+      "confidence": "HIGH",
+      "continuationPage": -1,
+      "continuationOrdinal": -1,
+      "rowTexts": [
+        "Model C10602□S C10604□S C10804□S C10807□S",
+        "LC 60 60 80 80",
+        "LZ 5.5 5.5 6.6 6.6",
+        "LA 70 70 90 90",
+        "S 14 14 14 19",
+        "LB 50 50 70 70",
+        "LL（不帶剎車） 105.5 130.7 112.3 138.3",
+        "LL（帶剎車） 141.6 166.8 152.8 178",
+        "LR 30 30 30 35",
+        "LE 3 3 3 3",
+        "LG 7.5 7.5 8 8",
+        "LW 20 20 20 25",
+        "RH 11 11 11 15.5",
+        "WK 5 5 5 6",
+        "W - 5 - 6",
+        "T - 5 - 6"
+      ],
+      "rows": [
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LC",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "60",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LZ",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "5.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LA",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "70",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "S",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "14",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LB",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "50",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": "LL（不帶剎車）",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "105.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": "LL（帶剎車）",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "141.6",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LR",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "30",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LE",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "3",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LG",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "7.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LW",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "20",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "RH",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "11",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "WK",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "W",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "-",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "T",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "-",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          }
+        ]
+      ]
+    },
+    {
+      "pageNumber": 397,
+      "header": [
+        "",
+        "Model"
+      ],
+      "rowCount": 2,
+      "colCount": 2,
+      "flags": [
+        "COLUMN_MISALIGNMENT",
+        "NEAR_EMPTY_ROW",
+        "LOW_CONFIDENCE"
+      ],
+      "confidence": "LOW",
+      "continuationPage": -1,
+      "continuationOrdinal": -1,
+      "rowTexts": [
+        "Model G11303□S E11305□SG11306□SG11309□S C11010ES",
+        "LC 130 130 130 130 100",
+        "LZ 9 9 9 9 9",
+        "LA 145 145 145 145 115",
+        "S 22 22 22 22 22",
+        "LB 110 110 110 110 95",
+        "LL（不帶剎車） 147.5 147.5 147.5 163.5 153.5",
+        "LL（帶剎車） 183.5 183.5 183.5 198 192.5",
+        "LR 55 55 55 55 45",
+        "LE 6 6 6 6 5",
+        "LG 11.5 11.5 11.5 11.5 12",
+        "LW 36 36 36 36 32",
+        "RH 18 18 18 18 18",
+        "WK 8 8 8 8 8",
+        "W 8 8 8 8 8",
+        "T 7 7 7 7 7"
+      ],
+      "rows": [
+        [
+          {
+            "value": "LL（不帶剎車） 147.5",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": "147.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": "LL（帶剎車）",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": "183.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ]
+      ]
+    },
+    {
+      "pageNumber": 398,
+      "header": [
+        "",
+        "LC",
+        "130",
+        "",
+        "",
+        "130",
+        "100"
+      ],
+      "rowCount": 14,
+      "colCount": 7,
+      "flags": [
+        "COLUMN_MISALIGNMENT",
+        "MERGED_CELL"
+      ],
+      "confidence": "HIGH",
+      "continuationPage": -1,
+      "continuationOrdinal": -1,
+      "rowTexts": [
+        "LC 130 130 100 130 180 180",
+        "LZ 9 9 9 9 13.5 13.5",
+        "LA 145 145 115 145 200 200",
+        "S 22 22 22 22 35 35",
+        "LB 110 110 95 110 114.3 114.3",
+        "LL（不帶剎車） 147.5 167.5 199 187.5 169 202.1",
+        "LL（帶剎車） 183.5 202 226 216 203.1 235.3",
+        "LR 55 55 45 55 79 79",
+        "LE 6 6 5 6 4 4",
+        "LG 11.5 11.5 12 11.5 20 20",
+        "LW 36 36 32 36 63 63",
+        "RH 18 18 18 18 30 30",
+        "WK 8 8 8 8 10 10",
+        "W 8 8 8 8 10 10",
+        "T 7 7 7 7 8 8"
+      ],
+      "rows": [
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LZ",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "9",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "9",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "9",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LA",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": "145",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "145",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "115",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "S",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "22",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "22",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "22",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LB",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": "110",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "110",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "95",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": "LL（不帶剎車） 147.5",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "167.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "199",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": "LL（帶剎車） 183.5",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "202",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "226",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LR",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "55",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "55",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "45",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LE",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "6",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "6",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LG",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": "11.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "11.5",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "12",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "LW",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "36",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "36",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "32",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "RH",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "18",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "18",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "18",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "WK",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "W",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "8",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ],
+        [
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "T",
+            "unit": null,
+            "type": "string",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "7",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": null,
+            "unit": null,
+            "type": null,
+            "isNull": true
+          },
+          {
+            "value": "7",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          },
+          {
+            "value": "7",
+            "unit": null,
+            "type": "number",
+            "isNull": false
+          }
+        ]
+      ]
+    }
+  ]
+}

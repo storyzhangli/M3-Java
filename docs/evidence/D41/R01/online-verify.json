@@ -1,0 +1,57 @@
+{
+  "ts": "2026-11-24 16:10:22",
+  "codeBaseline": "b76c106+工作区R03/R02修复",
+  "instance": "r4",
+  "steps": [
+    {
+      "step": "r4-ready",
+      "pass": true,
+      "detail": "pollRounds=0"
+    },
+    {
+      "step": "import-pdf",
+      "pass": true,
+      "detail": "code=200 status=COMPLETED"
+    },
+    {
+      "step": "first-round-link",
+      "pass": true,
+      "detail": "p1Id=14 p2Cont=14"
+    },
+    {
+      "step": "reextract-ids-rotated",
+      "pass": true,
+      "detail": "old=(14,15) new=(16,17)"
+    },
+    {
+      "step": "reextract-link-remapped",
+      "pass": true,
+      "detail": "newCont=16 expect=16 oldId=15 leaked=False"
+    },
+    {
+      "step": "sql-dangling-zero",
+      "pass": true,
+      "detail": "dangling=0"
+    },
+    {
+      "step": "sql-old-rows-cleared",
+      "pass": true,
+      "detail": "rowsOnOldIds=0"
+    },
+    {
+      "step": "sql-rowcount-consistent",
+      "pass": true,
+      "detail": "pairs=16:2/2,17:2/2"
+    },
+    {
+      "step": "samepage-counterexample-nolink-http",
+      "pass": true,
+      "detail": "tables=2 linked=0"
+    },
+    {
+      "step": "delete-clears-tables",
+      "pass": true,
+      "detail": "delA=200 delB=200 remain=0"
+    }
+  ]
+}

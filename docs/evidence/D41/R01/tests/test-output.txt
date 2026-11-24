@@ -1,0 +1,89 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.ai.m1.qw:D41_TASIIEM >----------------------
+[INFO] Building D41_TASIIEM 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D41_TASIIEM ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D41_TASIIEM ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D41_TASIIEM ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D41_TASIIEM ---
+[INFO] Copying 12 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D41_TASIIEM ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D41_TASIIEM ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d41.service.RecoverStuckTasksScopeTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+15:48:59.543 [main] WARN com.zl.d41.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=DOC-SERVO-TROUBLE-002 prefix=d41-
+15:48:59.543 [main] WARN com.zl.d41.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=d32eval-doc-x prefix=d41-
+15:49:00.373 [main] INFO com.zl.d41.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope= issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+15:49:00.385 [main] INFO com.zl.d41.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope=d41- issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.459 s -- in com.zl.d41.service.RecoverStuckTasksScopeTest
+[INFO] Running com.zl.d41.sync.AdminAuditServiceTest
+15:49:00.546 [main] ERROR com.zl.d41.document.sync.service.AdminAuditService -- ���д��ʧ�� action=a result=DENIED type=RuntimeException
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s -- in com.zl.d41.sync.AdminAuditServiceTest
+[INFO] Running com.zl.d41.sync.CitationDeletedClassificationTest
+15:49:00.591 [main] INFO com.zl.d41.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=1, removed=0
+15:49:00.602 [main] INFO com.zl.d41.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+15:49:00.608 [main] INFO com.zl.d41.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+15:49:00.612 [main] INFO com.zl.d41.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+15:49:00.620 [main] INFO com.zl.d41.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s -- in com.zl.d41.sync.CitationDeletedClassificationTest
+[INFO] Running com.zl.d41.sync.D41SyncControllerConsistencyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.226 s -- in com.zl.d41.sync.D41SyncControllerConsistencyTest
+[INFO] Running com.zl.d41.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.zl.d41.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Running com.zl.d41.sync.DocumentSyncServiceStateMachineTest
+15:49:00.890 [main] WARN com.zl.d41.document.sync.service.DocumentSyncService -- sync FAILED documentId=d41-doc-a operation=DELETE version=0 attempt=2 reason=PG_UNREACHABLE
+15:49:00.893 [main] INFO com.zl.d41.document.sync.service.DocumentSyncService -- sync markPending documentId=d41-doc-a operation=DELETE version=0 payloadHash=hash1
+15:49:00.893 [main] INFO com.zl.d41.document.sync.service.DocumentSyncService -- sync markPending documentId=d41-doc-a operation=DELETE version=0 payloadHash=hash1
+15:49:00.893 [main] INFO com.zl.d41.document.sync.service.DocumentSyncService -- sync markPending documentId=d41-doc-up operation=UPDATE_CLEANUP version=1 payloadHash=hash2
+15:49:00.906 [main] INFO com.zl.d41.document.sync.service.DocumentSyncService -- sync SYNCED documentId=d41-doc-a operation=DELETE version=0
+15:49:00.906 [main] WARN com.zl.d41.document.sync.service.DocumentSyncService -- sync FAILED documentId=d41-doc-a operation=DELETE version=0 attempt=3 reason=RETRY_EXHAUSTED
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in com.zl.d41.sync.DocumentSyncServiceStateMachineTest
+[INFO] Running com.zl.d41.sync.FaultInjectingVectorStoreTest
+15:49:00.947 [main] WARN com.zl.d41.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #2
+15:49:00.952 [main] WARN com.zl.d41.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at delete(List) call #1
+15:49:00.957 [main] WARN com.zl.d41.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #3
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.zl.d41.sync.FaultInjectingVectorStoreTest
+[INFO] Running com.zl.d41.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d41.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Running com.zl.d41.sync.SyncOperationAndReasonCodeTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.zl.d41.sync.SyncOperationAndReasonCodeTest
+[INFO] Running com.zl.d41.sync.SyncRetryRunnerPipelineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.zl.d41.sync.SyncRetryRunnerPipelineTest
+[INFO] Running com.zl.d41.table.PdfTableFixtureTruthTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.768 s -- in com.zl.d41.table.PdfTableFixtureTruthTest
+[INFO] Running com.zl.d41.table.TableCellTypingTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.zl.d41.table.TableCellTypingTest
+[INFO] Running com.zl.d41.table.TableRecordRebuildTest
+15:49:02.001 [main] WARN com.zl.d41.document.table.service.TableRecordService -- �ؽ���������Ŀ��ӳ��ȱʧ�����ð������� table=30 oldContinuationOf=999
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.233 s -- in com.zl.d41.table.TableRecordRebuildTest
+[INFO] Running com.zl.d41.table.TextTableExtractorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s -- in com.zl.d41.table.TextTableExtractorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 78, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.799 s
+[INFO] Finished at: 2026-11-24T15:49:02+08:00
+[INFO] ------------------------------------------------------------------------

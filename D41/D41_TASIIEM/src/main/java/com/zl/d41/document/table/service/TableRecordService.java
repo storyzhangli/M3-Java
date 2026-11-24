@@ -141,6 +141,28 @@ public class TableRecordService {
             extractMapper.insert(fresh);
             idRemap.put(po.getId(), fresh.getId());
         }
+        // R03 修复：续表引用不在插入阶段复制旧 ID（旧表此刻已删=悬空），
+        // 全部新表 ID 就绪后按 idRemap 第二遍重建父子关系；映射缺失
+        // （旧父表不在本次 documentId+version 重建集合）按设计清空并留诊断。
+        // 自引用不可能（oldCont≠po.id 且 idRemap 单射）；续链为线性前驱链，
+        // 重映射保持拓扑，天然无循环——均加防御性核验。
+        for (TableExtractPO po : old) {
+            Long oldCont = po.getContinuationOfTableId();
+            if (oldCont == null) {
+                continue;
+            }
+            Long selfNew = idRemap.get(po.getId());
+            Long newParent = idRemap.get(oldCont);
+            if (newParent != null && !newParent.equals(selfNew)) {
+                TableExtractPO patch = new TableExtractPO();
+                patch.setId(selfNew);
+                patch.setContinuationOfTableId(newParent);
+                extractMapper.updateById(patch);
+            } else {
+                log.warn("重建续表回链目标映射缺失，引用按设计清空 table={} oldContinuationOf={}",
+                        po.getId(), oldCont);
+            }
+        }
         for (TableExtractPO po : old) {
             Long newId = idRemap.get(po.getId());
             for (TableRowPO row : oldRows.get(po.getId())) {
@@ -314,7 +336,7 @@ public class TableRecordService {
         fresh.setSourceLineEnd(source.getSourceLineEnd());
         fresh.setDetectFlags(source.getDetectFlags());
         fresh.setConfidence(source.getConfidence());
-        fresh.setContinuationOfTableId(source.getContinuationOfTableId());
+        // R03：continuationOfTableId 不在此处复制——由 reExtract 后段 idRemap 统一重建
         fresh.setStatus(source.getStatus());
         fresh.setCreatedAt(now);
         fresh.setUpdatedAt(now);
