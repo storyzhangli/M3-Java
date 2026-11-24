@@ -8,8 +8,7 @@ import org.springframework.dao.DataAccessResourceFailureException;
 
 import java.sql.SQLTransientConnectionException;
 
-import static org.junit.jupiter.api.Assertions.assertNull;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * C01：KP4 冻结口径单测——操作归一化与异常→原因码分类规则。

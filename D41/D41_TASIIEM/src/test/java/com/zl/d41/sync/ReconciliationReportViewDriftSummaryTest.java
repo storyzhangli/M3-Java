@@ -4,6 +4,8 @@ import com.zl.d41.document.vectorindex.dto.ReconciliationReportView;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 /**
  * C01/C12：漂移分型计数摘要单测——driftSummary 各计数口径（VECTOR_ONLY 须扣除 STALE 子集）。
  */

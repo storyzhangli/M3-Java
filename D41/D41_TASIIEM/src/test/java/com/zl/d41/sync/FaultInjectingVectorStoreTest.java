@@ -12,8 +12,7 @@ import org.springframework.ai.vectorstore.VectorStore;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * C01/C18/KP3：故障注入装饰器单测——消耗式触发、0=禁用零差异、计数口径与全透传。
