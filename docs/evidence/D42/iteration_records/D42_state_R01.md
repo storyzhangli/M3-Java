@@ -1,6 +1,6 @@
 # D42_state_R01 —— Rerank 价值评估（one 仓）
 
-- 迭代/切片：D42 / R01；骨架基线 commit：a086fa2（执行时 HEAD 复核一致）；本切片交付 commit：<主提交后补记>
+- 迭代/切片：D42 / R01；骨架基线 commit：a086fa2（执行时 HEAD 复核一致）；本切片交付 commit：504ffee（149 files，+24495/−16，不 push；logs 运行日志按 repo 规则 *.log/*.err 不入库，观测权威证据=rank-observations-*.jsonl）
 - 技术基线：Spring Boot 3.5.16 / JDK21 / Spring AI 1.1.8 / dashscope-sdk 2.23.6（远程通道实测 NPE 后弃用其 TextReRank 封装，改 JDK HttpClient 直连 REST，D-EX8） / MyBatis-Plus 3.5.17 / PG 18.7+pgvector 0.8.7 / MySQL 8（本机 9.7.0 客户端）
 - 冻结参数：datasetHash=75cc8d83cfb2…（20 题 v1.0） baselineFingerprint=10fc69d5…（前代锚；d42 ID 面新锚=2cf619bd51401282…，ROWS=8，D-EX2） A0raw=d22be515… A1raw=6e9c6262… A2raw=2c7303fb… A3raw=91788a24… baselineCsvSha=0c3ad8f6efc957e7…361b（A0/A1/A2/A3 全轮相等） denyCode=4030 retrievalParams={topK:5,threshold:0.0,warmup:3,rounds:3} rankMetrics={MRR@5,nDCG@5,hit@1,firstRelevantRank} decisionThresholds=<rerank-protocol.json decisionThresholdsPrefrozen：ΔMRR@5≥+0.05 ∧ ΔnDCG@5≥+0.05 ∧ hit@1 不降 ∧ local p95≤300ms ∧ remote p95≤1500ms ∧ fail-open≤1% ∧ 费用≤¥3/千问> remoteBudget={maxCalls:400,maxTokens:2M,maxCny:5} rerankPrice=0.8元/M tokens（gte-rerank-v2）
 - 偏差裁决（任务书 D1–D10）：D1 端口适配器挂 orchestrator ✓ / D2 集合不变性+排序敏感指标+C05 双态 ✓ / D3 决策门禁预注册（协议先冻结后实验，未回改）✓ / D4 实测 usage.totalTokens×官方单价 ✓ / D5 fail-open+异常分类（HTTP 非 200 类型化异常）✓ / D6 实验记录走文件面 ✓ / D7 耗时口径=nanoTime+日志 rerankMs ✓ / D8 同冻结数据集 ✓ / D9 骨架已提交 a086fa2+D41 15 测试迁移 ✓ / D10 类型化契约（RerankPort/RerankRequest/Result/Flags）✓
