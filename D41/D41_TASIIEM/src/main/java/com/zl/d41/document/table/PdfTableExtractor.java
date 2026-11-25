@@ -36,8 +36,8 @@ public class PdfTableExtractor {
     /** 页内一个文本字形（收集自 TextPosition）。 */
     record Glyph(float x, float y, float width, String text) {}
 
-    /** 行内一个格子（相邻字形 x 间隙 &gt; COL_GAP 断格）。 */
-    record Span(float x, float width, String text) {}
+    /** 行内一个格子（相邻字形 x 间隙 &gt; COL_GAP 断格）。glyphs=段内字形明细（R03 分裂原语用）。 */
+    record Span(float x, float width, String text, List<Glyph> glyphs) {}
 
     /** 一条聚类后的文本行。 */
     record Line(float y, List<Span> spans) {}
@@ -83,7 +83,8 @@ public class PdfTableExtractor {
                 imageCounts.put(page, countImages(document.getPage(page - 1)));
 
                 List<Line> clusterLines = clusterToLines(collector.glyphs);
-                List<DetectedTable> pageTables = detectTables(page, clusterLines, lines);
+                List<DetectedTable> pageTables =
+                        mergeAdjacentFragments(detectTables(page, clusterLines, lines));
 
                 // 3) 图片表占位（KP4：有图 ∧ 零表格 ∧ 文本行极少 → IMAGE_TABLE_NOT_PARSED）
                 if (pageTables.isEmpty() && imageCounts.get(page) > 0
@@ -155,36 +156,292 @@ public class PdfTableExtractor {
         rowGlyphs.sort((a, b) -> Float.compare(a.x(), b.x()));
         List<Span> spans = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
+        List<Glyph> run = new ArrayList<>();
         float spanStart = Float.NaN;
         float lastEnd = Float.NaN;
         for (Glyph g : rowGlyphs) {
             if (Float.isNaN(spanStart)) {
                 spanStart = g.x();
                 sb.append(g.text());
+                run.add(g);
                 lastEnd = g.x() + g.width();
                 continue;
             }
             if (g.x() - lastEnd > TablePatterns.COL_GAP) {
-                addSpan(spans, spanStart, lastEnd, sb);
+                addSpan(spans, spanStart, lastEnd, sb, run);
                 sb.setLength(0);
+                run.clear();
                 spanStart = g.x();
             }
             sb.append(g.text());
+            run.add(g);
             lastEnd = Math.max(lastEnd, g.x() + g.width());
         }
-        addSpan(spans, spanStart, lastEnd, sb);
+        addSpan(spans, spanStart, lastEnd, sb, run);
         float y = rowGlyphs.get(0).y();
-        return new Line(y, spans);
+        return refineLine(new Line(y, spans));
     }
 
     /** 纯空白段不产格（trim 后为空即丢弃），防假列位。 */
-    private static void addSpan(List<Span> spans, float start, float end, StringBuilder sb) {
+    private static void addSpan(List<Span> spans, float start, float end, StringBuilder sb,
+                                List<Glyph> glyphs) {
         if (Float.isNaN(start)) {
             return;
         }
         String text = sb.toString().trim();
         if (!text.isEmpty()) {
-            spans.add(new Span(start, end - start, text));
+            spans.add(new Span(start, end - start, text, List.copyOf(glyphs)));
+        }
+    }
+
+    // ================= R03 行精化（T1 表头列名锚定 / T5 值黏连分隔） =================
+
+    /**
+     * 行内 span 二级分裂原语（R03）：
+     * <ul>
+     *   <li>T1：整行判定为"型号表头行"（分裂后型号 token ≥2 且 ≥行 token 半数，
+     *       token 形如 {@code G11303□S/C11010ES}）→ 行内所有 span 按**型号起点或空白**
+     *       边界分裂（型号粘连串无空格也能切开，p397/p398 实测形态）；</li>
+     *   <li>T5：普通行的 span 仅在**空白字形分界**且"前缀非数值形态 + 后缀完整数值字面"
+     *       时切成两 span（E4「LL（不帶剎車） 147.5」）；「5.5 mm」前缀为数值 → 不切，
+     *       单位同记录契约（D10）不受影响。</li>
+     * </ul>
+     * 分裂不删除任何字形文本——只重排 span 边界，段序与页文本行对齐口径不变。
+     */
+    static Line refineLine(Line line) {
+        List<Span> spans = line.spans();
+        if (spans.isEmpty()) {
+            return line;
+        }
+        // T1：整行先按空白/型号起点预切 token，若构成"型号表头行"（型号 token ≥2
+        // 且 ≥非空 token 半数）→ 全行所有 span 按字形边界分裂（型号起点或空白分界）。
+        if (isModelHeaderLine(spans)) {
+            List<Span> out = new ArrayList<>();
+            for (Span s : spans) {
+                splitSpanForHeader(s, out);
+            }
+            return new Line(line.y(), out);
+        }
+        // T5：普通行仅切"非数值前缀 + 空白 + 完整数值字面"边界（E4 黏连形态）。
+        List<Span> out = new ArrayList<>(spans.size());
+        for (Span s : spans) {
+            splitStickyValue(s, out);
+        }
+        return new Line(line.y(), out);
+    }
+
+    /** 型号表头行判据：token 化后型号 token ≥2 且 ≥非空 token 数的一半。 */
+    static boolean isModelHeaderLine(List<Span> spans) {
+        int tokens = 0;
+        int models = 0;
+        for (Span s : spans) {
+            for (String t : s.text().split("\\s+")) {
+                if (t.isBlank()) {
+                    continue;
+                }
+                for (String piece : TablePatterns.MODEL_COL_START.split(t)) {
+                    if (piece.isBlank()) {
+                        continue;
+                    }
+                    tokens++;
+                    if (TablePatterns.MODEL_COL_TOKEN.matcher(piece).matches()) {
+                        models++;
+                    }
+                }
+            }
+        }
+        return models >= 2 && models * 2 >= tokens;
+    }
+
+    /** 表头行 span 分裂：按空白字形边界 + 粘连型号起点（字形级 x 保真）。 */
+    private static void splitSpanForHeader(Span s, List<Span> out) {
+        List<Glyph> gs = s.glyphs();
+        int start = 0;
+        for (int i = 1; i < gs.size(); i++) {
+            boolean cut = false;
+            Glyph prev = gs.get(i - 1);
+            Glyph g = gs.get(i);
+            if (isBlankGlyph(prev) || isBlankGlyph(g)) {
+                cut = true; // 空白分界（空白字形归前段，trim 处理）
+            } else if (startsModelToken(gs, i)) {
+                cut = true; // 粘连型号串边界（E11305□SG11306□S）
+            }
+            if (cut) {
+                emitSpan(gs, start, i, out);
+                start = i;
+            }
+        }
+        emitSpan(gs, start, gs.size(), out);
+    }
+
+    /**
+     * i 起是否新列名 token 起点：字母+4~5 位数字 lookahead；回溯跳过 □/S/ES 尾缀粘连
+     * （G11303□S+G 与 G11303□+S 两种断行形态都认）。
+     */
+    private static boolean startsModelToken(List<Glyph> gs, int i) {
+        int len = gs.size();
+        if (i >= len) {
+            return false;
+        }
+        String at = gs.get(i).text();
+        if (at.length() != 1 || !Character.isLetter(at.charAt(0))) {
+            return false;
+        }
+        int digits = 0;
+        for (int k = i + 1; k < len && k <= i + 6; k++) {
+            Character cp = digitOf(gs.get(k).text());
+            if (cp == null) {
+                break;
+            }
+            digits++;
+        }
+        if (digits >= 4 && digits <= 5) {
+            return true;
+        }
+        // 尾缀回退：前 1~2 字形为 S/□ 时，视当前为下一型号起点（如 □S|G 之间的 S 前断）
+        if (digits == 0 && i >= 2) {
+            String p1 = gs.get(i - 1).text();
+            if (p1.equals("S")) {
+                String p2 = gs.get(i - 2).text();
+                if (p2.equals("\u25a1")) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private static Character digitOf(String t) {
+        return (t.length() == 1 && Character.isDigit(t.charAt(0))) ? t.charAt(0) : null;
+    }
+
+    /**
+     * T5：span 内在"空白字形 + 后缀完整数值"边界切一刀（仅一次，取首个满足位）：
+     * 前缀整体非数值形态（NUMERIC_SUFFIX 不匹配）且空格后连续字形恰好构成完整数值字面。
+     * 「5.5 mm」前缀即数值 → 不切（单位同记录 D10）；「C11010ES」无空白 → 不切。
+     */
+    private static void splitStickyValue(Span s, List<Span> out) {
+        List<Glyph> gs = s.glyphs();
+        for (int i = 1; i < gs.size(); i++) {
+            if (!isBlankGlyph(gs.get(i))) {
+                continue;
+            }
+            // 空白段结束位置 j：数值段起点
+            int j = i;
+            while (j < gs.size() && isBlankGlyph(gs.get(j))) {
+                j++;
+            }
+            if (j >= gs.size()) {
+                break; // 尾部空白，无候选值段
+            }
+            String prefix = glyphsText(gs, 0, i).trim();
+            String suffix = glyphsText(gs, j, gs.size()).trim();
+            if (prefix.isEmpty() || suffix.isEmpty()) {
+                break;
+            }
+            boolean prefixNumeric = TablePatterns.NUMERIC_SUFFIX.matcher(prefix).matches();
+            boolean suffixNumeric = TablePatterns.NUMERIC_SUFFIX.matcher(suffix).matches();
+            if (!prefixNumeric && suffixNumeric) {
+                emitSpan(gs, 0, i, out);
+                emitSpan(gs, j, gs.size(), out);
+                return;
+            }
+            break; // 只评估首个空白边界（保守）
+        }
+        out.add(s); // 无切点：原 span 原样保留（text/width/glyphs 零信息损失）
+    }
+
+    private static String glyphsText(List<Glyph> gs, int from, int to) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = from; i < to; i++) {
+            sb.append(gs.get(i).text());
+        }
+        return sb.toString();
+    }
+
+    /** 由字形子区间产出新 span（x=首字形 x，width=子区间跨度，glyphs 同步切片）。 */
+    private static void emitSpan(List<Glyph> gs, int from, int to, List<Span> out) {
+        String text = glyphsText(gs, from, to).trim();
+        if (text.isEmpty()) {
+            return;
+        }
+        Glyph first = gs.get(from);
+        Glyph last = gs.get(to - 1);
+        float end = last.x() + last.width();
+        out.add(new Span(first.x(), end - first.x(), text,
+                List.copyOf(gs.subList(from, to))));
+    }
+
+    // ================= R03 T4：参数块碎片按 lineIndex 邻接合并 =================
+
+    static List<DetectedTable> mergeAdjacentFragments(List<DetectedTable> tables) {
+        List<DetectedTable> out = new ArrayList<>();
+        DetectedTable cur = null;
+        for (DetectedTable t : tables) {
+            if (cur != null && canMergeFragments(cur, t)) {
+                appendFragment(cur, t);
+            } else {
+                cur = t;
+                out.add(cur);
+            }
+        }
+        return out;
+    }
+
+    /** 合并条件：同页、非续表/占位、列数相等、双方均为碎片形态、lineIndex 严格邻接。 */
+    private static boolean canMergeFragments(DetectedTable a, DetectedTable b) {
+        if (a.getPageNumber() != b.getPageNumber()
+                || a.isContinuation() || b.isContinuation()) {
+            return false;
+        }
+        int cols = a.getHeader().size();
+        if (cols < TablePatterns.MIN_TABLE_COLS || b.getHeader().size() != cols) {
+            return false;
+        }
+        if (a.getConfidence().equals(TablePatterns.CONFIDENCE_NA)
+                || b.getConfidence().equals(TablePatterns.CONFIDENCE_NA)) {
+            return false; // 占位表不参与
+        }
+        if ((a.getRowTexts().size() > TablePatterns.FRAGMENT_MAX_REGION_LINES
+                && !a.hasFlag(TablePatterns.FLAG_FRAGMENT_MERGED))
+                || b.getRowTexts().size() > TablePatterns.FRAGMENT_MAX_REGION_LINES) {
+            return false;
+        }
+        int aLast = -1;
+        for (int idx : a.getLineIndexes()) {
+            if (idx > aLast) {
+                aLast = idx;
+            }
+        }
+        int bFirst = Integer.MAX_VALUE;
+        for (int idx : b.getLineIndexes()) {
+            if (idx >= 0 && idx < bFirst) {
+                bFirst = idx;
+            }
+        }
+        return aLast >= 0 && bFirst != Integer.MAX_VALUE && bFirst >= aLast
+                && bFirst - aLast <= TablePatterns.FRAGMENT_MERGE_MAX_GAP_LINES;
+    }
+
+    /** 拼接：b 的伪表头降格为类型化数据行（不静默丢弃任何原始行文本），行区/flags 全并。 */
+    private static void appendFragment(DetectedTable a, DetectedTable b) {
+        int bHeaderLine = b.getLineIndexes().isEmpty() ? -1 : b.getLineIndexes().get(0);
+        List<TableCell> headerAsRow = new ArrayList<>(b.getHeader().size());
+        for (String h : b.getHeader()) {
+            headerAsRow.add(TableCell.typeOf(h));
+        }
+        a.addDataRow(headerAsRow, bHeaderLine);
+        for (int i = 0; i < b.getRows().size(); i++) {
+            Integer dn = b.getRowDataLineNumbers().get(i);
+            a.addDataRow(b.getRows().get(i), dn == null ? -1 : dn - 1);
+        }
+        for (int i = 0; i < b.getRowTexts().size(); i++) {
+            a.addRegionLine(b.getRowTexts().get(i), b.getLineIndexes().get(i));
+        }
+        a.getFlags().addAll(b.getFlags());
+        a.addFlag(TablePatterns.FLAG_FRAGMENT_MERGED);
+        if (b.getConfidence().equals(TablePatterns.CONFIDENCE_LOW)) {
+            a.setConfidence(TablePatterns.CONFIDENCE_LOW);
         }
     }
 
@@ -194,7 +451,13 @@ public class PdfTableExtractor {
      * 滑动扫描行序列：连续行"格数 ≥ MIN_TABLE_COLS"构成候选区；
      * 允许夹杂"格数 < 众数"的合并/缺格行（同区内解释，出区即断）。
      */
-    static List<DetectedTable> detectTables(int page, List<Line> lines, List<String> pageLines) {
+    static List<DetectedTable> detectTables(int page, List<Line> rawLines, List<String> pageLines) {
+        // R03：行精化统一在表区识别前执行（refineLine 幂等；生产路径 toLine 已精化，
+        // 此处为测试/复用入口兜底同构输入）。
+        List<Line> lines = new ArrayList<>(rawLines.size());
+        for (Line l : rawLines) {
+            lines.add(refineLine(l));
+        }
         List<DetectedTable> result = new ArrayList<>();
         int i = 0;
         while (i < lines.size()) {
@@ -230,36 +493,20 @@ public class PdfTableExtractor {
 
     /**
      * 区内：列数基准=<b>表头行格数</b>（P1 冒烟修正——缺格场景下众数会漂，
-     * 表头是手册表格唯一天然完整的行）；锚点=各格 x 贪心归并取前 baseCols 个；
-     * 行→列映射+类型化。返回 null 表示不可解释。
+     * 表头是手册表格唯一天然完整的行）；R03-T1 起<b>列锚点=表头行格 x</b>
+     * （原"全行贪心聚类+subList(0,baseCols)"被 p396 实证证伪：数值列跨行 x 漂移
+     * ±6–8pt 制造伪锚，截断把右侧真实列锚整体丢弃 → E1 列丢失；表头经 refineLine
+     * 型号分裂后即为天然完整列网格）；行→列映射+类型化。返回 null 表示不可解释。
      */
     private static DetectedTable buildTable(int page, List<Line> region, List<String> pageLines) {
         int baseCols = region.get(0).spans().size();
         if (baseCols < TablePatterns.MIN_TABLE_COLS) {
             return null;
         }
-        // 列锚点：所有格起点按 COL_ANCHOR_TOL 贪心归并（升序）
-        List<Float> anchors = new ArrayList<>();
-        List<Float> starts = new ArrayList<>();
-        for (Line l : region) {
-            for (Span s : l.spans()) {
-                starts.add(s.x());
-            }
-        }
-        starts.sort(Float::compare);
-        for (float x : starts) {
-            if (anchors.isEmpty() || x - anchors.get(anchors.size() - 1) > TablePatterns.COL_ANCHOR_TOL) {
-                anchors.add(x);
-            }
-        }
-        if (anchors.size() < baseCols) {
-            baseCols = anchors.size();
-        }
-        if (baseCols < TablePatterns.MIN_TABLE_COLS) {
-            return null;
-        }
-        if (anchors.size() > baseCols) {
-            anchors = anchors.subList(0, baseCols);
+        // R03-T1：表头锚定——锚点序列=表头行各 span 起点（升序，行内本升序）
+        List<Float> anchors = new ArrayList<>(baseCols);
+        for (Span s : region.get(0).spans()) {
+            anchors.add(s.x());
         }
         final int modeCols = baseCols;
 
@@ -303,7 +550,7 @@ public class PdfTableExtractor {
         return table;
     }
 
-    /** 行格 → modeCols 列向量：锚点归属 + 合并/错位检出；返回 null 表示不可解释。 */
+    /** 行格 → modeCols 列向量（R03：表头锚区间归列，T1/T3 同机制）；null=不可解释。 */
     private static List<TableCell> mapLineToCells(Line line, List<Float> anchors,
                                                   int modeCols, DetectedTable table) {
         List<Span> spans = line.spans();
@@ -315,14 +562,14 @@ public class PdfTableExtractor {
         boolean merged = false;
         boolean shortRow = spans.size() < modeCols;
         for (Span s : spans) {
-            int anchorIdx = nearestAnchor(anchors, s.x());
-            // 合并判定（KP4 修正 v2）：仅"行格数<表头列数"时启用区间覆盖语义——
-            // 格右缘越过下一锚点所在列距中点（0.5）；正常单列格右缘不过列中点（夹具实测 153 vs 136/160）。
+            int anchorIdx = intervalColumn(anchors, s.x());
+            // 合并判定（KP4 修正 v2 语义迁移到区间模型）：仅"行格数<表头列数"时启用
+            // 区间覆盖——格右缘越过后续列锚的左边界（前一中点）即计覆盖该列。
             int coveredLast = anchorIdx;
             if (shortRow) {
-                for (int a = anchorIdx + 1; a < Math.min(anchors.size(), modeCols); a++) {
-                    float boundary = anchors.get(anchorIdx)
-                            + 0.5f * (anchors.get(a) - anchors.get(anchorIdx));
+                for (int a = anchorIdx + 1; a < anchors.size() && a < modeCols; a++) {
+                    float boundary = anchors.get(a - 1)
+                            + 0.5f * (anchors.get(a) - anchors.get(a - 1));
                     if (s.x() + s.width() >= boundary) {
                         coveredLast = a;
                     } else {
@@ -354,17 +601,24 @@ public class PdfTableExtractor {
         return cells;
     }
 
-    private static int nearestAnchor(List<Float> anchors, float x) {
-        int best = 0;
-        float bestD = Float.MAX_VALUE;
-        for (int i = 0; i < anchors.size(); i++) {
-            float d = Math.abs(anchors.get(i) - x);
-            if (d < bestD) {
-                bestD = d;
-                best = i;
+    /**
+     * 区间归列（R03-T3）：列边界=相邻锚中点；x ≤ 首个中点 → 0 列，依次右推，
+     * 越过最右中点 → 末列；锚 0 以左（长标签行左漂）归 0 列——列位由表头锚唯一决定，
+     * 不再受数据行 x 漂移生成的伪锚影响。
+     */
+    static int intervalColumn(List<Float> anchors, float x) {
+        for (int i = 1; i < anchors.size(); i++) {
+            float mid = anchors.get(i - 1) + 0.5f * (anchors.get(i) - anchors.get(i - 1));
+            if (x <= mid) {
+                return i - 1;
             }
         }
-        return best;
+        return Math.max(0, anchors.size() - 1);
+    }
+
+    /** 空白字形判定（T1/T5 分裂分界用）：text trim 为空即空白。 */
+    private static boolean isBlankGlyph(Glyph g) {
+        return g.text() == null || g.text().isBlank();
     }
 
     /** 表格行的"页文本行"形态：格文本单空格拼接（与 PDFTextStripper 词间单空格口径一致）。 */

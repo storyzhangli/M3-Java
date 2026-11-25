@@ -31,6 +31,27 @@ public final class TablePatterns {
     /** md 管道表分隔行：{@code | --- | :---: |}。 */
     public static final Pattern PIPE_SEPARATOR = Pattern.compile("^\\|?\\s*:?-{2,}[^\\n]*$");
 
+    // ---- R03 解析能力整改（T1/T4/T5，新增常量不动既有冻结值）----
+    /**
+     * 型号列名 token（T1 表头锚定判据）：字母 + 4~5 位数字 + 可选 ES/□S/S 尾缀，
+     * 如 {@code G11303□S}/{@code C11010ES}/{@code C1110ES}；Model/LC/NOTE1) 均不匹配。
+     */
+    public static final Pattern MODEL_COL_TOKEN = Pattern.compile("^[A-Z]\\d{4,5}(ES|\\u25a1S|S)?$");
+
+    /** 粘连型号串的分裂起点（T1）：前瞻"字母+4~5 位数字"即开新 token（E11305□SG11306□S 可切）。 */
+    public static final Pattern MODEL_COL_START = Pattern.compile("(?=\\p{Lu}\\d{4,5})");
+
+    /** 完整数值字面（T5 黏连后缀判据）：整数/小数，可带符号——与 PURE_NUMBER 区分含小数点尾。 */
+    public static final Pattern NUMERIC_SUFFIX = Pattern.compile("^[-+\\u00b1]?\\d[\\d,]*(\\.\\d+)?$");
+
+    /** 参数块碎片合并（T4）：同页邻接表 lineIndex 间隙上限（行）。 */
+    public static final int FRAGMENT_MERGE_MAX_GAP_LINES = 1;
+    /** 碎片形态判定（T4）：表区总行数（含表头行）不超过该值才参与合并，防整表误并。 */
+    public static final int FRAGMENT_MAX_REGION_LINES = 2;
+
+    /** 碎片已合并标记（T4 传递性：合并主体可继续吸收邻接碎片）。 */
+    public static final String FLAG_FRAGMENT_MERGED = "fragment_merged";
+
     // ---- 几何阈值（pt，KP4 冻结）----
     /** 行聚类 y 容差。 */
     public static final float ROW_TOL = 3.0f;

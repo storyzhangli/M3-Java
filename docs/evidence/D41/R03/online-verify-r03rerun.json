@@ -1,0 +1,63 @@
+{
+  "ts": "2026-11-25 23:19:59",
+  "codeBaseline": "2f55b10+工作区R03解析整改",
+  "instance": "r5",
+  "notes": "夹具 r03 变体避 contentHash 去重（去重语义本身为既定设计，见 R01 文档）",
+  "steps": [
+    {
+      "step": "import-pdf",
+      "pass": true,
+      "detail": "code=200 duplicate=False status=COMPLETED"
+    },
+    {
+      "step": "first-round-link",
+      "pass": true,
+      "detail": "p1Id=158 p2Cont=158"
+    },
+    {
+      "step": "first-round-rows",
+      "pass": true,
+      "detail": "rows=2"
+    },
+    {
+      "step": "reextract-ids-rotated",
+      "pass": true,
+      "detail": "old=(158,159) new=(160,161)"
+    },
+    {
+      "step": "reextract-link-remapped",
+      "pass": true,
+      "detail": "newCont=160 expect=160 leaked=False"
+    },
+    {
+      "step": "sql-dangling-zero",
+      "pass": true,
+      "detail": "dangling=0"
+    },
+    {
+      "step": "sql-old-rows-cleared",
+      "pass": true,
+      "detail": "rowsOnOldIds=0"
+    },
+    {
+      "step": "sql-rowcount-consistent",
+      "pass": true,
+      "detail": "pairs=2/2,2/2"
+    },
+    {
+      "step": "samepage-counterexample-nolink-http",
+      "pass": true,
+      "detail": "dup=False tables=2 linked=0"
+    },
+    {
+      "step": "delete-clears-tables",
+      "pass": true,
+      "detail": "delA=200 delB=200 remain=0"
+    },
+    {
+      "step": "sql-clean-after-delete",
+      "pass": true,
+      "detail": "dangling=0 residual=0"
+    }
+  ]
+}

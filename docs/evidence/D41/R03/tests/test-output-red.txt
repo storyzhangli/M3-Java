@@ -1,0 +1,117 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.ai.m1.qw:D41_TASIIEM >----------------------
+[INFO] Building D41_TASIIEM 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D41_TASIIEM ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D41_TASIIEM ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D41_TASIIEM ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 340 source files with javac [debug parameters release 21] to target\classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D41/D41_TASIIEM/src/main/java/com/zl/d41/logging/CachedBodyAccessLogFilter.java:[63,55] org.springframework.web.util.ContentCachingRequestWrapper �е� ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D41/D41_TASIIEM/src/main/java/com/zl/d41/conversation/ConversationMemory.java: E:\AI\project\AI-Learning-one\M3-Java\D41\D41_TASIIEM\src\main\java\com\zl\d41\conversation\ConversationMemory.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D41/D41_TASIIEM/src/main/java/com/zl/d41/conversation/ConversationMemory.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D41_TASIIEM ---
+[INFO] Copying 12 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D41_TASIIEM ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 16 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D41/D41_TASIIEM/src/test/java/com/zl/d41/service/RecoverStuckTasksScopeTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D41/D41_TASIIEM/src/test/java/com/zl/d41/service/RecoverStuckTasksScopeTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D41_TASIIEM ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d41.document.table.PdfTableR03MechTest
+[ERROR] Tests run: 8, Failures: 4, Errors: 1, Skipped: 0, Time elapsed: 0.148 s <<< FAILURE! -- in com.zl.d41.document.table.PdfTableR03MechTest
+[ERROR] com.zl.d41.document.table.PdfTableR03MechTest.t5StickyLabelValueSplit -- Time elapsed: 0.037 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: ��� span Ӧ�г�������ֵ��: [Span[x=58.5, width=183.0, text=LL�������x܇�� 147.5, glyphs=[Glyph[x=58.5, y=0.0, width=9.0, text=L], Glyph[x=67.5, y=0.0, width=9.0, text=L], Glyph[x=76.5, y=0.0, width=18.0, text=��], Glyph[x=94.5, y=0.0, width=18.0, text=��], Glyph[x=112.5, y=0.0, width=18.0, text=��], Glyph[x=130.5, y=0.0, width=18.0, text=�x], Glyph[x=148.5, y=0.0, width=18.0, text=܇], Glyph[x=166.5, y=0.0, width=18.0, text=��], Glyph[x=192.5, y=0.0, width=4.0, text= ], Glyph[x=196.5, y=0.0, width=9.0, text=1], Glyph[x=205.5, y=0.0, width=9.0, text=4], Glyph[x=214.5, y=0.0, width=9.0, text=7], Glyph[x=223.5, y=0.0, width=9.0, text=.], Glyph[x=232.5, y=0.0, width=9.0, text=5]]], Span[x=249.8, width=44.999985, text=147.5, glyphs=[Glyph[x=249.8, y=0.0, width=9.0, text=1], Glyph[x=258.8, y=0.0, width=9.0, text=4], Glyph[x=267.8, y=0.0, width=9.0, text=7], Glyph[x=276.8, y=0.0, width=9.0, text=.], Glyph[x=285.8, y=0.0, width=9.0, text=5]]]] ==> expected: <3> but was: <2>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)
+	at com.zl.d41.document.table.PdfTableR03MechTest.t5StickyLabelValueSplit(PdfTableR03MechTest.java:211)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.zl.d41.document.table.PdfTableR03MechTest.t3LongLabelPullback -- Time elapsed: 0.005 s <<< ERROR!
+java.lang.IndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:100)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:106)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:302)
+	at java.base/java.util.Objects.checkIndex(Objects.java:385)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at com.zl.d41.document.table.PdfTableR03MechTest.t3LongLabelPullback(PdfTableR03MechTest.java:144)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.zl.d41.document.table.PdfTableR03MechTest.t2HeaderNotPromotedFromDataRow -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: ��ͷ����ӦΪ Model������������ LC ���� ==> expected: <Model> but was: <LC>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1156)
+	at com.zl.d41.document.table.PdfTableR03MechTest.t2HeaderNotPromotedFromDataRow(PdfTableR03MechTest.java:119)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.zl.d41.document.table.PdfTableR03MechTest.t1ModelHeaderGiantSpanSplit -- Time elapsed: 0.003 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:145)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:531)
+	at com.zl.d41.document.table.PdfTableR03MechTest.t1ModelHeaderGiantSpanSplit(PdfTableR03MechTest.java:91)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.zl.d41.document.table.PdfTableR03MechTest.t4AdjacentFragmentMerge -- Time elapsed: 0.007 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: lineIndex 20/21/22 �ڽ���ƬӦ�ϲ� ==> expected: <1> but was: <3>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:150)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:563)
+	at com.zl.d41.document.table.PdfTableR03MechTest.t4AdjacentFragmentMerge(PdfTableR03MechTest.java:177)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 

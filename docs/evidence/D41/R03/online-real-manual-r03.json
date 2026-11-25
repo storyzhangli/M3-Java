@@ -1,0 +1,14 @@
+{
+  "ts": "2026-11-25 23:35:00",
+  "docId": "D41-R03RE-MANUAL",
+  "manual": "docs/temp_docs/D41/r01/ASDA-A2-gongkong-mirror.pdf (8.5MB, SHA=6050f8f3...60a)",
+  "importAttempt": {
+    "endpoint": "POST /api/v1/documents/import (multipart)",
+    "httpBody": { "code": 4001, "msg": "文件大小超过服务端上限（2097152 字节）", "data": null },
+    "verdict": "服务端显式拒绝，行为正确（非缺陷）"
+  },
+  "tablesTotal": 0,
+  "targetPages": [],
+  "conclusion": "真实手册在线核验 NOT RUN —— 上传上限 2MiB 为既定配置边界；提升上限属配置变更越界，未实施。真实手册解析质量以离线探针 extracted-cells-post-raw.json 与 post-cell-diff.json (195/30/0/0) 为权威证据。",
+  "cleanup": "doc D41-R03RE-MANUAL 已 DELETE code=200 闭环清场（register 产生的空文档一并清除）"
+}

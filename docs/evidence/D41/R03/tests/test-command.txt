@@ -1,0 +1,19 @@
+# D41-R03 整改 T1-T5 测试执行命令（真实执行，非示例）
+# 执行机: ZL (Windows)  JAVA_HOME=D:\SoftwareInstall\JDK\JDK21  Maven=3.9.16
+# 执行日期: 2026-11-25 (Asia/Shanghai)
+
+# [0] 整改前基线锚定（改码前）
+mvn -B -f D41\pom.xml -pl D41_TASIIEM test          # -> 78/78 PASS (r03-mvn-baseline.log)
+
+# [1] 先红：仅新增 PdfTableR03MechTest（实现未改时）
+mvn -B -f D41\pom.xml -pl D41_TASIIEM test "-Dtest=PdfTableR03MechTest"   # -> 8 run, 5 FAIL (test-output-red.txt)
+
+# [2] 转绿：机制测试（实现完成后）
+mvn -B -f D41\pom.xml -pl D41_TASIIEM test "-Dtest=PdfTableR03MechTest"   # -> 8/8 PASS (test-output-green.txt)
+
+# [3] 全量回归（最终态）
+mvn -B -f D41\pom.xml -pl D41_TASIIEM test          # -> 86/86 BUILD SUCCESS (test-output-full.txt)
+
+# [4] 真实手册重抽 + 225 格复算
+# java -cp target\classes;d41-cp.txt D41RealManualProbe <pdf> extracted-cells-post-raw.json
+# .\docs\temp_docs\D41\r03\d41_r03_cell_diff.ps1 -ExtractedJson ... -OutJson post-cell-diff.json
