@@ -1,0 +1,109 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.ai.m1.qw:D42_RERANK >-----------------------
+[INFO] Building D42_RERANK 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D42_RERANK ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D42_RERANK ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D42_RERANK ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D42_RERANK ---
+[INFO] Copying 12 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D42_RERANK ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D42_RERANK ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d42.rag.orchestrator.RagOrchestratorRerankTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+18:19:56.964 [main] WARN com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�ܣ�δִ������
+18:19:57.064 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- rerank �����: adapter=local, output=2, flags=[REORDERED], estimatedTokens=5
+18:19:57.067 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- rerank order �۲�: orderedChunkIds=B,A
+18:19:57.078 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+18:19:57.092 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+18:19:57.109 [main] ERROR com.zl.d42.rag.orchestrator.RagOrchestrator -- rerank ��δԤ���쳣���� fail-open ����ԭ���쳣����: IllegalStateException
+18:19:57.110 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.416 s -- in com.zl.d42.rag.orchestrator.RagOrchestratorRerankTest
+[INFO] Running com.zl.d42.rag.rerank.DashScopeRerankAdapterOfflineTest
+18:19:57.572 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) δע�� DASHSCOPE_API_KEY��fail-open ����ԭ��
+18:19:57.579 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) Ԥ��ñ���� calls=0 measuredTokens=0 costMicroCny=0������ԭ��
+18:19:57.590 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) ������� token=14 ������=1��Ԥ�����ԭ��
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.466 s -- in com.zl.d42.rag.rerank.DashScopeRerankAdapterOfflineTest
+[INFO] Running com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest
+[INFO] Running com.zl.d42.rag.rerank.RerankExceptionClassifierTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s -- in com.zl.d42.rag.rerank.RerankExceptionClassifierTest
+[INFO] Running com.zl.d42.rag.rerank.RerankPortContractTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.zl.d42.rag.rerank.RerankPortContractTest
+[INFO] Running com.zl.d42.service.RecoverStuckTasksScopeTest
+18:19:58.585 [main] WARN com.zl.d42.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=DOC-SERVO-TROUBLE-002 prefix=d42-
+18:19:58.585 [main] WARN com.zl.d42.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=d32eval-doc-x prefix=d42-
+18:19:58.941 [main] INFO com.zl.d42.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope= issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+18:19:58.950 [main] INFO com.zl.d42.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope=d42- issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.205 s -- in com.zl.d42.service.RecoverStuckTasksScopeTest
+[INFO] Running com.zl.d42.sync.AdminAuditServiceTest
+18:19:59.060 [main] ERROR com.zl.d42.document.sync.service.AdminAuditService -- ���д��ʧ�� action=a result=DENIED type=RuntimeException
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.098 s -- in com.zl.d42.sync.AdminAuditServiceTest
+[INFO] Running com.zl.d42.sync.CitationDeletedClassificationTest
+18:19:59.084 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=1, removed=0
+18:19:59.091 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:19:59.097 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:19:59.101 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:19:59.106 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s -- in com.zl.d42.sync.CitationDeletedClassificationTest
+[INFO] Running com.zl.d42.sync.D42SyncControllerConsistencyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.212 s -- in com.zl.d42.sync.D42SyncControllerConsistencyTest
+[INFO] Running com.zl.d42.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.zl.d42.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Running com.zl.d42.sync.DocumentSyncServiceStateMachineTest
+18:19:59.361 [main] WARN com.zl.d42.document.sync.service.DocumentSyncService -- sync FAILED documentId=d42-doc-a operation=DELETE version=0 attempt=2 reason=PG_UNREACHABLE
+18:19:59.365 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-a operation=DELETE version=0 payloadHash=hash1
+18:19:59.366 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-a operation=DELETE version=0 payloadHash=hash1
+18:19:59.369 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-up operation=UPDATE_CLEANUP version=1 payloadHash=hash2
+18:19:59.372 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync SYNCED documentId=d42-doc-a operation=DELETE version=0
+18:19:59.375 [main] WARN com.zl.d42.document.sync.service.DocumentSyncService -- sync FAILED documentId=d42-doc-a operation=DELETE version=0 attempt=3 reason=RETRY_EXHAUSTED
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s -- in com.zl.d42.sync.DocumentSyncServiceStateMachineTest
+[INFO] Running com.zl.d42.sync.FaultInjectingVectorStoreTest
+18:19:59.420 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #2
+18:19:59.425 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at delete(List) call #1
+18:19:59.426 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #3
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s -- in com.zl.d42.sync.FaultInjectingVectorStoreTest
+[INFO] Running com.zl.d42.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s -- in com.zl.d42.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Running com.zl.d42.sync.SyncOperationAndReasonCodeTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s -- in com.zl.d42.sync.SyncOperationAndReasonCodeTest
+[INFO] Running com.zl.d42.sync.SyncRetryRunnerPipelineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s -- in com.zl.d42.sync.SyncRetryRunnerPipelineTest
+[INFO] Running com.zl.d42.table.PdfTableFixtureTruthTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.786 s -- in com.zl.d42.table.PdfTableFixtureTruthTest
+[INFO] Running com.zl.d42.table.TableCellTypingTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s -- in com.zl.d42.table.TableCellTypingTest
+[INFO] Running com.zl.d42.table.TableRecordRebuildTest
+18:20:00.515 [main] WARN com.zl.d42.document.table.service.TableRecordService -- �ؽ���������Ŀ��ӳ��ȱʧ�����ð������� table=30 oldContinuationOf=999
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.249 s -- in com.zl.d42.table.TableRecordRebuildTest
+[INFO] Running com.zl.d42.table.TextTableExtractorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s -- in com.zl.d42.table.TextTableExtractorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  11.489 s
+[INFO] Finished at: 2026-11-25T18:20:00+08:00
+[INFO] ------------------------------------------------------------------------

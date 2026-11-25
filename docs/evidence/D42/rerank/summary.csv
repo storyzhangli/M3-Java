@@ -1,0 +1,10 @@
+arm,n,source,MRR@5,nDCG@5,hit@1,meanFirstRelevantRank,dMRR_vs_A0,dNDCG_vs_A0,dHit1_vs_A0,dMeanFRR_vs_A0,note
+A0,20,rank-compare（baseline.csv PG 直连原序，按题去重）,0.475,0.484671,0.45,1.1,,,,,基线臂（rerank disabled）
+A1,20,rank-compare（app ask 观测序，harness 3 轮一致 inconsistent=0）,0.5,0.5,0.5,1.0,+0.025,+0.015329,+0.05,-0.1,local 词法精排
+A2,20,rank-compare（app ask 观测序，harness 3 轮一致 inconsistent=0）,0.5,0.5,0.5,1.0,+0.025,+0.015329,+0.05,-0.1,远程 gte-rerank-v2（JDK HttpClient 通道，D-EX8）
+A3,20,rank-compare（app ask 观测序，harness 3 轮一致 inconsistent=0）,0.5,0.5,0.5,1.0,+0.025,+0.015329,+0.05,-0.1,local + max_output=3 截断臂（OUTPUT_TRUNCATED 普遍出现=期望行为）
+A1-harness60,60,rank-metrics-A1.json（60 记录面=20 题×3 轮）,0.5,0.5,0.5,1.0,,,,,记录面口径（不去重），counted=30
+A2-harness60,60,rank-metrics-A2.json,0.5,0.5,0.5,1.0,,,,,记录面口径
+A3-harness60,60,rank-metrics-A3.json,0.5,0.5,0.5,1.0,,,,,记录面口径
+# 公式口径=KP4 冻结（rerank-protocol.json rankMetricFormulas）：MRR@5=mean(1/首个相关命中位次)；nDCG@5=DCG@5/IDCG@5（二值相关）；hit@1=首位即相关比例；分母=有相关命中的题（无命中题不入分母）。
+# 相关真值=冻结数据集 expectedChunkIds（逻辑 ID），uuid→logical 映射用 A0 runDir chunk-id-mapping.json。

@@ -1,0 +1,79 @@
+{
+  "channelNote": "E1-E5 在线受控注入；E2/E4/E5 假端点=本地 discard 端口零外呼；离线单测已另覆盖分类器/预算/截断纯逻辑面（DashScopeRerankAdapterOfflineTest/RerankExceptionClassifierTest）",
+  "cases": [
+    {
+      "id": "E2+E4b",
+      "name": "瞬时连接失败→单次重试→fail-open；同时 per_doc=10 触发输入截断",
+      "expectFlags": [
+        "RETRIED",
+        "FAILED_OPEN",
+        "TRUNCATED"
+      ],
+      "gotFlags": "FAILED_OPEN,RETRIED,TRUNCATED",
+      "expectMaxCalls": 9999,
+      "gotCalls": 2,
+      "gotRerankMs": 50,
+      "gotStatus": "SUCCESS",
+      "logEvidence": "单次重试 x1",
+      "pass": true
+    },
+    {
+      "id": "E5",
+      "name": "预算帽 maxCalls=1 触顶→BUDGET_STOP 停发",
+      "expectFlags": [
+        "BUDGET_STOP"
+      ],
+      "gotFlags": "BUDGET_STOP",
+      "expectMaxCalls": 2,
+      "gotCalls": 2,
+      "gotRerankMs": 1,
+      "gotStatus": "SUCCESS",
+      "logEvidence": "预算帽触顶 x1",
+      "pass": true
+    },
+    {
+      "id": "E3",
+      "name": "空候选集 NOOP_EMPTY（在线不可达：冻结检索参数 threshold=0 恒有命中；以定向单测为权威）",
+      "expectFlags": [
+        "NOOP_EMPTY"
+      ],
+      "gotFlags": "unit-tested",
+      "expectMaxCalls": 0,
+      "gotCalls": 0,
+      "gotRerankMs": null,
+      "gotStatus": "OFFLINE_CONTRACT",
+      "logEvidence": "e3-targeted-tests.log: Tests run: 3, Failures: 0, Errors: 0 (BUILD SUCCESS, exit=0)",
+      "pass": true
+    },
+    {
+      "id": "E4a",
+      "name": "请求估算总量超 requestTokenLimit→OVERSIZED 预检拒绝零调用",
+      "expectFlags": [
+        "OVERSIZED"
+      ],
+      "gotFlags": "OVERSIZED",
+      "expectMaxCalls": 0,
+      "gotCalls": 0,
+      "gotRerankMs": 5,
+      "gotStatus": "SUCCESS",
+      "logEvidence": "预检回退原序 x1",
+      "pass": true
+    },
+    {
+      "id": "E1",
+      "name": "缺 Key 永久错误 fail-open 零调用（不发网络）",
+      "expectFlags": [
+        "FAILED_OPEN"
+      ],
+      "gotFlags": "FAILED_OPEN",
+      "expectMaxCalls": 0,
+      "gotCalls": 0,
+      "gotRerankMs": 4,
+      "gotStatus": "SUCCESS",
+      "logEvidence": "未注入 DASHSCOPE_API_KEY x1",
+      "pass": true
+    }
+  ],
+  "allPass": true,
+  "executedAt": "2026-11-25T17:56:59.4615287+08:00"
+}

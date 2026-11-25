@@ -4,6 +4,7 @@ import com.zl.d42.rag.assessment.AssessmentDecision;
 import com.zl.d42.rag.assessment.EvidenceAssessmentResult;
 import com.zl.d42.rag.assessment.EvidenceAssessmentService;
 import com.zl.d42.rag.citation.CitationVerificationService;
+import com.zl.d42.document.retrieval.dto.SimilarityMatchView;
 import com.zl.d42.rag.context.ContextAssemblyResult;
 import com.zl.d42.rag.context.ContextAssemblyService;
 import com.zl.d42.rag.context.EvidenceItem;
@@ -13,16 +14,24 @@ import com.zl.d42.rag.generation.GenerationService;
 import com.zl.d42.rag.model.GenerationStatus;
 import com.zl.d42.rag.model.RagErrorCode;
 import com.zl.d42.rag.model.RetrievalStatus;
+import com.zl.d42.rag.rerank.RerankCandidate;
+import com.zl.d42.rag.rerank.RerankFlags;
+import com.zl.d42.rag.rerank.RerankPort;
+import com.zl.d42.rag.rerank.RerankResult;
+import com.zl.d42.rag.rerank.RerankUsage;
 import com.zl.d42.rag.retrieval.RagRetrievalQuery;
 import com.zl.d42.rag.retrieval.RagRetrievalResult;
 import com.zl.d42.rag.retrieval.RagRetrievalService;
 import com.zl.d42.rag.validation.CitationValidationResult;
 import com.zl.d42.rag.validation.ResponseValidationService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * RAG 编排器：协调完整链路，不承载检索/模型调用细节。
@@ -48,18 +57,28 @@ public class RagOrchestrator {
     private final ResponseValidationService responseValidationService;
     private final CitationVerificationService citationVerificationService;
 
+    /**
+     * D42 追加（D1 挂点）：可选精排端口。disabled（默认）时 Bean 缺席，
+     * {@code getIfAvailable()} 返回 null → 原序直通，链路逐字节等价（H1）；
+     * 存在时作用于<b>已经权限过滤</b>的检索结果（预门禁在 RagRetrievalService 之外，
+     * 本步绝不 bypass 谓词、绝不把 FAILED/EMPTY 语义改掉，H7/§3.3）。
+     */
+    private final ObjectProvider<RerankPort> rerankPortProvider;
+
     public RagOrchestrator(RagRetrievalService retrievalService,
                            ContextAssemblyService contextAssemblyService,
                            EvidenceAssessmentService evidenceAssessmentService,
                            GenerationService generationService,
                            ResponseValidationService responseValidationService,
-                           CitationVerificationService citationVerificationService) {
+                           CitationVerificationService citationVerificationService,
+                           ObjectProvider<RerankPort> rerankPortProvider) {
         this.retrievalService = retrievalService;
         this.contextAssemblyService = contextAssemblyService;
         this.evidenceAssessmentService = evidenceAssessmentService;
         this.generationService = generationService;
         this.responseValidationService = responseValidationService;
         this.citationVerificationService = citationVerificationService;
+        this.rerankPortProvider = rerankPortProvider;
     }
 
     /**
@@ -84,15 +103,22 @@ public class RagOrchestrator {
             return buildRetrievalFailure(retrieval, retrievalMs, elapsedMs(totalStart));
         }
 
+        // 2.5) D42 追加：检索后精排（仅 SUCCESS 且端口装配时执行；缺席/失败=原序，
+        //      FAILED/EMPTY 分支语义未触碰；任何异常不外抛——H8 fail-open）
+        long rerankStart = System.nanoTime();
+        RerankResult rerank = applyRerank(question, retrieval.matches());
+        long rerankMs = elapsedMs(rerankStart);
+        List<SimilarityMatchView> orderedMatches = applyRerankOrder(retrieval.matches(), rerank);
+
         // 3) 上下文组装
         long assemblyStart = System.nanoTime();
-        ContextAssemblyResult context = contextAssemblyService.assemble(retrieval.matches());
+        ContextAssemblyResult context = contextAssemblyService.assemble(orderedMatches);
         long assemblyMs = elapsedMs(assemblyStart);
 
         // 4) 无证据：拒答，不调用模型
         if (!context.hasEvidence()) {
-            return buildNoEvidence(retrieval, context, retrievalMs, assemblyMs,
-                    elapsedMs(totalStart));
+            return buildNoEvidence(retrieval, context, retrievalMs, rerankMs, assemblyMs,
+                    elapsedMs(totalStart), rerank);
         }
 
         // 5) 证据评估（不调用模型）
@@ -102,7 +128,7 @@ public class RagOrchestrator {
         // 6) 非 ANSWER 决策：澄清/拒答/冲突，均不调用生成
         if (assessment.decision() != AssessmentDecision.ANSWER) {
             return buildControlledDecision(assessment, retrieval, context,
-                    retrievalMs, assemblyMs, elapsedMs(totalStart));
+                    retrievalMs, rerankMs, assemblyMs, elapsedMs(totalStart), rerank);
         }
 
         // 7) 仅 ANSWER 才调用生成
@@ -115,7 +141,7 @@ public class RagOrchestrator {
                 citationVerificationService.verify(context.getEvidence());
 
         return buildResponse(retrieval, context, assessment, generation, verification,
-                retrievalMs, assemblyMs, generationMs, elapsedMs(totalStart));
+                retrievalMs, rerankMs, assemblyMs, generationMs, elapsedMs(totalStart), rerank);
     }
 
     private RagAnswerResponse buildRetrievalFailure(RagRetrievalResult retrieval,
@@ -126,14 +152,15 @@ public class RagOrchestrator {
         response.setErrorCode(RagErrorCode.RETRIEVAL_FAILED);
         response.setErrorMessage(retrieval.failureReason());
         response.setRetrievedCount(0);
-        response.setTiming(timing(retrievalMs, 0L, 0L, totalMs));
+        response.setTiming(timing(retrievalMs, 0L, 0L, 0L, totalMs));
         log.warn("RAG 受控返回：检索失败，未执行生成");
         return response;
     }
 
     private RagAnswerResponse buildNoEvidence(RagRetrievalResult retrieval,
                                               ContextAssemblyResult context,
-                                              long retrievalMs, long assemblyMs, long totalMs) {
+                                              long retrievalMs, long rerankMs, long assemblyMs,
+                                              long totalMs, RerankResult rerank) {
         RagAnswerResponse response = baseResponse();
         response.setAnswer(NO_EVIDENCE_ANSWER);
         response.setRetrievalStatus(retrieval.status());
@@ -143,7 +170,8 @@ public class RagOrchestrator {
         response.setRetrievedCount(retrieval.retrievedCount());
         response.setEvidenceCount(0);
         response.setBudget(context.getBudget());
-        response.setTiming(timing(retrievalMs, assemblyMs, 0L, totalMs));
+        response.setTiming(timing(retrievalMs, rerankMs, assemblyMs, 0L, totalMs));
+        applyRerankObservability(response, rerank);
         log.warn("RAG 受控返回：无可用证据，未调用 ChatModel");
         return response;
     }
@@ -154,14 +182,16 @@ public class RagOrchestrator {
     private RagAnswerResponse buildControlledDecision(EvidenceAssessmentResult assessment,
                                                       RagRetrievalResult retrieval,
                                                       ContextAssemblyResult context,
-                                                      long retrievalMs, long assemblyMs,
-                                                      long totalMs) {
+                                                      long retrievalMs, long rerankMs,
+                                                      long assemblyMs, long totalMs,
+                                                      RerankResult rerank) {
         RagAnswerResponse response = baseResponse();
         response.setRetrievalStatus(retrieval.status());
         response.setRetrievedCount(retrieval.retrievedCount());
         response.setEvidenceCount(context.getEvidence().size());
         response.setBudget(context.getBudget());
-        response.setTiming(timing(retrievalMs, assemblyMs, 0L, totalMs));
+        response.setTiming(timing(retrievalMs, rerankMs, assemblyMs, 0L, totalMs));
+        applyRerankObservability(response, rerank);
         applyAssessment(response, assessment);
 
         switch (assessment.decision()) {
@@ -195,13 +225,14 @@ public class RagOrchestrator {
             EvidenceAssessmentResult assessment,
             GenerationResult generation,
             CitationVerificationService.CitationVerification verification,
-            long retrievalMs, long assemblyMs,
-            long generationMs, long totalMs) {
+            long retrievalMs, long rerankMs, long assemblyMs,
+            long generationMs, long totalMs, RerankResult rerank) {
         RagAnswerResponse response = baseResponse();
         response.setRetrievalStatus(retrieval.status());
         response.setRetrievedCount(retrieval.retrievedCount());
         response.setBudget(context.getBudget());
-        response.setTiming(timing(retrievalMs, assemblyMs, generationMs, totalMs));
+        response.setTiming(timing(retrievalMs, rerankMs, assemblyMs, generationMs, totalMs));
+        applyRerankObservability(response, rerank);
         applyAssessment(response, assessment);
 
         if (generation.status() != GenerationStatus.SUCCESS) {
@@ -360,14 +391,87 @@ public class RagOrchestrator {
         return views;
     }
 
-    private RagTimingView timing(long retrievalMs, long assemblyMs,
+    private RagTimingView timing(long retrievalMs, long rerankMs, long assemblyMs,
                                  long generationMs, long totalMs) {
         RagTimingView view = new RagTimingView();
         view.setRetrievalMs(retrievalMs);
+        view.setRerankMs(rerankMs);
         view.setAssemblyMs(assemblyMs);
         view.setGenerationMs(generationMs);
         view.setTotalMs(totalMs);
         return view;
+    }
+
+    /**
+     * 精排步执行（D42 P2/D1）：端口缺席返回 null（零差异直通）；否则把已过滤命中
+     * 映射为类型化候选并调用端口。Port 契约承诺不抛中断异常，此处仍做防御兜底
+     * ——任何 RuntimeException 都收敛为 fail-open 原序结果，检索状态语义零触碰（H8）。
+     */
+    private RerankResult applyRerank(String question, List<SimilarityMatchView> matches) {
+        RerankPort port = rerankPortProvider.getIfAvailable();
+        if (port == null) {
+            return null;
+        }
+        List<RerankCandidate> candidates = new ArrayList<>(matches.size());
+        for (int i = 0; i < matches.size(); i++) {
+            SimilarityMatchView m = matches.get(i);
+            candidates.add(new RerankCandidate(i, m.getChunkId(), m.getContent()));
+        }
+        try {
+            RerankResult result = port.rerank(question, candidates, matches.size());
+            log.info("rerank 步完成: adapter={}, output={}, flags={}, estimatedTokens={}",
+                    result.adapter(), result.ordered().size(), result.flags(),
+                    result.usage().estimatedTokens());
+            // 实验观测行（D-EX6 排序通道）：精排后 uuid 序=rank-sensitive 指标唯一权威输入；
+            // 仅在 rerank 装配臂出现，disabled 态零输出（不影响 C05/H1）。
+            log.info("rerank order 观测: orderedChunkIds={}",
+                    result.ordered().stream()
+                            .map(it -> candidates.get(it.candidateOrdinal()).chunkId())
+                            .collect(Collectors.joining(",")));
+            return result;
+        } catch (RuntimeException ex) {
+            log.error("rerank 步未预期异常，按 fail-open 回退原序，异常类型: {}",
+                    ex.getClass().getSimpleName());
+            return RerankResult.identity("defensive", candidates, RerankUsage.zero(0),
+                    0L, EnumSet.of(RerankFlags.FAILED_OPEN));
+        }
+    }
+
+    /**
+     * 按精排序重排命中列表（只重排成员不动内容——集合不变性 D2 的执行点）；
+     * 缺席/空映射/越界一律回退原序（宁原序不空上下文）。
+     */
+    private List<SimilarityMatchView> applyRerankOrder(List<SimilarityMatchView> matches,
+                                                       RerankResult rerank) {
+        if (rerank == null || rerank.ordered().isEmpty() || matches.isEmpty()) {
+            return matches;
+        }
+        List<SimilarityMatchView> ordered = new ArrayList<>(rerank.ordered().size());
+        for (RerankResult.Item item : rerank.ordered()) {
+            if (item.candidateOrdinal() >= 0 && item.candidateOrdinal() < matches.size()) {
+                ordered.add(matches.get(item.candidateOrdinal()));
+            }
+        }
+        return ordered.isEmpty() ? matches : List.copyOf(ordered);
+    }
+
+    /**
+     * 精排观测回填（P2，additive）：向 BudgetView 的 rerank 字段写入 adapter/calls/
+     * tokens/费用/flags——仅装配 rerank 且有预算视图时生效；缺席时字段保持默认，
+     * 既有 17 列质量投影与 disabled 态逐字节一致（C05/H1）。
+     */
+    private void applyRerankObservability(RagAnswerResponse response, RerankResult rerank) {
+        if (rerank == null || response.getBudget() == null) {
+            return;
+        }
+        RagBudgetView budget = response.getBudget();
+        budget.setRerankAdapter(rerank.adapter());
+        budget.setRerankCalls(rerank.usage().calls());
+        budget.setRerankMeasuredTokens(rerank.usage().totalTokens());
+        budget.setRerankEstimatedTokens(rerank.usage().estimatedTokens());
+        budget.setRerankCostCny(rerank.usage().costCny());
+        budget.setRerankFlags(rerank.flags().stream().map(Enum::name)
+                .sorted().collect(Collectors.joining(",")));
     }
 
     private RagAnswerResponse baseResponse() {

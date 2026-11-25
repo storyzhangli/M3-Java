@@ -1,0 +1,20 @@
+{
+  "c05Disabled": {
+    "method": "新代码(观测行+HTTP通道) A0 复跑 vs 冻结 A0 runDir；权威列=baseline.csv 全 17 列",
+    "baselineShaNew": "0c3ad8f6efc957e70968e2e5c01d8e23f82dd5939c6e9cf5cb7031207ce4361b",
+    "baselineShaFrozen": "0c3ad8f6efc957e70968e2e5c01d8e23f82dd5939c6e9cf5cb7031207ce4361b",
+    "rawDiffFields": "仅 timing x60 + recordedAt x60（协议声明的非基线键）；metrics 仅 timingStats",
+    "rerankLines": 0,
+    "pass": true,
+    "newRunDir": "run-2026-11-25T175728-039007200+0800-PGVECTOR"
+  },
+  "c05Enabled": {
+    "method": "A1(local) 评测通道 baseline.csv 全列 SHA vs A0；顺序差异由 app 日志观测行证据化",
+    "baselineSha": "0c3ad8f6efc957e70968e2e5c01d8e23f82dd5939c6e9cf5cb7031207ce4361b",
+    "setColumnsDiff": 0,
+    "rerankLines": 120,
+    "flagsDistribution": "REORDERED x96 + IDENTITY x24，FAILED_OPEN x0",
+    "pass": true,
+    "note": "D-EX6：评测通道直连 PG 不经 app rerank，baseline 相同同时证明 rerank 启用无集合破坏"
+  }
+}

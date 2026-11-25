@@ -1,0 +1,25 @@
+{
+  "A0": {
+    "n": 20,
+    "MRR@5": 0.475,
+    "nDCG@5": 0.484671,
+    "hit@1": 0.45,
+    "meanFirstRelevantRank": 1.1
+  },
+  "A2": {
+    "n": 20,
+    "MRR@5": 0.5,
+    "nDCG@5": 0.5,
+    "hit@1": 0.5,
+    "meanFirstRelevantRank": 1.0
+  },
+  "delta": {
+    "target": "A2",
+    "dMRR@5": 0.025,
+    "dnDCG@5": 0.015329,
+    "dhit@1": 0.05,
+    "dMeanFRR": -0.1
+  },
+  "targetRoundInconsistentQuestions": 0,
+  "note": "A0 顺序源=baseline.csv(PG直连原序)；目标臂=app ask 日志观测序；按题去重"
+}

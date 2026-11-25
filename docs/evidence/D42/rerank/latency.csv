@@ -1,0 +1,6 @@
+arm,rerankStage_p50_ms,rerankStage_p95_ms,rerankStage_max_ms,e2e_p50_ms,e2e_p95_ms,e2e_max_ms,threshold,pass,note
+A1,1,1,2,18.880,21.204,23.871,local p95<=300ms,PASS,app ask harness 60 记录（warmup=3 已排除，nanoTime 逐题计时）
+A2,128,204,392,144.557,220.651,406.857,remote p95<=1500ms,PASS,gte-rerank-v2 HTTP 通道；含网络往返；冒烟单请求 491ms 为冷启动
+A3,1,1,1,16.459,20.928,26.794,local p95<=300ms,PASS,max_output=3 截断不增延迟
+A0,N/A,N/A,N/A,-,-,-,基线臂无 rerank 阶段,N/A,评测通道 e2e 计时在 evaluation-metrics.json timingStats（A0 无 harness ask 通道）
+# 口径=KP4 latencyProtocol：rerank 阶段附加延迟=观测行 rerankMs；端到端=harness 客户端计时；warmup 3 次不计入。

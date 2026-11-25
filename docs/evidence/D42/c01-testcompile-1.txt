@@ -1,0 +1,29 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/table/fixtures/D41TableFixtureGenerator.java:[41,14] �� d42TableFixtureGenerator �ǹ�����, Ӧ����Ϊ d42TableFixtureGenerator.java ���ļ�������
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[14,32] �Ҳ�������
+  ����:   �� d42SyncController
+  λ��: ����� com.zl.d42.document.sync
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[40,13] �Ҳ�������
+  ����:   �� d42SyncController
+  λ��: �� com.zl.d42.sync.d42SyncControllerConsistencyTest
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[52,26] �Ҳ�������
+  ����:   �� d42SyncController
+  λ��: �� com.zl.d42.sync.d42SyncControllerConsistencyTest
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:testCompile (default-testCompile) on project D42_RERANK: Compilation failure: Compilation failure: 
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/table/fixtures/D41TableFixtureGenerator.java:[41,14] �� d42TableFixtureGenerator �ǹ�����, Ӧ����Ϊ d42TableFixtureGenerator.java ���ļ�������
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[14,32] �Ҳ�������
+[ERROR]   ����:   �� d42SyncController
+[ERROR]   λ��: ����� com.zl.d42.document.sync
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[40,13] �Ҳ�������
+[ERROR]   ����:   �� d42SyncController
+[ERROR]   λ��: �� com.zl.d42.sync.d42SyncControllerConsistencyTest
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/sync/D41SyncControllerConsistencyTest.java:[52,26] �Ҳ�������
+[ERROR]   ����:   �� d42SyncController
+[ERROR]   λ��: �� com.zl.d42.sync.d42SyncControllerConsistencyTest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

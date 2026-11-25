@@ -31,4 +31,24 @@ public class RagBudgetView {
 
     /** 估算口径与误差说明。 */
     private String estimationNote;
+
+    // ---------- D42 追加（additive，rerank 观测面；缺席=全 null/0，既有字段不动） ----------
+
+    /** 精排适配器名（noop/local/dashscope/defensive）；rerank 缺席=null。 */
+    private String rerankAdapter;
+
+    /** 精排实际远程 call 数（本地臂恒 0；缺席=null）。 */
+    private Integer rerankCalls;
+
+    /** 精排实测 token 累计（上游 usage 权威值；无实测=null，不伪称 0）。 */
+    private Integer rerankMeasuredTokens;
+
+    /** 精排输入估算 token（口径=ceil(chars/1.3)，仅预算/截断预检，不冒充实测）。 */
+    private Integer rerankEstimatedTokens;
+
+    /** 精排实测费用（元）=实测 token×官方单价；无实测=null。 */
+    private Double rerankCostCny;
+
+    /** 精排标记 CSV（如 REORDERED 或 FAILED_OPEN,RETRIED）；缺席=null。 */
+    private String rerankFlags;
 }

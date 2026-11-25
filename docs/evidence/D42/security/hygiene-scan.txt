@@ -1,0 +1,21 @@
+D42 R01 C20 卫生扫描证据
+扫描时间：2026-11-25 18:2x
+扫描范围（拟提交面）：D42\D42_RERANK\src 全部文件 + docs\temp_docs\D42 脚本源码
+（*.ps1/*.java/*.sql/*.md，不含 .class/d42-cp.txt）+ docs\evidence\D42 全部 +
+docs\proj_docs\D42*（文档写完后 git add 前复扫一遍，结果以 git 提交前最后一轮为准）
+共 518+ 文件。
+
+结果：
+- 真实 DASHSCOPE_API_KEY（User env，len=116，不回显）逐文件 Contains 匹配：命中 0。
+- Bearer + 20 位以上 token 形态：命中 0。
+- sk- 前缀模式：仅 'sk-INVALID-LOCAL-ONLY' x3，全部位于 d42_exceptions.ps1——
+  该值为 E1/E2 异常注入用的**假 Key 常量**（指向 127.0.0.1:9 discard 端口，
+  零外呼零费用），非凭据，允许入 Git。
+- 密钥注入通道核查：yml 全部 ${ENV_VAR:default} 占位（RERANK_ENABLED/
+  RERANK_REMOTE_ENABLED/DASHSCOPE_API_KEY/RERANK_MAX_CALLS 等），无硬编码真值。
+- 非提交面（gitignore 覆盖）：target\、*.class、probe\d42-cp.txt、
+  probe\eval-classes\*、logs\D42 surefire 产物。
+- PG/MySQL/Redis 口令：仅经环境变量注入或 yml 本地占位默认值，本迭代证据文件
+  中 MySQL 口令以"yml 占位默认值"描述回显 0 次（取证命令经 $env:MYSQL_PWD 传递）。
+
+结论：PASS（H9/C20 口径——日志/证据/Git 提交面对真实密钥与 Bearer 实值零命中）。

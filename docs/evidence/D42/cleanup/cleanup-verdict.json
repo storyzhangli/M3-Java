@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-11-25T18:03:09.1631400+08:00",
+  "pg_d42_vector_store": {
+    "rows": 8,
+    "fingerprint": "2cf619bd514012828257048762132f1c216f84a74263edb3e9dea102dbdca90f",
+    "expect": "8 行 + 同一指纹（本迭代 seeding 资产，保留不删）",
+    "pass": true
+  },
+  "mysql_shared": {
+    "knowledge_document_total": 10,
+    "legacy_DOC_prefix_rows": 3,
+    "document_chunk_index_total": 32,
+    "chunk_orphan_rows": 24,
+    "document_vector_index_total": 7,
+    "note": "全部与 postseed 基线逐项一致，实验期间零 MySQL 新增/残留"
+  },
+  "mysql_d42_tables": {
+    "d42_document_sync_total": 0,
+    "d42_table_extract_total": 0,
+    "note": "d42_table_extract=0 即 FIXTURE_REMAINING=0（表格夹具零残留）。d42_document_sync 实测 0 行 vs postseed 基线 3 行——归因见 sync-drift-diagnosis.txt（D-EX9）：binlog 证实 17:26:06 GTID:23017 外部会话单条 DELETE IN 语句删除 seeding 的 3 条 DELETE|SYNCED 终态行；D42 全部运行时代码/脚本/评测器零删除路径，裁决输入不受影响（保留资产 PG 8 行指纹复验一致）。原字段值 3 为清理复验时的笔误（实测当时已 0），本行为修正后事实值。"
+  },
+  "instances": "全部 D42 实例已停止（instance.ps1 stop，nacos 进程未触碰）",
+  "pass": true
+}

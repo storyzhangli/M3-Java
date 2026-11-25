@@ -1,0 +1,673 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.ai.m1.qw:D42_RERANK >-----------------------
+[INFO] Building D42_RERANK 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D42_RERANK ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D42_RERANK ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D42_RERANK ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 352 source files with javac [debug parameters release 21] to target\classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/ConversationMemory.java: E:\AI\project\AI-Learning-one\M3-Java\D42\D42_RERANK\src\main\java\com\zl\d42\conversation\ConversationMemory.javaʹ�û򸲸����ѹ�ʱ�� API��
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/ConversationMemory.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:deprecation ���±��롣
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/logging/CachedBodyAccessLogFilter.java:[66,55] org.springframework.web.util.ContentCachingRequestWrapper �е� ContentCachingRequestWrapper(jakarta.servlet.http.HttpServletRequest) �ѹ�ʱ, �ұ��Ϊ��ɾ��
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/rag/rerank/DashScopeRerankAdapter.java:[203,39] ������ com.zl.d42.rag.rerank.DashScopeRerankAdapter�ж����˱��� JSON
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[31,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.access.AccessDeniedAdvice
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[32,38] �Ҳ�������
+  ����:   ���� getDenyCode()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[32,64] �Ҳ�������
+  ����:   ���� getDenyMessage()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[40,47] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� SUCCESS
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[40,77] �Ҳ�������
+  ����:   ���� getMsg()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� SUCCESS
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[47,39] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� resultCode
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[47,61] �Ҳ�������
+  ����:   ���� getMsg()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� resultCode
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessPolicyService.java:[54,54] �Ҳ�������
+  ����:   ���� getWildcardSentinel()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[66,13] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.access.AuthContextFilter
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[76,41] �Ҳ�������
+  ����:   ���� getPublicPaths()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[85,53] �Ҳ�������
+  ����:   ���� getTokenHeader()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[86,60] �Ҳ�������
+  ����:   ���� getBearerPrefix()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[89,51] �Ҳ�������
+  ����:   ���� getBearerPrefix()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[98,13] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.access.AuthContextFilter
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[118,39] �Ҳ�������
+  ����:   ���� getDenyCode()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[118,65] �Ҳ�������
+  ����:   ���� getDenyMessage()
+  λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthPrincipalRepository.java:[76,13] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.access.AuthPrincipalRepository
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[50,38] �Ҳ�������
+  ����:   ���� getBaseUrl()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[51,37] �Ҳ�������
+  ����:   ���� getApiKey()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[57,36] �Ҳ�������
+  ����:   ���� getModel()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[37,49] �Ҳ�������
+  ����:   ���� getMsg()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[38,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[39,52] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[59,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[60,52] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[69,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[70,52] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[79,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[80,52] �Ҳ�������
+  ����:   ���� getCode()
+  λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[89,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[99,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[108,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[118,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[119,19] �Ҳ�������
+  ����:   ���� getCategory()
+  λ��: ����Ϊcom.zl.d42.resilience.ModelInvocationException�ı��� ex
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[120,30] �Ҳ�������
+  ����:   ���� getCategory()
+  λ��: ����Ϊcom.zl.d42.resilience.ModelInvocationException�ı��� ex
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[128,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[37,35] �Ҳ�������
+  ����:   ���� getMode()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[49,37] �Ҳ�������
+  ����:   ���� getApiKey()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[57,46] �Ҳ�������
+  ����:   ���� getModel()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[62,46] �Ҳ�������
+  ����:   ���� getBaseUrl()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[69,42] �Ҳ�������
+  ����:   ���� getBaseUrl()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[73,33] �Ҳ�������
+  ����:   ���� getMessage()
+  λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[74,37] �Ҳ�������
+  ����:   ���� getMaxMessageLength()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[79,68] �Ҳ�������
+  ����:   ���� getRetrieveEnabled()
+  λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[81,56] �Ҳ�������
+  ����:   ���� getDevUserHeader()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� historyProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[83,40] �Ҳ�������
+  ����:   ���� getScene()
+  λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[88,84] �Ҳ�������
+  ����:   ���� getSessionId()
+  λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[89,35] �Ҳ�������
+  ����:   ���� getMessage()
+  λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[99,18] �Ҳ�������
+  ����:   ���� setSessionId(java.lang.String)
+  λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[100,13] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.controller.ChatController
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[101,57] �Ҳ�������
+  ����:   ���� getMode()
+  λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[101,74] �Ҳ�������
+  ����:   ���� getMocked()
+  λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[125,13] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.controller.ChatController
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[160,38] �Ҳ�������
+  ����:   ���� getMode()
+  λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[161,60] �Ҳ�������
+  ����:   ���� getContextWindowMessages()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� historyProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/knowledge/KnowledgeChatOrchestrator.java:[80,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.knowledge.KnowledgeChatOrchestrator
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/knowledge/KnowledgeChatOrchestrator.java:[125,37] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.knowledge.KnowledgeChatOrchestrator
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[61,31] �Ҳ�������
+  ����:   ���� getScene()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[63,77] �Ҳ�������
+  ����:   ���� getVariables()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[65,84] �Ҳ�������
+  ����:   ���� getSessionId()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,32] �Ҳ�������
+  ����:   ���� getTemplateId()
+  λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,58] �Ҳ�������
+  ����:   ���� getVersion()
+  λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,80] �Ҳ�������
+  ����:   ���� getMessage()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[70,38] �Ҳ�������
+  ����:   ���� getMessage()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[71,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.conversation.RoleConversationService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[72,63] �Ҳ�������
+  ����:   ���� getVersion()
+  λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[41,54] �Ҳ�������
+  ����:   ���� getThinkingEnabled()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[42,60] �Ҳ�������
+  ����:   ���� getShowReasoning()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[45,40] �Ҳ�������
+  ����:   ���� getReasoningEffort()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[47,62] �Ҳ�������
+  ����:   ���� getReasoningEffort()
+  λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[97,30] �Ҳ�������
+  ����:   ���� getDefaultOwner()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[138,26] �Ҳ�������
+  ����:   ���� getId()
+  λ��: ����Ϊcom.zl.d42.history.po.HistoryMessagePO�ı��� userPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[141,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[170,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[190,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[223,9] �Ҳ�������
+  ����:   ���� log
+  λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[235,43] �Ҳ�������
+  ����:   ���� getContextWindowMessages()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[238,29] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSessionId()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[239,29] ����������Ч
+  �Ҳ�������
+    ����:   ���� getStatus()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[240,38] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSequenceNo()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[264,29] ����������Ч
+  �Ҳ�������
+    ����:   ���� getOwnerId()
+    λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[265,38] ����������Ч
+  �Ҳ�������
+    ����:   ���� getLastMessageAt()
+    λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[278,29] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSessionId()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[279,37] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSequenceNo()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[292,21] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSessionId()
+    λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[294,43] �Ҳ�������
+  ����:   ���� getOwnerId()
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[328,32] �Ҳ�������
+  ����:   ���� getId()
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� sessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[361,21] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSessionId()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[362,21] ����������Ч
+  �Ҳ�������
+    ����:   ���� getStatus()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[363,21] ����������Ч
+  �Ҳ�������
+    ����:   ���� getRole()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[364,21] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSequenceNo()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[365,30] ����������Ч
+  �Ҳ�������
+    ����:   ���� getSequenceNo()
+    λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[378,46] �Ҳ�������
+  ����:   ���� getTitleMaxLength()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[381,50] �Ҳ�������
+  ����:   ���� getTitleMaxLength()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[390,30] �Ҳ�������
+  ����:   ���� getDefaultPageSize()
+  λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[413,11] �Ҳ�������
+  ����:   ���� setId(java.lang.Long)
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[414,11] �Ҳ�������
+  ����:   ���� setSessionId(java.lang.String)
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[415,11] �Ҳ�������
+  ����:   ���� setOwnerId(java.lang.String)
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[416,11] �Ҳ�������
+  ����:   ���� setScene(java.lang.String)
+  λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.567 s
+[INFO] Finished at: 2026-11-25T17:45:41+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project D42_RERANK: Compilation failure: Compilation failure: 
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/rag/rerank/DashScopeRerankAdapter.java:[203,39] ������ com.zl.d42.rag.rerank.DashScopeRerankAdapter�ж����˱��� JSON
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[31,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.access.AccessDeniedAdvice
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[32,38] �Ҳ�������
+[ERROR]   ����:   ���� getDenyCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessDeniedAdvice.java:[32,64] �Ҳ�������
+[ERROR]   ����:   ���� getDenyMessage()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[40,47] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� SUCCESS
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[40,77] �Ҳ�������
+[ERROR]   ����:   ���� getMsg()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� SUCCESS
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[47,39] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� resultCode
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/Result.java:[47,61] �Ҳ�������
+[ERROR]   ����:   ���� getMsg()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� resultCode
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AccessPolicyService.java:[54,54] �Ҳ�������
+[ERROR]   ����:   ���� getWildcardSentinel()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[66,13] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.access.AuthContextFilter
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[76,41] �Ҳ�������
+[ERROR]   ����:   ���� getPublicPaths()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[85,53] �Ҳ�������
+[ERROR]   ����:   ���� getTokenHeader()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[86,60] �Ҳ�������
+[ERROR]   ����:   ���� getBearerPrefix()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[89,51] �Ҳ�������
+[ERROR]   ����:   ���� getBearerPrefix()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[98,13] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.access.AuthContextFilter
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[118,39] �Ҳ�������
+[ERROR]   ����:   ���� getDenyCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthContextFilter.java:[118,65] �Ҳ�������
+[ERROR]   ����:   ���� getDenyMessage()
+[ERROR]   λ��: ����Ϊcom.zl.d42.access.AccessProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/access/AuthPrincipalRepository.java:[76,13] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.access.AuthPrincipalRepository
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[50,38] �Ҳ�������
+[ERROR]   ����:   ���� getBaseUrl()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[51,37] �Ҳ�������
+[ERROR]   ����:   ���� getApiKey()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/adapter/deepseek/DeepSeekChatModelConfiguration.java:[57,36] �Ҳ�������
+[ERROR]   ����:   ���� getModel()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[37,49] �Ҳ�������
+[ERROR]   ����:   ���� getMsg()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[38,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[39,52] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[59,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[60,52] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[69,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[70,52] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[79,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[80,52] �Ҳ�������
+[ERROR]   ����:   ���� getCode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.common.ResultCode�ı��� PARAM_INVALID
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[89,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[99,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[108,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[118,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[119,19] �Ҳ�������
+[ERROR]   ����:   ���� getCategory()
+[ERROR]   λ��: ����Ϊcom.zl.d42.resilience.ModelInvocationException�ı��� ex
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[120,30] �Ҳ�������
+[ERROR]   ����:   ���� getCategory()
+[ERROR]   λ��: ����Ϊcom.zl.d42.resilience.ModelInvocationException�ı��� ex
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/common/GlobalExceptionHandler.java:[128,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.common.GlobalExceptionHandler
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[37,35] �Ҳ�������
+[ERROR]   ����:   ���� getMode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[49,37] �Ҳ�������
+[ERROR]   ����:   ���� getApiKey()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[57,46] �Ҳ�������
+[ERROR]   ����:   ���� getModel()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[62,46] �Ҳ�������
+[ERROR]   ����:   ���� getBaseUrl()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/config/AiConfigurationValidator.java:[69,42] �Ҳ�������
+[ERROR]   ����:   ���� getBaseUrl()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[73,33] �Ҳ�������
+[ERROR]   ����:   ���� getMessage()
+[ERROR]   λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[74,37] �Ҳ�������
+[ERROR]   ����:   ���� getMaxMessageLength()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[79,68] �Ҳ�������
+[ERROR]   ����:   ���� getRetrieveEnabled()
+[ERROR]   λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[81,56] �Ҳ�������
+[ERROR]   ����:   ���� getDevUserHeader()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� historyProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[83,40] �Ҳ�������
+[ERROR]   ����:   ���� getScene()
+[ERROR]   λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[88,84] �Ҳ�������
+[ERROR]   ����:   ���� getSessionId()
+[ERROR]   λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[89,35] �Ҳ�������
+[ERROR]   ����:   ���� getMessage()
+[ERROR]   λ��: ����Ϊ@jakarta.validation.Valid com.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[99,18] �Ҳ�������
+[ERROR]   ����:   ���� setSessionId(java.lang.String)
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[100,13] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.controller.ChatController
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[101,57] �Ҳ�������
+[ERROR]   ����:   ���� getMode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[101,74] �Ҳ�������
+[ERROR]   ����:   ���� getMocked()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatReplyResponse�ı��� reply
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[125,13] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.controller.ChatController
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[160,38] �Ҳ�������
+[ERROR]   ����:   ���� getMode()
+[ERROR]   λ��: ����Ϊcom.zl.d42.config.AiProperties�ı��� aiProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/controller/ChatController.java:[161,60] �Ҳ�������
+[ERROR]   ����:   ���� getContextWindowMessages()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� historyProperties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/knowledge/KnowledgeChatOrchestrator.java:[80,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.knowledge.KnowledgeChatOrchestrator
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/knowledge/KnowledgeChatOrchestrator.java:[125,37] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.knowledge.KnowledgeChatOrchestrator
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[61,31] �Ҳ�������
+[ERROR]   ����:   ���� getScene()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[63,77] �Ҳ�������
+[ERROR]   ����:   ���� getVariables()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[65,84] �Ҳ�������
+[ERROR]   ����:   ���� getSessionId()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,32] �Ҳ�������
+[ERROR]   ����:   ���� getTemplateId()
+[ERROR]   λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,58] �Ҳ�������
+[ERROR]   ����:   ���� getVersion()
+[ERROR]   λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[66,80] �Ҳ�������
+[ERROR]   ����:   ���� getMessage()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[70,38] �Ҳ�������
+[ERROR]   ����:   ���� getMessage()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[71,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.conversation.RoleConversationService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/conversation/RoleConversationService.java:[72,63] �Ҳ�������
+[ERROR]   ����:   ���� getVersion()
+[ERROR]   λ��: ����Ϊcom.zl.d42.prompt.model.PromptTemplateEntity�ı��� template
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[41,54] �Ҳ�������
+[ERROR]   ����:   ���� getThinkingEnabled()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[42,60] �Ҳ�������
+[ERROR]   ����:   ���� getShowReasoning()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[45,40] �Ҳ�������
+[ERROR]   ����:   ���� getReasoningEffort()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/service/ThinkingSettingsResolver.java:[47,62] �Ҳ�������
+[ERROR]   ����:   ���� getReasoningEffort()
+[ERROR]   λ��: ����Ϊcom.zl.d42.dto.ChatRequest�ı��� request
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[97,30] �Ҳ�������
+[ERROR]   ����:   ���� getDefaultOwner()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[138,26] �Ҳ�������
+[ERROR]   ����:   ���� getId()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.HistoryMessagePO�ı��� userPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[141,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[170,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[190,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[223,9] �Ҳ�������
+[ERROR]   ����:   ���� log
+[ERROR]   λ��: �� com.zl.d42.history.ChatHistoryService
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[235,43] �Ҳ�������
+[ERROR]   ����:   ���� getContextWindowMessages()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[238,29] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSessionId()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[239,29] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getStatus()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[240,38] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSequenceNo()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[264,29] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getOwnerId()
+[ERROR]     λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[265,38] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getLastMessageAt()
+[ERROR]     λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[278,29] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSessionId()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[279,37] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSequenceNo()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[292,21] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSessionId()
+[ERROR]     λ��: �� com.zl.d42.history.po.ChatSessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[294,43] �Ҳ�������
+[ERROR]   ����:   ���� getOwnerId()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[328,32] �Ҳ�������
+[ERROR]   ����:   ���� getId()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� sessionPO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[361,21] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSessionId()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[362,21] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getStatus()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[363,21] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getRole()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[364,21] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSequenceNo()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[365,30] ����������Ч
+[ERROR]   �Ҳ�������
+[ERROR]     ����:   ���� getSequenceNo()
+[ERROR]     λ��: �� com.zl.d42.history.po.HistoryMessagePO
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[378,46] �Ҳ�������
+[ERROR]   ����:   ���� getTitleMaxLength()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[381,50] �Ҳ�������
+[ERROR]   ����:   ���� getTitleMaxLength()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[390,30] �Ҳ�������
+[ERROR]   ����:   ���� getDefaultPageSize()
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.config.HistoryProperties�ı��� properties
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[413,11] �Ҳ�������
+[ERROR]   ����:   ���� setId(java.lang.Long)
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[414,11] �Ҳ�������
+[ERROR]   ����:   ���� setSessionId(java.lang.String)
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[415,11] �Ҳ�������
+[ERROR]   ����:   ���� setOwnerId(java.lang.String)
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/main/java/com/zl/d42/history/ChatHistoryService.java:[416,11] �Ҳ�������
+[ERROR]   ����:   ���� setScene(java.lang.String)
+[ERROR]   λ��: ����Ϊcom.zl.d42.history.po.ChatSessionPO�ı��� po
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

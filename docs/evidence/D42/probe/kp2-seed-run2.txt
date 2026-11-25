@@ -1,0 +1,15 @@
+语料文档: DOC-CNC-COOLING-001, DOC-SERVO-TROUBLE-002, DOC-WORKORDER-SPEC-003
+[REGISTER-OK] DOC-CNC-COOLING-001 status=COMPLETED version=1
+[REGISTER-OK] DOC-SERVO-TROUBLE-002 status=COMPLETED version=1
+[REGISTER-OK] DOC-WORKORDER-SPEC-003 status=COMPLETED version=1
+[OK] 入库前状态已留痕 kp2-seed-prestate.json
+[DELETE] DOC-CNC-COOLING-001 removed=3 code=200
+[DELETE] DOC-SERVO-TROUBLE-002 removed=3 code=200
+[DELETE] DOC-WORKORDER-SPEC-003 removed=2 code=200
+[INDEX] DOC-CNC-COOLING-001 code=200 data={"documentId":"DOC-CNC-COOLING-001","version":1,"strategy":"STRUCTURE","status":"COMPLETED","stage":"CLEANUP","chunkCount":3,"processed":3,"idempotent":false,"errorCode":"","errorMessage":"","attemptCount":1}
+[INDEX] DOC-SERVO-TROUBLE-002 code=200 data={"documentId":"DOC-SERVO-TROUBLE-002","version":1,"strategy":"STRUCTURE","status":"COMPLETED","stage":"CLEANUP","chunkCount":3,"processed":3,"idempotent":false,"errorCode":"","errorMessage":"","attemptCount":1}
+[INDEX] DOC-WORKORDER-SPEC-003 code=200 data={"documentId":"DOC-WORKORDER-SPEC-003","version":1,"strategy":"STRUCTURE","status":"COMPLETED","stage":"CLEANUP","chunkCount":2,"processed":2,"idempotent":false,"errorCode":"","errorMessage":"","attemptCount":1}
+[VERIFY] DOC-CNC-COOLING-001 chunks=3 status=COMPLETED
+[VERIFY] DOC-SERVO-TROUBLE-002 chunks=3 status=COMPLETED
+[VERIFY] DOC-WORKORDER-SPEC-003 chunks=2 status=COMPLETED
+[DONE] D42 语料 seeding 完成

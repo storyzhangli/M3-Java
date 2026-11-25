@@ -1,0 +1,8 @@
+arm,calls,tokens,cost_cny,per_1000q_cny,budget_cap_400,budget_cap_2M_tokens,budget_cap_5cny,unit_price,note
+A0,0,0,0.000000,0.0000,0<=400 PASS,0<=2M PASS,0<=5 PASS,N/A,disabled 零调用
+A1,0,0,0.000000,0.0000,0<=400 PASS,0<=2M PASS,0<=5 PASS,N/A,local 词法零成本零网络
+A2-harness,121,41959,0.033584,0.2776,121<=400 PASS,41959<=2M PASS,0.0336<=5 PASS,0.8 元/M tokens,gte-rerank-v2 实测 usage 记账（单实例累计口径；逐 call 求和 0.033584 vs 总量重算 0.033567，差=逐 call 舍入，取记账值）
+A2-evaluator,120,41694,0.033372,0.2781,120<=400 PASS,41694<=2M PASS,0.0334<=5 PASS,0.8 元/M tokens,D42 协议偏差留痕：远程臂两实例各<400 帽（任务书=单实例累计口径）；逐 call 求和 0.033372 vs 重算 0.033355 同上
+A3,0,0,0.000000,0.0000,0<=400 PASS,0<=2M PASS,0<=5 PASS,N/A,local 截断臂零成本
+TOTAL,241,83653,0.066956,-,241<=400 PASS,83653<=2M PASS,0.067<=5 PASS,,两实例记账合计（83653×0.8/1e6=0.066922 重算口径备查）；零失败零重试
+# 费用=实测 totalTokens×0.8/1e6 元（KP4 冻结单价，D4 裁决=实测 token×官方单价，非估算）。

@@ -1,0 +1,28 @@
+-- SHOW COLUMNS FROM d42_document_sync
+Field | Type | Null | Key | Default | Extra
+id | bigint | NO | PRI | NULL | auto_increment
+document_id | varchar(64) | NO | MUL | NULL | 
+operation | enum('DELETE','UPDATE_CLEANUP') | NO |  | NULL | 
+version | int | NO |  | 0 | 
+sync_status | enum('PENDING','SYNCED','FAILED') | NO | MUL | NULL | 
+reason_code | varchar(64) | NO |  |  | 
+attempt_count | int | NO |  | 0 | 
+next_retry_at | datetime | YES |  | NULL | 
+payload_hash | char(64) | NO |  |  | 
+created_at | datetime | NO |  | NULL | 
+updated_at | datetime | NO |  | NULL | 
+
+-- SHOW COLUMNS FROM d42_admin_audit
+Field | Type | Null | Key | Default | Extra
+id | bigint | NO | PRI | NULL | auto_increment
+actor_user_id | varchar(64) | NO | MUL | NULL | 
+tenant_id | varchar(64) | NO |  | NULL | 
+role | varchar(16) | NO |  | NULL | 
+action | varchar(64) | NO | MUL | NULL | 
+target_document_id | varchar(64) | NO |  |  | 
+version | int | NO |  | 0 | 
+result | varchar(16) | NO |  | NULL | 
+reason_code | varchar(64) | NO |  |  | 
+request_id | varchar(64) | NO |  |  | 
+created_at | datetime | NO |  | NULL | 
+

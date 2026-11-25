@@ -1,0 +1,185 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ----------------------< org.ai.m1.qw:D42_RERANK >-----------------------
+[INFO] Building D42_RERANK 1.0-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[WARNING] The artifact mysql:mysql-connector-java:jar:8.0.33 has been relocated to com.mysql:mysql-connector-j:jar:8.0.33: MySQL Connector/J artifacts moved to reverse-DNS compliant Maven 2+ coordinates.
+[INFO] 
+[INFO] --- dependency:3.8.1:properties (resolve-dependency-paths) @ D42_RERANK ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ D42_RERANK ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 17 resources from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ D42_RERANK ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ D42_RERANK ---
+[INFO] Copying 12 resources from src\test\resources to target\test-classes
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ D42_RERANK ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 20 source files with javac [debug parameters release 21] to target\test-classes
+[INFO] ��������·���з�����һ�����������������������
+  ��ע������δ�����а�� javac ���ܻ������ע������
+  �������ٰ�����ָ����һ���������� (-processor)��
+  ��ָ��������·�� (--processor-path, --processor-module-path)��
+  ����ʽ��������ע���� (-proc:only, -proc:full)��
+  ��ʹ�� -Xlint:-options ���ش���Ϣ��
+  ��ʹ�� -proc:none ������ע������
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/service/RecoverStuckTasksScopeTest.java: ĳЩ�����ļ�ʹ����δ�����򲻰�ȫ�Ĳ�����
+[INFO] /E:/AI/project/AI-Learning-one/M3-Java/D42/D42_RERANK/src/test/java/com/zl/d42/service/RecoverStuckTasksScopeTest.java: �й���ϸ��Ϣ, ��ʹ�� -Xlint:unchecked ���±��롣
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ D42_RERANK ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.zl.d42.rag.orchestrator.RagOrchestratorRerankTest
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+17:23:04.614 [main] WARN com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�ܣ�δִ������
+17:23:04.723 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- rerank �����: adapter=local, output=2, flags=[REORDERED], estimatedTokens=5
+17:23:04.743 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+17:23:04.758 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+17:23:04.777 [main] ERROR com.zl.d42.rag.orchestrator.RagOrchestrator -- rerank ��δԤ���쳣���� fail-open ����ԭ���쳣����: IllegalStateException
+17:23:04.781 [main] INFO com.zl.d42.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.989 s -- in com.zl.d42.rag.orchestrator.RagOrchestratorRerankTest
+[INFO] Running com.zl.d42.rag.rerank.DashScopeRerankAdapterOfflineTest
+17:23:04.816 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) δע�� DASHSCOPE_API_KEY��fail-open ����ԭ��
+17:23:04.820 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) Ԥ��ñ���� calls=0 measuredTokens=0 costMicroCny=0������ԭ��
+17:23:04.829 [main] WARN com.zl.d42.rag.rerank.DashScopeRerankAdapter -- rerank(remote) ������� token=14 ������=1��Ԥ�����ԭ��
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.zl.d42.rag.rerank.DashScopeRerankAdapterOfflineTest
+[INFO] Running com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest
+[ERROR] Tests run: 6, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.115 s <<< FAILURE! -- in com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest
+[ERROR] com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest.tokenizeFormula -- Time elapsed: 0.029 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <[cnc, ��, ��ȴ, ȴ, ϵ, ϵͳ, ͳ, e, 01]> but was: <[cnc, ��ȴ, ϵͳ, e, 01]>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1145)
+	at com.zl.d42.rag.rerank.LocalLexicalRerankAdapterTest.tokenizeFormula(LocalLexicalRerankAdapterTest.java:35)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] Running com.zl.d42.rag.rerank.RerankExceptionClassifierTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.153 s -- in com.zl.d42.rag.rerank.RerankExceptionClassifierTest
+[INFO] Running com.zl.d42.rag.rerank.RerankPortContractTest
+[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.030 s <<< FAILURE! -- in com.zl.d42.rag.rerank.RerankPortContractTest
+[ERROR] com.zl.d42.rag.rerank.RerankPortContractTest.flagsAreUnmodifiable -- Time elapsed: 0.010 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
+	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
+	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3128)
+	at com.zl.d42.rag.rerank.RerankPortContractTest.flagsAreUnmodifiable(RerankPortContractTest.java:49)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[ERROR] com.zl.d42.rag.rerank.RerankPortContractTest.identityKeepsOrder -- Time elapsed: 0.006 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <0.0> but was: <-1.0>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertEquals.failNotEqual(AssertEquals.java:197)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:70)
+	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:65)
+	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:889)
+	at com.zl.d42.rag.rerank.RerankPortContractTest.identityKeepsOrder(RerankPortContractTest.java:37)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] Running com.zl.d42.service.RecoverStuckTasksScopeTest
+17:23:05.965 [main] WARN com.zl.d42.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=DOC-SERVO-TROUBLE-002 prefix=d42-
+17:23:05.966 [main] WARN com.zl.d42.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=d32eval-doc-x prefix=d42-
+17:23:06.690 [main] INFO com.zl.d42.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope= issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+17:23:06.695 [main] INFO com.zl.d42.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope=d42- issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.559 s -- in com.zl.d42.service.RecoverStuckTasksScopeTest
+[INFO] Running com.zl.d42.sync.AdminAuditServiceTest
+17:23:06.775 [main] ERROR com.zl.d42.document.sync.service.AdminAuditService -- ���д��ʧ�� action=a result=DENIED type=RuntimeException
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s -- in com.zl.d42.sync.AdminAuditServiceTest
+[INFO] Running com.zl.d42.sync.CitationDeletedClassificationTest
+17:23:06.793 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=1, removed=0
+17:23:06.797 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+17:23:06.802 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+17:23:06.805 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+17:23:06.810 [main] INFO com.zl.d42.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s -- in com.zl.d42.sync.CitationDeletedClassificationTest
+[INFO] Running com.zl.d42.sync.D42SyncControllerConsistencyTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 s -- in com.zl.d42.sync.D42SyncControllerConsistencyTest
+[INFO] Running com.zl.d42.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s -- in com.zl.d42.sync.DocumentSyncServiceAtomicClaimTest
+[INFO] Running com.zl.d42.sync.DocumentSyncServiceStateMachineTest
+17:23:07.034 [main] WARN com.zl.d42.document.sync.service.DocumentSyncService -- sync FAILED documentId=d42-doc-a operation=DELETE version=0 attempt=2 reason=PG_UNREACHABLE
+17:23:07.038 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-a operation=DELETE version=0 payloadHash=hash1
+17:23:07.039 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-a operation=DELETE version=0 payloadHash=hash1
+17:23:07.043 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync markPending documentId=d42-doc-up operation=UPDATE_CLEANUP version=1 payloadHash=hash2
+17:23:07.046 [main] INFO com.zl.d42.document.sync.service.DocumentSyncService -- sync SYNCED documentId=d42-doc-a operation=DELETE version=0
+17:23:07.051 [main] WARN com.zl.d42.document.sync.service.DocumentSyncService -- sync FAILED documentId=d42-doc-a operation=DELETE version=0 attempt=3 reason=RETRY_EXHAUSTED
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s -- in com.zl.d42.sync.DocumentSyncServiceStateMachineTest
+[INFO] Running com.zl.d42.sync.FaultInjectingVectorStoreTest
+17:23:07.088 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #2
+17:23:07.093 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at delete(List) call #1
+17:23:07.095 [main] WARN com.zl.d42.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #3
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in com.zl.d42.sync.FaultInjectingVectorStoreTest
+[INFO] Running com.zl.d42.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.010 s -- in com.zl.d42.sync.ReconciliationReportViewDriftSummaryTest
+[INFO] Running com.zl.d42.sync.SyncOperationAndReasonCodeTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s -- in com.zl.d42.sync.SyncOperationAndReasonCodeTest
+[INFO] Running com.zl.d42.sync.SyncRetryRunnerPipelineTest
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s -- in com.zl.d42.sync.SyncRetryRunnerPipelineTest
+[INFO] Running com.zl.d42.table.PdfTableFixtureTruthTest
+[ERROR] Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.771 s <<< FAILURE! -- in com.zl.d42.table.PdfTableFixtureTruthTest
+[ERROR] com.zl.d42.table.PdfTableFixtureTruthTest.paramSpecTable -- Time elapsed: 0.012 s <<< FAILURE!
+org.opentest4j.AssertionFailedError: r5c1 value expect=185 got=1850; r5c1 unit expect=0 got=null ==> expected: <true> but was: <false>
+	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:151)
+	at org.junit.jupiter.api.AssertionFailureBuilder.buildAndThrow(AssertionFailureBuilder.java:132)
+	at org.junit.jupiter.api.AssertTrue.failNotTrue(AssertTrue.java:63)
+	at org.junit.jupiter.api.AssertTrue.assertTrue(AssertTrue.java:36)
+	at org.junit.jupiter.api.Assertions.assertTrue(Assertions.java:214)
+	at com.zl.d42.table.PdfTableFixtureTruthTest.assertNoDiffs(PdfTableFixtureTruthTest.java:154)
+	at com.zl.d42.table.PdfTableFixtureTruthTest.paramSpecTable(PdfTableFixtureTruthTest.java:176)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1596)
+
+[INFO] Running com.zl.d42.table.TableCellTypingTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s -- in com.zl.d42.table.TableCellTypingTest
+[INFO] Running com.zl.d42.table.TableRecordRebuildTest
+17:23:08.170 [main] WARN com.zl.d42.document.table.service.TableRecordService -- �ؽ���������Ŀ��ӳ��ȱʧ�����ð������� table=30 oldContinuationOf=999
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 s -- in com.zl.d42.table.TableRecordRebuildTest
+[INFO] Running com.zl.d42.table.TextTableExtractorTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s -- in com.zl.d42.table.TextTableExtractorTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   LocalLexicalRerankAdapterTest.tokenizeFormula:35 expected: <[cnc, ��, ��ȴ, ȴ, ϵ, ϵͳ, ͳ, e, 01]> but was: <[cnc, ��ȴ, ϵͳ, e, 01]>
+[ERROR]   RerankPortContractTest.flagsAreUnmodifiable:49 Expected java.lang.UnsupportedOperationException to be thrown, but nothing was thrown.
+[ERROR]   RerankPortContractTest.identityKeepsOrder:37 expected: <0.0> but was: <-1.0>
+[ERROR]   PdfTableFixtureTruthTest.paramSpecTable:176->assertNoDiffs:154 r5c1 value expect=185 got=1850; r5c1 unit expect=0 got=null ==> expected: <true> but was: <false>
+[INFO] 
+[ERROR] Tests run: 100, Failures: 4, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.233 s
+[INFO] Finished at: 2026-11-25T17:23:08+08:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.5.6:test (default-test) on project D42_RERANK: There are test failures.
+[ERROR] 
+[ERROR] See E:\AI\project\AI-Learning-one\M3-Java\D42\D42_RERANK\target\surefire-reports for the individual test results.
+[ERROR] See dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

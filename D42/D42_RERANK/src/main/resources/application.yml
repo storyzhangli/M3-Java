@@ -193,6 +193,32 @@ app:
         max-interval: ${MODEL_BACKOFF_MAX_INTERVAL:5s}
         # 抖动因子（0~1）
         jitter-factor: ${MODEL_BACKOFF_JITTER:0.2}
+    # ================= D42 新增：可插拔 rerank 精排实验分支（任务书 H2/P2） =================
+    # 三重默认关闭：enabled 缺省 false（无 matchIfMissing，缺席=Bean 全套不装配=零差异，H1）；
+    # strategy=remote 还须 remote.enabled=true（RERANK_REMOTE_ENABLED 显式注入）才算授权远程臂；
+    # api-key 仅环境变量 DASHSCOPE_API_KEY（H9 零硬编码零日志零提交）。参数口径冻结于
+    # docs/evidence/D42/probe/rerank-protocol.json（H5 禁事后调整）。
+    rag:
+      rerank:
+        enabled: ${RERANK_ENABLED:false}
+        strategy: ${RERANK_STRATEGY:noop}
+        # 输出上限截断臂（A3）；0=纯重排不截断（集合不变性守卫，D2/§3.1）
+        max-output: ${RERANK_MAX_OUTPUT:0}
+        remote:
+          enabled: ${RERANK_REMOTE_ENABLED:false}
+          api-key: ${DASHSCOPE_API_KEY:}
+          model: gte-rerank-v2
+          # D-EX8: SDK 2.23.6 TextReRank 构造缺陷(NPE)，A2 通道改原生 REST 端点直连
+          base-url: ${DASHSCOPE_RERANK_BASE_URL:https://dashscope.aliyuncs.com/api/v1/services/rerank/text-rerank/text-rerank}
+          connect-timeout-ms: ${RERANK_CONNECT_TIMEOUT_MS:3000}
+          read-timeout-ms: ${RERANK_READ_TIMEOUT_MS:5000}
+          per-doc-token-limit: ${RERANK_PER_DOC_TOKEN_LIMIT:4000}
+          request-token-limit: ${RERANK_REQUEST_TOKEN_LIMIT:30000}
+          token-char-divisor: ${RERANK_TOKEN_CHAR_DIVISOR:1.3}
+          budget-max-calls: ${RERANK_BUDGET_MAX_CALLS:400}
+          budget-max-tokens: ${RERANK_BUDGET_MAX_TOKENS:2000000}
+          budget-max-cny: ${RERANK_BUDGET_MAX_CNY:5.0}
+          price-cny-per-million-tokens: 0.8
   # D13 新增：AOP 请求/响应访问日志。敏感字段/头脱敏关键字默认值在 AccessLogProperties 中维护。
   access-log:
     # 总开关，可用环境变量 ACCESS_LOG_ENABLED=false 一键关闭（关闭后过滤器与切面均不装配）。

@@ -1,0 +1,10 @@
+{
+  "arm": "A0",
+  "wrapperPid": 32420,
+  "runExit": 1,
+  "rerankStepLines": 0,
+  "flagsLines": "",
+  "runDir": "run-2026-11-25T173227-117458800+0800-PGVECTOR",
+  "rawSha256": "d22be51571b46be8dd555bced80239c478c35fcac2e0713f5e157622933cb6ee",
+  "baselineSha256": "0c3ad8f6efc957e70968e2e5c01d8e23f82dd5939c6e9cf5cb7031207ce4361b"
+}

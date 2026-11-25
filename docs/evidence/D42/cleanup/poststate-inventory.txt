@@ -1,0 +1,11 @@
+== PG d42_vector_store ==
+TABLE_EXISTS=true
+ROWS=8
+FINGERPRINT=2cf619bd514012828257048762132f1c216f84a74263edb3e9dea102dbdca90f
+== MySQL 共享/遗留盘点 ==
+knowledge_document_total=10
+legacy_DOC_prefix_rows=3
+legacy_DOC_distinct=3
+document_chunk_index_total=32
+chunk_orphan_rows=24
+document_vector_index_total=7

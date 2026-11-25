@@ -1,0 +1,86 @@
+{
+  "protocol": "D42-R01 rerank experiment protocol",
+  "frozenAt": "2026-11-25T00:00:00+08:00",
+  "frozenBeforeExperiments": true,
+  "skeletonHead": "a086fa2",
+  "dataset": {
+    "file": "docs/evidence/D37/dataset/rag-evaluation-questions.v1.0.jsonl",
+    "sha256_12": "75cc8d83cfb2",
+    "questionCount": 20,
+    "note": "实测 20 题（任务书编制误写 60，以执行时实测为准，§8 溯源纪律授权）；expectedChunkIds=逻辑 ID（DOC-*-Cxx），由评测器按内容+documentId 映射，与向量库 uuid 代际无关"
+  },
+  "baseline": {
+    "file": "docs/evidence/D37/baseline/v1.0/PGVECTOR/baseline.csv",
+    "rows": 20,
+    "cols": 17,
+    "note": "任务书写 60 行 16 列，实测 20 行 17 列（多 labels 前一列实测顺序一致）；returnedLogicalIds 有序列存在",
+    "qa001AnchorChunkIdD41lineage": "3b1501c0-6a99-535a-a787-991f877024c8",
+    "qa001AnchorChunkIdD42lineage": "d19a82c3-5e2c-51da-a9b2-f2b771b16913",
+    "qa001Top1Similarity": 0.37974774837493896,
+    "anchorTolerance": 1e-9
+  },
+  "corpus": {
+    "table": "d42_vector_store",
+    "rowsAfterSeeding": 8,
+    "idLineageFingerprint": "2cf619bd514012828257048762132f1c216f84a74263edb3e9dea102dbdca90f",
+    "contentFingerprintNoChunkId": "c377bb2f62d7b71b4dfa3f87d47722b7bcdc989aaf4b218c607f8e7a9b6d64fb",
+    "priorGenerationAnchor": "10fc69d5c9c3fd088b98578d74278135b1c04b7cd8b29b361b4c983926567af9",
+    "adjudication": "D42 骨架 StableChunkIdGenerator.NAMESPACE=...6d42（模块隔离设计，D41=...6d41）→ ID 面指纹必不等于前代 10fc69d5；两代表 8 行 canonical 除 chunkId 外逐字段一致且内容面指纹 c377bb2f 相等 → 语料字节一致获证，CORPUS_DRIFT 语义不成立。KP2 通过判据修正为：内容面指纹与历代相等 + ID 面指纹冻结为本表新值 2cf619bd。禁止以 HYBRID_ENABLED=true 直接跑 D42（yml expected=10fc69d5 为前代锚，启用需 env 覆盖为 2cf619bd；R01 不动 hybrid）"
+  },
+  "legacyFreeze": {
+    "knowledge_document_total": 10,
+    "legacy_DOC_prefix_rows": 3,
+    "document_chunk_index_total": 32,
+    "chunk_orphan_rows": 24,
+    "document_vector_index_total": 7,
+    "d42_tables_ddl_executed": ["d42_document_sync", "d42_admin_audit", "d42_auth_principal", "d42_table_extract", "d42_table_row"],
+    "d42_document_sync_rows_after_seed": 3,
+    "note": "D42 骨架原零 d42_ MySQL 表；删除管线与 reconcile 硬依赖 sync/table_extract → P0 执行 d42_schema.sql（D41 同构，幂等×2 验证）。删除管线 tombstone 使 knowledge_document 允许增量至 10+（本轮已 10 含既有）"
+  },
+  "retrievalParams": { "topK": 5, "similarityThreshold": 0.0, "warmupRounds": 3, "formalRounds": 3, "baseUrl": "http://127.0.0.1:8080", "aiMode": "mock", "embedding": "local-hashing-384-COSINE", "strategy": "PURE_VECTOR" },
+  "arms": {
+    "A0": "rerank 缺席（默认，Bean 不装配）= 基线臂，兼作 C05 disabled 全列 diff=0 回归",
+    "A1": "rerank.enabled=true strategy=local（LocalLexicalRerankAdapter，零成本确定性）",
+    "A2": "rerank.enabled=true strategy=remote（DashScopeRerankAdapter gte-rerank-v2；须 RERANK_REMOTE_ENABLED=true+DASHSCOPE_API_KEY 显式注入；否则整臂 NOT RUN）",
+    "A3": "可选截断臂 rerank→top3（改变集合，单独标注不与纯重排臂混算；如时间/预算不允许标 NOT RUN）"
+  },
+  "rankMetricFormulas": {
+    "relevanceTruth": "expectedChunkIds（逻辑 ID 集合），命中 = returnedLogicalIds 中元素 ∈ expectedChunkIds",
+    "MRRat5": "mean over questions of (1 / firstRelevantRankWithin5)；前 5 位无相关命中记 0",
+    "nDCGat5": "DCG@5/IDCG@5，二值相关 rel∈{0,1}，DCG=sum(rel_i/log2(i+1), i=1..5)，IDCG 按理想排序（min(5,|rel|) 个 1 前置）",
+    "hitat1": "首位即相关的题目比例",
+    "firstRelevantRank": "首个相关命中位次（1-based，@5 内），无命中标 N/A 不入均值分母（分母单列）"
+  },
+  "decisionThresholdsPrefrozen": {
+    "relevanceGain": "ΔMRR@5 >= +0.05 AND ΔnDCG@5 >= +0.05 AND hit@1(D42) >= hit@1(A0)",
+    "latencyLocal": "A1 rerank 阶段附加延迟 p95 <= 300 ms",
+    "latencyRemote": "A2 rerank 阶段附加延迟 p95 <= 1500 ms（NOT RUN 则本条不适用并声明）",
+    "exceptionRate": "fail-open 触发率 <= 1%（全部 rerank 调用中 RERANK_FAILED_OPEN 占比）",
+    "costPer1000Questions": "A2 实测费用/千问 <= 3.0 元（= totalTokens x 0.8 / 1e6，官方单价 gte-rerank-v2）",
+    "verdictRule": "全满足 => adopt（保留为可选路径，enabled 默认仍 false）；任一不满足 => not-adopt 并记录理由；NOT RUN 臂不参与裁决但须声明",
+    "noPostHocAdjust": "本块冻结后禁止修改（熔断#5）"
+  },
+  "latencyProtocol": "System.nanoTime；warmup 轮不入统计；逐题落 jsonl（rerankStageMs + e2eMs）；p50=中位数、p95=最近秩法 ceil(0.95*n)、max；本地/远程臂分开统计",
+  "exceptionCodes": {
+    "RERANK_FAILED_OPEN": "任何 rerank 失败回退原序（检索态保持 SUCCESS/EMPTY，绝不 FAILED）",
+    "RERANK_NOOP": "空候选或策略 noop",
+    "TRUNCATED": "单文档估算 token>4000 截断",
+    "OVERSIZED": "请求估算总 token>30000 预检拒绝并回退",
+    "E1_AUTH_PARAM": "鉴权/参数=永久错误，不重试，fail-open",
+    "E2_TIMEOUT_TRANSIENT": "超时/瞬时=应用层单次重试后 fail-open，无放大",
+    "E3_EMPTY": "空候选 noop，状态不变，零调用",
+    "E4_OVERSIZE": "TRUNCATED/OVERSIZED 规则",
+    "E5_QUOTA": "429/quota 分类回退，三重帽生效"
+  },
+  "remoteBudget": { "maxCalls": 400, "maxTotalTokens": 2000000, "maxCny": 5.0, "expectedCallsA2": 120, "basis": "20 题 x (3 warmup + 3 formal) = 120 ask=120 call；费用预估 ~0.4 元" },
+  "truncationLimits": { "perDocTokenLimit": 4000, "requestTokenLimit": 30000, "tokenEstimation": "无真实 tokenizer：估算 tokens = ceil(utf16Chars / 1.3)（中文向保守近似，口径冻结，如实标 estimated）", "maxDocsPerRequest": 500 },
+  "pricing": { "model": "gte-rerank-v2", "cnyPerMillionTokens": 0.8, "sources": ["https://docs.bailian.console.aliyun.com/zh/model-studio/gte-rerank-v2", "https://help.aliyun.com/zh/model-studio/use-bailian-in-langchain"] },
+  "deviations": [
+    "D-EX1: 数据集 20 题/基线 20 行 17 列（任务书 60/60/16 编制误差，实测为准）",
+    "D-EX2: d42 ID 面指纹 2cf619bd != 10fc69d5（NAMESPACE 模块隔离设计使然；内容面 c377bb2f 与前代一致补足等价证明）",
+    "D-EX3: d42_ MySQL 治理表骨架未建（任务书 §1.1 预存假设不符），P0 执行 DDL 五表（D41 同构）",
+    "D-EX4: rag.rerank 配置前缀按任务书 H2/P1.5 用 app.ai.rag.rerank（既有 RagProperties 实际前缀 app.rag，互不冲突）",
+    "D-EX5: QA-001 回归锚 uuid 由 ...6d41 代际换为 ...6d42 代际 d19a82c3（similarity 锚 0.37974774837493896 不变）"
+  ],
+  "hygiene": { "denyCode": 4030, "secrets": "sk-/Bearer 扫描零命中；Key 仅 env", "tempDocsKept": true, "noPush": true }
+}

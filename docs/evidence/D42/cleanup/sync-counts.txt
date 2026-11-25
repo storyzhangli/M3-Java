@@ -1,0 +1,8 @@
+-- SELECT COUNT(*) AS d42_document_sync_total FROM d42_document_sync
+d42_document_sync_total
+0
+
+-- SELECT COUNT(*) AS d42_table_extract_total FROM d42_table_extract
+d42_table_extract_total
+0
+

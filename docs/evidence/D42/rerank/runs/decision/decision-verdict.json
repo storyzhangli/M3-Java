@@ -1,0 +1,54 @@
+{
+  "decidedAt": "2026-11-25T17:51:18.1564146+08:00",
+  "thresholdsFrozen": "rerank-protocol.json decisionThresholdsPrefrozen（禁事后调）",
+  "relevanceGain": {
+    "A2": false,
+    "A1": false,
+    "detail": [
+      {
+        "arm": "A1",
+        "dMRR": 0.025,
+        "dNDCG": 0.015329,
+        "dHit1": 0.05,
+        "pass": false
+      },
+      {
+        "arm": "A2",
+        "dMRR": 0.025,
+        "dNDCG": 0.015329,
+        "dHit1": 0.05,
+        "pass": false
+      },
+      {
+        "arm": "A3",
+        "dMRR": 0.025,
+        "dNDCG": 0.015329,
+        "dHit1": 0.05,
+        "pass": false
+      }
+    ],
+    "A3": false
+  },
+  "latency": {
+    "A2_p95_ms": 204.0,
+    "A1_p95_ms": 1.0,
+    "A3_p95_ms": 1.0,
+    "pass1500": true,
+    "pass300": true
+  },
+  "failOpenRate": {
+    "rate": 0.0,
+    "failedOpenLines": 0,
+    "rerankStepLines": 841,
+    "pass": true
+  },
+  "costPer1000Q": {
+    "pass": true,
+    "observedCny": 0.033372,
+    "observedCalls": 120,
+    "per1000Q": 0.2781
+  },
+  "verdict": "not-adopt",
+  "reason": "预注册相关性增益门未过：ΔMRR@5=+0.025<+0.05 且 ΔnDCG@5=+0.015<+0.05（A1/A2/A3 三臂一致）；延迟/费用/fail-open 均达标，仅排序收益不足",
+  "note": "A3 非 NOT RUN；A2 费用为 harness 实例实测 121 call 累计（另有评测通道实例 120 call 同量级另计）；排序通道=D-EX6 app 日志观测序"
+}

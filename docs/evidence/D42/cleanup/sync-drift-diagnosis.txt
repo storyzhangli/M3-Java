@@ -1,0 +1,62 @@
+===========================================================================
+D-EX9 归因终版：d42_document_sync 3→0 漂移（D42 R01 P4 清理复验）
+取证时间：2026-11-25 18:2x（poststate 盘点发现后专项闭环）
+取证手段：MySQL binlog 行级解码（权威）+ 全仓代码路径排除 + 会话轨迹排除
+===========================================================================
+
+【1. 权威事实（binlog 证据，binlog-000387-decode.txt）】
+- log_bin=ON，binlog_format=ROW（MySQL 9.7.0 本机实例，datadir=...\mysql-commercial-9.7.0-winx64\data）
+- GTID 920f84df-...:23017，2026-11-25 17:26:06.637177，thread_id=472，单语句事务，Xid=2966 COMMIT 成功。
+- Delete_rows 事件命中 `ai_db`.`d42_document_sync`（table id 104）共 3 行：
+  * id=1 DOC-CNC-COOLING-001  operation=DELETE version=0 status=SYNCED payload_hash=3137f9d8... created=16:58:51
+  * id=3 DOC-SERVO-TROUBLE-002 operation=DELETE version=0 status=SYNCED payload_hash=fb1e6cc0... created=16:58:52
+  * id=5 DOC-WORKORDER-SPEC-003 operation=DELETE version=0 status=SYNCED payload_hash=...      created=16:58:52
+- 即删除的正是 KP2 seeding（d42_index-corpus.ps1 [DELETE]×3，16:58:51）经
+  markDeletedTx→删除闭环 markSynced 写入的三条 DELETE|SYNCED 终态行。
+- performance_schema 摘要佐证：digest `DELETE FROM d42_document_sync WHERE
+  document_id IN (...) AND operation = ?...` COUNT_STAR=1，SUM_ROWS_AFFECTED=3，
+  LAST_SEEN=17:26:06.643709——单条 IN 列表语句，非逐行删除。
+- 表 CREATE_TIME=16:58:36 / UPDATE_TIME=17:26:06 与上述完全吻合。
+
+【2. 排除项（谁不可能做）】
+a) D42 运行时代码：DocumentSyncMapper 全部 SQL 触点仅 4 个
+   （upsertOnNaturalKey INSERT..ODKU / selectByNaturalKey / selectDueForRetry /
+   selectForStatusView / claimFailedAtomically UPDATE）；MyBatis-Plus BaseMapper
+   的 delete* 方法全仓零调用（grep syncMapper.delete* / QueryWrapper<DocumentSyncPO>
+   delete 均 0 命中）；VectorIndexStateTx.deleteDocumentRows 只删
+   chunk/index/table 三类行，不触碰 sync 表；VectorReconciliationService 对
+   syncMapper 仅 selectList（只读）。→ 评测实例（A0/A1/A2/A3、X/Y/Z）不可能删行。
+b) sync-retry 调度：SYNC_RETRY_ENABLED 默认 false（yml L349），实例均未注入 true。
+c) 评测器（D37 evaluator）：仅 HTTP ask/search + PG 直连读，无 MySQL 写通道。
+d) D42 全部 harness 脚本/探针（temp_docs\D42 grep DELETE FROM|TRUNCATE）：
+   仅 D42VectorProbe 只读盘点与 D42DdlSeed 建表，无该表删除语句。
+e) 本 agent 会话轨迹（trajectory.jsonl 全量检索）：17:26:06 前后无含该 DELETE 的
+   命令；17:25:40(test-2 Finished)→17:26 窗口动作为 test-2 结果 grep、前端测试
+   文件阅读、TaskUpdate——均零 MySQL 触达。
+f) 本机其它豆包会话轨迹（2 个平行 session）：d42 相关表零触达。
+g) d42_admin_audit：0 行（ACCESS_ENABLED=false 不装配审计），排除审计路径干扰；
+   查询原文见本文件上一版留痕（action/target_document_id/result/reason_code 空集）。
+
+【3. 发起方判定边界（诚实声明）】
+- general_log=OFF，error log 无连接来源记录，events_statements_history_long 已
+  轮转（17:26 记录不可回读）——DB 侧客户端身份（user/host/程序）证据已穷尽。
+- binlog 仅证明：本机某 MySQL 客户端在 17:26:06 以 root 会话（thread 472）执行了
+  该 DELETE。该语句字面形态（IN 列表 + operation 过滤 + 反引号包裹）不存在于
+  本仓任何已归档脚本，判定为 agent 可见范围之外的操作（候选：人工客户端会话或
+  本机其它工具），无法在现有证据下进一步收窄。→ 登记为"事实确凿、发起方不可归因"。
+
+【4. 影响评估：零】
+- 被删 3 行是 seeding 操作终态记录，非保留资产；任务书保留资产=PG d42_vector_store
+  8 行（指纹 2cf619bd... 复验一致）+ 文件面证据。
+- 全部裁决输入（baseline SHA 0c3ad8f6...、rank-observations、decision-verdict）
+  落盘于文件，未受影响；C05 双态回归在漂移之后执行且全 PASS。
+- 清理目标面复核：共享表 5 计数与 postseed 逐项一致（knowledge_document_total=10、
+  legacy_DOC=3、chunk_index_total=32、orphan=24、vector_index_total=7）；
+  d42_table_extract=0（FIXTURE_REMAINING=0）；sync 表实测 0 行=无夹具残留态，
+  与"实验零残留"目标一致，postseed 基线值 3 仅作为操作历史留痕失去 DB 载体
+  （本文与 binlog 解码文件即为该留痕的替代载体）。
+
+【5. 证据文件】
+- docs\evidence\D42\cleanup\binlog-000387-decode.txt（L10791-10848：GTID 23017 事务全文）
+- docs\evidence\D42\cleanup\sync-counts.txt（18:03 实测 0 行）
+- 本文件（归因终版）
