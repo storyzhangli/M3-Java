@@ -1,0 +1,247 @@
+[
+  {
+    "step": "L1-register-D43E2E-SRCH-004",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "step": "L1-register-D43E2E-PDF-003",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "step": "L1-register-D43E2E-PIPE-001",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "step": "L1-register-D43E2E-FAQ-002",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "step": "L2-import-D43E2E-SRCH-004",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED dup=False"
+  },
+  {
+    "step": "L2-import-D43E2E-PDF-003",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED dup=False"
+  },
+  {
+    "step": "L2-import-D43E2E-PIPE-001",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED dup=False"
+  },
+  {
+    "step": "L2-import-D43E2E-FAQ-002",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED dup=False"
+  },
+  {
+    "step": "L3-pages",
+    "pass": true,
+    "detail": "pages=1"
+  },
+  {
+    "step": "L3-page1",
+    "pass": true,
+    "detail": "contentLength=230 blank=False"
+  },
+  {
+    "step": "L3-chunks",
+    "pass": true,
+    "detail": "chunks=1 keys=documentId,title,version,strategy,chunkIndex,content,length,codePointCount,sources,pageNumbers,firstPageNumber,lastPageNumber,paragraphIndices,crossPage,hasPageLocation,hasParagraphLocation"
+  },
+  {
+    "step": "L3-comparison",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "step": "L4-index-D43E2E-SRCH-004",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED chunkCount=1 "
+  },
+  {
+    "step": "L4-status-D43E2E-SRCH-004",
+    "pass": true,
+    "detail": "status=COMPLETED keys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt"
+  },
+  {
+    "step": "L4-index-D43E2E-PDF-003",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED chunkCount=4 "
+  },
+  {
+    "step": "L4-status-D43E2E-PDF-003",
+    "pass": true,
+    "detail": "status=COMPLETED keys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt"
+  },
+  {
+    "step": "L4-index-D43E2E-PIPE-001",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED chunkCount=3 "
+  },
+  {
+    "step": "L4-status-D43E2E-PIPE-001",
+    "pass": true,
+    "detail": "status=COMPLETED keys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt"
+  },
+  {
+    "step": "L4-index-D43E2E-FAQ-002",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED chunkCount=1 "
+  },
+  {
+    "step": "L4-status-D43E2E-FAQ-002",
+    "pass": true,
+    "detail": "status=COMPLETED keys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt"
+  },
+  {
+    "step": "L5-ask-baseline-consistent",
+    "pass": true,
+    "detail": "decision=REFUSE err=LOW_RELEVANCE retrieved=5 evidence=5 rejected=S1+S3+S4+S5"
+  },
+  {
+    "step": "L6-search-matches",
+    "pass": true,
+    "detail": "n=5 e2eN=4 topSim=0.526685178279877 topDoc=D43E2E-SRCH-004 keyset=chunkId,content,documentId,title,version,strategy,chunkIndex,page,lastPage,paragraphIndex,similarity,distance,metadata"
+  },
+  {
+    "step": "L6-search-hits-e2e",
+    "pass": true,
+    "detail": "e2eHits=4 ids=D43E2E-SRCH-004,D43E2E-PIPE-001,D43E2E-PDF-003,D43E2E-PDF-003"
+  },
+  {
+    "step": "L6-chunkid-cross-db",
+    "pass": true,
+    "detail": "srIds=4 viIds=9 ckIds=4 allContained=True"
+  },
+  {
+    "step": "L6-url-safety",
+    "pass": true,
+    "detail": "bad=0"
+  },
+  {
+    "step": "L7-inplace-update",
+    "pass": true,
+    "detail": "contentLength=230 v2textPresentInChunks=True semantics=IN-PLACE(version=1)；多版本切换=D40 夹具注入通道(API 无该路径，NOT RUN via API，单测覆盖)"
+  },
+  {
+    "step": "L8-delete",
+    "pass": true,
+    "detail": "code=200 data=1"
+  },
+  {
+    "step": "L8-reconcile-scope-clean",
+    "pass": true,
+    "detail": "drift=driftMetaOnly=24, driftVectorOnly=0, driftStaleVersion=0, driftVersionMismatch=0, driftSyncStuck=0, driftTableOrphan=0, countMismatch=4, stuckTask=0, total=28 orphanE2E=0 missingE2E=0"
+  },
+  {
+    "step": "L8-search-after-delete",
+    "pass": true,
+    "detail": "SRCH-004 hits after delete=0"
+  },
+  {
+    "step": "U-update-reindex-fix004",
+    "pass": true,
+    "detail": "importU=200 firstIndex=200/COMPLETED chunkCount=3 obs-driftVectorOnly(重切源id分叉,检测正常)=1 verdict=FIX-004-CONVERGED"
+  },
+  {
+    "step": "L9-import-d43-fault-code.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-11-faultcode"
+  },
+  {
+    "step": "L9-import-d43-anomaly-merged.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-12-anomalyme"
+  },
+  {
+    "step": "L9-import-d43-anomaly-crosspage.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-13-anomalycr"
+  },
+  {
+    "step": "L9-import-d43-anomaly-missing.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-14-anomalymi"
+  },
+  {
+    "step": "L9-import-d43-image-table.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-15-imagetabl"
+  },
+  {
+    "step": "L9-import-d43-no-table.pdf",
+    "pass": true,
+    "detail": "code=200 status=COMPLETED docId=D43E2E-TBL-16-notable"
+  },
+  {
+    "step": "L9-d43-fault-code.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=20/20 wrong=0"
+  },
+  {
+    "step": "L9-d43-param-spec.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=24/24 wrong=0"
+  },
+  {
+    "step": "L9-d43-anomaly-merged.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=15/15 wrong=0"
+  },
+  {
+    "step": "L9-d43-anomaly-merged.pdf-p2",
+    "pass": true,
+    "detail": "tables=1 cells=9/9 wrong=0"
+  },
+  {
+    "step": "L9-d43-anomaly-crosspage.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=9/9 wrong=0"
+  },
+  {
+    "step": "L9-d43-anomaly-crosspage.pdf-p2",
+    "pass": true,
+    "detail": "tables=1 cells=9/9 wrong=0"
+  },
+  {
+    "step": "L9-d43-anomaly-missing.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=10/11 wrong=0"
+  },
+  {
+    "step": "L9-d43-image-table.pdf-p1",
+    "pass": true,
+    "detail": "tables=1 cells=0/0 wrong=0 (no-table-expected)"
+  },
+  {
+    "step": "L9-d43-no-table.pdf-p1",
+    "pass": true,
+    "detail": "tables=0 cells=0/0 wrong=0 (no-table-expected)"
+  },
+  {
+    "step": "L9-c16-fixture-gate",
+    "pass": true,
+    "detail": "exp=97 hit=96 wrong=0 miss=1 wrongList= missHead=d43-anomaly-missing.pdf#p1:M-2"
+  },
+  {
+    "step": "L10-sync-status",
+    "pass": true,
+    "detail": "code=200 items=4"
+  },
+  {
+    "step": "L10-consistency",
+    "pass": true,
+    "detail": "code=200 driftTotal=30 e2eCountMismatch=0"
+  },
+  {
+    "step": "L10-retry",
+    "pass": true,
+    "detail": "code=200 msg=success"
+  }
+]

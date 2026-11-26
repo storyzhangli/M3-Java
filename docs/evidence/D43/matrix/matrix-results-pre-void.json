@@ -1,0 +1,2852 @@
+[
+  {
+    "id": "E00-doc-reg",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E00-doc-reg",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E00-doc-reg",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E00-doc-reg",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E00-doc-reg",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E01-chat",
+    "role": "ANON",
+    "cls": "OWN-C",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E01-chat",
+    "role": "admin",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E01-chat",
+    "role": "userA",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E01-chat",
+    "role": "userB",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E01-chat",
+    "role": "userC",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E02-health",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E02-health",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E02-health",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E02-health",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E02-health",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E03-stream",
+    "role": "ANON",
+    "cls": "OWN-C",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E03-stream",
+    "role": "admin",
+    "cls": "OWN-C",
+    "code": "",
+    "expect": "200/4001/5000",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": ""
+  },
+  {
+    "id": "E03-stream",
+    "role": "userA",
+    "cls": "OWN-C",
+    "code": "",
+    "expect": "200/4001/5000",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": ""
+  },
+  {
+    "id": "E03-stream",
+    "role": "userB",
+    "cls": "OWN-C",
+    "code": "",
+    "expect": "200/4001/5000",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": ""
+  },
+  {
+    "id": "E03-stream",
+    "role": "userC",
+    "cls": "OWN-C",
+    "code": "",
+    "expect": "200/4001/5000",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": ""
+  },
+  {
+    "id": "E04-device",
+    "role": "ANON",
+    "cls": "OWN-C",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E04-device",
+    "role": "admin",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E04-device",
+    "role": "userA",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E04-device",
+    "role": "userB",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E04-device",
+    "role": "userC",
+    "cls": "OWN-C",
+    "code": "200",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E05-sessions",
+    "role": "ANON",
+    "cls": "OWN-S",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E05-sessions",
+    "role": "admin",
+    "cls": "OWN-S",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E05-sessions",
+    "role": "userA",
+    "cls": "OWN-S",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E05-sessions",
+    "role": "userB",
+    "cls": "OWN-S",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E05-sessions",
+    "role": "userC",
+    "cls": "OWN-S",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E06-messages-ownA",
+    "role": "ANON",
+    "cls": "+",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E06-messages-ownA",
+    "role": "admin",
+    "cls": "+",
+    "code": "5000",
+    "expect": "",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E06-messages-ownA",
+    "role": "userA",
+    "cls": "+",
+    "code": "5000",
+    "expect": "",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E06-messages-ownA",
+    "role": "userB",
+    "cls": "+",
+    "code": "5000",
+    "expect": "",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E06-messages-ownA",
+    "role": "userC",
+    "cls": "+",
+    "code": "5000",
+    "expect": "",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E07-doc-get",
+    "role": "ANON",
+    "cls": "META",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E07-doc-get",
+    "role": "admin",
+    "cls": "META",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "文档不存在: D43E2E-MXA-001"
+  },
+  {
+    "id": "E07-doc-get",
+    "role": "userA",
+    "cls": "META",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "文档不存在: D43E2E-MXA-001"
+  },
+  {
+    "id": "E07-doc-get",
+    "role": "userB",
+    "cls": "META",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "文档不存在: D43E2E-MXA-001"
+  },
+  {
+    "id": "E07-doc-get",
+    "role": "userC",
+    "cls": "META",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "文档不存在: D43E2E-MXA-001"
+  },
+  {
+    "id": "E08-doc-list",
+    "role": "ANON",
+    "cls": "META",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E08-doc-list",
+    "role": "admin",
+    "cls": "META",
+    "code": "200",
+    "expect": "200",
+    "verdict": "RESIDUAL-META",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E08-doc-list",
+    "role": "userA",
+    "cls": "META",
+    "code": "200",
+    "expect": "200",
+    "verdict": "RESIDUAL-META",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E08-doc-list",
+    "role": "userB",
+    "cls": "META",
+    "code": "200",
+    "expect": "200",
+    "verdict": "RESIDUAL-META",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E08-doc-list",
+    "role": "userC",
+    "cls": "META",
+    "code": "200",
+    "expect": "200",
+    "verdict": "RESIDUAL-META",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E09-pages",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E09-pages",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E09-pages",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E09-pages",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E09-pages",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E10-page1",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E10-page1",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E10-page1",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E10-page1",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E10-page1",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E11-chunks",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E11-chunks",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E11-chunks",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E11-chunks",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E11-chunks",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E12-chunkscmp",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E12-chunkscmp",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E12-chunkscmp",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E12-chunkscmp",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E12-chunkscmp",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E13-embed-doc",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E13-embed-doc",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E13-embed-doc",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200/4001/5000",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E13-embed-doc",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E13-embed-doc",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E14-embed-model",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E14-embed-model",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E14-embed-model",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E14-embed-model",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E14-embed-model",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E15-embed-compat",
+    "role": "ANON",
+    "cls": "WSTAR",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E15-embed-compat",
+    "role": "admin",
+    "cls": "WSTAR",
+    "code": "4001",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "modelVersion 不能为空"
+  },
+  {
+    "id": "E15-embed-compat",
+    "role": "userA",
+    "cls": "WSTAR",
+    "code": "4001",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "dimensions 必须为正"
+  },
+  {
+    "id": "E15-embed-compat",
+    "role": "userB",
+    "cls": "WSTAR",
+    "code": "4001",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "modelName 不能为空"
+  },
+  {
+    "id": "E15-embed-compat",
+    "role": "userC",
+    "cls": "WSTAR",
+    "code": "4001",
+    "expect": "200/4001/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "modelVersion 不能为空"
+  },
+  {
+    "id": "E16-search",
+    "role": "ANON",
+    "cls": "SRV",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E16-search",
+    "role": "admin",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E16-search",
+    "role": "userA",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E16-search",
+    "role": "userB",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "MISMATCH",
+    "leak": "LEAK!!",
+    "msg": "success"
+  },
+  {
+    "id": "E16-search",
+    "role": "userC",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "MISMATCH",
+    "leak": "LEAK!!",
+    "msg": "success"
+  },
+  {
+    "id": "E17-sync-status",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E17-sync-status",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E17-sync-status",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E17-sync-status",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E17-sync-status",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E18-sync-retry",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E18-sync-retry",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E18-sync-retry",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E18-sync-retry",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E18-sync-retry",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E19-sync-cons",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E19-sync-cons",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E19-sync-cons",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E19-sync-cons",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E19-sync-cons",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E20-tables",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E20-tables",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E20-tables",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E20-tables",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E20-tables",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E21-rows",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E21-rows",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E21-rows",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E21-rows",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E21-rows",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E22-tbl-query",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E22-tbl-query",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E22-tbl-query",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E22-tbl-query",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E22-tbl-query",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E23-tbl-extract",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E23-tbl-extract",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "文档不存在: D43E2E-MXA-001"
+  },
+  {
+    "id": "E23-tbl-extract",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E23-tbl-extract",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E23-tbl-extract",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E24-vi-index",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E24-vi-index",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "chunks 不能为空"
+  },
+  {
+    "id": "E24-vi-index",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4001",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "chunks 不能为空"
+  },
+  {
+    "id": "E24-vi-index",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4001",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "chunks 不能为空"
+  },
+  {
+    "id": "E24-vi-index",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4001",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "chunks 不能为空"
+  },
+  {
+    "id": "E25-vi-idx-pages",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E25-vi-idx-pages",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "5000",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E25-vi-idx-pages",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E25-vi-idx-pages",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E25-vi-idx-pages",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E26-vi-reconcile",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E26-vi-reconcile",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E26-vi-reconcile",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E26-vi-reconcile",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E26-vi-reconcile",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E27-vi-recover",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E27-vi-recover",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E27-vi-recover",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E27-vi-recover",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E27-vi-recover",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E28-vi-status",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E28-vi-status",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E28-vi-status",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E28-vi-status",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E28-vi-status",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E29-vi-chunks",
+    "role": "ANON",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E29-vi-chunks",
+    "role": "admin",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E29-vi-chunks",
+    "role": "userA",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E29-vi-chunks",
+    "role": "userB",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E29-vi-chunks",
+    "role": "userC",
+    "cls": "DOC",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E30-vs-docs",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E30-vs-docs",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E30-vs-docs",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E30-vs-docs",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E30-vs-docs",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E31-vs-search",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E31-vs-search",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E31-vs-search",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E31-vs-search",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E31-vs-search",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E32-vs-stats",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E32-vs-stats",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E32-vs-stats",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E32-vs-stats",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E32-vs-stats",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E33-hk-rebuild",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E33-hk-rebuild",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "5000",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E33-hk-rebuild",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "5000",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E33-hk-rebuild",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "5000",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E33-hk-rebuild",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "5000",
+    "expect": "4030",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E34-hk-stats",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E34-hk-stats",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E34-hk-stats",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E34-hk-stats",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E34-hk-stats",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E35-hybrid-ask",
+    "role": "ANON",
+    "cls": "SRV",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E35-hybrid-ask",
+    "role": "admin",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E35-hybrid-ask",
+    "role": "userA",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E35-hybrid-ask",
+    "role": "userB",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E35-hybrid-ask",
+    "role": "userC",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E36-hybrid-srch",
+    "role": "ANON",
+    "cls": "SRV",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E36-hybrid-srch",
+    "role": "admin",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E36-hybrid-srch",
+    "role": "userA",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E36-hybrid-srch",
+    "role": "userB",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E36-hybrid-srch",
+    "role": "userC",
+    "cls": "SRV",
+    "code": "5000",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E37-rag-ask",
+    "role": "ANON",
+    "cls": "SRV",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E37-rag-ask",
+    "role": "admin",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E37-rag-ask",
+    "role": "userA",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E37-rag-ask",
+    "role": "userB",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "no-leak-ok",
+    "msg": "success"
+  },
+  {
+    "id": "E37-rag-ask",
+    "role": "userC",
+    "cls": "SRV",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "SRV",
+    "leak": "no-leak-ok",
+    "msg": "success"
+  },
+  {
+    "id": "E38-prompt-list",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E38-prompt-list",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E38-prompt-list",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E38-prompt-list",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E38-prompt-list",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E39-prompt-get",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E39-prompt-get",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E39-prompt-get",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E39-prompt-get",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E39-prompt-get",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E40-prompt-roles",
+    "role": "ANON",
+    "cls": "AUTH",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E40-prompt-roles",
+    "role": "admin",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E40-prompt-roles",
+    "role": "userA",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E40-prompt-roles",
+    "role": "userB",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E40-prompt-roles",
+    "role": "userC",
+    "cls": "AUTH",
+    "code": "200",
+    "expect": "200/5000",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E41-one-embed-use",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E41-one-embed-use",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E41-one-embed-use",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E41-one-embed-use",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E41-one-embed-use",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E42-one-embed-model",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E42-one-embed-model",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E42-one-embed-model",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E42-one-embed-model",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E42-one-embed-model",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E43-one-embed-compat",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E43-one-embed-compat",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E43-one-embed-compat",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E43-one-embed-compat",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E43-one-embed-compat",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E44-one-rag-ask",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E44-one-rag-ask",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E44-one-rag-ask",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E44-one-rag-ask",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E44-one-rag-ask",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E45-one-search",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E45-one-search",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E45-one-search",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E45-one-search",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E45-one-search",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E46-one-vi-index",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E46-one-vi-index",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E46-one-vi-index",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E46-one-vi-index",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E46-one-vi-index",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E47-one-vi-del",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E47-one-vi-del",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E47-one-vi-del",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E47-one-vi-del",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E47-one-vi-del",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E48-one-vi-status",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E48-one-vi-status",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E48-one-vi-status",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E48-one-vi-status",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E48-one-vi-status",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E49-one-vi-chunks",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E49-one-vi-chunks",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E49-one-vi-chunks",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E49-one-vi-chunks",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E49-one-vi-chunks",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E50-one-vi-reconcile",
+    "role": "ANON",
+    "cls": "ONE",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E50-one-vi-reconcile",
+    "role": "admin",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E50-one-vi-reconcile",
+    "role": "userA",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E50-one-vi-reconcile",
+    "role": "userB",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E50-one-vi-reconcile",
+    "role": "userC",
+    "cls": "ONE",
+    "code": "5000",
+    "expect": "404/5000/-1/4031",
+    "verdict": "BEAN_ABSENT",
+    "leak": "",
+    "msg": "系统繁忙，请稍后重试"
+  },
+  {
+    "id": "E51-pt-post",
+    "role": "ANON",
+    "cls": "PT",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E51-pt-post",
+    "role": "admin",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E51-pt-post",
+    "role": "userA",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E51-pt-post",
+    "role": "userB",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E51-pt-post",
+    "role": "userC",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E52-pt-put",
+    "role": "ANON",
+    "cls": "PT",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E52-pt-put",
+    "role": "admin",
+    "cls": "PT",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "templateId 不能为空"
+  },
+  {
+    "id": "E52-pt-put",
+    "role": "userA",
+    "cls": "PT",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "templateId 不能为空"
+  },
+  {
+    "id": "E52-pt-put",
+    "role": "userB",
+    "cls": "PT",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "templateId 不能为空"
+  },
+  {
+    "id": "E52-pt-put",
+    "role": "userC",
+    "cls": "PT",
+    "code": "4001",
+    "expect": "200",
+    "verdict": "MISMATCH",
+    "leak": "",
+    "msg": "templateId 不能为空"
+  },
+  {
+    "id": "E53-pt-patch",
+    "role": "ANON",
+    "cls": "PT",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E53-pt-patch",
+    "role": "admin",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E53-pt-patch",
+    "role": "userA",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E53-pt-patch",
+    "role": "userB",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E53-pt-patch",
+    "role": "userC",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E54-pt-delete",
+    "role": "ANON",
+    "cls": "PT",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E54-pt-delete",
+    "role": "admin",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E54-pt-delete",
+    "role": "userA",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E54-pt-delete",
+    "role": "userB",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E54-pt-delete",
+    "role": "userC",
+    "cls": "PT",
+    "code": "200",
+    "expect": "200",
+    "verdict": "PRE-DEFECT",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E55-doc-imp",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E55-doc-imp",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E55-doc-imp",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E55-doc-imp",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E55-doc-imp",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E56-vi-del",
+    "role": "ANON",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E56-vi-del",
+    "role": "admin",
+    "cls": "ADM",
+    "code": "200",
+    "expect": "200",
+    "verdict": "OK",
+    "leak": "",
+    "msg": "success"
+  },
+  {
+    "id": "E56-vi-del",
+    "role": "userA",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E56-vi-del",
+    "role": "userB",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  },
+  {
+    "id": "E56-vi-del",
+    "role": "userC",
+    "cls": "ADM",
+    "code": "4030",
+    "expect": "4030",
+    "verdict": "DENY",
+    "leak": "",
+    "msg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试"
+  }
+]

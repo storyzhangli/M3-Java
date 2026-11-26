@@ -232,6 +232,14 @@ public class DocumentVectorIndexService {
             prepared.add(new PreparedChunk(chunk, chunkHash, chunkId));
         }
 
+        // FIX-D43-004：写入前按 (documentId, version) 清理本版本 PG 行。
+        // chunkId 含 chunkContentHash，就地覆盖（同版本换内容）后旧内容向量行在 MySQL
+        // 已无关联可达（chunk 表被原地重建，cleanupSuperseded 只覆盖 SUPERSEDED 版本），
+        // 导致写入后核对 pg>expected 恒 PARTIAL/COUNT_MISMATCH，且 reconcile 默认 dryRun
+        // 不修复、全域修复会波及遗留冻结面。本版本全量重建前置删除，幂等、可重试，
+        // 删除范围严格限定本文档本版本，不触其他文档与历史版本（H6）。
+        deleteVectorsForVersion(documentId, targetVersion);
+
         // 分批 Embedding + Upsert
         int processed = 0;
         int batchSize = Math.max(1, properties.getBatchSize());
@@ -644,6 +652,23 @@ public class DocumentVectorIndexService {
         Long count = pgVectorJdbcTemplate.queryForObject(sql, Long.class,
                 documentId, String.valueOf(version));
         return count == null ? 0L : count;
+    }
+
+    /**
+     * FIX-D43-004：删除 PG 中指定文档版本的向量行（本版本全量重建前置清理）。
+     *
+     * <p>与 countPgForVersion 同口径（metadata-&gt;&gt;'documentId' / 'version' 文本匹配），
+     * 只删本文档本版本；重复执行安全（0 行删除无副作用）。异常上抛——PG 不可用时
+     * 本版本写入也不可能成功，交由既有失败持久化/补偿语义处理。</p>
+     */
+    public void deleteVectorsForVersion(String documentId, Integer version) {
+        String sql = "DELETE FROM " + qualifiedTable()
+                + " WHERE (metadata->>'documentId') = ? AND (metadata->>'version') = ?";
+        int deleted = pgVectorJdbcTemplate.update(sql, documentId, String.valueOf(version));
+        if (deleted > 0) {
+            log.info("FIX-D43-004 本版本向量前置清理 documentId={} version={} deleted={}",
+                    documentId, version, deleted);
+        }
     }
 
     // ------------------------------------------------------------------

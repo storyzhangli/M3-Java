@@ -1,0 +1,16 @@
+== knowledge_document by prefix ==
+KD D43-A2 n=9 lc=ACTIVE
+KD D41-R03RE n=8 lc=DEPRECATED
+KD D41-R03VERIFY n=7 lc=ACTIVE,DEPRECATED
+KD D43-A1 n=3 lc=ACTIVE
+KD D43-A2P n=1 lc=ACTIVE
+KD D43-A4 n=1 lc=ACTIVE
+KD DOC-CNC n=1 lc=ACTIVE
+KD DOC-SERVO n=1 lc=ACTIVE
+KD DOC-WORKORDER n=1 lc=ACTIVE
+== chunk orphans detail ==
+ORPH d32eval-air n=6
+ORPH d32eval-code n=6
+ORPH d32eval-model n=6
+ORPH d32eval-pump n=6
+== sync rows ==

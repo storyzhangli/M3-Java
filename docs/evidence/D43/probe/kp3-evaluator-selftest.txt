@@ -1,0 +1,78 @@
+[PASS] precision �ռ� N/A
+[PASS] noise �ռ� N/A
+[PASS] rate ��ĸ0 N/A
+[PASS] precision ��Ԫ��ȫ���=1
+[PASS] precision 1/4=0.25
+[PASS] noise 1/4 ���=0.75
+[PASS] �޴����� precision=0
+[PASS] ���� Recall �����=0.5
+[PASS] ���� Recall ��֤��ȫ����=1
+[PASS] ���� Recall �� chunk ��ע�˻��ĵ���=1
+[PASS] ���� Recall ��������ע N/A
+[PASS] Macro ƽ�����Բ�����
+[PASS] Macro ȫ������ N/A
+[PASS] HitRate �� N/A
+[PASS] HitRate 2/3
+[PASS] ��ʱ �ռ� N/A
+[PASS] ��ʱ ��ֵ=25
+[PASS] ��ʱ P50 �����=20
+[PASS] ��ʱ P95 �����=40
+[PASS] ��ʱ min/max
+[PASS] ��ʱ ��Ԫ��
+[PASS] fmt N/A ��Ⱦ
+[PASS] Embedding ά��=384
+[PASS] Embedding ȷ���ԣ���λһ�£�
+[PASS] Embedding L2 ģ����1
+[PASS] Embedding ���ı�������
+[PASS] Embedding �����ơ�1
+[PASS] FNV-1a �մ���׼ֵ
+[PASS] ��ϣͰ��Χ�����λ
+[PASS] �ʷ�ģ�����>�޹أ�������ȷ��
+[PASS] �μ����� �߷�����
+[PASS] �μ����� ͬ�ְ� chunkId ����
+[PASS] �μ����� ������˳���޹�
+[PASS] ����1 ����Կ��PG �� OFFLINE/IN_MEMORY
+[PASS] ����2 ����Կ��PG �� OFFLINE/PGVECTOR
+[PASS] ����3 ����Կ��PG �� OFFLINE/IN_MEMORY
+[PASS] ����4 ����Կ��PG �� FULL/PGVECTOR
+[PASS] ����5 Embeddingʧ�� �� BLOCKED����FAIL��
+[PASS] ����6 DB��·ʧ�� �� IN_MEMORY ����
+[PASS] ����7 ��ChatModel �� OFFLINE/PGVECTOR����Կ��ģ�Ϳ��ã�
+[PASS] ����7�� ģ�ͳ�ʱ �� TIMEOUT_GENERATION ��ǩ
+[PASS] �ɾ����� PASS �ޱ�ǩ
+[PASS] MISS_RECALL �ռ�������
+[PASS] MISS_RECALL �ͷֹ���
+[PASS] MISS_RECALL ���˹���
+[PASS] MISS_RECALL ��֤�ݰ��������
+[PASS] HIGH_NOISE precision<0.5
+[PASS] HIGH_NOISE ��λ����������
+[PASS] FABRICATED_CITATION ����
+[PASS] REFUSAL ��ܣ�������ȴ�ܣ�
+[PASS] REFUSAL ���������ȴ��
+[PASS] REFUSAL �����벻ƥ��
+[PASS] REFUSAL ��ȷ�ܴ��� REFUSAL_ERROR
+[PASS] CLARIFY ��������δ����
+[PASS] CLARIFY ��Ӧ����ȴ����
+[PASS] METADATA ����ȱʧ FAIL
+[PASS] METADATA pageȱʧ��ͳ�Ʋ�FAIL
+[PASS] TIMEOUT �����׶�
+[PASS] TIMEOUT �˵��˽׶�
+[PASS] MODEL_ERROR ����Ӧ
+[PASS] MODEL_ERROR ͨ���쳣
+[PASS] MODEL NOT_CONFIGURED �������
+[PASS] RETRIEVAL_ERROR Embeddingʧ��
+[PASS] RETRIEVAL_ERROR ����쳣
+[PASS] EMPTY �ǳɹ�̬������ RETRIEVAL_ERROR
+[PASS] BLOCKED ״̬������ FAIL
+[PASS] Σ��Э��/�̷�·��ȫ����
+[PASS] localhost/����/����/������ȫ�ܾ�
+[PASS] null ����ܾ�
+[PASS] ���������� http ����
+[PASS] ���������� https ����
+[PASS] �Ƿ� JSON ����
+[PASS] δ���ᣨannotatedAt=null������
+[PASS] �� 20 �ʱ���
+[PASS] �Ƿ� scenario ����
+---- SELFTEST SUMMARY ----
+PASS=75 FAIL=0
+ALL SELFTESTS PASSED

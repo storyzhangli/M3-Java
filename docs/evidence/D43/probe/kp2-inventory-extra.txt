@@ -1,0 +1,14 @@
+== d43_ tables ==
+  d43_admin_audit approxRows=0
+  d43_auth_principal approxRows=0
+  d43_document_sync approxRows=0
+  d43_table_extract approxRows=0
+  d43_table_row approxRows=0
+D43_TABLES=5
+== legacy DOC-* chunk rows ==
+  DOC-CNC-COOLING-001 = 3
+  DOC-SERVO-TROUBLE-002 = 3
+  DOC-WORKORDER-SPEC-003 = 2
+lower_case_table_names=1
+mysql_version=9.7.0-commercial
+EMPTY_SHA256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855

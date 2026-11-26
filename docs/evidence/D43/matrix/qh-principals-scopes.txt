@@ -1,0 +1,21 @@
+principal columns: token_sha256 user_id tenant_id dept_id device_scopes role enabled expires_at created_at 
+== principals
+token_sha256=28a253e2581923cc745a0c38cb44f3689800ae920ade3682206a49ace81ebd21 | user_id=e2e-admin-a | tenant_id=T-A | dept_id=D-A1 | device_scopes=["dev-a1"] | role=ADMIN | enabled=1 | expires_at=null | created_at=2026-11-26 16:19:28 | 
+token_sha256=3998e4d13df2478b01fb8caa518208097783c010d0627ec234af92ee8b750034 | user_id=userA | tenant_id=T1 | dept_id=D1 | device_scopes=["DEV-A"] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 15:54:46 | 
+token_sha256=631d44ea9fcaba1a2791ed35b86840660ec6d92b6a8d544e4c62a470903ad9de | user_id=userB | tenant_id=T1 | dept_id=D2 | device_scopes=["DEV-B"] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 15:54:46 | 
+token_sha256=6a8af15d332c23c3dfde126a36daebcc8381d6f7d611fb20afd9aa0d139c0b3a | user_id=userC | tenant_id=T2 | dept_id=D1 | device_scopes=["DEV-A"] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 15:54:46 | 
+token_sha256=7effed19b62a60cf3f7f9cf964685b1b26fa6513e242f6911cdeee9e35bb761b | user_id=e2e-disabled-a | tenant_id=T-A | dept_id=D-A1 | device_scopes=[] | role=USER | enabled=0 | expires_at=null | created_at=2026-11-26 16:19:33 | 
+token_sha256=991be0e86eb08f7eb6d6078e5b417087337cb2fe0b0eb71c2a37c0f4d88943bb | user_id=e2e-user-a2 | tenant_id=T-A | dept_id=D-A2 | device_scopes=[] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 16:19:31 | 
+token_sha256=ce761d555dfdd9fbe83a57eb0d9f99cc68d4fdc3158877be70fc933b7f1f6019 | user_id=expiredUser | tenant_id=T1 | dept_id=D2 | device_scopes=["DEV-B"] | role=USER | enabled=1 | expires_at=2020-01-01 00:00:00 | created_at=2026-11-26 15:54:46 | 
+token_sha256=d40309cca33a27add2d35548f5ce723867400e1e6aa10be643d74db6f6797b80 | user_id=e2e-expired-a | tenant_id=T-A | dept_id=D-A1 | device_scopes=[] | role=USER | enabled=1 | expires_at=2020-01-01 00:00:00 | created_at=2026-11-26 16:19:34 | 
+token_sha256=ea62eb9d70674701ed5f1e12e04b1a6f42a1677b2664cb31081c6da523931500 | user_id=e2e-user-a | tenant_id=T-A | dept_id=D-A1 | device_scopes=["dev-a1"] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 16:19:30 | 
+token_sha256=eda810e5e0c1891dc2535851aab4e91a00fae17d7f3c51ba6331b29f85e312ac | user_id=e2e-user-b | tenant_id=T-B | dept_id=D-B1 | device_scopes=["dev-b1"] | role=USER | enabled=1 | expires_at=null | created_at=2026-11-26 16:19:32 | 
+token_sha256=f31329ef46cb740d9d52764b6f24cc28555d5f3be227c005312d000e0340733c | user_id=adminT1 | tenant_id=T1 | dept_id=D-HQ | device_scopes=[] | role=ADMIN | enabled=1 | expires_at=null | created_at=2026-11-26 15:54:46 | 
+== doc scopes
+document_id=d43e2e-lc-001 | tenant_id=T-A | dept_id=D-A1 | device_id=dev-a1 | status=COMPLETED | 
+document_id=d43e2e-lc-002 | tenant_id=T-A | dept_id=D-A1 | device_id=dev-a1 | status=COMPLETED | 
+document_id=d43e2e-perm-a | tenant_id=T-A | dept_id=D-A1 | device_id=dev-a1 | status=COMPLETED | 
+document_id=d43e2e-perm-b | tenant_id=T-B | dept_id=D-B1 | device_id=dev-b1 | status=COMPLETED | 
+document_id=DOC-CNC-COOLING-001 | tenant_id=null | dept_id=null | device_id=null | status=COMPLETED | 
+document_id=DOC-SERVO-TROUBLE-002 | tenant_id=null | dept_id=null | device_id=null | status=COMPLETED | 
+document_id=DOC-WORKORDER-SPEC-003 | tenant_id=null | dept_id=null | device_id=null | status=COMPLETED | 

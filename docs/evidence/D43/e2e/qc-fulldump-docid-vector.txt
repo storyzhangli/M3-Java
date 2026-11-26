@@ -1,0 +1,37 @@
+== columns knowledge_document
+id document_id source_system source title version status file_name content_type file_size lifecycle_status content_hash content_length error_code error_message created_at updated_at tenant_id dept_id device_id 
+== columns document_vector_index
+id document_id version content_hash strategy chunk_count status stage error_code error_message attempt_count next_retry_at created_at updated_at 
+== knowledge_document ALL ids
+26636c3ed53a4663880bd8797d835be8
+D41-R03RE-008
+D41-R03RE-009
+D41-R03RE-010
+D41-R03RE-011
+D41-R03RE-012
+D41-R03RE-013
+D41-R03RE-014
+D41-R03RE-MANUAL
+D41-R03VERIFY-001
+D41-R03VERIFY-002
+D41-R03VERIFY-003
+D41-R03VERIFY-004
+D41-R03VERIFY-005
+D41-R03VERIFY-006
+D41-R03VERIFY-007
+d43e2e-lc-001
+d43e2e-lc-002
+DOC-CNC-COOLING-001
+DOC-SERVO-TROUBLE-002
+DOC-WORKORDER-SPEC-003
+== document_vector_index ALL
+id=73 | document_id=d32eval-air | version=1 | content_hash=ddc7a334606354e535c7de85c238943334cb533e9011b73123a01f62aa90727f | strategy=STRUCTURE | chunk_count=6 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-15 18:22:36 | updated_at=2026-11-15 18:22:36 | 
+id=75 | document_id=d32eval-code | version=1 | content_hash=feab0b0fb24e4581792cbe631cc963f4d92b4872ddcf96ec12df5e30b62539b4 | strategy=STRUCTURE | chunk_count=6 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-15 18:22:36 | updated_at=2026-11-15 18:22:36 | 
+id=76 | document_id=d32eval-model | version=1 | content_hash=1ef27d68098ca0188271bb14d6cd194c026d98869c117b801c918e1d128ce99e | strategy=STRUCTURE | chunk_count=6 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-15 18:22:36 | updated_at=2026-11-15 18:22:36 | 
+id=74 | document_id=d32eval-pump | version=1 | content_hash=63af43ba053ab52f59016c9ee11a3fcc30fa9800d9402befd4bc5af169ea89d1 | strategy=STRUCTURE | chunk_count=6 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-15 18:22:36 | updated_at=2026-11-15 18:22:36 | 
+id=204 | document_id=D43E2E-FAQ-002 | version=1 | content_hash=3dee094b6c6e8bc700c31638ca7ea9e32feb7476ddb146fc9bc7f31719cd8101 | strategy=STRUCTURE | chunk_count=1 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-26 16:30:55 | updated_at=2026-11-26 16:30:55 | 
+id=202 | document_id=D43E2E-PDF-003 | version=1 | content_hash=07c88fc088661a03736acdee74945d21cf0c8710e0917e6f8338a2546239d1c5 | strategy=STRUCTURE | chunk_count=4 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-26 16:30:54 | updated_at=2026-11-26 16:30:54 | 
+id=203 | document_id=D43E2E-PIPE-001 | version=1 | content_hash=8a73be3ccf08033584c451fd823ec632c168520ead6246c98fbebf03c1f35dcc | strategy=STRUCTURE | chunk_count=3 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=2 | next_retry_at=null | created_at=2026-11-26 16:30:54 | updated_at=2026-11-26 16:30:55 | 
+id=184 | document_id=DOC-CNC-COOLING-001 | version=1 | content_hash=ed0b2fdea9cdcdaf264e320472e1ab005dadbf9b372b04968cc089b6f3b2fdb0 | strategy=STRUCTURE | chunk_count=3 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-26 15:47:21 | updated_at=2026-11-26 15:47:21 | 
+id=185 | document_id=DOC-SERVO-TROUBLE-002 | version=1 | content_hash=0096cddbbbeb247d528419ce5d8b8305bcd623a604f98e1d615da9402e0598ff | strategy=STRUCTURE | chunk_count=3 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-26 15:47:21 | updated_at=2026-11-26 15:47:21 | 
+id=186 | document_id=DOC-WORKORDER-SPEC-003 | version=1 | content_hash=1c500bb56fd49e23127eec3176c9613dd52eb1a6e626ac26461234e475401a8b | strategy=STRUCTURE | chunk_count=2 | status=COMPLETED | stage=CLEANUP | error_code= | error_message= | attempt_count=1 | next_retry_at=null | created_at=2026-11-26 15:47:21 | updated_at=2026-11-26 15:47:21 | 

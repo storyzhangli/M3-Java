@@ -1,0 +1,44 @@
+[
+  {
+    "case": "A1",
+    "domain": "解析",
+    "name": "损坏 PDF→import 4001 明确错误码；无有效残留",
+    "pass": false,
+    "detail": "import.code=200 msg=success db=chunks=0 status="
+  },
+  {
+    "case": "A2",
+    "domain": "切分",
+    "name": "极短/全空白/超长：空白零入库、超长正常",
+    "pass": false,
+    "detail": "ws=chunks=0 status= || long=chunks=0 status= || short.code=200"
+  },
+  {
+    "case": "A3",
+    "domain": "Embedding",
+    "name": "空串/空数组输入→受控错误码非成功（校验 fail-fast）",
+    "pass": true,
+    "detail": "empty=''=5000 msg=; array=[] code=5000"
+  },
+  {
+    "case": "A5-online",
+    "domain": "生成",
+    "name": "无证据问题→REFUSAL 拒答，citations 空（不误放行）",
+    "pass": true,
+    "detail": "code=200 citations=0 answerType="
+  },
+  {
+    "case": "A5-offline",
+    "domain": "生成",
+    "name": "MODEL_ERROR 分类以评测器 SelfTest 为权威（在线 mock 无异常注入面=D42 E3 先例口径）",
+    "pass": true,
+    "detail": "exit=0 log=a5-offline-modelerror-175146.log"
+  },
+  {
+    "case": "A6",
+    "domain": "权限",
+    "name": "无效/匿名 token+跨租户文档(tables 面)→4030 fail-closed；匿名与无效文案折叠一致",
+    "pass": true,
+    "detail": "bad=4030 anon=4030 crossB=4030 foldEq=True"
+  }
+]

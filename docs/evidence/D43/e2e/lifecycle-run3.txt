@@ -1,0 +1,49 @@
+[PASS] L1-register-D43E2E-PIPE-001 :: code=200
+[PASS] L1-register-D43E2E-PDF-003 :: code=200
+[PASS] L1-register-D43E2E-SRCH-004 :: code=200
+[PASS] L1-register-D43E2E-FAQ-002 :: code=200
+[PASS] L2-import-D43E2E-PIPE-001 :: code=200 status=COMPLETED dup=False
+[PASS] L2-import-D43E2E-PDF-003 :: code=200 status=COMPLETED dup=False
+[PASS] L2-import-D43E2E-SRCH-004 :: code=200 status=COMPLETED dup=False
+[PASS] L2-import-D43E2E-FAQ-002 :: code=200 status=COMPLETED dup=False
+[PASS] L3-pages :: pages=1
+[PASS] L3-page1 :: contentLength=230 blank=False
+[PASS] L3-chunks :: chunks=1 keys=documentId,title,version,strategy,chunkIndex,content,length,codePointCount,sources,pageNumbers,firstPageNumber,lastPageNumber,paragraphIndices,crossPage,hasPageLocation,hasParagraphLocation
+[PASS] L3-comparison :: code=200
+[PASS] L4-index-D43E2E-PIPE-001 :: code=200 status=COMPLETED chunkCount=3 
+[PASS] L4-status-D43E2E-PIPE-001 :: statusKeys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt
+[PASS] L4-index-D43E2E-PDF-003 :: code=200 status=COMPLETED chunkCount=4 
+[PASS] L4-status-D43E2E-PDF-003 :: statusKeys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt
+[PASS] L4-index-D43E2E-SRCH-004 :: code=200 status=COMPLETED chunkCount=1 
+[PASS] L4-status-D43E2E-SRCH-004 :: statusKeys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt
+[PASS] L4-index-D43E2E-FAQ-002 :: code=200 status=COMPLETED chunkCount=1 
+[PASS] L4-status-D43E2E-FAQ-002 :: statusKeys=id,documentId,version,contentHash,strategy,chunkCount,status,stage,errorCode,errorMessage,attemptCount,nextRetryAt,createdAt,updatedAt
+[PASS] L5-ask-baseline-consistent :: decision=REFUSE err=LOW_RELEVANCE retrieved=5 evidence=5 rejected=S1+S3+S4+S5
+[PASS] L6-search-matches :: n=5 e2eN=4 topSim=0.526685178279877 topDoc=D43E2E-SRCH-004 keyset=chunkId,content,documentId,title,version,strategy,chunkIndex,page,lastPage,paragraphIndex,similarity,distance,metadata
+[PASS] L6-search-hits-e2e :: e2eHits=4 ids=D43E2E-SRCH-004,D43E2E-PIPE-001,D43E2E-PDF-003,D43E2E-PDF-003
+[PASS] L6-chunkid-cross-db :: srIds=4 viIds=9 ckIds=4 allContained=True
+[PASS] L6-url-safety :: bad=0
+[PASS] L7-inplace-update :: contentLength=230 v2textPresentInChunks=True semantics=IN-PLACE(version=1)；多版本切换=D40 夹具注入通道(API 无该路径，NOT RUN via API，单测覆盖)
+[PASS] L8-delete :: code=200 data=1
+[PASS] L8-reconcile-scope-clean :: drift=driftMetaOnly=24, driftVectorOnly=0, driftStaleVersion=0, driftVersionMismatch=0, driftSyncStuck=0, driftTableOrphan=0, countMismatch=4, stuckTask=0, total=28 orphanE2E=0 missingE2E=0
+[PASS] L8-search-after-delete :: SRCH-004 hits after delete=0
+[FAIL] U-update-reindex-obs :: importU=200 firstIndex=5000 reconcileOrphan=1 retryIndex=5000 retryStatus= closure=NO-CLOSURE
+[PASS] L9-import-d43-fault-code.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-11-faultcode
+[PASS] L9-import-d43-anomaly-merged.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-12-anomalyme
+[PASS] L9-import-d43-anomaly-crosspage.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-13-anomalycr
+[PASS] L9-import-d43-anomaly-missing.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-14-anomalymi
+[PASS] L9-import-d43-image-table.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-15-imagetabl
+[PASS] L9-import-d43-no-table.pdf :: code=200 status=COMPLETED docId=D43E2E-TBL-16-notable
+[FAIL] L9-d43-fault-code.pdf-p1 :: tables=1 cells=16/20
+[FAIL] L9-d43-param-spec.pdf-p1 :: tables=1 cells=17/24
+[FAIL] L9-d43-anomaly-merged.pdf-p1 :: tables=1 cells=11/15
+[FAIL] L9-d43-anomaly-merged.pdf-p2 :: tables=1 cells=6/9
+[FAIL] L9-d43-anomaly-crosspage.pdf-p1 :: tables=1 cells=6/9
+[FAIL] L9-d43-anomaly-crosspage.pdf-p2 :: tables=1 cells=6/9
+[FAIL] L9-d43-anomaly-missing.pdf-p1 :: tables=1 cells=6/11
+[PASS] L9-d43-image-table.pdf-p1 :: tables=1 cells=0/0 (no-table-expected-state)
+[PASS] L9-d43-no-table.pdf-p1 :: tables=0 cells=0/0 (no-table-expected-state)
+[FAIL] L9-c16-fixture-99 :: TOTAL truth=97 hit=68 missing=29 list=d43-fault-code.pdf#p1:故障代码; d43-fault-code.pdf#p1:故障名称; d43-fault-code.pdf#p1:含义说明; d43-fault-code.pdf#p1:处置动作; d43-param-spec.pdf#p1:参数名称; d43-param-spec.pdf#p1:数值
+[PASS] L10-sync-status :: code=200 items=4
+[FAIL] L10-consistency :: code=200 driftTotal=30 e2eCountMismatch=1
+[PASS] L10-retry :: code=200 msg=success

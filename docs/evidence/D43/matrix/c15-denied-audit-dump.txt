@@ -1,0 +1,85 @@
+DELTA | adminT1 | T1 | ADMIN | documents.register | D43E2E-MX-REG-666052post | ALLOWED |  | 2026-11-26 17:41:48
+DELTA | userA | T1 | USER | documents.register | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:48
+DELTA | userB | T1 | USER | documents.register | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:48
+DELTA | userC | T2 | USER | documents.register | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:48
+DELTA | adminT1 | T1 | ADMIN | sync.status |  | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | sync.status |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userB | T1 | USER | sync.status |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userC | T2 | USER | sync.status |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | adminT1 | T1 | ADMIN | sync.retry |  | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | sync.retry |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userB | T1 | USER | sync.retry |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userC | T2 | USER | sync.retry |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | adminT1 | T1 | ADMIN | sync.consistency |  | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | sync.consistency |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userB | T1 | USER | sync.consistency |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userC | T2 | USER | sync.consistency |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | adminT1 | T1 | ADMIN | table.extract | D43E2E-MXA-001 | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | table.extract | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userB | T1 | USER | table.extract | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userC | T2 | USER | table.extract | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | adminT1 | T1 | ADMIN | vector-index.index | D43E2E-MXA-001 | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | vector-index.index | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userB | T1 | USER | vector-index.index | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | userC | T2 | USER | vector-index.index | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:52
+DELTA | adminT1 | T1 | ADMIN | vector-index.indexFromPages | D43E2E-MXA-001 | ALLOWED |  | 2026-11-26 17:41:52
+DELTA | userA | T1 | USER | vector-index.indexFromPages | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userB | T1 | USER | vector-index.indexFromPages | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userC | T2 | USER | vector-index.indexFromPages | D43E2E-MXA-001 | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | adminT1 | T1 | ADMIN | vector-index.reconcile |  | ALLOWED |  | 2026-11-26 17:41:53
+DELTA | userA | T1 | USER | vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userB | T1 | USER | vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userC | T2 | USER | vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | adminT1 | T1 | ADMIN | vector-index.recover |  | ALLOWED |  | 2026-11-26 17:41:53
+DELTA | userA | T1 | USER | vector-index.recover |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userB | T1 | USER | vector-index.recover |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | userC | T2 | USER | vector-index.recover |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:53
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.index | D43E2E-MX-ONE-post | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.delete | D43E2E-MX-ONE | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.reconcile |  | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | prompts.create | d43e2e-mx-ptc-666052post-admin | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | prompts.create | d43e2e-mx-ptc-666052post-userA | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | prompts.create | d43e2e-mx-ptc-666052post-userB | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | prompts.create | d43e2e-mx-ptc-666052post-userC | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | prompts.update | d43e2e-mx-pt-a | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | prompts.update | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | prompts.update | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | prompts.update | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | prompts.status | d43e2e-mx-pt-a | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | prompts.status | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | prompts.status | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | prompts.status | d43e2e-mx-pt-a | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | prompts.delete | d43e2e-mx-ptc-666052post-admin | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | prompts.delete | d43e2e-mx-ptc-666052post-userA | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | prompts.delete | d43e2e-mx-ptc-666052post-userB | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | prompts.delete | d43e2e-mx-ptc-666052post-userC | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | documents.register | D43E2E-MX-IMP-post-admin | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | documents.import | D43E2E-MX-IMP-post-admin | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | documents.import | D43E2E-MX-IMP-post-userA | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userB | T1 | USER | documents.import | D43E2E-MX-IMP-post-userB | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | userC | T2 | USER | documents.import | D43E2E-MX-IMP-post-userC | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:56
+DELTA | adminT1 | T1 | ADMIN | vector-index.delete | D43E2E-MX-REG-666052post | ALLOWED |  | 2026-11-26 17:41:56
+DELTA | userA | T1 | USER | vector-index.delete | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:57
+DELTA | userB | T1 | USER | vector-index.delete | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:57
+DELTA | userC | T2 | USER | vector-index.delete | D43E2E-MX-REG-666052post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:41:57
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.index | D43E2E-MX-ONE-post | ALLOWED |  | 2026-11-26 17:42:11
+DELTA | userA | T1 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userB | T1 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userC | T2 | USER | one.vector-index.index | D43E2E-MX-ONE-post | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.delete | D43E2E-MX-ONE | ALLOWED |  | 2026-11-26 17:42:11
+DELTA | userA | T1 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userB | T1 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userC | T2 | USER | one.vector-index.delete | D43E2E-MX-ONE | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | adminT1 | T1 | ADMIN | one.vector-index.reconcile |  | ALLOWED |  | 2026-11-26 17:42:11
+DELTA | userA | T1 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userB | T1 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11
+DELTA | userC | T2 | USER | one.vector-index.reconcile |  | DENIED | ADMIN_REQUIRED | 2026-11-26 17:42:11

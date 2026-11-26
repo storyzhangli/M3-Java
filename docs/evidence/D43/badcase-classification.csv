@@ -1,0 +1,13 @@
+id,source,phenomenon,primary_domain,secondary_domain,type,evidence,disposition
+BC-D43-001,eval run-1810,REFUSAL_FALSE_NEGATIVE 30格(10题x3轮)：有证据题被 mock 评估决策拒答,生成域,检索域,质量型(冻结基线已知FAIL族),evaluation/run-1810/*/raw-results.jsonl + baseline.csv labels列(与D37冻结逐轮等分布),只分类不修；处置=列D44(H2质量型纪律)
+BC-D43-002,eval run-1810,HIGH_NOISE_PRECISION 51格(17题x3轮)：top5 含非gold命中 precision=0.222,检索域,,质量型(冻结基线已知FAIL族),同上 labels 分布(51/3≈17=冻结8+9),只分类不修；列D44(与D37口径一致)
+BC-D43-003,eval run-1810,CLARIFY_EXPECTED_MISSING 6格(2题x3轮)：应答歧义未触发澄清,生成域,评估决策,质量型(冻结基线已知FAIL族),同上(6/3=2=冻结2),只分类不修；列D44
+BC-D43-004,矩阵pre轮,prompts/one 管理面无守卫=越权写面(12+18 DENIED缺失),权限域,,阻断型(已修复),fix-registry FIX-D43-002/003 + matrix-pre/post + guard单测10/10,已修复FIXED-VERIFIED(post 285+50格全绿+C15 DENIED取证)
+BC-D43-005,A矩阵run前,import PARSE_FAILED 审计留痕缺失(同文档重放误报幂等),解析域,同步元数据,阻断型(已修复),fix-registry FIX-D43-004 + 4单测 + D41-R03RE-08/09第二样本,已修复FIXED-VERIFIED
+BC-D43-006,eval run-1757,首跑质量列diff=39：共享PG向量表含E2E夹具6行挤占top5+null id,检索域,资产/流程,资产污染型(非代码),evaluation/run-1757 vs D37基线 + chunk-id-mapping 8行完整证明null=非冻结hit,资产修复(E2EClean+删A4残留)后重跑run-1810 diff=0闭环
+BC-D43-007,eval run-1801,重跑20/20 NO_EVIDENCE：seedfix DELETE tombstone(lifecycle瞬态DEPRECATED)窗口与评测并发,同步元数据,流程,流程时序型(非持久缺陷),fix-registry FIX-005/OBS-D43-X3 + lifecycle-restore.txt(BEFORE已ACTIVE/UPDATED=0),规避规则=评测不与seeding并发；D44提案seeding通道补activate
+BC-D43-008,disabled复跑,M-D13-G2 4001->200：pt-c墓碑模板二次删除幂等差异,权限域,资产,资产态差异(非缺陷),matrix-disabled-post12.json vs matrix-disabled-12.json 仅1格,裁决=OBS记录(资产态不同所致；E2EClean已清MXA/refix行)；无代码动作
+BC-D43-009,A5黑洞,one_黑洞query ask=200 REFUSAL(黑洞仅打检索embedding面)；改无证据拒答citations=0+离线MODEL_ERROR断言为权威,Embedding域,生成域,观测型(定性闭环),exceptions-run4 a-matrix json A5行,定性完成；口径写入E2E报告§异常注入
+BC-D43-010,A6面,GET /documents/{id}/status 不存在(5000 NoResourceFound)；正确端点=/vector-index/documents/{id}/status,权限域(未鉴权枚举面),契约文档,契约事实(非缺陷),exceptions定界轮日志+栈,文档已澄清；expires_at过期token案例未做=报告注明缺口
+BC-D43-011,OBS-D43-X1/X2,外部18080 IDEA实例两度清 knowledge_document/audit(221->0)干扰矩阵/评测资产,资产/环境,,环境干扰型,fix-registry OBS-D43-X1/X2 + e2eclean日志,差值/即采策略保持；报告建议迭代窗口停机(用户未决不代杀)
+BC-D43-012,D43QG,19冻结集MISSING D41-R03RE-08/09再现=CONCAT补零误报(历史已定性),工具误报,权限域,误报(已排除),本次未再深查(评测diff=0证明冻结面完好)+历史OBS定性,维持误报裁决；D44修probe脚本补零对齐

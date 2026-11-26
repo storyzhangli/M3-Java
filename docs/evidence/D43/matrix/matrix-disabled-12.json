@@ -1,0 +1,152 @@
+[
+  {
+    "id": "M-D01",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D01",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D02",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D02",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D03",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D03",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D04",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D04",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D05",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D05",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D06",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D06",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D07",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D07",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D08",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D08",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D09",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D09",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D10",
+    "role": "ANON",
+    "code": "5000",
+    "noGate": true
+  },
+  {
+    "id": "M-D10",
+    "role": "userA",
+    "code": "5000",
+    "noGate": true
+  },
+  {
+    "id": "M-D11",
+    "role": "ANON",
+    "code": "5000",
+    "noGate": true
+  },
+  {
+    "id": "M-D11",
+    "role": "userA",
+    "code": "5000",
+    "noGate": true
+  },
+  {
+    "id": "M-D12",
+    "role": "ANON",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D12",
+    "role": "userA",
+    "code": "200",
+    "noGate": true
+  },
+  {
+    "id": "M-D13-G2",
+    "role": "userC",
+    "code": "4001",
+    "noGate": true
+  }
+]

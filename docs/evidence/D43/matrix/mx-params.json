@@ -1,0 +1,17 @@
+{
+  "stamp": "666052",
+  "tableId": 150,
+  "docA": "D43E2E-MXA-001",
+  "docB": "D43E2E-MXB-002",
+  "ownSession": "33b24d12034e4c10a8ad9c2346b4880b",
+  "sessB": "6d14952bdf52440c878d8b70a75e92c2",
+  "ptA": "d43e2e-mx-pt-a",
+  "ptB": "d43e2e-mx-pt-b",
+  "ptC": "d43e2e-mx-pt-c",
+  "tokensSha12": {
+    "userA": "3998e4d13df2",
+    "userB": "631d44ea9fca",
+    "userC": "6a8af15d332c",
+    "adminT1": "f31329ef46cb"
+  }
+}

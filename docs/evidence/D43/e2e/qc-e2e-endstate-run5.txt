@@ -1,0 +1,13 @@
+== knowledge_document E2E
+document_id=d43e2e-lc-001 | status=COMPLETED | version=2 | 
+== chunk_index E2E docs
+document_id=D43E2E-FAQ-002 | 
+document_id=D43E2E-PDF-003 | 
+document_id=D43E2E-PIPE-001 | 
+== vector_index E2E
+Exception in thread "main" java.sql.SQLSyntaxErrorException: Unknown column 'index_status' in 'field list'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200)
+	at D43QC.dump(D43QC.java:5)
+	at D43QC.main(D43QC.java:21)

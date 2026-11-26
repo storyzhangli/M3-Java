@@ -1,0 +1,19 @@
+== audit rows (baseline expect 0)
+id=1 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOCUMENT_REGISTER | target_document_id=26636c3ed53a4663880bd8797d835be8 | version=1 | result=ALLOWED | reason_code= | request_id=27a26ff650ec458e8122d64d0fdd65e6 | created_at=2026-11-26 16:23:52 | 
+id=14 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOCUMENT_IMPORT | target_document_id=d43e2e-lc-002 | version=1 | result=ALLOWED | reason_code= | request_id=9e0462ae17d24841a25a186ab1487853 | created_at=2026-11-26 16:37:05 | 
+id=15 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOCUMENT_IMPORT | target_document_id=d43e2e-lc-001 | version=1 | result=ALLOWED | reason_code= | request_id=0a111373f6b3439499eee193dd5160b5 | created_at=2026-11-26 16:37:06 | 
+id=16 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOC_VERSION_PUBLISH | target_document_id=d43e2e-lc-001 | version=2 | result=FAILED | reason_code=LIFECYCLE_OP_FAILED | request_id=7d165a9de77e457dbc675649ff326864 | created_at=2026-11-26 16:37:06 | 
+id=17 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOC_DELETE | target_document_id=d43e2e-lc-002 | version=1 | result=ALLOWED | reason_code= | request_id=df22ff0022cd4381aad504e2d0502eb1 | created_at=2026-11-26 16:37:06 | 
+id=18 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOCUMENT_IMPORT | target_document_id=d43e2e-perm-a | version=1 | result=ALLOWED | reason_code= | request_id=c914fcd6091d4d84a72089dcd9171d2e | created_at=2026-11-26 16:37:06 | 
+id=19 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOCUMENT_IMPORT | target_document_id=d43e2e-perm-b | version=1 | result=ALLOWED | reason_code= | request_id=725d1596ab494097900d7a6051eee941 | created_at=2026-11-26 16:37:06 | 
+id=20 | actor_user_id=e2e-admin-a | tenant_id=T-A | role=ADMIN | action=DOC_DELETE | target_document_id=d43e2e-perm-b | version=1 | result=ALLOWED | reason_code= | request_id=e4b65bccf5d2450fa44d5110887b4c74 | created_at=2026-11-26 16:37:07 | 
+== frozen set check: 19 expected non-E2E doc ids present?
+nonE2E rows=19
+== D41/R03 ���� 16 + DOC 3 �����ԣ�ȱ˭��
+MISSING: D41-R03RE-08
+MISSING: D41-R03RE-09
+== current E2E-ish ids
+d43e2e-lc-001
+d43e2e-lc-002
+d43e2e-perm-a
+d43e2e-perm-b

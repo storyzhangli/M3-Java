@@ -1,0 +1,10 @@
+MY knowledge_document before=17 deleted=17 after=0
+MY knowledge_document_page before=12 deleted=12 after=0
+MY document_chunk_index before=8 deleted=8 after=0
+MY document_vector_index before=3 deleted=3 after=0
+MY d43_document_sync before=2 deleted=2 after=0
+MY d43_table_extract before=8 deleted=8 after=0
+SKIP d43_admin_audit (no document_id column)
+MY d43_table_row(via extract join) deleted=0 remain=17
+PG d43_vector_store e2eBefore=0 deleted=0 e2eAfter=0 totalAfter=18
+E2E-CLEAN OK

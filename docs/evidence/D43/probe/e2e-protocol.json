@@ -1,0 +1,147 @@
+{
+  "protocol": "D43-R01 RAG end-to-end permission & regression protocol",
+  "frozenAt": "2026-11-26T00:00:00+08:00",
+  "frozenBeforeExecution": true,
+  "baseline": {
+    "head": "c47be85",
+    "workspace": "c47be85 + FIX-D43-001(manifest regen) + D43 evidence/ddl/tools（未提交，提交于 P4）",
+    "module": "D43/D43_RAG_ETEPAR",
+    "pkg": "com.zl.d43",
+    "port": 8080,
+    "jdk": "JDK21",
+    "mvn": "apache-maven-3.9.16",
+    "kpGates": { "KP1": "PASS kp1-endpoint-grading.md", "KP2": "PASS kp2-verdict.md", "KP3": "PASS kp3-verdict.md", "KP4": "本件" }
+  },
+  "frozenParams": {
+    "datasetHash": "75CC8D83CFB218C404149ED718998D286FAA2E2CAFDDCFEFA394584DB4B17CFE",
+    "questions": 20,
+    "baselineCsv": "docs/evidence/D37/baseline/v1.0/{IN_MEMORY_LOCAL,PGVECTOR}/baseline.csv 20x17",
+    "denyCode": 4030,
+    "retrievalParams": { "topK": 5, "similarityThreshold": 0.0, "warmupRounds": 3, "formalRounds": 3 },
+    "exemptColumns": ["timing", "recordedAt"],
+    "mainDomainRule": "ACCESS>PARSE>CHUNK>EMBED>RETRIEVAL>GENERATION; 多标签全量保留; 无证据=UNATTRIBUTED",
+    "d41AuditBaseline": "195/30/0/0 wrong_value=0",
+    "c01Anchor": "100/100 (post FIX-D43-001, EXIT=0)",
+    "httpSemantics": "Result 包装 HTTP 恒 200，判定字段=body.code（D-EX 继承）"
+  },
+  "anchors": {
+    "pgTable": "d43_vector_store",
+    "idFaceFingerprint": "50c457b6762afd516a2c1d3f8f377d52001ef0ee3dd6ab3f5cdee83fab43efd1",
+    "contentFingerprintNoChunkId": "c377bb2f62d7b71b4dfa3f87d47722b7bcdc989aaf4b218c607f8e7a9b6d64fb",
+    "contentFpCaliber": "canonical 行=sha256(content)|len|documentId|version|strategy|chunkIndex|splitVersion（metadata 经 parseFlatJson）；去 chunkId 首列后 Collections.sort 再 join(\\n) 取 SHA-256。口径经 D42 留痕 Java 复算=c377bb2f 实证（kp2-verdict §4）",
+    "priorGenerations": { "d41lineage": "10fc69d5…", "d42idFace": "2cf619bd…" },
+    "idFaceAdjudication": "NAMESPACE …6d43 模块隔离设计（源码 L28 D42/D43 对照实证）→ ID 面必然 ≠ 前代；等价性由内容面 c377bb2f 承载。CORPUS_DRIFT（熔断#2）以内容面判定。",
+    "hybridNote": "yml HYBRID expected 默认值指向前代锚；D43 若启用 hybrid 须 env HYBRID_EXPECTED_FINGERPRINT=50c457b6…；R01 默认不开",
+    "pgDriver": "org.postgresql:42.7.11（42.1.4 不支持 SCRAM=死路已证）",
+    "legacyFreeze": { "knowledge_document_total": 18, "legacy_DOC_prefix_rows": 3, "document_chunk_index_total": 32, "chunk_orphan_rows": 24, "document_vector_index_total": 7, "note": "H6 零触碰；C18 回归锚" }
+  },
+  "scopeAdjudication": {
+    "newFeatureBan": "禁做任何新检索/生成/模型功能；仅允许修复链路断裂与阻断缺口（白名单=受影响控制器/脚本/证据文件）。违例=阻断级。",
+    "badcasePolicy": "质量型 bad-case（RECALL_MISS/ANSWER_WRONG/RANK 等）仅六域分类归因，不修生成/检索质量；仅链路断裂型（HTTP 异常/5000 非预期/JSON 结构破损/引用链断）走 H1 修复。",
+    "gapAdjudicationFrozen": {
+      "G2_PromptTemplate_4w": "阻断→FIX-D43-002（enabled USER 写=当前缺陷态，修复后预期 4030）",
+      "G4_OneVectorIndex_3w": "阻断→FIX-D43-003（同上；arm-O 执行）",
+      "G1_Document_detail_list": "残留（信息暴露型，元数据）不修，矩阵标 RESIDUAL-META，D44 候选",
+      "G4r_OneVectorIndex_2r": "残留（GAP-DOC 读面）同 G1 口径不修（本次裁决仅 3 写面），D44 候选",
+      "G3_compat_dryrun": "预期=AUTH-ONLY，非缺口",
+      "G5_dualstate_identity": "既定设计，disabled 态零差异全放行"
+    },
+    "preFixEvidence": "越权矩阵先跑缺陷态（G2/G4 写面 USER=200 留证），后执行 P2 修复，再复跑（4030）。C13 前后对照即修复证明。",
+    "postHocBan": "本件冻结后预期码表/豁免列/预算帽不可放宽（熔断#5）。"
+  },
+  "e2eLifecycle": {
+    "baseUrl": "http://127.0.0.1:8080",
+    "aiMode": "mock",
+    "roles": {
+      "ADMIN": "d43_auth_principal 种子 token=env 注入（token 值不落盘不进 git；经 User 级环境变量/临时脚本参数）",
+      "USER_A": "owner 主体 A（对 DOC-A-* 有 scope）",
+      "USER_B": "非 owner 主体 B",
+      "ANON": "无 token"
+    },
+    "steps": [
+      "L1 register E2E 文档（D43E2E-* 前缀，与遗留 DOC-* 隔离）",
+      "L2 import 三路（corpus/faq/table-manual 变体字节，绕 contentHash duplicate）→ status/页码/清洗断言",
+      "L3 GET pages/pages{n}/chunks/comparison 结构断言（PARSE/CHUNK 域）",
+      "L4 vector-index/index → status/indexed 计数（EMBED 域）",
+      "L5 rag/ask → status=ANSWERED/EMPTY + sources + citation URL 安全（RETRIEVAL/GENERATION 域）",
+      "L6 citation 交叉核验：sources 的 chunkId ∈ 本库、url sanitize 无剥除",
+      "L7 update v2 → 版本指针、旧版本索引处置、ask 命中新版本内容",
+      "L8 delete → tombstone、pages/chunks 终态、reconcile 一致",
+      "L9 table 域全链：POST extract 9 夹具（ADMIN）→ GET tables/rows/query → fixture-truth.json 225 格逐格对账（C16）",
+      "L10 sync 域：GET status/retry/consistency（ADMIN）→ d43_document_sync 终态断言（COUNT 守卫，D-EX9 继承）",
+      "L11 reconcile 后 PG 盘点：内容面=c377bb2f 或 E2E 临时态声明+恢复验证",
+      "L12 清理后终态（并入 C18）"
+    ],
+    "assertionStandard": "每步：HTTP200 && body.code ∈ 预期集 && 关键 JSON 字段断言 && 副作用 DB 计数断言；失败即域归因（六域规则）并判 链路断裂/质量 二分类",
+    "passCriteria": "L1–L12 全 PASS 或 失败项 100% 走 H1 登记修复后复验 PASS"
+  },
+  "securityMatrix": {
+    "modes": ["access.enabled=true", "access.enabled=false"],
+    "enabledExpectedRules": {
+      "ANON": "除 /error 外全端点=4030（AuthContextFilter fail-closed，防枚举折叠文案）",
+      "ADMIN": "全端点 200（guardAdmin/requireAdmin 放行；OWNER-SRV 以 admin 自身主体）",
+      "USER_A_owner": {
+        "ADMIN面": "4030", "DOC-SCOPE面": "200", "OWNER-SRV面": "200", "SERVICE-PRE面": "200（结果级过滤）",
+        "AUTH-ONLY面": "200", "G1残留": "200+标 RESIDUAL-META", "G2写面": "pre-fix 200 留证 / post-fix 4030", "G4写面": "arm-O pre 200 / post 4030"
+      },
+      "USER_B_nonowner": {
+        "ADMIN面": "4030", "DOC-SCOPE面": "4030", "OWNER-SRV.sessions列表": "200（空，owner 过滤）",
+        "OWNER-SRV.messages他人会话": "REJECT（requireOwnedSession IllegalArgumentException 路径=防枚举语义；具体 code 值 P1 首跑实测后冻结于 matrix-results，断言目标=非 200 且无内容泄露）",
+        "SERVICE-PRE面": "200 且命中集不含 A 私有内容（EMPTY 或公共集）", "AUTH-ONLY面": "200",
+        "G1残留": "200+标 RESIDUAL-META", "G2/G4写面": "同 USER_A（pre/post 双口径）"
+      }
+    },
+    "disabledExpected": "全端点全角色=业务码零门禁（enabled=false 时 Filter/授权不生效，X-Dev-User 头信任=既定双态）；跑 12 代表端点断言 200",
+    "armO": "ONE_EMBEDDING_ENABLED=true 单独一轮跑 one_ 族 16 端点矩阵；默认态 one_ 族=404（NoHandlerFound/容器级，SKIPPED_BEAN_ABSENT 留档）",
+    "endpointUniverse": "以 kp1 §1 表为分类权威；URL 行展开（register/import 等合并行拆独立 URL）。矩阵生成脚本从分类展开，禁手抄。",
+    "auditChecks": "每次 deny 与 admin 写操作核 d43_admin_audit 增量行（actor/action/resource）；C15 判据=修复后的 G2/G4 写面拒绝必伴随审计行",
+    "passCriteria": "预期码表 100% 命中（pre-fix 缺陷行除外=留证目标）；任何 ADMIN面/DOC-SCOPE 面 USER 写成功（非 G2/G4 预登记项）=新缺口=阻断"
+  },
+  "evaluation": {
+    "channel": "评测器 D-EX6 双通道纪律：PGVECTOR 直连不经 app；排序/延迟观测行走 app ask",
+    "exec": "20 题双口径（IN_MEMORY_LOCAL 全列 diff=基线对照；PGVECTOR=本次主口径）",
+    "projection": "C05 质量投影列（豁免 timing/recordedAt）前后 diff=0 判定；runExit=1=已知 FAIL 契约非执行失败（继承口径）",
+    "runDirAnchor": "D-EX10：按 runExit 时序锚定 runDir，禁字典序 -First 1",
+    "badcaseClassification": {
+      "file": "docs/evidence/D43/evaluation/badcase-classification.csv",
+      "columns": ["questionId", "label", "primaryDomain", "allDomains", "evidenceChain", "policy"],
+      "policy": "质量型=CLASSIFY_ONLY；链路断裂型=H1_FIX；归因引用 L 步证据编号"
+    }
+  },
+  "exceptionInjection": {
+    "cases": {
+      "A1_PARSE": "坏 PDF 导入→PARSE_FAILED 态+不入库+错误码，链路其余存活",
+      "A2_CHUNK": "空文本/超长 chunk→切分边界行为记录，无 500 泄露堆栈",
+      "A3_EMBED": "向量表名不存在/索引中途失败→index 状态 FAILED 且 reconcile 可解释",
+      "A4_RETRIEVAL": "threshold 拉高→EMPTY 非 FAILED；无证据拒答=REFUSAL 正确",
+      "A5_GENERATION": "mock 生成空返回→citation 核验不崩、引用链断可观测",
+      "A6_ACCESS": "无效 token/撤销 principal→4030 + 审计 fail-closed"
+    },
+    "passCriteria": "全部：无堆栈泄露、DB 无脏残留（或有守卫声明）、错误码可归因"
+  },
+  "regressionTrio": {
+    "C05": "mvn test 100/100 双时点（P2 修复后复跑一次）+评测质量投影 diff=0",
+    "C16": "225 格 fixture-truth 对账 wrong_value=0",
+    "C17": "rerank 保留态：d42 模块零触碰 + D43 yml rerank 默认 disabled + 启动 Bean 计数佐证"
+  },
+  "cleanup": {
+    "FIXTURE_REMAINING": "0（d43-table-fixtures 导入产物与 E2E 文档全清；夹具源文件保留）",
+    "pgRestore": "d43_vector_store 恢复=seeding 终态（内容面 c377bb2f + ID 面 50c457b6 复验）",
+    "mysqlRestore": "legacyFreeze 五项复验零差异；d43_ 五表仅留 E2E 声明性行或清零（记录裁决）",
+    "hygiene": "日志/ps1/java 入库按 §6；token JSON 不提交；sk-/Bearer 扫描零命中"
+  },
+  "budgetCaps": {
+    "mvnTestRuns": 6,
+    "appRestarts": 8,
+    "harnessRetriesPerStep": 2,
+    "externalCalls": 0,
+    "estimatedCostCny": 0,
+    "wallClock": "单 harness 步骤超时 120s；矩阵单端点 10s"
+  },
+  "fixes": {
+    "FIX-D43-001": "done（manifest d42→d43 迁移，99→100/100）",
+    "FIX-D43-002": "planned：PromptTemplateController 4 写面 guardAdmin+recordAudit（模板=VectorIndexController L57-97，ObjectProvider 双态）；前置核查=测试是否直接 new 该控制器；登记 registry=矩阵 pre 态跑完后、改码前",
+    "FIX-D43-003": "planned：OneVectorIndexController 3 写面 guardAdmin（arm-O 复验）；同上前置核查",
+    "overreachCircuit": "修复波及白名单外文件=熔断#5，停下请示"
+  }
+}

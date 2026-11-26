@@ -1,0 +1,1816 @@
+{
+  "stat": {
+    "wrong_value": 0,
+    "value_hit": 195,
+    "value_hit_column_unaligned": 30,
+    "missing_in_extraction": 0,
+    "truth_cells": 225
+  },
+  "cells": [
+    {
+      "page": 396,
+      "row": "LC",
+      "col": "C10602□S",
+      "expect": "60",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LC",
+      "col": "C10604□S",
+      "expect": "60",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LC",
+      "col": "C10804□S",
+      "expect": "80",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LC",
+      "col": "C10807□S",
+      "expect": "80",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LZ",
+      "col": "C10602□S",
+      "expect": "5.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LZ",
+      "col": "C10604□S",
+      "expect": "5.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LZ",
+      "col": "C10804□S",
+      "expect": "6.6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LZ",
+      "col": "C10807□S",
+      "expect": "6.6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LA",
+      "col": "C10602□S",
+      "expect": "70",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LA",
+      "col": "C10604□S",
+      "expect": "70",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LA",
+      "col": "C10804□S",
+      "expect": "90",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LA",
+      "col": "C10807□S",
+      "expect": "90",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "S",
+      "col": "C10602□S",
+      "expect": "14",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "S",
+      "col": "C10604□S",
+      "expect": "14",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "S",
+      "col": "C10804□S",
+      "expect": "14",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "S",
+      "col": "C10807□S",
+      "expect": "19",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LB",
+      "col": "C10602□S",
+      "expect": "50",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LB",
+      "col": "C10604□S",
+      "expect": "50",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LB",
+      "col": "C10804□S",
+      "expect": "70",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LB",
+      "col": "C10807□S",
+      "expect": "70",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（不帶剎車）",
+      "col": "C10602□S",
+      "expect": "105.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（不帶剎車）",
+      "col": "C10604□S",
+      "expect": "130.7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（不帶剎車）",
+      "col": "C10804□S",
+      "expect": "112.3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（不帶剎車）",
+      "col": "C10807□S",
+      "expect": "138.3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（帶剎車）",
+      "col": "C10602□S",
+      "expect": "141.6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（帶剎車）",
+      "col": "C10604□S",
+      "expect": "166.8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（帶剎車）",
+      "col": "C10804□S",
+      "expect": "152.8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LL（帶剎車）",
+      "col": "C10807□S",
+      "expect": "178",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LR",
+      "col": "C10602□S",
+      "expect": "30",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LR",
+      "col": "C10604□S",
+      "expect": "30",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LR",
+      "col": "C10804□S",
+      "expect": "30",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LR",
+      "col": "C10807□S",
+      "expect": "35",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LE",
+      "col": "C10602□S",
+      "expect": "3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LE",
+      "col": "C10604□S",
+      "expect": "3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LE",
+      "col": "C10804□S",
+      "expect": "3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LE",
+      "col": "C10807□S",
+      "expect": "3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LG",
+      "col": "C10602□S",
+      "expect": "7.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LG",
+      "col": "C10604□S",
+      "expect": "7.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LG",
+      "col": "C10804□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LG",
+      "col": "C10807□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LW",
+      "col": "C10602□S",
+      "expect": "20",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LW",
+      "col": "C10604□S",
+      "expect": "20",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LW",
+      "col": "C10804□S",
+      "expect": "20",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "LW",
+      "col": "C10807□S",
+      "expect": "25",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "RH",
+      "col": "C10602□S",
+      "expect": "11",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "RH",
+      "col": "C10604□S",
+      "expect": "11",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "RH",
+      "col": "C10804□S",
+      "expect": "11",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "RH",
+      "col": "C10807□S",
+      "expect": "15.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "WK",
+      "col": "C10602□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "WK",
+      "col": "C10604□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "WK",
+      "col": "C10804□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "WK",
+      "col": "C10807□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "W",
+      "col": "C10602□S",
+      "expect": "-",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "W",
+      "col": "C10604□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "W",
+      "col": "C10804□S",
+      "expect": "-",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "W",
+      "col": "C10807□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "T",
+      "col": "C10602□S",
+      "expect": "-",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "T",
+      "col": "C10604□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "T",
+      "col": "C10804□S",
+      "expect": "-",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 396,
+      "row": "T",
+      "col": "C10807□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LC",
+      "col": "G11303□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LC",
+      "col": "E11305□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LC",
+      "col": "G11306□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LC",
+      "col": "G11309□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LC",
+      "col": "C1110ES",
+      "expect": "100",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LZ",
+      "col": "G11303□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LZ",
+      "col": "E11305□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LZ",
+      "col": "G11306□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LZ",
+      "col": "G11309□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LZ",
+      "col": "C1110ES",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LA",
+      "col": "G11303□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LA",
+      "col": "E11305□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LA",
+      "col": "G11306□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LA",
+      "col": "G11309□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LA",
+      "col": "C1110ES",
+      "expect": "115",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "S",
+      "col": "G11303□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "S",
+      "col": "E11305□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "S",
+      "col": "G11306□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "S",
+      "col": "G11309□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "S",
+      "col": "C1110ES",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LB",
+      "col": "G11303□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LB",
+      "col": "E11305□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LB",
+      "col": "G11306□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LB",
+      "col": "G11309□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LB",
+      "col": "C1110ES",
+      "expect": "95",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LL（不帶剎車）",
+      "col": "G11303□S",
+      "expect": "147.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（不帶剎車）",
+      "col": "E11305□S",
+      "expect": "147.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（不帶剎車）",
+      "col": "G11306□S",
+      "expect": "147.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（不帶剎車）",
+      "col": "G11309□S",
+      "expect": "163.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（不帶剎車）",
+      "col": "C1110ES",
+      "expect": "153.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LL（帶剎車）",
+      "col": "G11303□S",
+      "expect": "183.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（帶剎車）",
+      "col": "E11305□S",
+      "expect": "183.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（帶剎車）",
+      "col": "G11306□S",
+      "expect": "183.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（帶剎車）",
+      "col": "G11309□S",
+      "expect": "198",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LL（帶剎車）",
+      "col": "C1110ES",
+      "expect": "192.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LR",
+      "col": "G11303□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LR",
+      "col": "E11305□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LR",
+      "col": "G11306□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LR",
+      "col": "G11309□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LR",
+      "col": "C1110ES",
+      "expect": "45",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LE",
+      "col": "G11303□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LE",
+      "col": "E11305□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LE",
+      "col": "G11306□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LE",
+      "col": "G11309□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LE",
+      "col": "C1110ES",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LG",
+      "col": "G11303□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LG",
+      "col": "E11305□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LG",
+      "col": "G11306□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LG",
+      "col": "G11309□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LG",
+      "col": "C1110ES",
+      "expect": "12",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "LW",
+      "col": "G11303□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LW",
+      "col": "E11305□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LW",
+      "col": "G11306□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LW",
+      "col": "G11309□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "LW",
+      "col": "C1110ES",
+      "expect": "32",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "RH",
+      "col": "G11303□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "RH",
+      "col": "E11305□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "RH",
+      "col": "G11306□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "RH",
+      "col": "G11309□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "RH",
+      "col": "C1110ES",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "WK",
+      "col": "G11303□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "WK",
+      "col": "E11305□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "WK",
+      "col": "G11306□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "WK",
+      "col": "G11309□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "WK",
+      "col": "C1110ES",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "W",
+      "col": "G11303□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "W",
+      "col": "E11305□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "W",
+      "col": "G11306□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "W",
+      "col": "G11309□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "W",
+      "col": "C1110ES",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 397,
+      "row": "T",
+      "col": "G11303□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "T",
+      "col": "E11305□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "T",
+      "col": "G11306□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "T",
+      "col": "G11309□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 397,
+      "row": "T",
+      "col": "C1110ES",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "E11310□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "E11315□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "C111020□S",
+      "expect": "100",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "E11320□S",
+      "expect": "130",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "E11820□S",
+      "expect": "180",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LC",
+      "col": "F11830□S",
+      "expect": "180",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "E11310□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "E11315□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "C111020□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "E11320□S",
+      "expect": "9",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "E11820□S",
+      "expect": "13.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LZ",
+      "col": "F11830□S",
+      "expect": "13.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "E11310□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "E11315□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "C111020□S",
+      "expect": "115",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "E11320□S",
+      "expect": "145",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "E11820□S",
+      "expect": "200",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LA",
+      "col": "F11830□S",
+      "expect": "200",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "E11310□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "E11315□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "C111020□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "E11320□S",
+      "expect": "22",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "E11820□S",
+      "expect": "35",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "S",
+      "col": "F11830□S",
+      "expect": "35",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "E11310□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "E11315□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "C111020□S",
+      "expect": "95",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "E11320□S",
+      "expect": "110",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "E11820□S",
+      "expect": "114.3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LB",
+      "col": "F11830□S",
+      "expect": "114.3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "E11310□S",
+      "expect": "147.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "E11315□S",
+      "expect": "167.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "C111020□S",
+      "expect": "199",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "E11320□S",
+      "expect": "187.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "E11820□S",
+      "expect": "169",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（不帶剎車）",
+      "col": "F11830□S",
+      "expect": "202.1",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "E11310□S",
+      "expect": "183.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "E11315□S",
+      "expect": "202",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "C111020□S",
+      "expect": "226",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "E11320□S",
+      "expect": "216",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "E11820□S",
+      "expect": "203.1",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LL（帶剎車）",
+      "col": "F11830□S",
+      "expect": "235.3",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "E11310□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "E11315□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "C111020□S",
+      "expect": "45",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "E11320□S",
+      "expect": "55",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "E11820□S",
+      "expect": "79",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LR",
+      "col": "F11830□S",
+      "expect": "79",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "E11310□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "E11315□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "C111020□S",
+      "expect": "5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "E11320□S",
+      "expect": "6",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "E11820□S",
+      "expect": "4",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LE",
+      "col": "F11830□S",
+      "expect": "4",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "E11310□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "E11315□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "C111020□S",
+      "expect": "12",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "E11320□S",
+      "expect": "11.5",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "E11820□S",
+      "expect": "20",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LG",
+      "col": "F11830□S",
+      "expect": "20",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "E11310□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "E11315□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "C111020□S",
+      "expect": "32",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "E11320□S",
+      "expect": "36",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "E11820□S",
+      "expect": "63",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "LW",
+      "col": "F11830□S",
+      "expect": "63",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "E11310□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "E11315□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "C111020□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "E11320□S",
+      "expect": "18",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "E11820□S",
+      "expect": "30",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "RH",
+      "col": "F11830□S",
+      "expect": "30",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "E11310□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "E11315□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "C111020□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "E11320□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "E11820□S",
+      "expect": "10",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "WK",
+      "col": "F11830□S",
+      "expect": "10",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "E11310□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "E11315□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "C111020□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "E11320□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "E11820□S",
+      "expect": "10",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "W",
+      "col": "F11830□S",
+      "expect": "10",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "E11310□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "E11315□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "C111020□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit_column_unaligned"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "E11320□S",
+      "expect": "7",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "E11820□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    },
+    {
+      "page": 398,
+      "row": "T",
+      "col": "F11830□S",
+      "expect": "8",
+      "got": "VALUE_PRESENT",
+      "class": "value_hit"
+    }
+  ],
+  "meta": {
+    "producedBy": "d41_r03_cell_diff.ps1（R01 口径复现工具；对账规则见脚本头注释）",
+    "extractedFile": "extracted-cells-post.json",
+    "rule": "行标签前缀匹配；值字符串等值；列可辨识=列名∈抽取表头；ROW_ABSENT=行未落库"
+  }
+}

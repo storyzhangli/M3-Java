@@ -1,0 +1,22 @@
+== sync rows BEFORE (��������) ==
+SYNC DOC-CNC-COOLING-001 v0 DELETE SYNCED 
+SYNC DOC-SERVO-TROUBLE-002 v0 DELETE SYNCED 
+SYNC DOC-WORKORDER-SPEC-003 v0 DELETE SYNCED 
+KD  knowledge_document before+deleted=14 after=0
+CH  document_chunk_index before+deleted=1 after=0
+VI  document_vector_index before+deleted=1 after=0
+SY  d43_document_sync before+deleted=0 after=0
+Exception in thread "main" java.sql.SQLSyntaxErrorException: Unknown column 'document_id' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200)
+	at D43FinalClean.tbl(D43FinalClean.java:9)
+	at D43FinalClean.main(D43FinalClean.java:27)
+TOTAL knowledge_document=18
+TOTAL document_chunk_index=32
+TOTAL document_vector_index=7
+TOTAL d43_document_sync=3
+TOTAL d43_table_row=0
+TOTAL d43_table_extract=0
+TOTAL d43_admin_audit=121
+ORPHAN(legacy d32eval ������)=24

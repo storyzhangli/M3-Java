@@ -1,0 +1,37 @@
+[
+  {
+    "case": "A1",
+    "domain": "解析",
+    "name": "损坏 PDF→PARSE_FAILED 明确错误码；无有效残留",
+    "pass": true,
+    "detail": "import.code=4001 msg= status= dbRows=1"
+  },
+  {
+    "case": "A2",
+    "domain": "切分",
+    "name": "极短/全空白/超长：空白零入库、超长正常",
+    "pass": false,
+    "detail": "ws=chunks=0 status= || long=chunks=0 status= || short.code=4001"
+  },
+  {
+    "case": "A3",
+    "domain": "Embedding",
+    "name": "空串/空数组输入→受控错误码非成功（校验 fail-fast）",
+    "pass": true,
+    "detail": "empty=''=5000 msg=; array=[] code=5000"
+  },
+  {
+    "case": "A5",
+    "domain": "生成",
+    "name": "one_ 远程生成通道黑洞→5000 MODEL_ERROR（零外呼=连接层失败）",
+    "pass": false,
+    "detail": "code=200 msg="
+  },
+  {
+    "case": "A6",
+    "domain": "权限",
+    "name": "无效/匿名 token+跨租户文档→4030 fail-closed；匿名与无效文案折叠一致",
+    "pass": false,
+    "detail": "bad=4030 anon=4030 crossB=5000 foldEq=True"
+  }
+]
