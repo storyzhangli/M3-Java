@@ -1,0 +1,56 @@
+TID-LIVE=7 (param=5)
+SIDA-LIVE=b0e4922ae0b24b79810444d121c927a2 (param=d44e2e-mx-own-a1)
+AUDIT-BEFORE :: AUDIT count=219 maxId=219
+E41-one-embed-use      ANON   code=4030  exp=4030           DENY 
+E41-one-embed-use      admin  code=200   exp=200/4001/5000/-1 ONE-RW 
+E41-one-embed-use      userA  code=200   exp=200/4001/5000/-1 ONE-RW 
+E41-one-embed-use      userB  code=200   exp=200/4001/5000/-1 ONE-RW 
+E41-one-embed-use      userC  code=200   exp=200/4001/5000/-1 ONE-RW 
+E42-one-embed-model    ANON   code=4030  exp=4030           DENY 
+E42-one-embed-model    admin  code=200   exp=200/4001/5000/-1 ONE-RW 
+E42-one-embed-model    userA  code=200   exp=200/4001/5000/-1 ONE-RW 
+E42-one-embed-model    userB  code=200   exp=200/4001/5000/-1 ONE-RW 
+E42-one-embed-model    userC  code=200   exp=200/4001/5000/-1 ONE-RW 
+E43-one-embed-compat   ANON   code=4030  exp=4030           DENY 
+E43-one-embed-compat   admin  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E43-one-embed-compat   userA  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E43-one-embed-compat   userB  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E43-one-embed-compat   userC  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E44-one-rag-ask        ANON   code=4030  exp=4030           DENY 
+E44-one-rag-ask        admin  code=200   exp=200/4001/5000/-1 ONE-RW 
+E44-one-rag-ask        userA  code=200   exp=200/4001/5000/-1 ONE-RW 
+E44-one-rag-ask        userB  code=200   exp=200/4001/5000/-1 ONE-RW 
+E44-one-rag-ask        userC  code=200   exp=200/4001/5000/-1 ONE-RW 
+E45-one-search         ANON   code=4030  exp=4030           DENY 
+E45-one-search         admin  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E45-one-search         userA  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E45-one-search         userB  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E45-one-search         userC  code=4001  exp=200/4001/5000/-1 ONE-RW 
+E46-one-vi-index       ANON   code=4030  exp=4030           DENY 
+E46-one-vi-index       admin  code=5000  exp=200/4001/5000  OK 
+E46-one-vi-index       userA  code=4030  exp=4030           DENY-POST 
+E46-one-vi-index       userB  code=4030  exp=4030           DENY-POST 
+E46-one-vi-index       userC  code=4030  exp=4030           DENY-POST 
+E47-one-vi-del         ANON   code=4030  exp=4030           DENY 
+E47-one-vi-del         admin  code=200   exp=200/4001/5000  OK 
+E47-one-vi-del         userA  code=4030  exp=4030           DENY-POST 
+E47-one-vi-del         userB  code=4030  exp=4030           DENY-POST 
+E47-one-vi-del         userC  code=4030  exp=4030           DENY-POST 
+E48-one-vi-status      ANON   code=4030  exp=4030           DENY 
+E48-one-vi-status      admin  code=200   exp=200/4001/5000/-1 ONE-RW 
+E48-one-vi-status      userA  code=200   exp=200/4001/5000/-1 ONE-RW 
+E48-one-vi-status      userB  code=200   exp=200/4001/5000/-1 ONE-RW 
+E48-one-vi-status      userC  code=200   exp=200/4001/5000/-1 ONE-RW 
+E49-one-vi-chunks      ANON   code=4030  exp=4030           DENY 
+E49-one-vi-chunks      admin  code=200   exp=200/4001/5000/-1 ONE-RW 
+E49-one-vi-chunks      userA  code=200   exp=200/4001/5000/-1 ONE-RW 
+E49-one-vi-chunks      userB  code=200   exp=200/4001/5000/-1 ONE-RW 
+E49-one-vi-chunks      userC  code=200   exp=200/4001/5000/-1 ONE-RW 
+E50-one-vi-reconcile   ANON   code=4030  exp=4030           DENY 
+E50-one-vi-reconcile   admin  code=200   exp=200/4001/5000  OK 
+E50-one-vi-reconcile   userA  code=4030  exp=4030           DENY-POST 
+E50-one-vi-reconcile   userB  code=4030  exp=4030           DENY-POST 
+E50-one-vi-reconcile   userC  code=4030  exp=4030           DENY-POST 
+AUDIT-AFTER :: AUDIT count=231 maxId=231
+==== ROUND=post armO=True cells=50 MISMATCH=0 PRE-DEFECT=0 LEAK=0 ====
+RESULTS-> E:\AI\project\AI-Learning-one\M3-Java\docs\evidence\D44\matrix\matrix-results-post-armo.json

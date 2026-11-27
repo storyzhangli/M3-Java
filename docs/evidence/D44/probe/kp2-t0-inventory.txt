@@ -1,0 +1,2 @@
+===== T0 PG d44_vector_store =====
+TABLE=d44_vector_store TOTAL=0

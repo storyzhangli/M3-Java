@@ -1,0 +1,2 @@
+2026-11-27T17:38:53 | restart#2 | reason=enabled 矩阵态(access+one_+hybrid 锚注入) | budget=2/6
+2026-11-27T17:53:51 | restart#3 | reason=C05 评测 disabled 干净窗 | budget=3/6

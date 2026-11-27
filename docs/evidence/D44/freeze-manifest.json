@@ -1,0 +1,1569 @@
+{
+  "anchorCommit": "498d48f",
+  "anchorParent": "d9b6f5e",
+  "generatedAt": "2026-11-27T17:03:50+08:00",
+  "scope": "H1 freeze: src/main business code zero-change; existing tests semantic freeze (manifest records SHA at anchor for drift=0 verification)",
+  "mainJavaCount": 352,
+  "testFileCount": 35,
+  "files": [
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AccessDeniedAdvice.java",
+      "sha256": "9e97d12dd86a85e8ba4189668ea0d74f279e792d99b19c662c84fbae96164ae7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AccessDeniedException.java",
+      "sha256": "9330de423505e9d5066678bee36871d264991a9abef444fbb8c4561bcbdd29ec"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AccessPolicyService.java",
+      "sha256": "2822a60faeb60f115ae68ac421c59e363b3d6458419846b6930e8b55b65271a7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AccessProperties.java",
+      "sha256": "c261a9998e28dc48da6fe75471b30fc05976395168a2baca5d7c64e5bbfcfa6c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AccessTokenHasher.java",
+      "sha256": "cc29bb456a40e1dd74fec5c7ed67a7e2b3c0db55704a09b59ff495d7f465d393"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthContext.java",
+      "sha256": "da05e587f0bf6887e2330ba30e1d523956ef8514faeb0fe7294fa1991b16a828"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthContextFilter.java",
+      "sha256": "bd08069684b9eb6e1e3f82f39881dee2becb550a019b81a509556e9c12acaa67"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthContextHolder.java",
+      "sha256": "2ea980a39629564e2593b7dd5928581068a5418fbe26f6409c7daeabfd733f54"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthPrincipal.java",
+      "sha256": "280a91af6667358d2093ae9f6aeecd4fe620bdaf9e2670f683c915e435ca7531"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthPrincipalRepository.java",
+      "sha256": "cdb9fbb35a57e9f9b21ed8ac4a03cdc5126b554a5f6e0a9b985aa96a7ae2942c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/AuthRole.java",
+      "sha256": "f5aa0baf856a665f03ed300f150e7e52b095f7cad8f9ccf25c6db4438fb62c16"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/DocumentScope.java",
+      "sha256": "7c74f452c2cf0559f857c629f318cb82582188e43c52087c9546fc725a0cf33a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/DocumentScopeRepository.java",
+      "sha256": "c14ae544e0e0917ead6d8d0b1eefd62721588677c461f826b14eaf6250ed7159"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/access/PermissionScope.java",
+      "sha256": "5b9b82568ef9c55b9352f141268922120af61984fe12f9304791dfdea8bc417a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/ChatModelPort.java",
+      "sha256": "6b44b0660ca98a5c423220ec7178588d795c528d19c2b387b8ad4128ab87e5ea"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/deepseek/DeepSeekChatAdapter.java",
+      "sha256": "b33c7c363c9081be8eb3b7b4c6f2c14956a4f613511b44ceca93b09c544e8414"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/deepseek/DeepSeekChatModelConfiguration.java",
+      "sha256": "689339eff79067691db5c2f143047ff894dbc869bfb53e44698a7a50de054875"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/deepseek/DeepSeekNativeUsageReader.java",
+      "sha256": "0c5259912e10c9e32d5729dc0d36ea6340227ae1b4981c49f2b3c1a5c75fc76b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/NativeUsage.java",
+      "sha256": "decbf7994df02c849d9d074e2bbf3dfe799947be3781ba46e14d09aa915a34f2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/adapter/NativeUsageReader.java",
+      "sha256": "83464322f108d1a16aa620c1f1434e485c8927b326385a3cc7ffbcd0b90e6d2b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/common/AiConfigurationException.java",
+      "sha256": "902c92541682d5c41eae35f5f6c5d895d9e2ce6372aabe596abb7f46ff5ffcad"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/common/GlobalExceptionHandler.java",
+      "sha256": "88f5ed150eeb48caee7bf9b05cc05f4e135f27c89df65dec83ef8f239cf1a8dd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/common/Result.java",
+      "sha256": "763f26a02fdda312eb6ea3527f031ea3eb71f9a214ebccbdd4bf90c48fb379b1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/common/ResultCode.java",
+      "sha256": "a8375b9a32061ac17ed47d0d98fb28194169a86f1501e82a591294897a343469"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/config/AiConfigurationValidator.java",
+      "sha256": "0495368c4decb350410ca7424586f0946a5e9ed0164e0532b815a5469ca9021a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/config/AiConstants.java",
+      "sha256": "49688fd5ac68c519b2c9825aba89482ac9bd1e22166fee49c81033d4f2700af8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/config/AiProperties.java",
+      "sha256": "7f17d9ce5cc88089c77e1603cd457f9f8cfd3b980df216437578ddaf04058f17"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/config/ConversationRedisProperties.java",
+      "sha256": "7d950a24ce4c3f3e8dcf67dd3229fd352b3ffbefb7a83b33fe4d01091ca15197"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/config/PromptCacheProperties.java",
+      "sha256": "f90f451a4ccf21a55b5028c96d7c3cedaf32a76a29ad96d77a7a323e65fc4b55"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/controller/ChatController.java",
+      "sha256": "3d640e46858fc96eb6e9f2f71cccf7d1dd5e29e6ea9c46a99e399e97602acb91"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/controller/ChatStreamController.java",
+      "sha256": "9c870629e1ea6aabde555e80989b3c6bc98c0738bd57c27eb0d8ded7e1ca7890"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/ConversationMemory.java",
+      "sha256": "8967356d8fd49ae52ae12d780df574213483b919165cef5a68aaebb01c55adaf"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/HistoryMessageConverter.java",
+      "sha256": "32c94f2b6dbfa5dd60a8c54468b42950260afa272554ce2cb16c4dc624fff64f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/model/ConversationMessage.java",
+      "sha256": "29ed63e1e725b32ac50368d97a43dcc1f60ee2665f6cec66d4a2e2dcda691a33"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/model/ConversationSession.java",
+      "sha256": "4ddc616fb2152cff6ddecf915f871dc3270bc0f30c2775e3cfd2990568af1273"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/RedisSessionPayload.java",
+      "sha256": "e8daf3f9f9d6e211d96cb068525f271b0e044438340873515ab056855f7d2f9a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/conversation/RoleConversationService.java",
+      "sha256": "34873d3af384fb9e6bc02f15bfa6fa4aec155427425e577586126192febec6b5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/D44SpringAiApplication.java",
+      "sha256": "606dc71e7a6742f5315834d82cf61f222d0b93f1ed35e202831e22abf9119bf8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/ClarificationService.java",
+      "sha256": "99dc34b06828cc90310c6dd7e6b3d399544780e79a72f9ba4fa670c862f71601"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/DeviceChatController.java",
+      "sha256": "74a985e14446bf8c3404547d22c89005ee794dcaec007508b06c7c9fc551e682"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/DeviceChatService.java",
+      "sha256": "e3941165d913a5605770bfed6469186f850c1437c3ef9aea48a469a61c3c89d7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/DeviceInformationExtractor.java",
+      "sha256": "a28aedfb5254c44b8a34b16f3bfa41b5103181f1284d6af21ca7db1b49b1499b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/DisabledFormalTicketPort.java",
+      "sha256": "673c0864428f9112c915ea96b5173eacf424b1ad3c4a9414513f6469ac87a54f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/dto/DeviceChatReply.java",
+      "sha256": "ee64ea35cdd07292a8bd09d83016ae64d5b9e1dd17b36d07241b4d71090c685c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/dto/DeviceChatRequest.java",
+      "sha256": "70ed9d78e602bf348e0fd7878971bfeeca65f2847b78255e6f6ad1a355f1c382"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/dto/FaultTicketCandidate.java",
+      "sha256": "7eebe21fee35726bf1f1839853ea71bb14bb3dded7680eb9f1187cdd6ef1d776"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/dto/RawCandidatePayload.java",
+      "sha256": "272dc742b269015cdaabfe3269082d6f47e8ca7e15abc65955b10b9a98fc60c7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/FaultTicketCandidateService.java",
+      "sha256": "7f4717b1057fa2f3b8419b856e08e932aeaec9cf31c583ca56135f4d520ec612"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/FormalTicketCommand.java",
+      "sha256": "360a67d92bc8935b1cfd3b8c7f79c275ef626d5eb74b5a277c4c7a363c3d17f4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/FormalTicketPort.java",
+      "sha256": "f47614f936f63d8e21f639c182c80e0847047e2843b8aa35040619c258aadd99"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/model/CandidateStatus.java",
+      "sha256": "1032047f9c110fd9615464d1c2c130c60a8ae7e63fbd641ffda12d58583ccc74"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/model/ConfidenceLevel.java",
+      "sha256": "19f7d4d8da363b39882f0f234c71a62d5f8fe819de1a911d8bd9d0d3eb00cd00"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/model/DeviceInformation.java",
+      "sha256": "3e47182fdd3e07ba183cf0631973b24edf850370dcd1c43f47ae42a1d90bf3ad"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/model/InformationSource.java",
+      "sha256": "93daf256c3104e0786b88d162dc7d7d0fb921341e5954682d719e6a2e75ae949"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/model/TicketCategory.java",
+      "sha256": "8a53db976c24147819bd69f97b0e3096270d8dc680ad32f263f2855effec979a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/device/StructuredCandidateParser.java",
+      "sha256": "1d2a796de9ae3888c0824d6bae04d8ef9d1cb31c7866461678bf83f5f8f9c8f4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/clean/TextCleaner.java",
+      "sha256": "84a534c2b93aca5bc228da6eceea01cb04b9c8af0b3baf521771bfd8f41e1271"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/config/ChunkProperties.java",
+      "sha256": "36f7ec1dca6da2e3d96147b952df188b821a2b24e3ae4fb3bd302b4737eff256"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/dto/ChunkComparisonView.java",
+      "sha256": "bf18ef62f7f2ed3603ce86dc57df91b27db33d5eabdd2962ea36120f61cce261"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/dto/ChunkSourceView.java",
+      "sha256": "35f9c1eafe12e35f52e349132072cb2814847145a1f45037911cc67c13a7d0f8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/dto/ChunkStatsView.java",
+      "sha256": "262ed9183687ae913dedd411d7db2cdb4b304f5dad31c40dab70566a3d64a674"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/dto/ChunkView.java",
+      "sha256": "54e8ac38d4041876203459649d2a050c1d9af097ca5945f391e5e7b4d2a30232"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/dto/ChunkViewMapper.java",
+      "sha256": "08c20ed4fd56dd68acc400bed00d1466691f2a2db446ad454df9bdc56b7a1127"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/BlockType.java",
+      "sha256": "599492da9c8d053827223d871e2d268631ee42d61df0bfc70c4ec3c81d49c1e7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/Chunk.java",
+      "sha256": "84ad14ca10d9aba2124cea1d42f9efa028b601902f56c1449a25da0367160c13"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkComparison.java",
+      "sha256": "f2dd5535fb7eaffefc3bbeb5603394d313a0414030caeba34328326606475bd6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkContext.java",
+      "sha256": "0079e2625fe97cb66c0f47430849c1f0f1c0075e0d35103ad96e225b6e6149fe"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkResult.java",
+      "sha256": "189e75dd58f423f9e6aa9839dfd0130bf1fb8582cfb018bebb704fb69926a6a0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkSource.java",
+      "sha256": "2396ab4400f9253e6dc85a0e6165d020baa9c51e383dbf53149a73775cc9c01e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkStats.java",
+      "sha256": "555816799917b1d73d94f41753fed8453e6aa4de3d16094169db065a9fe3b580"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/ChunkStrategy.java",
+      "sha256": "c88df837f1618e12027e73ee7afb23ac125d7eea2b568da74b17d7dfd69adc56"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/CleanedDocument.java",
+      "sha256": "73faf031b00e62b43a482422be64278fa453d7f6e4635b1ccbe47d3d40040009"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/CleanedPage.java",
+      "sha256": "d8b821b1444adc2e0ca4cf21bcade89544be9c73fe140ad9c3eab2047dd621bf"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/model/TextBlock.java",
+      "sha256": "4e13e339c081f2656ea05b43619e788bc30a7c4b8eb951bc921fc0c8995d4536"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/service/DocumentChunkService.java",
+      "sha256": "de6286d039cc52191cf7ca9c165cc8ac300fdba50aacafbde4f1dc649c02a6e0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/split/FixedSizeSplitter.java",
+      "sha256": "a4d992493a5fd818067a48848d69f5660ddbf9e6d96729ef013edbb52719f013"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/split/StructureSplitter.java",
+      "sha256": "03ff797f2822254f50890424e16e2a60c27e608983ce2220a7ce292e0b2d3521"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/split/TextSplitter.java",
+      "sha256": "f65893307ca984e6cc636c2a0d71d66ea04c7d4f4484998eb0a0e3557b1ecad3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/chunk/support/ChunkBoundarySupport.java",
+      "sha256": "26a5f53ffb2bf6ab37e32e75e9554175ad6be05bdea6ccb0ca5e5a69d0122592"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/config/DocumentImportProperties.java",
+      "sha256": "6c72909fc5108ab11b8de987c296ac0e27bfc24a5654287f90d93c713f5a90aa"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/controller/DocumentController.java",
+      "sha256": "66fc8eb5e0e214dc28c524419d3928916366b4ac74e2af4a784651d451b82d1f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/dto/DocumentImportView.java",
+      "sha256": "5283ff00d6a9ae1d4d8a8b7de5fc2655809ae5a1ed7664fd9eea81e22cde7049"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/dto/DocumentPageView.java",
+      "sha256": "12979e8ced61a6647e83fcdf624e2f6787bb804792dc597ab3b301149757e571"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/dto/DocumentRegisterRequest.java",
+      "sha256": "9c1ec62b3ab65703e21d8f969b3f253944c903f39f395938c79ab5eec49df719"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/dto/DocumentView.java",
+      "sha256": "2c354f912f19346681fafadee16e9a7135b734436cfcafa907f1db37003bfb1d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/config/EmbeddingConfiguration.java",
+      "sha256": "36ac7cdec7761089ec96c7ecea4b75b51f39872e283204539a697887558018c9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/config/EmbeddingProperties.java",
+      "sha256": "7868f28981e5f0983d072bdb8b304df2dfdc57eb213f2469e8e171a319b89ab2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/controller/EmbeddingController.java",
+      "sha256": "26ef20195793dee93782e071fa2a445eb0b623fe168dd5a4c6c165a126afdf0f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/dto/CompatibilityCheckRequest.java",
+      "sha256": "572a582ce4f3f5680fae4c252a5ef7761264e8ce051d08bf960f00b71d944daa"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/dto/CompatibilityDecisionView.java",
+      "sha256": "b48ee76c8564d7ed936d332469e2ee2f2cbf57e999584d7ec134b58a0d7b6226"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/dto/EmbeddingModelMetadataView.java",
+      "sha256": "2a36972c8b124fbd6438fc46863df6299a3cabb8b9df195a84596f3ded9884b5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/dto/EmbeddingRecordView.java",
+      "sha256": "689c9fffe6b8745afc0c35ff4ad168868174b468f04a311b620646006d469bc1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/dto/EmbeddingViewMapper.java",
+      "sha256": "94e1be0f2ff63dd780a2a0493324acf62e5b110cd56e036f4ef1439c778096c5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/local/FeatureHasher.java",
+      "sha256": "dfe5966ef471a5fe3ebf130bca6159a4bf7994f6950116f1617b5f97a5ccb619"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/local/LocalHashingEmbeddingModel.java",
+      "sha256": "bc5907f5e7cc5a98dab4285000a950e57438fed5e24d57b2fe85cf2524e93bc2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/local/TextFeatureExtractor.java",
+      "sha256": "bfe79795e1d3a089052a5c22952ac29bd77e9fad1793ad660b7ed4ecbdd4e643"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/model/CompatibilityDecision.java",
+      "sha256": "ea119a26282c0e7ba609a6cf20dbf4ce390cebe4461be2cc99d75bebaf7a2308"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/model/DistanceMetric.java",
+      "sha256": "17fece3ee543ca27563197f2a9c005992a7d82dd10bc49a506fcd391504e44fc"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/model/EmbeddingModelMetadata.java",
+      "sha256": "84e6b69e633d4299e877b285fbba3ac08ba33133d1d14fa8f183a9633998b51a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/model/EmbeddingRecord.java",
+      "sha256": "af679c6287a658bd2fba0f62adbebcdd8bde87d760298b06cd88b1f870be8116"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/service/DocumentEmbeddingService.java",
+      "sha256": "015ce513736517bab78663cf27163b36888a91950102d07ff830e2590466be66"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/service/VectorIndexCompatibilityService.java",
+      "sha256": "8b97eba1cffb86440827b82baee371d91bbdada8b10cf5e1b770538f16f6f9ed"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/support/EmbeddingFailureClassifier.java",
+      "sha256": "87837ba3f700524f06562c8b8ed0a2d5261ee038dc8cb415656d9295813fe023"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/support/EmbeddingRetryExecutor.java",
+      "sha256": "8ac1b023e1391a5886c83a1c0f63a8bb1225be446247f79acd74dafb088a66d6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/support/EmbeddingServiceException.java",
+      "sha256": "fdb236051fb8958aadfe5882e5a8321de20a415b90645ef8ae81da7ad9d06299"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/embedding/support/VectorValidator.java",
+      "sha256": "ed22e67bf4fe83ccf07072e46c1911d0925841d862e5e02b6ecbb26c07b32fb6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/exception/DocumentParseException.java",
+      "sha256": "65a7578e37b063274c2bc90997f47c05884ab50292e1a1b6d5c9141afe61c051"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/exception/DocumentValidationException.java",
+      "sha256": "c81d601cdec089e7e670a2de9a50e5fb52abd81f46a17f2069e63b051ea274fe"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/mapper/DocumentChunkIndexMapper.java",
+      "sha256": "723886c445d2e4a406757cac0650910286a547c8bbdc44013feecfe71740e0b8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/mapper/DocumentPageContentMapper.java",
+      "sha256": "8c2bcf196be1a5cd16e276d33ec908991311c95cc14efd8ba7553901e0a68a8a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/mapper/DocumentVectorIndexMapper.java",
+      "sha256": "5079a5c11f12d4e3fe303cab0308097f8a311bf498aa9e2a18a168913bbbae2e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/mapper/KnowledgeDocumentMapper.java",
+      "sha256": "aeafcef19697e5487929fa373bbe892840560310b0db110b1215d7b323af66fd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/model/DocumentLifecycleStatus.java",
+      "sha256": "160ce9d66a454d56cebe226299dce58ad599466d2f1667dce26228e031deb341"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/model/DocumentPageContent.java",
+      "sha256": "faacd43466a390c385e91aeded7310dcd815799ac61eb6ef373e625f24d09d4b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/model/DocumentStatus.java",
+      "sha256": "56798e72d199a6b32aee840004f8b6e5c42554ee1d7cc4f0779de68e70e13f48"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/model/KnowledgeDocument.java",
+      "sha256": "e1cce03ec845ba1a8a9a31bd3dfd498c8bb405227c391cc306209e8c304caa94"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/po/DocumentChunkIndexPO.java",
+      "sha256": "61dfbdcbd17babc6285d997ba8b73fd3720d77f851c0a7c10e5e1556742942e1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/po/DocumentPageContentPO.java",
+      "sha256": "25589df62f6c9bd4ff936ed9845c6d5bd7b6d61d1d634ec673f8c95394b513a1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/po/DocumentVectorIndexPO.java",
+      "sha256": "ddccc6194e18ff5c82e40bb0255b068ccd28d8ebaac823209bb53168423bed87"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/po/KnowledgeDocumentPO.java",
+      "sha256": "c11215310abc61b64c99b766a4497f6bb3a6cf03ff73a7e2d3536fb44b1191f3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/retrieval/dto/SimilarityMatchView.java",
+      "sha256": "049f846522f9d2389a192f7b8e5a26892e2c555c3affa6dd72559aeb318d99f3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/retrieval/dto/SimilaritySearchRequest.java",
+      "sha256": "f7b94f1677cbb7dc27d1ab5172881b168def020897378da3e158c54d97bee485"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/retrieval/dto/SimilaritySearchResultView.java",
+      "sha256": "e55a795d9126f5c10bda1853378a46b470bdcd8b76b0dd6d636b73b2fcf71455"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/retrieval/SimilaritySearchController.java",
+      "sha256": "a591e2b74ccdf384f0a8fd2a477f5842946397d03f3bf330f23e11572de4d06d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/retrieval/SimilaritySearchService.java",
+      "sha256": "99871d0659c8be14f2dc0ed0b6cbefbed17273c6b7352f50d9219371866e8cb6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/service/DocumentImportService.java",
+      "sha256": "f25731b3c342d450d3c35c210e63b0039029ecaea2829d43d304f71f9b3822a5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/service/DocumentPageService.java",
+      "sha256": "33bdffe76599837f2ea3414375c100924069a5d4ee088828a8b5fe437e2be426"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/service/DocumentRegistrationService.java",
+      "sha256": "971a8c735a606bff12c554f4b39189070629a40ad7a2cf7915623be07028e8dc"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/support/BasicDocumentParser.java",
+      "sha256": "dc6945ae5ecec5c9673d97eaab2d376fd2f60ec5039cccd9701f6b38797c3f31"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/support/DocumentConverter.java",
+      "sha256": "88e3d47c4f5cc352d3bcdc1b238d59a5a4863edcfa370c8bc55f818c98aaee80"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/support/FileUploadValidator.java",
+      "sha256": "f1e7f9791f14956dffa696ba72a87bcc1e73374b8db8913c8eddee04d9a6d679"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/support/PdfDocumentParser.java",
+      "sha256": "8621b09d752f3bd54260db6c79db830903b91afd2bc2a81baf434b094c1278f8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/support/Sha256ContentHasher.java",
+      "sha256": "c79fd0b1fca9f2a528b8fa90c0e6b4ac2f81f46a61a60f75ff8d46d0a04888f9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/config/SyncRetrySchedulingConfiguration.java",
+      "sha256": "f4d1474e11ec4a56f9575eb5492764c08295c3dab02e87b1b9df0d416a8809d9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/dto/ConsistencyCheckRequest.java",
+      "sha256": "15858e54173a8db653bb30af8e8d0861db5616c6008372e785f0d7efc657d67c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/dto/SyncRetryRequest.java",
+      "sha256": "ca5a75b233c1b2d437c23601953b89b35cd938663d902888c66c11bf8d213581"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/dto/SyncRetryResultView.java",
+      "sha256": "3b6d06854831a3b441a8684b02780de90e4a5d6ec0fa093d0e655c2ef518a5c0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/DxxSyncController.java",
+      "sha256": "ccd9276e1c228d186b99d16f464bf737451ed8bb1c0cbdea2146ba9d5c3995cd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/mapper/AdminAuditMapper.java",
+      "sha256": "8714e9c66966763a7e5f3d86fb14d7e6c29ce43834498523577626debd514641"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/mapper/DocumentSyncMapper.java",
+      "sha256": "a3c1d4240f5b3baf1081dca992e1800118da6ebae4e4f37873f36416140f7537"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/model/SyncOperation.java",
+      "sha256": "9a8bb2464d0b976d3b010c5871b27c15da90ad394316dedf594ed90832f73a47"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/model/SyncReasonCode.java",
+      "sha256": "ec06ddc892857be53debe2cc0c28666ccd7f48d16be35a50051911ced0284dbd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/model/SyncStatus.java",
+      "sha256": "9f33527c73049eb3123310b4871d8fda07c645007786fae9821fb24931e17353"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/po/AdminAuditPO.java",
+      "sha256": "d42b4605978f01ef901ed16ce302d8a7484af630d3426f328a8c5f216f020146"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/po/DocumentSyncPO.java",
+      "sha256": "346d6f15c2af61836e19d4c70b224c59e205bc38147f6ad43b5b7503144e7d12"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/service/AdminAuditService.java",
+      "sha256": "ebf4176d660ee874532ef6a589d9c6f6a4551e1a1c088b0eb90def68e478db85"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/service/DocumentSyncService.java",
+      "sha256": "80e0cd33d851c118ea4ae767c95ab30ce3b89acf198bcde12fb07189a51af0e2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/sync/service/SyncRetryRunner.java",
+      "sha256": "924f82f34cf10aea63de1ecd6d43ca260a6b9097f6d6442c12d463febcce6ff4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/config/TableProperties.java",
+      "sha256": "ab8ed78e7710662eedc4b82b831cb63b3c53d230a01e745a3051b62d8131f4c3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/dto/TableView.java",
+      "sha256": "0b56398f850412e9d7d6739dec0b81aa4a3f1ccc15fd14fd3bfaf6aa158fa5ab"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/mapper/TableExtractMapper.java",
+      "sha256": "8ff5878f41827fc642cd1205601fc8812f5145d967b059d543b9edf6b7e4c60a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/mapper/TableRowMapper.java",
+      "sha256": "569b91ae29c99e7d524150fa771d4ca0104b9e8873844b77c7f2a87b05c2c018"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/model/DetectedTable.java",
+      "sha256": "405121635cb4586be95587889fa335fa5fd17c4b655139e4a7aeebd35be6a21a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/model/TableCell.java",
+      "sha256": "95757f37bca59800c6ad1baec05360cf304ab6cd1cfb85045d1f59e15fc5eddb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/model/TablePatterns.java",
+      "sha256": "70d3680d67b258ec1f5aa7e693e6c0db5be9ddb92995c7a504e32ad10faed427"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/PdfTableExtractor.java",
+      "sha256": "ed69a2aad6554a3a08da44ce10353a4768eb3ec34d29ecf633c6cfbfe01bc3af"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/po/TableExtractPO.java",
+      "sha256": "34e5ea141a4eee68e80a06785c722e266452b7ef27e2c6b8a5dd4a4e588e5c83"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/po/TableRowPO.java",
+      "sha256": "e6f730ed3d75fa614f6694538cd8ccd623a97de2f48682e5775752c4dbcfea03"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/service/TableRecordService.java",
+      "sha256": "6c58860c8086226f6baad53d4e47fbb512795e5befc1871d2c8739feeb36c764"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/TableController.java",
+      "sha256": "d47d0e6835efb0ced0ec15699be3ac14bb2a6ca0193013a55e34506afb20755c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/table/TextTableExtractor.java",
+      "sha256": "f25a94e8af0ab5d827d6c80cee0f905272ffd78da0cfb4408116201c009397e0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/config/VectorIndexProperties.java",
+      "sha256": "7e30c6fd6b3791713eb3894a26edea0c899e90c44b94297763324f9cef7b5740"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/config/VectorIndexSchedulingConfiguration.java",
+      "sha256": "acc4f29116741f5e82c01cf703df16738c88e03426942ae3151cf9eec4093344"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/dto/ChunkIndexView.java",
+      "sha256": "67b3cf95eac86fbb9e929eeec3553de41d7b536af9a03245cfafe3196a71128b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/dto/ReconcileRequest.java",
+      "sha256": "9644479a47fa67498a4aac631016014aa7783a62bb80272692a6458a83e32e5c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/dto/ReconciliationReportView.java",
+      "sha256": "6790428e11be9a51909a10ed62c1032415bbbed0c8b21ffc4983b6e68f9d3471"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/dto/VectorIndexRequest.java",
+      "sha256": "713d97f3656c3ef7e23ab7304d4d0cce7d0f3a3c34100ff8723e52b489745a36"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/dto/VectorIndexResultView.java",
+      "sha256": "23fc861995d02cc6d54f1bea328ac447f279ae3486f3e9445faa13320815d702"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/model/ChunkRowStatus.java",
+      "sha256": "2527939e903cef6fc3444ed66b272050bbc32e4624e4453dc8303de68ac2645d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/model/IndexStage.java",
+      "sha256": "334cea627739ee9590510c3f614d58119735e2fbed22765ca6737f437a4cfc9b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/model/VectorIndexStatus.java",
+      "sha256": "07a97c8853d44bc2d7817624780ff7fe960bb53a74bc71ce11ceea9b083cfe37"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/service/DocumentVectorIndexService.java",
+      "sha256": "d23c4d468ba4e6a6c508d25f4b57ede9bfd2642cdabe08abc1344ca111535d95"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/service/VectorReconciliationService.java",
+      "sha256": "c2e1c275570dec8d32f1764b07348946544d9e4563f4a0217a2c41e0199e2702"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/support/StableChunkIdGenerator.java",
+      "sha256": "e5b3a28eafe7637ee6a3d123633489ef4269f12ed1549411e6c6ccf59d003392"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/support/VectorIndexStateTx.java",
+      "sha256": "fe4a98d931129e602c3d3d172e8a030a14c0eca9ef91a89784b85f875d65cfac"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/VectorIndexController.java",
+      "sha256": "33fc73a11d8901a7f95c632fde7844bff96a6ac791b38a6999e52319b1910fe8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorindex/VectorIndexException.java",
+      "sha256": "c86097cd64a94cf725eb00732b8fecb56c008215937fe3577ba587bc68aa8d9d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/dto/VectorMatchView.java",
+      "sha256": "7edb0ef0a00b6d51edba8acfffc98a3cac390135784fa004187113f5d89f3848"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/dto/VectorSearchRequest.java",
+      "sha256": "036eab6c104d2241249b6098e20d02aeb35cc0edc35ed3841e410fcfb64469ea"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/dto/VectorStatsView.java",
+      "sha256": "08df70a0c4dbd83e5afed3f76687ea75b43c1336d3bf3b92fac2e6eb45256e55"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/dto/VectorWriteRequest.java",
+      "sha256": "4e2b00aabfb2285cf3454e5f294b2cf74fbb7900930f883ddb7db0f6a3515930"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/FaultInjectingVectorStore.java",
+      "sha256": "ed3ddc7da4757fdd1d96094c4141d6982dd1e0aede7056f83772b1120c9137f7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/FaultInjectionConfiguration.java",
+      "sha256": "ae265a1fcc3f9d233c3e76a37e70670a65d8dd869dd48cc7a22600f1a8f59fbd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/FaultInjectionProperties.java",
+      "sha256": "e72d60d1c99dc65d512b52c30d4106e197997a05840890c3c874f4f6f376a56d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/PgVectorController.java",
+      "sha256": "90e824c5af28498afeb5f8439d4b9f89ff937bc9f4aaafc79f83506b9e297130"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/PgVectorStoreConfiguration.java",
+      "sha256": "9e02831a36a096937150a72361bc51e98ddfac244ff479561c7d4f9f4abcf5fb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/PgVectorStoreProperties.java",
+      "sha256": "f346e3f6c1b0b914e7e9ff3a40d011cc25d29f26afd1abe09b9de582eb5f44d5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/PgVectorStoreService.java",
+      "sha256": "9bc059a62c05690cf03dc8607b95df0e1349dea0e1d7dbbf086091ca12a8f5e5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/document/vectorstore/SimulatedConnectionLostException.java",
+      "sha256": "df3ef27f86446ecca34fb9385eb63e117b811263150d45856b4c216b3f91ce2d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/dto/ChatReplyResponse.java",
+      "sha256": "01f629afeeebeb1eb451d830258dbbb1e1932f26062b8ef6a8d07042f2a7fc8e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/dto/ChatRequest.java",
+      "sha256": "6c98827f83dfcefad41fe99596787861a2325d8cd3d909c929a832316789cdd8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/dto/CitationDto.java",
+      "sha256": "0b0109a51aa210e68ff2a3c149ef4a1567caefae330555a016a67994abec3e02"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/dto/RoleChatReplyResponse.java",
+      "sha256": "f4e4b7eece8aacb908553fb774441792b1f1559965788f3bdb35cb5fc1f0e189"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/dto/SsePayloads.java",
+      "sha256": "8c5392a821307c748f0e51a7a18b86ed507f13d91efd4846200d3499a85256b7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/ChatHistoryService.java",
+      "sha256": "71f85b27dba69f844f0577918b602ea7143fa0a645eb63b330c4f571bc053527"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/config/HistoryProperties.java",
+      "sha256": "235ea4bb9b249ef3c431f9393c756c183d453846d11b168cdf4b030ed1ac996d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/config/MybatisPlusConfig.java",
+      "sha256": "15f2096309eed0233e7c4cdf270fea5e91b2ce8172037730b0b5e39320280239"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/dto/MessageView.java",
+      "sha256": "fbde13880dcf9769524abc90dfe0243a47dcdd4a0c746ebc11890e53b1e1f6f1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/dto/PageView.java",
+      "sha256": "dfcb1364d203903d3d9bb90bdc4c551b7969c2c6a5729b2ca77e43163301259b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/dto/SessionView.java",
+      "sha256": "44554e599eb1307134337fffab457deeefe6b59cb53bacc6805120fe812f8336"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/HistoryController.java",
+      "sha256": "e633d0c59f801233a4ec836589363313c19a91c9a47c8a30435dc149c930cda6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/mapper/ChatSessionMapper.java",
+      "sha256": "3e21d83fb887f9277979a048e6843167bf4cacdabe2513ecc4aab660746f823d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/mapper/HistoryMessageMapper.java",
+      "sha256": "9d3cb626524ace8a508ffbcadb8f8729a9f0c569ca60042c39a2a0044fb97b1b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/model/ChatSession.java",
+      "sha256": "fc84e1ac26732ba24e1d0d33f2262c44705edf84d9844446c0497409467cd2d3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/model/HistoryMessage.java",
+      "sha256": "a3f116cd24940be5b2e3b1d2e718842b7d05e754f53b740becb2ede0fed6a37c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/model/MessageStatus.java",
+      "sha256": "72f25fedc281afd1420b65c6472d9bb692192999db91d24e8b43a3f11e4c18e7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/model/SessionStatus.java",
+      "sha256": "8f5202a61c4d997dab5640cf6298f112ee342077a1d198b13fe053f9d4592bc0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/po/ChatSessionPO.java",
+      "sha256": "68ddf739edd2133e637d9797983cdd566bc7947850e46bc65239e6ef8a8aba24"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/history/po/HistoryMessagePO.java",
+      "sha256": "a2a9cbfda759cdea5977f81efc02c3082d66032826790048c82764363178da15"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/config/HybridProperties.java",
+      "sha256": "f1a06b964229ab3818864336334808586a88a5ea27580bac6a13468cdaf2b833"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/fusion/RrfFusionService.java",
+      "sha256": "df6dd7901145476b86f77370cbab295c37ac060ee4a23caad5c8bdb0026d62b2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/InvertedIndex.java",
+      "sha256": "13c6fe6ff3b1112d6535c0d9f01bc5fa0fb94daba2e0e185af8621e582af2569"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/KeywordFilterCriteria.java",
+      "sha256": "b5ac0eb5e1ebc3a40998006f668a91caaaf94006f2954863d9be03b3fca15c69"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/KeywordIndexStats.java",
+      "sha256": "4e24a0984c7ad1b5f0047156df3060ae87cd36a3f993a871b31a0a2e63af7853"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/KeywordMatchView.java",
+      "sha256": "5fb500a5af886e0fdc71a689e855cf8f8d3b93d7a6f8633d90a6e8760b20903c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/KeywordSearchService.java",
+      "sha256": "1c6899c8ad898199a79d8fc18e96641cbffe2cb77f532995da494b785e0344c7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/keyword/KeywordTokenizer.java",
+      "sha256": "5ed9383b3f13399b0c969e013520b0cd0757da2885510a56b0f1b5c1e48aea75"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/rag/HybridRagAnswerResponse.java",
+      "sha256": "0b8e3729cc720657aa6a00e5fb8da0484040bf58622cbbd695a75fb3a87a19ce"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/rag/HybridRagOrchestrator.java",
+      "sha256": "1837acb2bc9a5f4b3465e35724cc9f413e46d567d3e2ac0a8bcfc65d7d510a65"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/search/dto/FusionTraceEntry.java",
+      "sha256": "c85387ea8d231341e686291873bfa2bf73890d93a4fd66acf90e29715a88069d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/search/dto/HybridMatchView.java",
+      "sha256": "f0e550258cc27d2a22472599f79c15b8f8821ab36858d8952b62feb5d882dd59"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/search/dto/HybridSearchRequest.java",
+      "sha256": "37a033a63a00a57893392f289cd5d51374d85d8430cfb2a525b6dfd5fa80465f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/search/dto/HybridSearchResponseView.java",
+      "sha256": "9db719d44c474bdcf174c6de3602df8a16a9bfc05b003894e98ad5d455c62dca"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/search/HybridSearchService.java",
+      "sha256": "c94421e5708efb0037da2dbcce9672a8ffb65df35b0c006361578a0ca46eda43"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/web/HybridKeywordIndexController.java",
+      "sha256": "480237920530c12fc4282433f6179566e6f3546076affc33a6ed0ae4da2152df"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/web/HybridRagController.java",
+      "sha256": "424d55a29411928c4b9d41a94ecd1cf1dc2ddb80794c592041face8c42c15efb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/hybrid/web/HybridSearchController.java",
+      "sha256": "c69cc38ec6260f080445d595f1a50f2b7bcc884f0fe3e59a05fd84c8b2350858"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/CitationRegistry.java",
+      "sha256": "b8a46134a9872c06265172b495b38c0f1309bdf4d154e8c1eca7ffb7ad853451"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/KnowledgeChatOrchestrator.java",
+      "sha256": "cb73586d68070aea74561a028c5f1544363e2d248908e6d6a89e0e1a8c7b515e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/KnowledgeChunk.java",
+      "sha256": "f7e9cb31bf675159541e623fa46c35c313729cc13ef21f691a3dacdd8d656969"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/KnowledgeCorpus.java",
+      "sha256": "062435f68027d5aaf9e56bcf535633b74661469ea49633105ec89cb1689ec3f0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/KnowledgeProperties.java",
+      "sha256": "33bb32a203f10f1228ed7a189a73d10d017bedfb0282fa980ff409768ca269d5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/knowledge/KnowledgeRetrievalService.java",
+      "sha256": "c116512a2260c7396b0ce1af07d68f97cdc205a2c48fd121cebf4616861951fc"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/AccessLogAutoConfiguration.java",
+      "sha256": "6022ef53dcd1aa64c2bcea58fcefec7f7b79a3e89c11e614135825f2281c6bb5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/AccessLogProperties.java",
+      "sha256": "d58d7e29f953b5a81a00bc37d05c664fa7647a12fc0fb05921729fb635e7c920"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/CachedBodyAccessLogFilter.java",
+      "sha256": "2a0e378ad07594097ee5bdddf3e56775dff7c8d9ab2b9888942fc5f156f00e58"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/ControllerAccessLogAspect.java",
+      "sha256": "e397b1e334e38e4c25e55336f0f82fa162221eb8b1f00592c42ea2817fa454a4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/LogMaskingUtils.java",
+      "sha256": "4a4ed515cb296315c62a258e655ac6ed2f7d3be62eebb93ee463eebb3fbfff5b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/logging/TraceIdFilter.java",
+      "sha256": "5bfd5868facd2f205b229c5a79269567624da6e51fdb07cba1c4c7a65c8bf4e2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/CallOutcome.java",
+      "sha256": "508d3721dbb6b614007978d6763475d264d649c012e63f26ab4a6403c9f1c519"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/ModelCallObservation.java",
+      "sha256": "63b7dfc8425d03d8e8016363fc6cfc1df5e3a7f56fca3ce533e3aba39d594a5d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/ModelCallRecord.java",
+      "sha256": "d101b327ac9cbf8b3f7cb5e3249f9e1ee42b1ec67d00cfec1f45ba7e406747b3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/ModelCallRecorder.java",
+      "sha256": "e0c3e196774954f28790129dff73fb075ca39da44155e7362be0368e90c8d9b0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/ModelObservabilityProperties.java",
+      "sha256": "30017365bc8c872d46bcb171bb1d3699b920bf32d0ed97ef1767c43f02095663"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/TokenUsageSnapshot.java",
+      "sha256": "72f5c17ce1198632cfd000f040913450e2eff2d64e4e4ba2b2285f946eebc952"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/UsageSource.java",
+      "sha256": "97efbeece841eedbc44de790cdaf9690e5cde8ef1ac27efc92705d4cf4039275"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/observability/UsageStatus.java",
+      "sha256": "3520e5112112f0e53ecc2cc412aab98a327ef9f2550e9e131d7e885539c7d7be"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/client/OneBailianEmbeddingClient.java",
+      "sha256": "f352f839d73606250e1d1e6c882499ebc109f69bb1c7ff2b08b3bb9928b00315"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/client/OneEmbeddingException.java",
+      "sha256": "87d1e525ea8ff6e08cac0cec505fa7d9157779702e80b4a1f673693618f7e84d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/config/OneEmbeddingConfiguration.java",
+      "sha256": "83a9bdf1cde48a64eeab9a2f666ee2700004b10eaf568862fea41ba098582da5"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/config/OneEmbeddingProperties.java",
+      "sha256": "bee2b1df6ea48e2c8c36373a664d7b615c7d5e97df9f41e005ad0abec3d1c408"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/config/OnePgVectorProperties.java",
+      "sha256": "fcfa0e4ddc9ffb537b49ad2d28c0650403fdc752d06f27113cbf54bdd381bb4b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/config/OnePgVectorStoreConfiguration.java",
+      "sha256": "c0a56fdfa57b4a068a59e9165e50f74ca7a6213d02c3a14316b9368920b2337f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/embedding/OneRemoteEmbeddingModel.java",
+      "sha256": "e6c50a126ce072956baa6754951e3eb6aca2e7cbddaeb1946f9ca1bae91433f6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/dto/OneReconciliationReportView.java",
+      "sha256": "a00a32919ea2397982126c8e7291aa144a9f373c217187341e0a33165814ab24"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/dto/OneVectorIndexRequest.java",
+      "sha256": "9525caba354629a22a0008aa9a33af0442e9a3764215894d75171625ba23f50b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/dto/OneVectorIndexResultView.java",
+      "sha256": "5f4b83b87efed1b3ff51988f966e695f9ee836f35c6d4a018018e847e095af5a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/mapper/OneDocumentChunkIndexMapper.java",
+      "sha256": "2ed55ff8c9d4aa318b65d8e37bdae69405669c13a2194d834a30932c6b0bff3e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/mapper/OneDocumentVectorIndexMapper.java",
+      "sha256": "5ce3b93d450fc569c331366098ee4bdf55dff5b7d8c1ed3fd0fae8ee4c282210"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/OneDocumentVectorIndexService.java",
+      "sha256": "d12a3cd23af69a5d002f36852be107049a3e1847ec94aae4feb70665e12723ad"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/OneVectorIndexStateTx.java",
+      "sha256": "a206ad997b8e21b6f750417cf6d4f6b0c3986fd5057691bc9f9fd5c7a91fc915"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/OneVectorReconciliationService.java",
+      "sha256": "98ebf5ea706025c7c710277f73ccffcefb91d16e2bae8d5d1688a310f26f969d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/po/OneDocumentChunkIndexPO.java",
+      "sha256": "e40fce83406521df1c34f49592cfb561026a2c6a783e984b451453f59ae32859"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/index/po/OneDocumentVectorIndexPO.java",
+      "sha256": "832aa413b2506b423ea96a8cd10a751ec44e8ad3fe4b3627d0d6adf6c1741ab6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/rag/OneRagOrchestrator.java",
+      "sha256": "b779d40532d6f5995f1e19facbd63ddda76f3ac4b6389d5ed74e1691e3d0185d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/rag/OneRagRetrievalService.java",
+      "sha256": "7deae6bb99bbe8d69cce254d37b40ab6125adcc2a5a5375943d25c21dbdb820e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/retrieval/OneSimilaritySearchService.java",
+      "sha256": "4004416296ea19fd20416fce95c44020ece6eeed5fdac9bc0a6ed38d917b4820"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/service/OneIndexCompatibilityService.java",
+      "sha256": "6845aa5134c1ae45b6f9605a73c30646af374cab8d92ac8f4fa69a56847c3953"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/web/OneEmbeddingController.java",
+      "sha256": "1cc406c68923fee50ac7edd7fd6d26839ed70673ad3ad73e9231d6f16eddd285"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/web/OneRagController.java",
+      "sha256": "f7bf818e1b06c2fce7bb77c19b2ffb39e51de42f8e52918adf20fb36fbdd1fc2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/web/OneSimilaritySearchController.java",
+      "sha256": "2fac2419d1631eb821efa6923743e2f565dfef8b70e38835a55131db2378a313"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/one/web/OneVectorIndexController.java",
+      "sha256": "ed378408110b35e3076cc6f306bb5937b167133453ed92e4b2784f9d321dc79e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/dto/PromptTemplateSummary.java",
+      "sha256": "e560e1a04b2374662bad37c9ff92a04d356f8daa514f235b9bb97825195e969a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/dto/PromptTemplateUpsertRequest.java",
+      "sha256": "bda7df0d6f1ebaf87fe8a3e6c801b869312e3185f5aa231531dff599c0e5ca9b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/dto/PromptTemplateView.java",
+      "sha256": "c5d24f50bc5788cf4a153ed544dc242661ef26ff0a42a511086fb2bd0b2e5792"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/dto/TemplateStatusUpdateRequest.java",
+      "sha256": "24b212c995df439cb96ba17d3ba4f109f82842fedf533d5bf109e0a99e30da84"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/InMemoryPromptTemplateRepository.java",
+      "sha256": "d37647c4c31b9e9b83604e29ef3b1a71474321f7e5cb0accc2a8e5fea7f4e117"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/mapper/PromptTemplateMapper.java",
+      "sha256": "282abcf725c12969810b5f102ac84d3b10e68f2f2a914c8f471d065d1a68fd6e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/model/PromptScenes.java",
+      "sha256": "a2155ce71d505db34d22cc9e01eeaf7e0faf81eebd9468251537b7e042c8b04a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/model/PromptTemplateEntity.java",
+      "sha256": "3d94c1aa1ae20586c7449e0c39da1bde93358402eb31969ce4fd537d55acfc41"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/model/TemplateStatus.java",
+      "sha256": "2a01fac2be3697166be92775dce728afff87b36d97bdc17cb738f656ba7e6e02"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/model/TemplateVariable.java",
+      "sha256": "529203c2489419d9d02f4e076bc6c847cda4fbaf969e99bbee6976025ce26882"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/MybatisPromptTemplateRepository.java",
+      "sha256": "178f32d4a3208c58e50dc2ce48701a210697560d11a7e0dba588b9932aa5ce49"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/po/PromptTemplatePO.java",
+      "sha256": "6da023c8c0fd113f84c865e72daf1110d50988fd9b86a44a950912f216cbecc4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/PromptSeedInitializer.java",
+      "sha256": "fa683533359ee324d85a2c24fbe3215f0f91247e767b9a04b2d884e57d424089"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/PromptTemplateController.java",
+      "sha256": "cbd7f7c8ca3fd2d856e739189de06cdb427bf04b33e8f0a860019d031ae2ad71"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/PromptTemplateRepository.java",
+      "sha256": "9e79ebf26e3174b809231832af587e6dc18a9e30aa106cc433a92a95d0a10441"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/PromptTemplateService.java",
+      "sha256": "19be0ce929cbaa1e9f67cec8a167d8fefff20aaec4457d659037f214ebb15cf8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/prompt/PromptTemplateValidator.java",
+      "sha256": "0b731414a4d724d08e7fade1778e602ca8b5f8e92d2d4f76405f247a300fbf25"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/AssessmentDecision.java",
+      "sha256": "7bf5466f096f49543ce757f79693f5b79c061ee8c3c7c6cc9165351d24380650"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/ConflictGroup.java",
+      "sha256": "d288a5bdb60cbfff8b41b7568f0016e80d1edc5bd3b6686f2791c426883b65c4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/DefaultDocumentLifecyclePort.java",
+      "sha256": "4f302facaf3450d9c6de76d86654728f5b49739d9e6fab3aa984381664031c57"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/DocumentLifecyclePort.java",
+      "sha256": "0961b99f649ce17bddc19da65c45d007502e44a33d55c6cbcf6468f03bac34bb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/EvidenceAssessmentProperties.java",
+      "sha256": "a5ebc37229e0ceca9b7ce1132ce69f0dc00da14e42c25e8e2bfeedbaa4fa73d4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/EvidenceAssessmentResult.java",
+      "sha256": "12e76bb59cdd3e19d04a286da752fed98e0c3438a89c1fcd87a6f0ea85569d4e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/EvidenceAssessmentService.java",
+      "sha256": "e216e358e56474437d0188fe751f2ac562a2434bc6f49cc9a1db8035e6625bb3"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/FactClaim.java",
+      "sha256": "7435e1323cd2062b66855c4be3a53eaaac3e36169ea46d2c961742a79d02f881"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/assessment/FactClaimExtractor.java",
+      "sha256": "87f6249b1d11b8131d370c9fced96e1dfd3ad39db25e88f29733c2bf14c3d99e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/citation/CitationVerificationService.java",
+      "sha256": "a4aba6617e1084f558fc1c6122289b84d3c769e49b07b613388af78bc365c33a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/citation/SnippetExtractor.java",
+      "sha256": "050d67ae08c400a5d1a127489e762548b9529cbfa1a06023404fa2fe4d236701"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/citation/UrlSafetyPolicy.java",
+      "sha256": "c1526c291ca18133a61a4e6a2f8fa50600774edaf68dba2c4e7642a872df3316"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/config/RagProperties.java",
+      "sha256": "ac1997c4f022a216c5aa5e2aa15f2ca04692101564204ae7792dfadeff25feb8"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/context/ContextAssemblyResult.java",
+      "sha256": "ce0e6a59039813fa949ecc9f46d475eec1af60474310f9b9d1ea6e57e3e03d4e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/context/ContextAssemblyService.java",
+      "sha256": "bce026cc6419436051e3a6e5657f11ee1b52465c26874ad142004b01e501d174"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/context/EvidenceItem.java",
+      "sha256": "5ccdaedb3b2395d6d054b97d15c43c93de70ddb7930cd9a3707eeb7c4c7b6960"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/controller/RagController.java",
+      "sha256": "7bcfe49efaf30b13bdfd0437ca577ffc31ed236949c4194547d360261657cf7a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/CitationValidationView.java",
+      "sha256": "857cea99f73d8d394f8fcd108ffa7cd9443a0f68684574031e530c4016e173db"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/ConflictGroupView.java",
+      "sha256": "f5edd57a4d25dfd0ebc55cab4dccb9dff572ed5c2c63de66c76bc2ba0f0529c6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/RagAnswerResponse.java",
+      "sha256": "4b79f007bc78aa004a171ac1430cc73b1a161e9a987956c849adfec713c735b7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/RagBudgetView.java",
+      "sha256": "07081e105505c54f0856d7cfe7e0d6a63c3936d725b9f4d290c4d8ee7c554c8d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/RagQuestionRequest.java",
+      "sha256": "8907c49f288daa32357222a055094f18c6a34a80fb60ab5a404eb876a25fd191"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/RagSourceView.java",
+      "sha256": "5163c0777202eb4dc51697aa6d7fed1445b1342732dccfe418835c3d1805be03"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/dto/RagTimingView.java",
+      "sha256": "281cf8149b2c4040dc423f329851119756404832270954eb8195e839414681a6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/generation/GenerationResult.java",
+      "sha256": "d7ffd60c0d4c1124f5fd8499e41b722de7c0234521bb077295deed44ba0aa840"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/generation/GenerationService.java",
+      "sha256": "de5390fdebdfd725e75650ed6f4f630972abec8a70d1f6b4ea09cac955103e94"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/model/GenerationStatus.java",
+      "sha256": "c301f2ecad4fc25817e9886e39c115fc56ffadfdde442bf9e1ea73b7cb47af97"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/model/RagErrorCode.java",
+      "sha256": "6a6759a879e017f6b992d83d7a1850a06aeaf62c014cc6643c31b494f54e43d4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/model/RetrievalStatus.java",
+      "sha256": "85acc74bb9e720667ac6675a47970aa2fef36dce8fdacc0f254aa5ce70442661"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/orchestrator/RagOrchestrator.java",
+      "sha256": "fa00d5b3aca28c32ea4aebf7c7fb4c19c9f343c62cc811694e32307cd267b7d1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/prompt/RagPromptBuilder.java",
+      "sha256": "45b4268dae0622084f24e715993502d476a00802ce2f215584024054b3892420"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/DashScopeRerankAdapter.java",
+      "sha256": "3a81ea65dab57e6f6a284f4da5633c20c0c7153da3f469f4010110da89805e74"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/LocalLexicalRerankAdapter.java",
+      "sha256": "4500e6a89ff7d5e1d1c97d786a1484b9e645ad207c40f8af370c3c17237acf3c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/NoopRerankAdapter.java",
+      "sha256": "58688ab57d25e37ec5ae95497288a23374eb2aa61a4126775ba30720215b2421"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankCandidate.java",
+      "sha256": "9c7de63ae64bd07546c96795729e938bbc4a4d362ba34705cfe94f7122fa6a8a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankConfiguration.java",
+      "sha256": "e30ac050f67ea2accfb4a901ab9c5752f782df1b6ee580dcedc011fed8bedc1d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankExceptionClassifier.java",
+      "sha256": "b18bfa25a18b606f782c4201e5ab8d003421b0c786a2870ff1f5eb917e53a7f2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankFlags.java",
+      "sha256": "f565897edd043ad31e227166c68baa144f4599fbe8019876e12c350e9a4c00bf"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankHttpStatusException.java",
+      "sha256": "d7519f17eff4c1df64c7ac2685038b1ee43616ac4e0cf5f4df9d42385e4c8ffc"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankPort.java",
+      "sha256": "417e80d219ebc8d511948b52d8260d4f520878b8ea88697df288a40aa61e17cb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankProperties.java",
+      "sha256": "5e192dbcd4199a333051d0fa170e930d69839c70dfe6f5e5c18ee40ca5af5ee6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankResult.java",
+      "sha256": "d1210407046b55494c945f617ba963a38cd86270f7a505b524c772d057c4c91c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/rerank/RerankUsage.java",
+      "sha256": "b5434c7894746b7b285e218ff5ebf1d4dc0410d04088a06a64fdbb31248e3be9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/retrieval/RagRetrievalQuery.java",
+      "sha256": "71d2f43272ef8dfe8d82405799c6cfd63f4be1eddaa0ea839423e4c626f0820a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/retrieval/RagRetrievalResult.java",
+      "sha256": "c0a2c4cc090647db9bd523e93f4cc2acd2e2e2e7bc8c8848407aa8e51e22933a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/retrieval/RagRetrievalService.java",
+      "sha256": "3454e3d73d874a1fe9ce69e3e351323f5b20bee312a46b008aa88617743f09db"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/validation/CitationValidationResult.java",
+      "sha256": "1ca15f3a622ce34c237d390006b61e16e0fee1362645374776bee96fb7d3226b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/rag/validation/ResponseValidationService.java",
+      "sha256": "717f110c2af90ac58f32261d8e26eb79816d2dcb430fabe86d9d6d92cefb7261"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelClientConfiguration.java",
+      "sha256": "30e2db2782c18fe9ffed973b1ed79eaeb65cdeeb61793ca49f0405c9dd2e2237"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelErrorCategory.java",
+      "sha256": "a33d9dd33c332e3d6688c3cde61c561d3063cc761d2090ebc2fb7ccccf30d35b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelExceptionClassifier.java",
+      "sha256": "e24eb7b96d7b7e099fa049ab431b945dbc6ebf31e3b4d00da00c7d56d55a868f"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelInvocationException.java",
+      "sha256": "f332bae315f7dce810097f39d7ae54fe0b7b6a091e96eb7400178c4f18f40b47"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelResilienceProperties.java",
+      "sha256": "70504a5565d0bfb121bed72d7caafe729cf823c03a69f1564eac3ede336c52b2"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/resilience/ModelResilienceSupport.java",
+      "sha256": "431e7a3567e4d48431991c5265a3b4141bf5d5f3db805a79138d65fb58ab1f8e"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/AiChatResult.java",
+      "sha256": "95c657c1478aec3d1e491c29fe877c7a1ff9c84d8b63b9592914821f329c57a0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/AiChatService.java",
+      "sha256": "0ec3d621ab9f75b0af195c701f7c9c61d821e6e2dcd5af08723ca472916349bf"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/ChatInvocation.java",
+      "sha256": "55f91de3de3794e7d4920af0f34adb7d01f3a8cbc04214e19faf6cc40e66f5d0"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/MockAiChatService.java",
+      "sha256": "b8a570d21b9d84f5649d32f0569152ecb6110f6e7ab540655d46af18f979b5e7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/ReasoningEffort.java",
+      "sha256": "357d81a693f8f86ac9c78fa0e2b965362611f20d5eecbd1c21ea9e5e07ebe50a"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/RemoteAiChatService.java",
+      "sha256": "7ac07a0bdc2f7c132b482bf0c1aa4756aeed77a392c12b8669c26d9ede738958"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/StreamChunk.java",
+      "sha256": "1e7340f7610f8a958411895cad19eb1c173a6d7cca3e0fc16c8ea80e21a9ab80"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/ThinkingSettings.java",
+      "sha256": "5307a35935a5f12891430ed7362e76cde447ae9e6b923a4d81eb0ba27b5d6f78"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/main/java/com/zl/d44/service/ThinkingSettingsResolver.java",
+      "sha256": "8029f8dc437520ec78e6fe7c4b2f3298323eeec87e9798bde96f29c1faedbcb4"
+    }
+  ],
+  "testFiles": [
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/frontend/front-end-safety.test.js",
+      "sha256": "25394491fefffa9cff81a6964071415262d5c3fe8f570d7b17cbf458f834fd1c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/prompt/PromptTemplateControllerGuardTest.java",
+      "sha256": "86fd842d2f9a2cabd0b169e5f300d214f1258646ad72b670144c05e18ebe9ba4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/rag/orchestrator/RagOrchestratorRerankTest.java",
+      "sha256": "0f1ad1dc69a10a948b4fc5afce12a9c21575d426e2fad648a40110e3bc6e8f90"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/rag/rerank/DashScopeRerankAdapterOfflineTest.java",
+      "sha256": "be097be535af9b6fc19ba3d573011f84d64b3c29ed64774a2b285043f24f5930"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/rag/rerank/LocalLexicalRerankAdapterTest.java",
+      "sha256": "8c6f849a744667e009ac79917fb3899ee2570f43c5e13733475670100aa6c0ff"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/rag/rerank/RerankExceptionClassifierTest.java",
+      "sha256": "2397127e4a6be8c0183777a7995f584e2f359104393aefc54e25f55212b44250"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/rag/rerank/RerankPortContractTest.java",
+      "sha256": "a0b68138d2e1f130a671705ec396d5acde45569107b4ce02c50f13da05c030eb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/service/RecoverStuckTasksScopeTest.java",
+      "sha256": "1fec3ef014e223e710350504b3a47cf584b95eb1053b23d5e84837e02086e430"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/AdminAuditServiceTest.java",
+      "sha256": "6fb0ab701386ee03ba22d22bd9c44797026892643931a0838c4c0483c156d24d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/CitationDeletedClassificationTest.java",
+      "sha256": "970dd23526dc240f502ce9d3181af415956a22cc30eea4ec306bd18fc7b9d51d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/DocumentSyncServiceAtomicClaimTest.java",
+      "sha256": "e14ae1244c57a8a75592d97b6bfe73b5d17c870e9221f74129c1911a75dc7375"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/DocumentSyncServiceStateMachineTest.java",
+      "sha256": "11ebe543df9633858988fe3880278a138de544f34ab926e400d1b75b1435d998"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/DxxSyncControllerConsistencyTest.java",
+      "sha256": "60880d3602d66f627c790550165445faae050911c4d1f95e4f32b3c7a2b5d2f9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/FaultInjectingVectorStoreTest.java",
+      "sha256": "e75dcf0a971e3a9076723bc1a57e66b2394602e7a54f90c99a4d78ec3fbf66c7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/ReconciliationReportViewDriftSummaryTest.java",
+      "sha256": "cdd568d01548258e3e3f0a6ee6a592829597c330a495888ced9894ab69b207e1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/SyncOperationAndReasonCodeTest.java",
+      "sha256": "cf000e3bb4f04bfeccbb24f1de2566eca9cd40318191ceb5655c047cc7ba0f91"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/SyncRetryRunnerPipelineTest.java",
+      "sha256": "0a4e1af6b2506e91f7157b544d6311f3f5850042b93d8613902340765449f87b"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/table/fixtures/D44TableFixtureGenerator.java",
+      "sha256": "e53b97c657f0ac7474f881553374b729d80c3763f648d411aa9644526263377c"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/table/PdfTableFixtureTruthTest.java",
+      "sha256": "4754769edcae4b1f1258c2c98c7bf30a4e02791f6bd4739cf60a53f4925c6029"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/table/TableCellTypingTest.java",
+      "sha256": "b5968a2dbbed4ded150d37b7e0832aacd92bd08cdb8537112340b6fcd16b0d2d"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/table/TableRecordRebuildTest.java",
+      "sha256": "fccfb74fa34e724b76562bc5ab6045ca29776029dd2d7e087aa595a497a019cc"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/table/TextTableExtractorTest.java",
+      "sha256": "9971dbcdeb5eacb6aa54f65bb93c49c61710849004d453de6da4c27f1ddc8dad"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/web/OneVectorIndexControllerGuardTest.java",
+      "sha256": "152b94f0f1be54f17e7018caa523f44aae69fc2edffbcc243eb3623a4a26a1d6"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/application-test.yml",
+      "sha256": "1d2e782c39ccf87291df5f8463050834baca152bc0fb62cbeca1dc09a43b0029"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-anomaly-crosspage.pdf",
+      "sha256": "50373d14a2f36a124a08afddeead1182e89cb5b00a40779aa3a055b6744d9037"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-anomaly-merged.pdf",
+      "sha256": "e723ab79fa38baaef841fb0be3aecf5a3036b2f8b5884fc1df521c97eb936be1"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-anomaly-missing.pdf",
+      "sha256": "1d85c128ed09938e4d9919773aa18f10600485329ba550afd5050c03a40529d4"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-fault-code.pdf",
+      "sha256": "98859b2f6dd54caffcafc2f7026ed78510f9c6d36416d0700882c85eddf7d5d9"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-image-table.pdf",
+      "sha256": "93fd8b4fd9ca6804201c29242ee2e65d702a01b8b63f6e84afbe43a363ae8531"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-no-table.pdf",
+      "sha256": "db247a6815f9ada178222a9308092f1e65e877f392f87decc41dc9ea5aa1c7cb"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-param-spec.pdf",
+      "sha256": "f7b8b0c4d7d074d7995083a6d7e8387ef49c148d3c9f5aac2b8365ff20991f56"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-pipe-continuation.md",
+      "sha256": "f60b7c93b92d3449de5aca9a13169a52455dc55b41341978ed2cca9b2a533ddd"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/d44-pipe-table.md",
+      "sha256": "075fb90d6597e92d712c093476e6e216b47757ebef3b4d8427f3399e1f322ca7"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/FIXTURE-SHA256.txt",
+      "sha256": "5796ce8dac9e5584370b98564842425c5a14930fe8f9a65fcd2ce7561fe79e39"
+    },
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/fixture-truth.json",
+      "sha256": "651ec18e3411d20f8de1eb076fdb43f5400c81399c54ec6210443353e18bbb94"
+    }
+  ],
+  "adjudicatedChanges": [
+    {
+      "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/FIXTURE-SHA256.txt",
+      "anchorSha": "7d99dd7fc0628e6f5f3cec5f675d95899c182813e03279d3058f27d687171550",
+      "newSha": "5796ce8dac9e5584370b98564842425c5a14930fe8f9a65fcd2ce7561fe79e39",
+      "ref": "FIX-D44-001",
+      "note": "user-authorized mechanical manifest regeneration at anchor state (stale d43- names); SHA values of all 9 physical fixtures unchanged; fixture-truth.json content diff = D43->D44 generator label only"
+    }
+  ]
+}

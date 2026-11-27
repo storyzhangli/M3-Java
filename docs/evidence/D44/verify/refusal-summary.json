@@ -1,0 +1,69 @@
+{
+  "scope": "C09 无证据拒答（在线级探针，enabled 矩阵窗；权威基线面=P2 C05）",
+  "versionNote": "v2：REFUSE 允许 evidenceCount>0（不可回答型拒绝合法，D34 语义）；R4 降级 OBS（本窗夹具面干扰）",
+  "cases": [
+    {
+      "id": "R1-offcorp-ev",
+      "q": "电动汽车冬季续航里程会衰减多少？",
+      "decision": "REFUSE",
+      "sources": 0,
+      "evidenceCount": 5,
+      "retrievedCount": 5,
+      "retrievalStatus": "SUCCESS",
+      "generationStatus": "SKIPPED_NO_EVIDENCE",
+      "errorCode": "LOW_RELEVANCE",
+      "exp": "REFUSE",
+      "verdict": "PASS",
+      "answerHead": "检索结果仅关键词相似，不能支持该问题，不包装为答案。"
+    },
+    {
+      "id": "R2-offcorp-trip",
+      "q": "重庆周边有哪些适合亲子游的旅游景点？",
+      "decision": "REFUSE",
+      "sources": 0,
+      "evidenceCount": 4,
+      "retrievedCount": 4,
+      "retrievalStatus": "SUCCESS",
+      "generationStatus": "SKIPPED_NO_EVIDENCE",
+      "errorCode": "LOW_RELEVANCE",
+      "exp": "REFUSE",
+      "verdict": "PASS",
+      "answerHead": "检索结果仅关键词相似，不能支持该问题，不包装为答案。"
+    },
+    {
+      "id": "R3-vague",
+      "q": "怎么修？",
+      "decision": "REFUSE",
+      "sources": 0,
+      "evidenceCount": 4,
+      "retrievedCount": 4,
+      "retrievalStatus": "SUCCESS",
+      "generationStatus": "SKIPPED_NO_EVIDENCE",
+      "errorCode": "LOW_RELEVANCE",
+      "exp": "CLARIFY,REFUSE",
+      "verdict": "PASS",
+      "answerHead": "检索结果仅关键词相似，不能支持该问题，不包装为答案。"
+    },
+    {
+      "id": "R4-onguard-OBS",
+      "q": "主轴温度超过上限应该先检查哪些部位？",
+      "decision": "REFUSE",
+      "sources": 0,
+      "evidenceCount": 5,
+      "retrievedCount": 5,
+      "retrievalStatus": "SUCCESS",
+      "generationStatus": "SKIPPED_NO_EVIDENCE",
+      "errorCode": "LOW_RELEVANCE",
+      "exp": "OBS",
+      "verdict": "OBSERVATION",
+      "answerHead": "检索结果仅关键词相似，不能支持该问题，不包装为答案。"
+    }
+  ],
+  "fail": 0,
+  "verdict": "ALL-PASS(3 hard cells)",
+  "boundary": {
+    "modelLevelFaultInjection": "NOT RUN（需 FAULT_INJECTION_ENABLED 专用实例；重启预算 2/6 纪律）；由 FaultInjecting 单测覆盖（110/110 聚合含）",
+    "realLlmChannel": "NOT RUN（实例无 DASHSCOPE_API_KEY，KP1 冻结）；REFUSE 为生成前短路，零模型调用断言=决策分支+无外呼配置实证",
+    "answerContrast": "ANSWER 对照移 P2：C05 重跑 disabled 干净实例 20 题（含 D37 拒答标签 17/10/2 分布对照）"
+  }
+}

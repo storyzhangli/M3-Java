@@ -1,0 +1,54 @@
+{
+  "gate": "KP4",
+  "name": "D44-RAG-defense-protocol",
+  "frozenAt": "2026-11-27T17:25:00+08:00",
+  "note": "先于执行冻结；执行期不得回改（D-EX 纪律）；本轮为答辩迭代，H1 冻结红线优先",
+  "freezeAnchor": {
+    "commit": "498d48f",
+    "manifest": "docs/evidence/D44/freeze-manifest.json",
+    "scope": "src/main 352 Java + src/test 35 文件",
+    "adjudicatedChanges": [
+      { "file": "D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/FIXTURE-SHA256.txt", "ref": "FIX-D44-001", "approved": "user 2026-11-27 会话内裁决（选项=授权机械修正清单后继续）", "driftClass": "test-asset-correction-not-src" }
+    ],
+    "finalVerify": "drift(src/main)=0 强制；adjudicated 文件单列不算违例"
+  },
+  "capabilities": {
+    "C1_citation_truth": {
+      "layers": {
+        "service": "CitationVerificationService 受控输入：真实 chunkId→PASS / 伪造→FABRICATED_CITATION / 已删→CITATION_TARGET_DELETED",
+        "online": "mock ask citations=0 不误放行 + 响应契约字段齐全",
+        "data": "引用 chunkId 与 document_chunk_index / PG d44_vector_store 行存在性 JDBC 对账"
+      },
+      "boundary": "mock 态 sources 恒空（D43 C12）→ 模型级引用真实 NOT RUN；禁止以结构断言宣称端到端验证"
+    },
+    "C2_deletion_sync": {
+      "checks": ["删除闭环四步（标记→清向量→清关联→双端确认）", "UPDATE_CLEANUP 旧版清理", "TABLE_ORPHAN 对账", "重复删除事件幂等", "FIX-004 回归（同版本就地覆盖重建 COUNT 一致）"],
+      "guard": "d44_document_sync T0 快照→delta 差值口径"
+    },
+    "C3_access_filter": {
+      "checks": ["主矩阵 285 格复跑 LEAK=0", "one_ 臂 50 格（hybrid env 注入 D44 新锚）", "PromptTemplate 4 写面 guard 回归", "OneVectorIndex 3 写面 guard 回归", "A6 过期 token 注入补口", "审计 DENIED/ALLOWED T0→delta", "disabled 态零差异"],
+      "denyCode": 4030
+    },
+    "C4_refusal": {
+      "checks": ["无证据题→NO_EVIDENCE 拒答", "FaultInjecting 检索失败→FAILED 决策码", "澄清题→CLARIFY 语义"],
+      "assert": "决策码正确 + 零模型调用（mock 计数）+ D37 labels 分布一致（HIGH_NOISE 17 / FALSE_NEG 10 / 第三族 2）"
+    }
+  },
+  "evalDiscipline": {
+    "instance": "disabled 干净实例（ACCESS_ENABLED 等开关全清，d44_instance.ps1 baseline 态）",
+    "staggering": "seeding(DELETE) 与评测错峰；先 activate 核实（kp2-seed-activate.json 全 ACTIVE）再起跑",
+    "runDir": "按 runExit 时序锚定（D-EX10）",
+    "pipeline": "禁 Select -First 截管道",
+    "baselineDiff": "D43 run-1810 对端，质量列 diff=0，豁免列 {timing, recordedAt}",
+    "restartBudget": { "cap": 6, "used": 1, "log": "每次重启登记原因于 restart-log.txt" }
+  },
+  "demo": {
+    "script": "docs/temp_docs/D44/d44_demo.ps1",
+    "steps": ["登记→导入（PDF 故障码表）→索引→问答（有证据）→无证据拒答→表格抽取→删除→对账归零"],
+    "constraint": "mock 零远程；夹具 d44-demo-* 前缀；输出落 evidence/D44/demo/"
+  },
+  "milestoneAcceptance": "演进全景 19 代 commit+证据索引（kp3-iteration-index.txt）+能力矩阵四行+C12 边界+成本汇总，每项附证据路径",
+  "backlogSchema": ["id", "title", "domain", "priority(P0-P2)", "authorizationRequired(bool)", "expectedImpact", "evidenceRef"],
+  "zeroRemote": { "deepseek": 0, "bailian": 0, "remoteRerank": 0, "proof": "AI_MODE=mock + 开关默认态 + 计数" },
+  "hybridAnchorEnv": "HYBRID_EXPECTED_FINGERPRINT=<D44 KP2 ID 新锚 de8d2f0c…>（yml 默认 10fc69d5 不改）"
+}

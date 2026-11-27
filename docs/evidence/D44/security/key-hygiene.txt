@@ -1,0 +1,11 @@
+D44 密钥卫生终核 2026-11-27T18:12:21
+principals.local.json tracked=False (False=未入库 PASS)
+check-ignore: .gitignore:40:/docs/temp_docs/	docs/temp_docs/D44/auth/principals.local.json (exit=0)
+HARDCODED_SECRET_HITS=0
+ENV_REF PG_VECTOR_PASSWORD: True
+ENV_REF MYSQL_PASSWORD: True
+ENV_REF DASHSCOPE_API_KEY: True
+ENV_REF DEEPSEEK_API_KEY: False
+EVIDENCE_BEARER_PLAINTEXT=0
+
+勘误补记: deepseek 通道密钥名=AI_API_KEY(L61 env 注入, 非 DEEPSEEK_API_KEY 字面量)——四链全 env PASS

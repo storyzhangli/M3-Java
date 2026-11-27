@@ -1,0 +1,38 @@
+Java HotSpot(TM) 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+18:14:32.848 [main] INFO com.zl.d44.prompt.PromptTemplateController -- �յ�ģ�崴������templateId=d44-guard-pt
+18:14:32.920 [main] INFO com.zl.d44.prompt.PromptTemplateController -- �յ�ģ�崴������templateId=d44-guard-pt
+18:14:33.244 [main] WARN com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG �ܿط��أ�����ʧ�ܣ�δִ������
+18:14:33.312 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank �����: adapter=local, output=2, flags=[REORDERED], estimatedTokens=5
+18:14:33.314 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank order �۲�: orderedChunkIds=B,A
+18:14:33.335 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+18:14:33.355 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+18:14:33.372 [main] ERROR com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank ��δԤ���쳣���� fail-open ����ԭ���쳣����: IllegalStateException
+18:14:33.374 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG ���̽���: evidence=2, valid=2, generation=SUCCESS
+18:14:33.988 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) δע�� DASHSCOPE_API_KEY��fail-open ����ԭ��
+18:14:33.997 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) Ԥ��ñ���� calls=0 measuredTokens=0 costMicroCny=0������ԭ��
+18:14:34.014 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) ������� token=14 ������=1��Ԥ�����ԭ��
+18:14:35.206 [main] WARN com.zl.d44.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=DOC-SERVO-TROUBLE-002 prefix=d44-
+18:14:35.206 [main] WARN com.zl.d44.document.vectorindex.service.DocumentVectorIndexService -- ��Χ�⿨ס�б����������������أ� documentId=d32eval-doc-x prefix=d44-
+18:14:35.603 [main] INFO com.zl.d44.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope= issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+18:14:35.613 [main] INFO com.zl.d44.document.vectorindex.service.VectorReconciliationService -- �˶���� dryRun=false scope=d44- issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+18:14:35.730 [main] ERROR com.zl.d44.document.sync.service.AdminAuditService -- ���д��ʧ�� action=a result=DENIED type=RuntimeException
+18:14:35.757 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=1, removed=0
+18:14:35.764 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.771 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.779 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.784 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.800 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=3, valid=1, removed=2
+18:14:35.807 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.816 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.824 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=1, removed=0
+18:14:35.831 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- ����Ȩ���������: total=1, valid=0, removed=1
+18:14:35.896 [main] WARN com.zl.d44.document.sync.service.DocumentSyncService -- sync FAILED documentId=d44-doc-a operation=DELETE version=0 attempt=2 reason=PG_UNREACHABLE
+18:14:35.901 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-a operation=DELETE version=0 payloadHash=hash1
+18:14:35.905 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-a operation=DELETE version=0 payloadHash=hash1
+18:14:35.910 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-up operation=UPDATE_CLEANUP version=1 payloadHash=hash2
+18:14:35.917 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync SYNCED documentId=d44-doc-a operation=DELETE version=0
+18:14:35.921 [main] WARN com.zl.d44.document.sync.service.DocumentSyncService -- sync FAILED documentId=d44-doc-a operation=DELETE version=0 attempt=3 reason=RETRY_EXHAUSTED
+18:14:36.122 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #2
+18:14:36.135 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at delete(List) call #1
+18:14:36.139 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #3
+18:14:37.518 [main] WARN com.zl.d44.document.table.service.TableRecordService -- �ؽ���������Ŀ��ӳ��ȱʧ�����ð������� table=30 oldContinuationOf=999

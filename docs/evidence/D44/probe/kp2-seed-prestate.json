@@ -1,0 +1,164 @@
+{
+  "DOC-CNC-COOLING-001": {
+    "chunks": [
+      {
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "2acc1c17-6750-595a-b604-086a7b4b2e78",
+        "chunkIndex": 0,
+        "chunkContentHash": "bf8b700e79265a630edb1c2fa685f0b0adf04c423753c0ad9a4dce74cec4f490",
+        "charLength": 69,
+        "globalStart": 0,
+        "globalEnd": 69,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "d965785a-a83d-5a78-8fc9-61f155dadb5e",
+        "chunkIndex": 1,
+        "chunkContentHash": "74f239999cc55e835d6e64089d6a0b94d41ed2f589459b71c2f7c0d04a9b58b4",
+        "charLength": 72,
+        "globalStart": 0,
+        "globalEnd": 72,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "02bf2711-996e-562e-9f30-f46d5b1a4af3",
+        "chunkIndex": 2,
+        "chunkContentHash": "8066c4246dec333ba751da6322cd14385d5b157341cf69b8210396845acee2be",
+        "charLength": 60,
+        "globalStart": 0,
+        "globalEnd": 60,
+        "status": "INDEXED"
+      }
+    ],
+    "status": [
+      {
+        "id": 210,
+        "documentId": "DOC-CNC-COOLING-001",
+        "version": 1,
+        "contentHash": "ed0b2fdea9cdcdaf264e320472e1ab005dadbf9b372b04968cc089b6f3b2fdb0",
+        "strategy": "STRUCTURE",
+        "chunkCount": 3,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-27T17:11:57",
+        "updatedAt": "2026-11-27T17:11:57"
+      }
+    ]
+  },
+  "DOC-SERVO-TROUBLE-002": {
+    "chunks": [
+      {
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "ac702cf9-2ebc-5acf-befe-1133862c8785",
+        "chunkIndex": 0,
+        "chunkContentHash": "cf5632e0c1fa11d922a051eb510f6a5caf598e59734780c5d6b7b5cd1ff66788",
+        "charLength": 59,
+        "globalStart": 0,
+        "globalEnd": 59,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "3e71f41b-9063-5d2c-b2b9-8ef2de6b5813",
+        "chunkIndex": 1,
+        "chunkContentHash": "9cbc235a94feae0dcfc6d9c72c8715d6e5a5538ef5d34980889dba5c09b37765",
+        "charLength": 62,
+        "globalStart": 0,
+        "globalEnd": 62,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "7665721a-de0f-5845-9c6a-03335cca7f1a",
+        "chunkIndex": 2,
+        "chunkContentHash": "ea9c2f814b6836f731cd18571e7894a9fee3c5699aa17194220aa560243411d2",
+        "charLength": 79,
+        "globalStart": 0,
+        "globalEnd": 79,
+        "status": "INDEXED"
+      }
+    ],
+    "status": [
+      {
+        "id": 211,
+        "documentId": "DOC-SERVO-TROUBLE-002",
+        "version": 1,
+        "contentHash": "0096cddbbbeb247d528419ce5d8b8305bcd623a604f98e1d615da9402e0598ff",
+        "strategy": "STRUCTURE",
+        "chunkCount": 3,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-27T17:11:57",
+        "updatedAt": "2026-11-27T17:11:57"
+      }
+    ]
+  },
+  "DOC-WORKORDER-SPEC-003": {
+    "chunks": [
+      {
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "1e2c4831-fc82-5afd-bf34-feefe5812405",
+        "chunkIndex": 0,
+        "chunkContentHash": "eb75f6e6fe6fe8fbde524f4816771c36bc671f0af38c9028898ab7580b279020",
+        "charLength": 67,
+        "globalStart": 0,
+        "globalEnd": 67,
+        "status": "INDEXED"
+      },
+      {
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "strategy": "STRUCTURE",
+        "chunkId": "6d463e44-ca4f-5ebf-8054-c915e3ff1590",
+        "chunkIndex": 1,
+        "chunkContentHash": "a4e5b344eaf01817acf512ad2ea28900fb3d29673005a71ffc3a81512ba593df",
+        "charLength": 60,
+        "globalStart": 0,
+        "globalEnd": 60,
+        "status": "INDEXED"
+      }
+    ],
+    "status": [
+      {
+        "id": 212,
+        "documentId": "DOC-WORKORDER-SPEC-003",
+        "version": 1,
+        "contentHash": "1c500bb56fd49e23127eec3176c9613dd52eb1a6e626ac26461234e475401a8b",
+        "strategy": "STRUCTURE",
+        "chunkCount": 2,
+        "status": "COMPLETED",
+        "stage": "CLEANUP",
+        "errorCode": "",
+        "errorMessage": "",
+        "attemptCount": 1,
+        "nextRetryAt": null,
+        "createdAt": "2026-11-27T17:11:57",
+        "updatedAt": "2026-11-27T17:11:57"
+      }
+    ]
+  }
+}

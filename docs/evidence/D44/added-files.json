@@ -1,0 +1,60 @@
+{
+  "registeredAt": "2026-11-27T17:22:33",
+  "note": "H1：新增文件不在 freeze-manifest 内，逐一登记（不改既有）",
+  "files": [
+    {
+      "kind": "observational-unit-test",
+      "case": "C06",
+      "file": "D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/CitationTruthDefenseTest.java"
+    },
+    {
+      "kind": "seeding-script",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/d44_index-corpus.ps1"
+    },
+    {
+      "kind": "instance-script",
+      "case": "P0",
+      "file": "docs/temp_docs/D44/d44_instance.ps1"
+    },
+    {
+      "kind": "ddl",
+      "case": "C04",
+      "file": "docs/temp_docs/D44/ddl/d44_schema.sql"
+    },
+    {
+      "kind": "ddl-harness",
+      "case": "C04",
+      "file": "docs/temp_docs/D44/ddl/tools/D44DdlSeed.java"
+    },
+    {
+      "kind": "pg-tool",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/tools/D44QK.java"
+    },
+    {
+      "kind": "anchor-tool",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/tools/D44VectorProbe.java"
+    },
+    {
+      "kind": "activate-tool",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/tools/D44ActivateCheck.java"
+    },
+    {
+      "kind": "activate-tool",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/tools/D44ActivateFix.java"
+    },
+    {
+      "kind": "snapshot-tool",
+      "case": "KP2",
+      "file": "docs/temp_docs/D44/tools/QAll.java"
+    }
+  ],
+  "lateNotes": [
+    "CitationTruthDefenseTest-run: 单类 5/5 绿（mvn -Dtest 轮），并入终态全量口径=110+5=115 目标（P4 定）",
+    "prep 迁移修正 3 项记 OBS-D44-X2；DEVIATION FABRICATED_CITATION 不存在于代码（实际 TARGET_DELETED/OWNERSHIP_MISMATCH/EVIDENCE_NOT_EFFECTIVE 三码）以代码为准"
+  ]
+}

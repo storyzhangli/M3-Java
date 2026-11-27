@@ -1,0 +1,48 @@
+{
+  "scope": "C08 权限矩阵 D44 复跑（335 格）+ A6 过期探针",
+  "freezeAnchor": "498d48f",
+  "instance": "enabled+ONE(重启#2)",
+  "rounds": [
+    {
+      "args": "-Round post",
+      "result": "285 cells, 44 MM(假阳性: one_臂BEAN_ABSENT预期 vs live)+LEAK0",
+      "n": 1,
+      "note": "实例起时带-One，须-OneLive口径"
+    },
+    {
+      "args": "-Round post -OneLive",
+      "result": "285 cells, 3 MM(首跑资产名冲突 E00/E51/E54)+LEAK0",
+      "n": 2,
+      "note": "TID-LIVE=5/SIDA-LIVE 生效"
+    },
+    {
+      "args": "-Round post -OneLive stamp=800301",
+      "result": "285 cells MISMATCH=0 LEAK=0",
+      "n": 3,
+      "final": true
+    },
+    {
+      "args": "-Round post -ArmO -OneLive",
+      "result": "one_臂 50 cells MISMATCH=0 LEAK=0",
+      "n": 4,
+      "final": true
+    }
+  ],
+  "totalCells": 335,
+  "mismatch": 0,
+  "leak": 0,
+  "disabledSweep": "prep 段6：12 代表×2 身份+G2 写面=25 项全零门禁(非4030)",
+  "a6Expired": "7/7 PASS：expiredUser 读写检索RAG+one+sync 面全4030；admin 对照非4030；文案统一不泄露差异",
+  "auditTrail": "d44_admin_audit 146→233（矩阵轮+探针，含过期拒绝留痕）",
+  "guardUnit": "D43 FIX-002/003 守卫单测类含于 110/110 聚合(compile-test2-agg.txt)",
+  "files": [
+    "matrix-results-post.json",
+    "matrix-results-post-armo.json",
+    "expired-probe.json",
+    "matrix-disabled-12.json",
+    "matrix-post-onelive-console.txt",
+    "matrix-post-armo-console.txt",
+    "auth-seed.txt"
+  ],
+  "verdict": "C08-CLOSED"
+}

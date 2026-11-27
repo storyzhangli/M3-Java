@@ -1,0 +1,27 @@
+{
+  "gate": "KP2",
+  "at": "2026-11-27T17:20:39",
+  "idAnchor": "de8d2f0c6236493725458dad98042a445731a8e77a9a12c5b7568f3d72316103",
+  "contentAnchor": "c377bb2f62d7b71b4dfa3f87d47722b7bcdc989aaf4b218c607f8e7a9b6d64fb",
+  "contentAnchorIdentity": "EQUAL vs D43/D37 V2 baseline (恒等实证, 跨代不变)",
+  "pgRows": 8,
+  "pgTable": "d44_vector_store",
+  "onePgTable": "one_d44_vector_store(ABSENT, one_默认关)",
+  "seedingDocs": [
+    "DOC-CNC-COOLING-001",
+    "DOC-SERVO-TROUBLE-002",
+    "DOC-WORKORDER-SPEC-003"
+  ],
+  "activate": "显式回写 rows=3 (OBS-D44-X1: 无自愈路径, D43叙事更正)",
+  "syncRows": "3 (DELETE tombstone SYNCED 留痕, 正当产物)",
+  "legacyFrozen": {
+    "note": "D41-* 15行零触碰",
+    "chunk_orphan": 24,
+    "chunk_index": 32,
+    "knowledge_document": 18,
+    "vector_index": 7
+  },
+  "ddl": "5表幂等 run2/run3 双跑零变化 (ddl-run2/3.txt)",
+  "externalNoise": "18080 DEAD (OBS-D43-X1 自消, 复核 baseline-recheck.txt)",
+  "restartBudgetUsed": 1
+}

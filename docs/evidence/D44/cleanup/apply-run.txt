@@ -1,0 +1,15 @@
+MODE=APPLY
+PG d44_vector_store matrix-rows=8 total=16
+PG one_d44_vector_store matrix-rows=0 total=0
+MY knowledge_document matrix-rows=6
+MY document_chunk_index matrix-rows=5
+MY document_vector_index matrix-rows=1
+MY one_document_chunk_index matrix-rows=0
+MY one_document_vector_index matrix-rows=1
+MY d44_document_sync matrix-rows=4
+MY d44_table_extract matrix-rows=2 d44_table_row rows=6
+MY prompt_template matrix-rows=5
+MY chat_session matrix-rows=6
+DELETED pg=8 mysql=48
+POST d44_vector_store rows=8 one_d44 rows=0
+DONE

@@ -1,0 +1,9 @@
+{
+  "scope": "C17 D41 R03 表格逐格恒等复验（P4 指针件）",
+  "verdict": "IDENTITY-PASS",
+  "values": { "total": 225, "aligned": 195, "unaligned": 30, "wrongValue": 0, "missing": 0 },
+  "baseline": "D41 R03 = 195/30/0/0",
+  "method": "d41_r03_cell_diff.ps1 纯文件比对工具直接复用（零实例依赖），本轮输出=c17-cell-diff-rerun.json",
+  "primaryEvidence": "docs/evidence/D44/evaluation/c17-cell-diff-rerun.json",
+  "note": "30 unaligned 为 D41 已知解析极限（勘误口径 O15），wrong_value=0 不回退"
+}

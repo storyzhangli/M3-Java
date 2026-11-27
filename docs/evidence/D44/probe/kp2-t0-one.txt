@@ -1,0 +1,12 @@
+Exception in thread "main" org.postgresql.util.PSQLException: ERROR: relation "one_d44_vector_store" does not exist
+  λ�ã�53
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2904)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2589)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:431)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:534)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:437)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:359)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:344)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:320)
+	at org.postgresql.jdbc.PgStatement.executeQuery(PgStatement.java:270)
+	at D44QK.main(D44QK.java:12)

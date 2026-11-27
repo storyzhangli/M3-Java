@@ -1,0 +1,59 @@
+{
+  "scope": "A6 expired token 独立探针（第5 principal，335 格矩阵外补充，任务书 H7）",
+  "principal": "expiredUser(expires_at=2020-01-01)",
+  "cases": [
+    {
+      "id": "X1-read-docs",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X2-write-reg",
+      "expired": "4030",
+      "adminless": "5000",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X3-search",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X4-rag-ask",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X5-one-model",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X6-prompt-list",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    },
+    {
+      "id": "X7-sync-status",
+      "expired": "4030",
+      "adminless": "200",
+      "expMsg": "认证缺失、无效或已过期，请携带有效 Bearer 凭据重试",
+      "verdict": "PASS"
+    }
+  ],
+  "fail": 0,
+  "verdict": "ALL-PASS",
+  "auditAfter": "AUDIT count=233 maxId=233",
+  "note": "对照判据=同端点 ADMIN token 非4030（排除服务故障假绿；sync 域 ADMIN-only 故对照统一用 adminT1）；X2 若被 4030 拦截则无资产落库，无需清理"
+}

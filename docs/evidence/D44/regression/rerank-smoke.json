@@ -1,0 +1,12 @@
+{
+  "scope": "C18 rerank 保留态（声明件）",
+  "verdict": "PASS(默认关口径) / opt-in 在线臂 NOT RUN",
+  "requiredByTaskbook": "L52 D10 原文=仅『rerank 默认关零差异』（无在线 opt-in 字样，已裁决）",
+  "evidence": {
+    "defaultOff": "application.yml enabled=false + RerankProperties 源码 L22/L25 strategy=noop",
+    "zeroDiff": "C05 baseline.csv 21 行全列 diff=0（evaluation/run-2026-11-27T175423…）——rerank 挂点在默认配置下对输出零影响的行为级证明",
+    "unit": "rerank 5 测试类含于 110/110→115 全绿",
+    "remoteArms": "NOT RUN（远程/真实模型臂须授权=O3/O4，禁冒充）"
+  },
+  "note": "在线 opt-in 冒烟归优化清单 O4（hybrid+rerank 组合臂一并做）"
+}

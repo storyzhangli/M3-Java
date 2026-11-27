@@ -1,0 +1,50 @@
+[
+  {
+    "id": "D-01",
+    "name": "register 夹具",
+    "pass": true,
+    "detail": "code=200"
+  },
+  {
+    "id": "D-02",
+    "name": "v1 入库 2 片段",
+    "pass": true,
+    "detail": "code=200 pg=8->10"
+  },
+  {
+    "id": "D-03",
+    "name": "v2 升版→旧版清理",
+    "pass": true,
+    "detail": "code=200 pg=10->9(期望 9) UPDATE_CLEANUP 行=1 状态=SYNCED"
+  },
+  {
+    "id": "D-04",
+    "name": "FIX-004 同版本覆盖重建不再 COUNT_MISMATCH",
+    "pass": true,
+    "detail": "code=200 pg 不变=True doc 域 countMismatches=0 [证据 citation 文件同区 reconcile-fixture={\"dryRun\":true,\"pgTotalRows\":9,\"orphanVectors\":[],\"missingVectors\":[{\"key\":\"b6173403-18d9-57e1-ae2e-ae9637b7a269\",\"documentId\":\"d32eval-air\",\"version\":1,\"detail]"
+  },
+  {
+    "id": "D-05",
+    "name": "删除闭环双端确认",
+    "pass": true,
+    "detail": "removed=1 pg 归零=True chunks=0 DELETE-SYNCED 行=1"
+  },
+  {
+    "id": "D-06",
+    "name": "重复删除幂等（无新行/无异常/pg 不变）",
+    "pass": true,
+    "detail": "code=200 removed=0 pg 不变=True DELETE 行数 1->1"
+  },
+  {
+    "id": "D-07",
+    "name": "TABLE_ORPHAN 对账（夹具删后无悬挂表记录）",
+    "pass": true,
+    "detail": "code=200 tableOrphans 总数=0 夹具域=0 scopePrefix=d44- driftSummary={\"driftMetaOnly\":24,\"driftVectorOnly\":0,\"driftStaleVersion\":0,\"driftVersionMismatch\":0,\"driftSyncStuck\":0,\"driftTableOrphan\":0,\"countMismatch\":4,\"stuckTask\":0,\"total\":28}"
+  },
+  {
+    "id": "D-08",
+    "name": "sync 计数差值口径",
+    "pass": true,
+    "detail": "T0=3 T1=5 delta=2（本轮夹具 DELETE+UPDATE_CLEANUP 正当增量）"
+  }
+]

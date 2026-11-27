@@ -1,0 +1,60 @@
+029f9c8 D30 费曼口述
+0652b25 D38 项目迭代R01 阿里百炼Embedding双轨接入（one_隔离）
+0997c5e D34 项目迭代：真实DeepSeek调用，全量回归测试
+0b4bdc3 D27 项目迭代任务书
+0cce523 D32 项目基础骨架-D32_SSATK pom.xml
+0f461a0 D32 知识笔记
+1051afd D40 知识笔记
+13886f4 D38 知识笔记
+1c975db D35 项目基础骨架
+1ca6634 D39 项目迭代R01 知识权限与元数据过滤
+2033339 D34 项目迭代整改
+23c8a96 D30 项目整改 环境基线统一本地 Embedding 384 维
+250743e D27 知识笔记
+254b316 D42 知识笔记
+26c927b D43 知识笔记
+27ab844 D37 项目基础骨架
+27ba89b fix(D41): R03 table parsing remediation T1-T5 (header-anchored columns, interval mapping, fragment merge, sticky-cell split) with regression tests, 225-cell audit 195/30/0/0 and online mock rerun 11/11
+2a18d78 D26 项目迭代
+2d7498a D33 项目迭代任务书
+2f2af95 D40 项目迭代R01 文档更新删除与一致性修复
+2f491b4 D37 费曼口述
+317b805 D39 项目迭代R01 状态文件补记交付 commit 1ca6634
+3736043 D36 检索参数对照实验：三段计时+txt页表修复，冻结数据集与9组真实pgvector实验证据，双技术文档
+3947830 D39 知识笔记
+3a78c84 D29 项目基础骨架
+3afa58b D37-R01: RAG评测脚本与基线（评测器+20问冻结数据集v1.0+双后端只读基线+可测性边界+标签规则+双文档与状态文件）
+3bf4545 D32 one two three 三项目统一 Postgres账户的密码坏境变量
+3eb9ffb D35 修复项目说明,最终由豆包Pro迭代完成
+40a96a8 D30 知识笔记
+429b3d0 D31 项目基础骨架
+459e6a3 D41 项目基础骨架
+474f55b D29 项目迭代
+4850571 D33 项目基础骨架
+498d48f D44 项目基础骨架
+4b53886 D31 知识笔记
+4bb9e2e D28 知识笔记
+4cb33bd D36 知识笔记
+4d622ec D33 知识笔记
+4dfa417 D25 项目迭代： 1.定义 KnowledgeDocument、Chunk 元数据和 RAG 模块边界； 2.设计 20 条起步问题集，含有答案/无答案/权限/故障码；固定问题与期望证据
+504ffee D42 项目迭代R01 Rerank价值评估
+520c26c D27 项目迭代
+532a063 D32 项目迭代
+538d900 D25 当日交付物： RAG 架构图、API 清单、数据模型初稿、questions.jsonl v1
+55c722e D26 项目基础骨架
+6317a59 D30 项目迭代
+65c01e3 D31 项目迭代
+68749c0 D34 费曼口述
+6c16bbe D38 项目 evidence>D38>hybrid>probe
+6e38404 D34 项目基础骨架
+71f64fe D34 费曼口述，整改
+77713cb D25 新增 AI处理多种类型文本的依赖工具
+7ad6028 D34 知识笔记
+7d48694 D30 项目基础骨架
+7ebbabb D34 项目迭代：基于证据回答与无证据拒答
+7fecbde D36 项目基础骨架
+7ff7de8 D27 本地测试PDF素材
+829d7c5 docs(D41): add R02 catch-up state file and D41-01/02 technical docs (deliverable gap closure per remediation taskbook 3.3)
+8804bbd D33 项目迭代
+8937b2a D31 费曼口述;
+8c77070 D37 项目迭代R02 提交评测器源码与脚本

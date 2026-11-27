@@ -1,0 +1,47 @@
+FIXTURE-REMAINING 终核 2026-11-27T18:10:38
+### SELECT CONCAT('doc_d44prefix=',COUNT(*)) r FROM knowledge_document WHERE document_id LIKE 'd44-%'
+doc_d44prefix=0 | 
+### SELECT CONCAT('doc_total=',COUNT(*)) r FROM knowledge_document
+doc_total=18 | 
+### SELECT CONCAT('doc_active_corpus=',COUNT(*)) r FROM knowledge_document WHERE lifecycle_status='ACTIVE'
+doc_active_corpus=4 | 
+### SELECT CONCAT('sync_matrix=',COUNT(*)) r FROM d44_document_sync WHERE document_id LIKE 'd44-%'
+sync_matrix=0 | 
+### SELECT CONCAT('sync_total=',COUNT(*)) r FROM d44_document_sync
+sync_total=3 | 
+### SELECT CONCAT('tbl_extract=',COUNT(*)) r FROM d44_table_extract
+tbl_extract=0 | 
+### SELECT CONCAT('tbl_row=',COUNT(*)) r FROM d44_table_row
+tbl_row=0 | 
+### SELECT CONCAT('pt_d44e2e=',COUNT(*)) r FROM prompt_template WHERE template_id LIKE 'd44e2e%' OR scene LIKE 'd44%'
+pt_d44e2e=0 | 
+### SELECT CONCAT('chat_mx=',COUNT(*)) r FROM chat_session WHERE session_id LIKE '%d44%' OR title LIKE '%MX%'
+chat_mx=142 | 
+### SELECT CONCAT('principal=',COUNT(*)) r FROM d44_auth_principal
+principal=5 | 
+### SELECT CONCAT('audit_total=',COUNT(*)) r FROM d44_admin_audit
+audit_total=233 | 
+### SELECT 'pg_d44='||COUNT(*) FROM d44_vector_store
+pg_d44=8 | 
+### SELECT 'pg_demo='||COUNT(*) FROM d44_vector_store WHERE metadata->>'documentId' LIKE 'd44-%'
+pg_demo=0 | 
+### SELECT 'one_d44='||COUNT(*) FROM one_d44_vector_store
+one_d44=0 | 
+--- git drift vs 冻结业务面 ---
+BIZ_DIRTY=0
+TEST_DIRTY=2
+ M D44/D44_RAG_PDAM/src/test/resources/d44-table-fixtures/FIXTURE-SHA256.txt
+?? D44/D44_RAG_PDAM/src/test/java/com/zl/d44/sync/CitationTruthDefenseTest.java
+TOTAL_STATUS_LINES=3
+
+
+--- 补正终清（P4 窗口）chat stamp800301 域 ---
+### DELETE FROM chat_message WHERE session_id IN (SELECT session_id FROM chat_session WHERE title LIKE '%800301%')
+UPDATED=24
+### DELETE FROM chat_session WHERE title LIKE '%800301%'
+UPDATED=12
+### SELECT CONCAT('remain_800301=',COUNT(*)) n FROM chat_session WHERE title LIKE '%800301%'
+remain_800301=0 | 
+### SELECT CONCAT('total_after=',COUNT(*)) n FROM chat_session
+total_after=2530 | 
+裁决: 本轮矩阵轮3自动建会话 12+消息已删; 其余 MX 域=前代遗留(H6 不删, KEY_FACTS'MX域0'口径不实已勘误); sid-like d44=uuid hex 假阳性谓词弃用

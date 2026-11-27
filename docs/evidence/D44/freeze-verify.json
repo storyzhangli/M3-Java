@@ -1,0 +1,13 @@
+{
+  "scope": "C03 终态冻结复验（P4 窗口）",
+  "verifiedAt": "2026-11-27T18:14:46",
+  "anchor": "498d48f",
+  "manifestMain": 352,
+  "manifestTest": 35,
+  "checked": 387,
+  "missing": 0,
+  "driftCount": 0,
+  "drift": [],
+  "note": "testFiles 35 含 FIXTURE-SHA256.txt=adjudicatedChanges[FIX-D44-001] 修正后哈希（KP1 写 manifest 于裁决后，应 drift=0）",
+  "verdict": "DRIFT=0 PASS"
+}

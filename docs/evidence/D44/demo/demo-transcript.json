@@ -1,0 +1,64 @@
+{
+  "scope": "D44 RAG 端到端可复现演示（答辩四件套）",
+  "executedAt": "2026-11-27T18:05:04",
+  "steps": [
+    {
+      "id": "S1",
+      "name": "服务健康+文档面",
+      "verdict": "PASS",
+      "detail": "health=200 documents=18（语料3+D41遗留15，矩阵夹具已清零）"
+    },
+    {
+      "id": "S2",
+      "name": "向量检索 Top-5 命中",
+      "verdict": "PASS",
+      "detail": "matches=5 docs=[DOC-CNC-COOLING-001,DOC-SERVO-TROUBLE-002,DOC-WORKORDER-SPEC-003] top1score="
+    },
+    {
+      "id": "S3",
+      "name": "有据问题 ask 决策链",
+      "verdict": "PASS",
+      "detail": "decision=REFUSE retrieved=5 evidence=5（mock 生成面 decision 非 ANSWER=已知边界 D43-C12，检索/证据链真实）"
+    },
+    {
+      "id": "S4",
+      "name": "无据问题拒答",
+      "verdict": "PASS",
+      "detail": "decision=REFUSE sources=0 无[S]标记 文案=检索结果仅关键词相似，不能支持该问题，不包装为答…"
+    },
+    {
+      "id": "S5",
+      "name": "表格域前后代隔离（只读）",
+      "verdict": "PASS",
+      "detail": "D41 遗留 doc 在 D44 表域视图=0（隔离正确）；D41 逐格能力对端=195/30/0/0 复验(c17-cell-diff-rerun.json)；表格写面并入 S8 演示链"
+    },
+    {
+      "id": "S6",
+      "name": "向量一致性对账（dryRun）",
+      "verdict": "PASS",
+      "detail": "pgTotal=8 orphan= missing=                        syncStuck= tableOrphans= countMismatch=   （d32eval 前代既有 noise 见 driftSummary，夹具域零悬挂）"
+    },
+    {
+      "id": "S7",
+      "name": "文档同步状态读面",
+      "verdict": "PASS",
+      "detail": "sync 记录=3（D44 清理后残留行=操作历史留档；PENDING 挂起=0）"
+    },
+    {
+      "id": "S8",
+      "name": "写面全链路闭环(注册→导入→index→检索→表格→删除→零残留)",
+      "verdict": "PASS",
+      "detail": "register=200 import=200 index=200/chunks=2 命中=True tables=1 rows=2 删除=200 检索残留=False（删除闭环清向量+表格域；登记行归 S9 终清）"
+    },
+    {
+      "id": "S9",
+      "name": "演示终清回归冻结面",
+      "verdict": "PASS",
+      "detail": "docView 18 -> 18（d44-DEMO-001 登记/sync/向量/表格四域全零残留，冻结面 18 恢复）"
+    }
+  ],
+  "fail": 0,
+  "verdict": "ALL-PASS",
+  "boundaryNote": "边界声明：AI_MODE=mock + embedding=local-hashing384（无外网）；S3 有据面生成决策受 mock 限制（D43-C12），真实模型臂/远程 rerank 臂 NOT RUN（禁冒充，见 optimization-backlog O3）；本演示全程仅 127.0.0.1。",
+  "reproduce": "& docs\\temp_docs\\D44\\d44_demo.ps1（前置 d44_instance.ps1 -Action start 干净语料面）"
+}

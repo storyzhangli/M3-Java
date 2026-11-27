@@ -1,0 +1,32 @@
+17:06:57.599 [main] INFO com.zl.d44.prompt.PromptTemplateController -- 收到模板创建请求，templateId=d44-guard-pt
+17:06:57.666 [main] INFO com.zl.d44.prompt.PromptTemplateController -- 收到模板创建请求，templateId=d44-guard-pt
+17:06:57.966 [main] WARN com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG 受控返回：检索失败，未执行生成
+17:06:58.021 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank 步完成: adapter=local, output=2, flags=[REORDERED], estimatedTokens=5
+17:06:58.022 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank order 观测: orderedChunkIds=B,A
+17:06:58.040 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG 流程结束: evidence=2, valid=2, generation=SUCCESS
+17:06:58.056 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG 流程结束: evidence=2, valid=2, generation=SUCCESS
+17:06:58.072 [main] ERROR com.zl.d44.rag.orchestrator.RagOrchestrator -- rerank 步未预期异常，按 fail-open 回退原序，异常类型: IllegalStateException
+17:06:58.074 [main] INFO com.zl.d44.rag.orchestrator.RagOrchestrator -- RAG 流程结束: evidence=2, valid=2, generation=SUCCESS
+17:06:58.714 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) 未注入 DASHSCOPE_API_KEY，fail-open 回退原序
+17:06:58.723 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) 预算帽触顶 calls=0 measuredTokens=0 costMicroCny=0，回退原序
+17:06:58.741 [main] WARN com.zl.d44.rag.rerank.DashScopeRerankAdapter -- rerank(remote) 请求估算 token=14 超上限=1，预检回退原序
+17:06:59.977 [main] WARN com.zl.d44.document.vectorindex.service.DocumentVectorIndexService -- 范围外卡住行被跳过（防御性拦截） documentId=DOC-SERVO-TROUBLE-002 prefix=d44-
+17:06:59.977 [main] WARN com.zl.d44.document.vectorindex.service.DocumentVectorIndexService -- 范围外卡住行被跳过（防御性拦截） documentId=d32eval-doc-x prefix=d44-
+17:07:00.303 [main] INFO com.zl.d44.document.vectorindex.service.VectorReconciliationService -- 核对完成 dryRun=false scope= issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+17:07:00.311 [main] INFO com.zl.d44.document.vectorindex.service.VectorReconciliationService -- 核对完成 dryRun=false scope=d44- issues=0 (orphan=0, missing=0, mismatch=0, stuck=0, version=0, syncStuck=0, tableOrphan=0)
+17:07:00.393 [main] ERROR com.zl.d44.document.sync.service.AdminAuditService -- 审计写入失败 action=a result=DENIED type=RuntimeException
+17:07:00.407 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- 引用权威核验完成: total=1, valid=1, removed=0
+17:07:00.411 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- 引用权威核验完成: total=1, valid=0, removed=1
+17:07:00.416 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- 引用权威核验完成: total=1, valid=0, removed=1
+17:07:00.421 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- 引用权威核验完成: total=1, valid=0, removed=1
+17:07:00.425 [main] INFO com.zl.d44.rag.citation.CitationVerificationService -- 引用权威核验完成: total=1, valid=0, removed=1
+17:07:00.465 [main] WARN com.zl.d44.document.sync.service.DocumentSyncService -- sync FAILED documentId=d44-doc-a operation=DELETE version=0 attempt=2 reason=PG_UNREACHABLE
+17:07:00.469 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-a operation=DELETE version=0 payloadHash=hash1
+17:07:00.469 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-a operation=DELETE version=0 payloadHash=hash1
+17:07:00.474 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync markPending documentId=d44-doc-up operation=UPDATE_CLEANUP version=1 payloadHash=hash2
+17:07:00.478 [main] INFO com.zl.d44.document.sync.service.DocumentSyncService -- sync SYNCED documentId=d44-doc-a operation=DELETE version=0
+17:07:00.484 [main] WARN com.zl.d44.document.sync.service.DocumentSyncService -- sync FAILED documentId=d44-doc-a operation=DELETE version=0 attempt=3 reason=RETRY_EXHAUSTED
+17:07:00.626 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #2
+17:07:00.631 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at delete(List) call #1
+17:07:00.632 [main] WARN com.zl.d44.document.vectorstore.FaultInjectingVectorStore -- [fault-injection] SIMULATED_PG_CONNECTION_LOST at add() call #3
+17:07:01.693 [main] WARN com.zl.d44.document.table.service.TableRecordService -- 重建续表回链目标映射缺失，引用按设计清空 table=30 oldContinuationOf=999

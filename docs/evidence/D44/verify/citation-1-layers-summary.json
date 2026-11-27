@@ -1,0 +1,37 @@
+{
+  "at": "2026-11-27T17:24:01",
+  "layer2_online": {
+    "code": 200,
+    "decision": "REFUSE",
+    "hasAnswer": true,
+    "sourcesCount": 0,
+    "citationsCount": 0,
+    "citationMarkerInAnswer": false,
+    "assertion": "PASS: mock 态 citations=0 且无 [S] 标记泄漏（不误放行，D43 C12 口径）",
+    "rawFields": [
+      "answer",
+      "sources",
+      "retrievalStatus",
+      "generationStatus",
+      "errorCode",
+      "errorMessage",
+      "retrievedCount",
+      "evidenceCount",
+      "budget",
+      "timing",
+      "unknownCitationDetected",
+      "decision",
+      "clarificationQuestion",
+      "missingInformation",
+      "conflictGroups",
+      "rejectedEvidenceIds",
+      "citationValidation",
+      "citationNotes"
+    ]
+  },
+  "layer3_data": {
+    "hitCount": 5,
+    "detailFile": "citation-3-data-reconcile.txt"
+  },
+  "boundary": "模型级「引用真实」NOT RUN：mock 态 sources 恒空（D43 C12），层①②③为结构断言+数据对账，不构成端到端模型引用验证；真实臂须授权，列优化清单 OPT-D44-3"
+}

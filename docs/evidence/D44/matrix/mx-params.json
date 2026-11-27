@@ -1,0 +1,17 @@
+{
+  "stamp": "800301",
+  "tableId": "5",
+  "ownSession": "d44e2e-mx-own-a1",
+  "docA": "D44E2E-MXA-001",
+  "docB": "D44E2E-MXB-002",
+  "ptA": "d44e2e-mx-pt-a",
+  "ptB": "d44e2e-mx-pt-b",
+  "markerA": "MXKELVIN42",
+  "markerB": "MXKELVIN43",
+  "tokensSha12": {
+    "userA": "9a03e62bfff1",
+    "userB": "e1c88bade0cb",
+    "userC": "cd4b7c0f338a",
+    "adminT1": "a62aba78f4b3"
+  }
+}

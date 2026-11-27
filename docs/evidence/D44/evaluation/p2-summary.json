@@ -1,0 +1,30 @@
+{
+  "scope": "P2 评测重跑+关键回归（C05/C17/C18）",
+  "c05": {
+    "exitCode": 1,
+    "metricsJson": "4 属性恒等（value 级 diff=0；-eq 原始串差=BOM/EOL）",
+    "exitNote": "1=有FAIL 系生成面四态口径，质量门禁判 diff=0 达成",
+    "fourState": "0/20/0/0 与对端同构（OFFLINE 无 ChatModel 生成断言 NOT-RUN 计 FAIL，D37 通道固定形态，非回归信号）",
+    "baselineCsvDiff": "21 行全列逐字节 diff=0（vs D43 run-1810，含 chunk-id 列恒等——语料面精确恢复强于 D43 剔列口径）",
+    "quality": "hitRate=1.0 recall=1.0 refusal=1.0 falseAnswer=0.0 precision=0.2222 noise=0.7778 轮间一致",
+    "runDir": "evaluation\\run-2026-11-27T175423-520657200+0800-PGVECTOR",
+    "discipline": "D43 H5 全套继承：错峰(cleanup 与 eval 分时)、禁 Select-First(Tee 全量落盘)、runDir 时序锚定",
+    "instance": "disabled 干净基线(重启#3)，评测前 cleanup+activate 终核 SYNC_PENDING=0"
+  },
+  "c17": {
+    "method": "d41_r03_cell_diff.ps1 直接复用(纯文件 diff)对端=post 件+R01 真值",
+    "stat": "value_hit=195 column_unaligned=30 missing=0 wrong=0 恒等 D41 R03 终值"
+  },
+  "c18": {
+    "optInCover": "rerank 5 测试类含于 110/110；在线 opt-in 臂列优化清单(O3 同族)",
+    "scope": "任务书 D10 条款=默认关零差异（未含在线 opt-in 字样）",
+    "proof": "本轮评测/回归全程 RERANK env 未注入(yml enabled=false/strategy=noop 源码实读 L22/L25)+C05 diff=0 实证"
+  },
+  "cleanup": {
+    "deleted": "pg=8(mysql=48)：d44_vector_store MXA5+RAW3、doc6/chunk5/vi1/one-vi1/sync4/extract2/row6/prompt5/session6",
+    "anchorRestore": "de8d2f0c…6103 + c377bb2f…64fb 双锚恒等恢复（post-cleanup-anchor.txt）",
+    "tool": "D44Cleanup.java(DRY→APPLY 两段留痕)",
+    "untouched": "DOC-CNC/SERVO/WORKORDER 语料 3 行+D41-* 15 行+chunk_orphan 24(d32eval) 零触碰（D44VectorProbe legacy 计数复证）"
+  },
+  "verdict": "P2-CLOSED"
+}

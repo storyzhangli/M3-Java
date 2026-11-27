@@ -1,0 +1,26 @@
+{
+  "scope": "D44 成本实耗（C20 组件）",
+  "recordedAt": "2026-11-27T18:15+08:00",
+  "remoteCalls": {
+    "deepseek": 0,
+    "bailian_dashscope": 0,
+    "remote_rerank": 0,
+    "tokens": 0,
+    "proof": "AI_MODE=mock + embedding=local-hashing384（application.yml env 链核验见 security/key-hygiene.txt）；全程 127.0.0.1:8080 与 192.168.200.153(本地网 PG)/127.0.0.1:3306(MySQL)；演示 transcript boundaryNote 同口径"
+  },
+  "restarts": {
+    "budget": 6,
+    "used": 3,
+    "log": "probe/restart-log.txt（#1 baseline / #2 enabled+ONE 矩阵窗 / #3 disabled 评测窗；demo 与 P4 终核复用 #3 实例）"
+  },
+  "compute": {
+    "evaluation": "20 题 × (warmup 3 + rounds 3) = 60 条 raw-results.jsonl",
+    "matrix": "335 格（主 285 + one_ 臂 50）+ disabled 12 代表扫 + A6 探针 7",
+    "demo": "单链 9 节",
+    "unittest": "110 继承 + 5 新增 = 115（终测 mvn-test-final.txt）+ 前端 node 6 用例"
+  },
+  "humanInterventions": [
+    { "item": "FIX-D44-001 夹具清单机械修正授权", "answer": "授权修正后继续" },
+    { "item": "其余", "count": 0 }
+  ]
+}

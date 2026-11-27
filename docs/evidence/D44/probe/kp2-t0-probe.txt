@@ -1,0 +1,15 @@
+== PG d44_vector_store ==
+TABLE_EXISTS=true
+ROWS=0
+FINGERPRINT=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+CONTENT_FINGERPRINT_NO_CHUNKID=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+== MySQL ����/�����̵� ==
+D44_TABLES=N/A(42000)
+knowledge_document_total=18
+legacy_DOC_prefix_rows=3
+legacy_DOC_distinct=3
+document_chunk_index_total=32
+chunk_orphan_rows=24
+document_vector_index_total=7
+d44_document_sync_total=0
+d44_table_extract_total=0

@@ -1,0 +1,16 @@
+MODE=DRY-RUN
+PG d44_vector_store matrix-rows=8 total=16
+PG one_d44_vector_store matrix-rows=0 total=0
+MY knowledge_document matrix-rows=6
+MY document_chunk_index matrix-rows=5
+MY document_vector_index matrix-rows=1
+MY one_document_chunk_index matrix-rows=0
+MY one_document_vector_index matrix-rows=1
+MY d44_document_sync matrix-rows=4
+MY d44_table_extract matrix-rows=2
+Exception in thread "main" java.sql.SQLSyntaxErrorException: Unknown column 'extract_id' in 'where clause'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeQuery(StatementImpl.java:1200)
+	at D44Cleanup.count(D44Cleanup.java:85)
+	at D44Cleanup.main(D44Cleanup.java:52)

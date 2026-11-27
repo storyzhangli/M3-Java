@@ -1,0 +1,25 @@
+
+controller                    base                         endpoints adminGuards accessRefs
+----------                    ----                         --------- ----------- ----------
+ChatController                /api/v1/ai                           2           0          0
+ChatStreamController          /api/v1/ai                           1           0          0
+DeviceChatController          /api/v1/device                       1           0          0
+DocumentController            /api/v1/documents                    8           5          0
+DxxSyncController             /api/v1/sync                         3           5          0
+EmbeddingController           /api/v1                              3           0          0
+HistoryController             /api/v1/ai                           2           0          0
+HybridKeywordIndexController  /api/v1/hybrid/keyword-index         2           1          0
+HybridRagController           /api/v1/hybrid/rag                   1           0          0
+HybridSearchController        /api/v1/hybrid/retrieval             1           0          0
+OneEmbeddingController        /api/v1/one/embeddings               3           0          0
+OneRagController              /api/v1/one/rag                      1           0          0
+OneSimilaritySearchController /api/v1/one/retrieval                1           0          0
+OneVectorIndexController      /api/v1/one/vector-index             5           5          0
+PgVectorController            /api/v1/vector-store                 3           5          0
+PromptTemplateController      /api/v1/ai                           7           7          0
+RagController                 /api/v1/rag                          1           0          0
+SimilaritySearchController    /api/v1/retrieval                    1           0          0
+TableController               /api/v1                              4           3          0
+VectorIndexController         /api/v1/vector-index                 7           8          0
+
+

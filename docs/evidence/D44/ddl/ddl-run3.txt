@@ -1,0 +1,12 @@
+[DDL-OK] CREATE TABLE IF NOT EXISTS d44_document_sync (
+[DDL-OK] CREATE TABLE IF NOT EXISTS d44_admin_audit (
+[DDL-OK] CREATE TABLE IF NOT EXISTS d44_auth_principal (
+[DDL-OK] CREATE TABLE IF NOT EXISTS d44_table_extract (
+[DDL-OK] CREATE TABLE IF NOT EXISTS d44_table_row (
+[DDL] executed=5 statements
+[VERIFY] table=d44_document_sync rows=0
+[VERIFY] table=d44_admin_audit rows=0
+[VERIFY] table=d44_auth_principal rows=0
+[VERIFY] table=d44_table_extract rows=0
+[VERIFY] table=d44_table_row rows=0
+[DONE] D44_DDL_SEED_OK
